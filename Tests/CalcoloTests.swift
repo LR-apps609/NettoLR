@@ -184,4 +184,12 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(b.last?.importo, 2)
         XCTAssertTrue(b.first?.codice.contains("2521 + 2522 + 2523") ?? false)
     }
+
+    func testFormatoEuro() {
+        XCTAssertEqual(Formato.euroTondo(2_544.4), "2.544 €")
+        XCTAssertEqual(Formato.euro(1_234_567.891), "1.234.567,89 €")
+        XCTAssertEqual(Formato.euro(-5_775.03), "-5.775,03 €")
+        XCTAssertEqual(Formato.euro(10), "10,00 €")
+        XCTAssertEqual(Formato.euroTondo(0), "0 €")
+    }
 }

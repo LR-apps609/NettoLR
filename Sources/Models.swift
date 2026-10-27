@@ -117,11 +117,28 @@ enum Giorno {
 enum Formato {
     static let it = Locale(identifier: "it_IT")
 
-    static func euro(_ n: Double) -> String {
-        n.formatted(.currency(code: "EUR").locale(it).precision(.fractionLength(2)))
-    }
-    static func euroTondo(_ n: Double) -> String {
-        n.formatted(.currency(code: "EUR").locale(it).precision(.fractionLength(0)))
+    /// «2.544,00 €»: sempre con il punto delle migliaia (il formato di Apple lo toglie sotto 10.000)
+    static func euro(_ n: Double) -> String { importo(n, decimali: 2) }
+    /// «2.544 €»
+    static func euroTondo(_ n: Double) -> String { importo(n, decimali: 0) }
+
+    static func importo(_ n: Double, decimali: Int) -> String {
+        let fattore = decimali == 2 ? 100.0 : 1.0
+        let centesimi = Int64((abs(n) * fattore).rounded())
+        let intero = centesimi / Int64(fattore)
+        var cifre = String(intero)
+        var gruppi: [String] = []
+        while cifre.count > 3 {
+            gruppi.insert(String(cifre.suffix(3)), at: 0)
+            cifre.removeLast(3)
+        }
+        gruppi.insert(cifre, at: 0)
+        var testo = gruppi.joined(separator: ".")
+        if decimali == 2 {
+            let resto = centesimi % 100
+            testo += "," + (resto < 10 ? "0" : "") + String(resto)
+        }
+        return (n < 0 && centesimi > 0 ? "-" : "") + testo + " €"
     }
     static func pct(_ n: Double) -> String {
         (n * 100).formatted(.number.locale(it).precision(.fractionLength(0...2))) + "%"
