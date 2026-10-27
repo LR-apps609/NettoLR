@@ -5,6 +5,7 @@ import SwiftUI
 
 struct DocumentiView: View {
     @Environment(\.dismiss) private var chiudi
+    @State private var certificato = false
     private let regole = Regole.attuali
 
     var body: some View {
@@ -39,7 +40,10 @@ struct DocumentiView: View {
 
                     sezione("I tuoi documenti")
                     VStack(spacing: 10) {
-                        inArrivo("doc.viewfinder", "Certificato della partita IVA", "Lo fotografi e leggo io il codice ATECO")
+                        Button { certificato = true } label: {
+                            voce("doc.viewfinder", "Certificato della partita IVA", "Lo fotografi e leggo io il codice ATECO")
+                        }
+                        .buttonStyle(Molla())
                         inArrivo("doc.text.image", "Ricevute F24", "La prova di ogni pagamento, in ordine")
                     }
                     .entrata(3)
@@ -53,7 +57,23 @@ struct DocumentiView: View {
             .navigationTitle("Documenti")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
+            .sheet(isPresented: $certificato) { CertificatoView() }
         }
+    }
+
+    private func voce(_ icona: String, _ titolo: String, _ sotto: String) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: icona).font(.app(20)).foregroundStyle(.white)
+                .frame(width: 40, height: 40)
+                .background(Theme.prugna, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(titolo).font(.app(16, .semibold)).foregroundStyle(Theme.ink)
+                Text(sotto).font(.app(13)).foregroundStyle(Theme.muted)
+            }
+            Spacer()
+            Image(systemName: "chevron.right").foregroundStyle(Theme.prugna)
+        }
+        .scheda(padding: 14)
     }
 
     /// Le fonti in ordine: prima quelle verificate

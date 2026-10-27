@@ -192,4 +192,19 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Formato.euro(10), "10,00 €")
         XCTAssertEqual(Formato.euroTondo(0), "0 €")
     }
+
+    func testLetturaCertificato() {
+        let testo = """
+        AGENZIA DELLE ENTRATE
+        Attribuzione del numero di partita IVA 06363391001
+        Data inizio attività 01/03/2024
+        Codice attività 74.12.01 - Grafica di pagine web
+        Altro numero 27.10.2026
+        """
+        let t = LettoreCertificato.cerca(in: testo)
+        XCTAssertEqual(t.partitaIVA, "06363391001")
+        XCTAssertEqual(t.codici.first?.codice, "74.12.01")
+        XCTAssertEqual(t.codici.first?.codici2007, ["74.10.21"])
+        XCTAssertEqual(t.codici.count, 1)
+    }
 }

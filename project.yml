@@ -42,6 +42,7 @@ targets:
           UIColorName: LaunchBackground
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHumanReadableCopyright: "LR apps"
+        NSCameraUsageDescription: "NettoLR legge il codice ATECO dal certificato della partita IVA che fotografi. La foto resta sul telefono."
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: it.ledion.NettoLR

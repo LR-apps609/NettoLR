@@ -78,6 +78,8 @@ struct DomandeProfilo: View {
     @State private var nome = ""
     @State private var mostraGruppi = false
     @State private var daScegliere: TrovatoAteco?
+    @State private var certificato = false
+    @State private var pivaLetta: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -121,6 +123,13 @@ struct DomandeProfilo: View {
         .background(Theme.ground.ignoresSafeArea())
         .foregroundStyle(Theme.ink)
         .onAppear(perform: riempi)
+        .sheet(isPresented: $certificato) {
+            CertificatoView { codice, piva in
+                imposta(codice)
+                pivaLetta = piva
+                certificato = false
+            }
+        }
     }
 
     // MARK: Le domande
@@ -164,6 +173,11 @@ struct DomandeProfilo: View {
                 .background(Theme.mentaSoft, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .transition(.scale(scale: 0.9).combined(with: .opacity))
             }
+            Button { certificato = true } label: {
+                Label("Ho il certificato della partita IVA: fotografalo", systemImage: "doc.viewfinder")
+                    .font(.app(16, .semibold))
+            }
+            .accessibilityIdentifier("profilo.certificato")
             Text("Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.")
                 .font(.app(13)).foregroundStyle(Theme.muted)
             Button(mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro") { withAnimation { mostraGruppi.toggle() } }
@@ -348,7 +362,7 @@ struct DomandeProfilo: View {
         }
         salva(Profilo(
             nome: nome.trimmingCharacters(in: .whitespaces),
-            partitaIVA: iniziale?.partitaIVA ?? "",
+            partitaIVA: pivaLetta ?? iniziale?.partitaIVA ?? "",
             ateco: ateco,
             annoApertura: annoApertura,
             requisitiStartup: primaVolta,
