@@ -18,8 +18,11 @@ final class Store: ObservableObject {
     /// Cambia a ogni incasso segnato: fa partire timbro e vibrazione
     @Published var ultimoIncasso = 0
 
-    /// L'anno dei calcoli
-    let anno = Regole.attuali.anno
+    /// L'anno che si sta guardando (si cambia in Netto)
+    @Published var anno = Regole.attuali.anno
+    var regole: Regole { Regole.per(anno: anno) }
+    /// I dati dell'anno precedente valgono per l'anno in corso; per gli anni passati restano solo bollo e rate fisse
+    private var annoCorrente: Bool { anno == Regole.attuali.anno }
     private var caricato = false
 
     private struct Salvataggio: Codable {
@@ -48,12 +51,12 @@ final class Store: ObservableObject {
 
     // MARK: - Calcoli pronti per le schermate
 
-    var riepilogo: Calcolo.Riepilogo { Calcolo.riepilogo(fatture, anno: anno) }
+    var riepilogo: Calcolo.Riepilogo { Calcolo.riepilogo(fatture, anno: anno, r: regole) }
 
     var risultato: RisultatoForfettario? {
         guard let profilo else { return nil }
         let r = riepilogo
-        return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: contributiVersati,
+        return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: annoCorrente ? contributiVersati : nil,
                                    fattureConBollo: r.fattureConBollo, perAttivita: r.perAttivita.isEmpty ? nil : r.perAttivita)
     }
 
@@ -71,7 +74,7 @@ final class Store: ObservableObject {
 
     var pagamenti: [Pagamento] {
         guard let profilo else { return [] }
-        return Pagamenti.anno2026(profilo, precedente: annoPrecedente, fatture: fatture)
+        return Pagamenti.anno(profilo, precedente: annoCorrente ? annoPrecedente : DatiAnnoPrecedente(), fatture: fatture, r: regole)
     }
 
     /// I pagamenti futuri non ancora segnati come fatti

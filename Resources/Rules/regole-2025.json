@@ -1,0 +1,245 @@
+{
+  "anno": 2025,
+  "aggiornatoAl": "2026-10-27",
+  "fonti": {
+    "l190_2014": {
+      "titolo": "L. 190/2014, art. 1 cc. 54-89 (all. 4 come sostituito da L. 145/2018)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2014-12-23;190",
+      "data": "2026-10-27",
+      "stato": "da-verificare"
+    },
+    "l207_2024": {
+      "titolo": "L. 207/2024 (Legge di Bilancio 2025): limite 35.000 € per il 2025 e scaglioni IRPEF",
+      "url": "https://www.gazzettaufficiale.it/",
+      "data": "2024-12-31",
+      "stato": "da-verificare"
+    },
+    "inps_gs_2025": {
+      "titolo": "INPS – Circolare n. 27 del 30/01/2025 (Gestione Separata)",
+      "url": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2025.01.gestione-separata-le-aliquote-contributive-per-il-2025.html",
+      "data": "2025-01-30",
+      "stato": "da-verificare"
+    },
+    "inps_ac_2025": {
+      "titolo": "INPS – Circolare n. 38 del 07/02/2025 (Artigiani e Commercianti)",
+      "url": "https://www.inps.it/",
+      "data": "2025-02-07",
+      "stato": "da-verificare"
+    },
+    "dl_84_2025": {
+      "titolo": "D.L. 84/2025, art. 13 – proroga versamenti ISA e forfettari al 21 luglio 2025",
+      "url": "https://www.gazzettaufficiale.it/",
+      "data": "2025-06-17",
+      "stato": "da-verificare"
+    },
+    "ade_acconti": {
+      "titolo": "Agenzia delle Entrate – Ris. 93/E del 12/11/2019 (acconti 50/50)",
+      "url": "https://agenziaentrate.gov.it/portale/documents/20143/2152057/082_Com.+st.+Risoluzione+rate+acconti+12.11.19/4d231aca-dab4-4315-0941-c465302cd66e",
+      "data": "2019-11-12",
+      "stato": "verificato"
+    },
+    "ade_acconti_soglia": {
+      "titolo": "Soglia della prima rata d'acconto (103 €): fonti non concordi",
+      "url": "https://agenziaentrate.gov.it/portale/documents/20143/2152057/082_Com.+st.+Risoluzione+rate+acconti+12.11.19/4d231aca-dab4-4315-0941-c465302cd66e",
+      "data": "2019-11-12",
+      "stato": "da-verificare"
+    },
+    "ade_bollo": {
+      "titolo": "Agenzia delle Entrate – L'imposta di bollo sulle fatture elettroniche (giugno 2026)",
+      "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/l-imposta_di_bollo_sulle_fatture_elettronichegiugno2026",
+      "data": "2026-06-01",
+      "stato": "verificato"
+    },
+    "ade_bollo_scadenze": {
+      "titolo": "Bollo fatture elettroniche 2025: scadenze 3 giugno, 30 settembre, 1° dicembre, 2 marzo 2026",
+      "url": "https://www.agenziaentrate.gov.it/",
+      "data": "2025-06-01",
+      "stato": "da-verificare"
+    },
+    "addizionali": {
+      "titolo": "Stima media addizionali (regionale 1,23–3,33% + comunale fino a 0,8%)",
+      "url": "https://www1.finanze.gov.it/finanze/pagina_dichiarazioni/public/dichiarazioni.php",
+      "data": "2026-10-27",
+      "stato": "da-verificare"
+    }
+  },
+  "forfettario": {
+    "sogliaRicavi": {
+      "valore": 85000,
+      "fonte": "l190_2014"
+    },
+    "sogliaUscitaImmediata": {
+      "valore": 100000,
+      "fonte": "l190_2014"
+    },
+    "limiteRedditoDipendente": {
+      "valore": 35000,
+      "fonte": "l207_2024"
+    },
+    "aliquotaOrdinaria": {
+      "valore": 0.15,
+      "fonte": "l190_2014"
+    },
+    "aliquotaStartup": {
+      "valore": 0.05,
+      "fonte": "l190_2014"
+    },
+    "anniStartup": {
+      "valore": 5,
+      "fonte": "l190_2014"
+    }
+  },
+  "gestioneSeparata": {
+    "aliquota": {
+      "valore": 0.2607,
+      "fonte": "inps_gs_2025"
+    },
+    "aliquotaAltraCopertura": {
+      "valore": 0.24,
+      "fonte": "inps_gs_2025"
+    },
+    "massimale": {
+      "valore": 120607,
+      "fonte": "inps_gs_2025"
+    },
+    "minimale": {
+      "valore": 18555,
+      "fonte": "inps_gs_2025"
+    },
+    "accontoPercentuale": {
+      "valore": 0.8,
+      "fonte": "inps_gs_2025"
+    }
+  },
+  "artigianiCommercianti": {
+    "minimale": {
+      "valore": 18555,
+      "fonte": "inps_ac_2025"
+    },
+    "sogliaAliquotaMaggiorata": {
+      "valore": 55448,
+      "fonte": "inps_ac_2025"
+    },
+    "massimale": {
+      "valore": 120607,
+      "fonte": "inps_ac_2025"
+    },
+    "artigiani": {
+      "fissoAnnuo": {
+        "valore": 4460.64,
+        "fonte": "inps_ac_2025"
+      },
+      "aliquota": {
+        "valore": 0.24,
+        "fonte": "inps_ac_2025"
+      },
+      "aliquotaMaggiorata": {
+        "valore": 0.25,
+        "fonte": "inps_ac_2025"
+      }
+    },
+    "commercianti": {
+      "fissoAnnuo": {
+        "valore": 4549.7,
+        "fonte": "inps_ac_2025"
+      },
+      "aliquota": {
+        "valore": 0.2448,
+        "fonte": "inps_ac_2025"
+      },
+      "aliquotaMaggiorata": {
+        "valore": 0.2548,
+        "fonte": "inps_ac_2025"
+      }
+    },
+    "riduzioneForfettari": {
+      "valore": 0.35,
+      "fonte": "inps_ac_2025"
+    },
+    "scadenzeRateFisse": {
+      "valore": [
+        "2025-05-16",
+        "2025-08-20",
+        "2025-11-17",
+        "2026-02-16"
+      ],
+      "fonte": "inps_ac_2025"
+    }
+  },
+  "versamenti": {
+    "saldoPrimoAcconto": {
+      "valore": "2025-07-21",
+      "fonte": "dl_84_2025"
+    },
+    "saldoPrimoAccontoMaggiorato": {
+      "valore": "2025-08-20",
+      "fonte": "dl_84_2025"
+    },
+    "maggiorazioneDifferito": {
+      "valore": 0.004,
+      "fonte": "dl_84_2025"
+    },
+    "secondoAcconto": {
+      "valore": "2025-12-01",
+      "fonte": "ade_acconti"
+    },
+    "quotaPrimoAcconto": {
+      "valore": 0.5,
+      "fonte": "ade_acconti"
+    },
+    "sogliaNessunAcconto": {
+      "valore": 51.65,
+      "fonte": "ade_acconti"
+    },
+    "sogliaPrimaRata": {
+      "valore": 103,
+      "fonte": "ade_acconti_soglia"
+    }
+  },
+  "bollo": {
+    "importo": {
+      "valore": 2,
+      "fonte": "ade_bollo"
+    },
+    "sogliaFattura": {
+      "valore": 77.47,
+      "fonte": "ade_bollo"
+    },
+    "scadenze": {
+      "valore": [
+        "2025-06-03",
+        "2025-09-30",
+        "2025-12-01",
+        "2026-03-02"
+      ],
+      "fonte": "ade_bollo_scadenze"
+    },
+    "sogliaRinvio": {
+      "valore": 5000,
+      "fonte": "ade_bollo_scadenze"
+    }
+  },
+  "irpef": {
+    "scaglioni": {
+      "valore": [
+        {
+          "fino": 28000,
+          "aliquota": 0.23
+        },
+        {
+          "fino": 50000,
+          "aliquota": 0.35
+        },
+        {
+          "fino": null,
+          "aliquota": 0.43
+        }
+      ],
+      "fonte": "l207_2024"
+    },
+    "addizionaliDefault": {
+      "valore": 0.02,
+      "fonte": "addizionali"
+    }
+  }
+}

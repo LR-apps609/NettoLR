@@ -92,6 +92,18 @@ struct Regole: Codable {
     /// Le regole dell'anno in corso dell'app
     static let attuali: Regole = carica(anno: 2026)
 
+    /// Gli anni per cui ci sono le regole (Resources/Rules/regole-AAAA.json)
+    static let anniDisponibili = [2025, 2026]
+
+    private static let tutte: [Int: Regole] = Dictionary(uniqueKeysWithValues: anniDisponibili.map { ($0, carica(anno: $0)) })
+
+    /// Le regole di un anno; se mancano, quelle dell'anno più vicino
+    static func per(anno: Int) -> Regole {
+        if let r = tutte[anno] { return r }
+        let vicino = anniDisponibili.min { abs($0 - anno) < abs($1 - anno) } ?? attuali.anno
+        return tutte[vicino] ?? attuali
+    }
+
     static func carica(anno: Int) -> Regole {
         let bundle = Bundle(for: SegnaBundle.self)
         // La cartella Resources/Rules entra nel bundle come cartella «Rules»

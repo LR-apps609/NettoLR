@@ -15,7 +15,7 @@ struct NettoView: View {
                 if let p = store.profilo, let res = store.risultato {
                     VStack(spacing: 16) {
                         intestazione(p).entrata(0)
-                        AnelloNetto(res: res, anno: store.anno).entrata(1)
+                        AnelloNetto(res: res, anno: store.anno).entrata(1).id(store.anno)
                         ForEach(Array((Calcolo.avvisi(p, ricaviAnno: res.ricavi) + [Calcolo.avvisoFineStartup(p)].compactMap { $0 }).enumerated()), id: \.offset) { i, a in
                             Avviso(testo: a).entrata(2 + i)
                         }
@@ -45,6 +45,20 @@ struct NettoView: View {
                     .font(.app(14, .semibold)).foregroundStyle(Theme.muted)
                 Text(p.nome.isEmpty ? "Ciao!" : "Ciao \(p.nome)!")
                     .font(.system(size: 30, weight: .heavy, design: .rounded))
+                Menu {
+                    Picker("Anno", selection: $store.anno) {
+                        ForEach(Regole.anniDisponibili.reversed(), id: \.self) { Text("Il \(String($0))").tag($0) }
+                    }
+                } label: {
+                    HStack(spacing: 4) {
+                        Text("Il tuo \(String(store.anno))")
+                        Image(systemName: "chevron.down").font(.app(11, .bold))
+                    }
+                    .font(.app(14, .bold)).foregroundStyle(Theme.prugna)
+                    .padding(.horizontal, 10).padding(.vertical, 5)
+                    .background(Theme.prugnaSoft, in: Capsule())
+                }
+                .accessibilityIdentifier("netto.anno")
             }
             Spacer()
             Button { vaiA(.tu) } label: {
@@ -274,7 +288,7 @@ struct ComeLoCalcoloView: View {
                                 .font(.app(14)).foregroundStyle(Theme.muted)
                         }
                     }
-                    Text("Regole aggiornate al \(Giorno.da(Regole.attuali.aggiornatoAl).formatted(.dateTime.day().month(.wide).year().locale(Formato.it))). È un calcolo, non una consulenza fiscale.")
+                    Text("Regole \(String(store.anno)) aggiornate al \(Giorno.da(store.regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).year().locale(Formato.it))). È un calcolo, non una consulenza fiscale.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
                 }
                 .padding(20)

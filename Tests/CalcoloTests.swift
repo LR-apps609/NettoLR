@@ -232,4 +232,19 @@ final class CalcoloTests: XCTestCase {
         // Senza assegnazioni resta tutto alla principale
         XCTAssertEqual(Calcolo.forfettario(p, anno: 2026, ricavi: 30_000).redditoLordo, 23_400)
     }
+
+    func testRegole2025() {
+        let r = Regole.per(anno: 2025)
+        XCTAssertEqual(r.anno, 2025)
+        XCTAssertEqual(r.artigianiCommercianti.artigiani.fissoAnnuo.valore, 4_460.64)
+        XCTAssertEqual(r.irpef.scaglioni.valore[1].aliquota, 0.35)
+        XCTAssertEqual(Regole.per(anno: 2031).anno, 2026)
+        // Il calcolo del 2025 usa le regole 2025 (minimale 18.555 €)
+        let c25 = Calcolo.forfettario(parrucchiera, anno: 2025, ricavi: 0).contributi
+        XCTAssertEqual(c25, arrotonda(4_460.64 * 0.65))
+        // Pagamenti 2025 con le date 2025
+        let pag = Pagamenti.anno(sviluppatore, precedente: DatiAnnoPrecedente(imposta: 1_000, accontiVersati: 800), r: r)
+        XCTAssertEqual(pag.first?.data, Giorno.da("2025-07-21"))
+        XCTAssertEqual(Calcolo.irpefLorda(40_000, r: r), 6_440 + 12_000 * 0.35)
+    }
 }

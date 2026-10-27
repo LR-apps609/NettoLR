@@ -71,7 +71,9 @@ enum Calcolo {
     ///   - fattureConBollo: fatture sopra la soglia del bollo, per il costo delle marche
     ///   - perAttivita: con più attività, gli incassi di ognuna (codice ATECO 2007 → euro); ognuna ha la sua percentuale
     static func forfettario(_ p: Profilo, anno: Int, ricavi ricaviIn: Double, contributiVersati: Double? = nil,
-                            fattureConBollo: Int = 0, perAttivita: [String: Double]? = nil, r: Regole = .attuali) -> RisultatoForfettario {
+                            fattureConBollo: Int = 0, perAttivita: [String: Double]? = nil, r regoleIn: Regole = .attuali) -> RisultatoForfettario {
+        // Le regole dell'anno del calcolo (2025, 2026…)
+        let r = regoleIn.anno == anno ? regoleIn : Regole.per(anno: anno)
         let ricavi = arrotonda(ricaviIn)
         // Con più attività: reddito = somma di (incassi × percentuale) di ognuna; quel che non è assegnato va alla principale
         let quote: [(codice: String, ricavi: Double)] = {

@@ -143,7 +143,7 @@ struct ConvieneView: View {
                 let ricavi = Formato.leggiEuro(incasso) > 0 ? Formato.leggiEuro(incasso) : max(store.riepilogo.ricavi, 30_000)
                 let costi = Formato.leggiEuro(spese)
                 let forf = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi).netto - costi
-                let ord = Calcolo.ordinario(p, ricavi: ricavi, costi: costi)
+                let ord = Calcolo.ordinario(p, ricavi: ricavi, costi: costi, r: store.regole)
                 let diff = forf - ord.netto
                 CampoEuro(etichetta: "Quanto incassi in un anno", testo: $incasso, segnaposto: Formato.campo(ricavi))
                 CampoEuro(etichetta: "Quanto spendi per lavorare (computer, affitto, auto…)", testo: $spese)
@@ -186,7 +186,7 @@ struct ObiettivoView: View {
                     RispostaSecca(sopra: "Chiedi almeno", grande: "\(Formato.euroTondo((lordo / oreAnno).rounded(.up))) l'ora",
                                   sotto: "contando 46 settimane di lavoro all'anno.")
                 }
-                if lordo > Regole.attuali.forfettario.sogliaRicavi.valore {
+                if lordo > store.regole.forfettario.sogliaRicavi.valore {
                     Avviso(testo: "Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario.")
                 }
             }

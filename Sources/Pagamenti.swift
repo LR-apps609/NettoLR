@@ -18,7 +18,12 @@ struct Pagamento: Identifiable, Equatable {
 }
 
 enum Pagamenti {
+    /// I pagamenti dell'anno delle regole `r` (date e importi del 2025, del 2026…)
     static func anno2026(_ p: Profilo, precedente prec: DatiAnnoPrecedente, fatture: [Fattura] = [], r: Regole = .attuali) -> [Pagamento] {
+        anno(p, precedente: prec, fatture: fatture, r: r)
+    }
+
+    static func anno(_ p: Profilo, precedente prec: DatiAnnoPrecedente, fatture: [Fattura] = [], r: Regole) -> [Pagamento] {
         let v = r.versamenti
         var out: [Pagamento] = []
 
@@ -38,7 +43,7 @@ enum Pagamenti {
             out.append(Pagamento(
                 data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .tasse, titolo: "Tasse: il conto dell'anno scorso e un anticipo",
                 codice: "1792 saldo \(Formato.euro(saldo)) · 1790 primo acconto \(Formato.euro(primo))",
-                spiegazione: "Si può pagare fino al 20 agosto con lo 0,80% in più.",
+                spiegazione: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(.dateTime.day().month(.wide).locale(Formato.it))) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più.",
                 importo: arrotonda(saldo + primo), fonte: r.fonte(v.saldoPrimoAcconto)))
         }
         if secondo > 0 {

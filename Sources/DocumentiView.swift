@@ -5,8 +5,9 @@ import SwiftUI
 
 struct DocumentiView: View {
     @Environment(\.dismiss) private var chiudi
+    @EnvironmentObject private var store: Store
     @State private var certificato = false
-    private let regole = Regole.attuali
+    private var regole: Regole { store.regole }
 
     var body: some View {
         NavigationStack {
