@@ -48,6 +48,10 @@ struct RootView: View {
         }
         .onChange(of: store.ultimoIncasso) { _, _ in timbroVisibile = true }
         .sensoryFeedback(.success, trigger: store.ultimoIncasso)
+        // Le notifiche dei pagamenti si riprogrammano quando cambia qualcosa
+        .task(id: store.chiavePromemoria) {
+            await Promemoria.aggiorna(store.pagamentiDaFare, attivi: store.profilo?.promemoria ?? false)
+        }
     }
 
     @State private var timbroVisibile = true

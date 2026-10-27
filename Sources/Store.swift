@@ -74,6 +74,17 @@ final class Store: ObservableObject {
         return Pagamenti.anno2026(profilo, precedente: annoPrecedente, fatture: fatture)
     }
 
+    /// I pagamenti futuri non ancora segnati come fatti
+    var pagamentiDaFare: [Pagamento] {
+        let oggi = Calendar.current.startOfDay(for: Date())
+        return pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
+    }
+
+    /// Cambia quando cambiano i promemoria da programmare
+    var chiavePromemoria: String {
+        "\(profilo?.promemoria ?? false)|" + pagamentiDaFare.map { "\($0.id)=\($0.importo)" }.joined(separator: ",")
+    }
+
     var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
         let oggi = Calendar.current.startOfDay(for: Date())
         let futuri = pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
