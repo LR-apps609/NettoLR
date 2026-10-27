@@ -13,6 +13,8 @@ final class Store: ObservableObject {
     @Published var annoPrecedente = DatiAnnoPrecedente() { didSet { salva() } }
     /// Contributi versati nell'anno in corso; nil = il calcolo usa una stima
     @Published var contributiVersati: Double? { didSet { salva() } }
+    /// I pagamenti segnati come fatti, con il giorno
+    @Published var pagati: [String: Date] = [:] { didSet { salva() } }
     /// Cambia a ogni incasso segnato: fa partire timbro e vibrazione
     @Published var ultimoIncasso = 0
 
@@ -25,6 +27,7 @@ final class Store: ObservableObject {
         var fatture: [Fattura]
         var annoPrecedente: DatiAnnoPrecedente
         var contributiVersati: Double?
+        var pagati: [String: Date]?
     }
 
     private static var file: URL {
@@ -73,7 +76,7 @@ final class Store: ObservableObject {
 
     var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
         let oggi = Calendar.current.startOfDay(for: Date())
-        let futuri = pagamenti.filter { $0.data >= oggi }
+        let futuri = pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
         guard let primo = futuri.first?.data else { return nil }
         let stessoGiorno = futuri.filter { Calendar.current.isDate($0.data, inSameDayAs: primo) }
         return (primo, arrotonda(stessoGiorno.reduce(0) { $0 + $1.importo }), stessoGiorno)
@@ -107,7 +110,12 @@ final class Store: ObservableObject {
         fatture.removeAll { $0.id == id }
     }
 
+    func segnaPagato(_ p: Pagamento, _ fatto: Bool) {
+        pagati[p.id] = fatto ? Date() : nil
+    }
+
     func cancellaTutto() {
+        pagati = [:]
         profilo = nil
         fatture = []
         annoPrecedente = DatiAnnoPrecedente()
@@ -118,7 +126,7 @@ final class Store: ObservableObject {
 
     private func salva() {
         guard caricato, !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
-        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati)
+        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati, pagati: pagati)
         do {
             try FileManager.default.createDirectory(at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
             try JSONEncoder().encode(dati).write(to: Self.file, options: [.atomic, .completeFileProtection])
@@ -134,6 +142,7 @@ final class Store: ObservableObject {
         fatture = s.fatture
         annoPrecedente = s.annoPrecedente
         contributiVersati = s.contributiVersati
+        pagati = s.pagati ?? [:]
     }
 
     /// Dati di esempio per le foto automatiche (e per le prove): una web designer in Gestione Separata

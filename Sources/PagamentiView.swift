@@ -70,12 +70,19 @@ struct PagamentiView: View {
     }
 
     private func riga(_ p: Pagamento) -> some View {
-        let passato = p.data < Calendar.current.startOfDay(for: Date())
+        let fatto = store.pagati[p.id] != nil
+        let passato = fatto || p.data < Calendar.current.startOfDay(for: Date())
         return HStack(spacing: 14) {
-            Circle()
-                .fill(passato ? Color.clear : (p.tipo == .tasse ? Theme.tasse : Theme.pensione))
-                .overlay(Circle().stroke(passato ? Theme.muted : .clear, lineWidth: 2))
-                .frame(width: 14, height: 14)
+            if fatto {
+                Image(systemName: "checkmark.circle.fill").font(.app(18)).foregroundStyle(Theme.menta)
+                    .frame(width: 18)
+            } else {
+                Circle()
+                    .fill(passato ? Color.clear : (p.tipo == .tasse ? Theme.tasse : Theme.pensione))
+                    .overlay(Circle().stroke(passato ? Theme.muted : .clear, lineWidth: 2))
+                    .frame(width: 14, height: 14)
+                    .frame(width: 18)
+            }
             VStack(alignment: .leading, spacing: 2) {
                 Text(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.it))).font(.app(16, .semibold))
                 Text(p.titolo).font(.app(14)).foregroundStyle(Theme.muted)
@@ -84,7 +91,7 @@ struct PagamentiView: View {
             Text(Formato.euroTondo(p.importo)).font(.app(16, .bold)).monospacedDigit()
         }
         .padding(.vertical, 10).padding(.horizontal, 4)
-        .opacity(passato ? 0.5 : 1)
+        .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
     }
 }
@@ -105,6 +112,7 @@ struct ArcoGiorni: View {
 /// I dettagli di un pagamento, con i dati per l'F24 da copiare
 struct DettaglioPagamentoView: View {
     let pagamento: Pagamento
+    @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var chiudi
     @State private var copiato = false
 
@@ -125,6 +133,16 @@ struct DettaglioPagamentoView: View {
                 }
                 .buttonStyle(PulsantePieno())
                 .sensoryFeedback(.success, trigger: copiato)
+                let fatto = store.pagati[pagamento.id]
+                Button {
+                    withAnimation(.spring) { store.segnaPagato(pagamento, fatto == nil) }
+                } label: {
+                    Label(fatto == nil ? "Ho pagato" : "Pagato il \(fatto!.formatted(.dateTime.day().month(.wide).locale(Formato.it)))",
+                          systemImage: fatto == nil ? "checkmark.circle" : "checkmark.circle.fill")
+                }
+                .buttonStyle(PulsantePieno(colore: Theme.menta, testo: .white))
+                .sensoryFeedback(.success, trigger: fatto)
+                .accessibilityIdentifier("pagamento.fatto")
                 if let url = URL(string: pagamento.fonte.url) {
                     Link((pagamento.fonte.verificata ? "Fonte: " : "Da verificare: ") + pagamento.fonte.titolo, destination: url)
                         .font(.app(13))
