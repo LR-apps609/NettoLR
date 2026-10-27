@@ -1,0 +1,42 @@
+# Scarica dal sito ISTAT i file ufficiali della classificazione ATECO (struttura 2025 e tabelle di raccordo)
+# e li pubblica nel ramo «dati-istat». Da lì Tools/build_ateco.py costruisce l'elenco completo per l'app.
+name: Scarica i codici ATECO dall'ISTAT
+
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/istat.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  scarica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: File ufficiali ISTAT
+        run: |
+          mkdir -p istat && cd istat
+          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+          for pagina in https://www.istat.it/classificazione/documenti-ateco/ https://www.istat.it/classificazione/ateco-2025/ https://www.istat.it/classificazione/ateco-2007/; do
+            curl -fsSL -A "$UA" "$pagina" -o pagina.html || continue
+            grep -oE 'https?://[^"'"'"' ]+\.(xlsx|xls|csv|zip|pdf)' pagina.html | sort -u >> link.txt || true
+          done
+          sort -u link.txt -o link.txt
+          echo "Link trovati:"; cat link.txt
+          while read -r u; do
+            case "$u" in *[Aa][Tt][Ee][Cc][Oo]*|*[Rr]accordo*|*[Cc]orrispondenz*) ;; *) continue ;; esac
+            curl -fsSL -A "$UA" -O "$u" || echo "::warning::non scaricato $u"
+          done < link.txt
+          rm -f pagina.html
+          ls -la
+          echo "::notice::File ISTAT scaricati: $(ls | wc -l)"
+
+      - name: Pubblica nel ramo «dati-istat»
+        run: |
+          cd istat
+          echo "File ufficiali ISTAT sulla classificazione ATECO, scaricati il $(date -u +%Y-%m-%d) da istat.it" > LEGGIMI.txt
+          git init -q && git checkout -q -b dati-istat && git add .
+          git -c user.name="NettoLR CI" -c user.email="ci@nettolr.invalid" commit -qm "File ATECO ISTAT $(date -u +%Y-%m-%d)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" dati-istat 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3
