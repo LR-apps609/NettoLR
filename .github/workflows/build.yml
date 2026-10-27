@@ -61,7 +61,9 @@ jobs:
           grep -E "error:" test.log | sort -u | head -n 12 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           exit $status
 
+      # Il giro delle foto dura quanto il resto: solo se richiesto («[foto]» nel messaggio) o a mano
       - name: Foto dell'app (giro nel simulatore)
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[foto]')
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
           xcrun simctl boot "$SIM" 2>/dev/null || true
@@ -82,7 +84,7 @@ jobs:
           exit $status
 
       - name: Pubblica le foto nel ramo «screenshots»
-        if: always()
+        if: always() && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[foto]'))
         run: |
           mkdir -p screenshots
           # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
