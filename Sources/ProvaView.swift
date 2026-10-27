@@ -34,7 +34,6 @@ struct ProvaView: View {
                                 .contentTransition(.numericText(value: s.nettoExtra))
                             GeometryReader { geo in
                                 let pensione = dopo.contributi - prima.contributi
-                                let tasse = dopo.imposta - prima.imposta
                                 let tot = max(extra, 1)
                                 HStack(spacing: 3) {
                                     Theme.prugna.frame(width: max(0, geo.size.width * s.nettoExtra / tot - 3))

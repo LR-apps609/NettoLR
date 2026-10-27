@@ -78,6 +78,26 @@ jobs:
       - name: Pubblica le foto nel ramo «screenshots»
         if: always()
         run: |
+          mkdir -p screenshots
+          # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
+          if ! ls screenshots/*.png >/dev/null 2>&1; then
+            RESULT=$(ls -d build-ui/Logs/Test/*.xcresult 2>/dev/null | head -n 1)
+            if [ -n "$RESULT" ]; then
+              xcrun xcresulttool export attachments --path "$RESULT" --output-path attachments || true
+              python3 - <<'PY'
+          import json, shutil, pathlib
+          src = pathlib.Path("attachments"); out = pathlib.Path("screenshots")
+          try:
+              manifest = json.loads((src / "manifest.json").read_text())
+              for test in manifest:
+                  for a in test.get("attachments", []):
+                      name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                      shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
+          except Exception as e:
+              print("allegati non letti:", e)
+          PY
+            fi
+          fi
           N=$(ls screenshots/*.png 2>/dev/null | wc -l | tr -d ' ')
           echo "::notice::Foto dell'app: $N"
           if [ "$N" -eq 0 ]; then echo "Nessuna foto da pubblicare"; exit 0; fi
