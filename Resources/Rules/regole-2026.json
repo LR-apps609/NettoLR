@@ -67,6 +67,12 @@
       "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/l-imposta_di_bollo_sulle_fatture_elettronichegiugno2026",
       "data": "2026-06-01",
       "stato": "verificato"
+    },
+    "ade_bollo_scadenze": {
+      "titolo": "Agenzia delle Entrate – Bollo sulle fatture elettroniche: scadenze trimestrali e soglia di 5.000 € (da riconfermare)",
+      "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/l-imposta_di_bollo_sulle_fatture_elettronichegiugno2026",
+      "data": "2026-06-01",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -210,6 +216,19 @@
     "sogliaFattura": {
       "valore": 77.47,
       "fonte": "ade_bollo"
+    },
+    "scadenze": {
+      "valore": [
+        "2026-05-31",
+        "2026-09-30",
+        "2026-11-30",
+        "2027-02-28"
+      ],
+      "fonte": "ade_bollo_scadenze"
+    },
+    "sogliaRinvio": {
+      "valore": 5000,
+      "fonte": "ade_bollo_scadenze"
     }
   },
   "irpef": {

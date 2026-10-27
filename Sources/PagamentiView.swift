@@ -78,7 +78,7 @@ struct PagamentiView: View {
                     .frame(width: 18)
             } else {
                 Circle()
-                    .fill(passato ? Color.clear : (p.tipo == .tasse ? Theme.tasse : Theme.pensione))
+                    .fill(passato ? Color.clear : (p.tipo == .tasse ? Theme.tasse : p.tipo == .bollo ? Theme.lilla : Theme.pensione))
                     .overlay(Circle().stroke(passato ? Theme.muted : .clear, lineWidth: 2))
                     .frame(width: 14, height: 14)
                     .frame(width: 18)

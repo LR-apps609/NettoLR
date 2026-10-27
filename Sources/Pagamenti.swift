@@ -4,7 +4,7 @@ import Foundation
 // I titoli sono in parole semplici; codici tributo e causali restano nei dettagli, per l'F24.
 
 struct Pagamento: Identifiable, Equatable {
-    enum Tipo { case tasse, pensione }
+    enum Tipo { case tasse, pensione, bollo }
     var id: String { "\(titolo)-\(data.timeIntervalSince1970)" }
     var data: Date
     var tipo: Tipo
@@ -18,7 +18,7 @@ struct Pagamento: Identifiable, Equatable {
 }
 
 enum Pagamenti {
-    static func anno2026(_ p: Profilo, precedente prec: DatiAnnoPrecedente, r: Regole = .attuali) -> [Pagamento] {
+    static func anno2026(_ p: Profilo, precedente prec: DatiAnnoPrecedente, fatture: [Fattura] = [], r: Regole = .attuali) -> [Pagamento] {
         let v = r.versamenti
         var out: [Pagamento] = []
 
@@ -79,6 +79,41 @@ enum Pagamenti {
         case .cassa:
             break
         }
+        out += bollo(fatture, anno: r.anno, r: r)
         return out.sorted { $0.data < $1.data }
+    }
+
+    /// Il bollo virtuale delle fatture: 2 € per ogni fattura sopra 77,47 €, pagato a trimestri.
+    /// Se un trimestre (con quelli rinviati) resta sotto 5.000 € si paga con il successivo; il terzo e il quarto mai rinviati.
+    static func bollo(_ fatture: [Fattura], anno: Int, r: Regole = .attuali) -> [Pagamento] {
+        let b = r.bollo
+        var perTrimestre = [Double](repeating: 0, count: 4)
+        for f in fatture where Giorno.anno(f.data) == anno && f.importo > b.sogliaFattura.valore {
+            let mese = Giorno.calendario.component(.month, from: f.data)
+            perTrimestre[(mese - 1) / 3] += b.importo.valore
+        }
+        var out: [Pagamento] = []
+        var rinviato = 0.0
+        var trimestriRinviati: [Int] = []
+        for (i, data) in b.scadenze.valore.enumerated() where i < 4 {
+            let totale = rinviato + perTrimestre[i]
+            trimestriRinviati.append(i + 1)
+            if i < 2 && totale < b.sogliaRinvio.valore {
+                rinviato = totale
+                continue
+            }
+            if totale > 0 {
+                let codici = trimestriRinviati.map { "\(2520 + $0)" }.joined(separator: " + ")
+                let quali = trimestriRinviati.map { "\($0)°" }.joined(separator: ", ")
+                out.append(Pagamento(
+                    data: Giorno.da(data), tipo: .bollo, titolo: "Bollo delle fatture (\(quali) trimestre)",
+                    codice: "codice tributo \(codici) · anno \(anno)",
+                    spiegazione: "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.",
+                    importo: arrotonda(totale), fonte: r.fonte(b.scadenze)))
+            }
+            rinviato = 0
+            trimestriRinviati = []
+        }
+        return out
     }
 }

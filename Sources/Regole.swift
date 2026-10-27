@@ -70,6 +70,10 @@ struct Regole: Codable {
     struct Bollo: Codable {
         let importo: Voce<Double>
         let sogliaFattura: Voce<Double>
+        /// Scadenze dei quattro trimestri (il quarto l'anno dopo)
+        let scadenze: Voce<[String]>
+        /// Sotto questa cifra il trimestre si può pagare insieme al successivo
+        let sogliaRinvio: Voce<Double>
     }
 
     struct Scaglione: Codable {

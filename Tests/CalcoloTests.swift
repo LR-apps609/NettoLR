@@ -169,4 +169,19 @@ final class CalcoloTests: XCTestCase {
         pagata.incassata = true
         XCTAssertEqual(Calcolo.giorniInAttesa(pagata, oggi: Giorno.data(2026, 10, 15)), 0)
     }
+
+    func testBolloTrimestrale() {
+        // 3 fatture nel 1° trimestre, 2 nel 3°, 1 nel 4°, una sotto soglia
+        let d = { (m: Int) in Giorno.data(2026, m, 10) }
+        let fatture = [d(1), d(2), d(3), d(8), d(9), d(11)].map {
+            Fattura(numero: "x", data: $0, cliente: "A", importo: 500, incassata: true, origine: .manuale)
+        } + [Fattura(numero: "y", data: d(2), cliente: "B", importo: 50, incassata: true, origine: .manuale)]
+        let b = Pagamenti.bollo(fatture, anno: 2026)
+        // 1° e 2° sotto 5.000 €: pagati con il 3° il 30 novembre (6+0+4 = 10 €); il 4° a febbraio (2 €)
+        XCTAssertEqual(b.count, 2)
+        XCTAssertEqual(b.first?.importo, 10)
+        XCTAssertEqual(b.first?.data, Giorno.da("2026-11-30"))
+        XCTAssertEqual(b.last?.importo, 2)
+        XCTAssertTrue(b.first?.codice.contains("2521 + 2522 + 2523") ?? false)
+    }
 }

@@ -71,7 +71,7 @@ final class Store: ObservableObject {
 
     var pagamenti: [Pagamento] {
         guard let profilo else { return [] }
-        return Pagamenti.anno2026(profilo, precedente: annoPrecedente)
+        return Pagamenti.anno2026(profilo, precedente: annoPrecedente, fatture: fatture)
     }
 
     var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
