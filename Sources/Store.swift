@@ -54,7 +54,7 @@ final class Store: ObservableObject {
         guard let profilo else { return nil }
         let r = riepilogo
         return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: contributiVersati,
-                                   fattureConBollo: r.fattureConBollo)
+                                   fattureConBollo: r.fattureConBollo, perAttivita: r.perAttivita.isEmpty ? nil : r.perAttivita)
     }
 
     /// Incassato in ogni mese dell'anno (1…12)

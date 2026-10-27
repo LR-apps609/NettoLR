@@ -143,6 +143,7 @@ struct NuovoIncassoView: View {
     @State private var cliente = ""
     @State private var giorno = Date()
     @State private var pagata = true
+    @State private var attivita = ""
     @FocusState private var focusImporto: Bool
 
     var body: some View {
@@ -187,6 +188,16 @@ struct NuovoIncassoView: View {
                             .padding(.horizontal, 14).frame(height: 52)
                             .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
+                    if let p = store.profilo, p.attivita.count > 1 {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Per quale lavoro?").font(.app(15)).foregroundStyle(Theme.muted)
+                            Picker("Per quale lavoro?", selection: $attivita) {
+                                ForEach(p.attivita, id: \.self) { c in Text(Ateco.nomeLavoro(c)).tag(c) }
+                            }
+                            .pickerStyle(.menu)
+                            .tint(Theme.prugna)
+                        }
+                    }
                     Toggle("Mi hanno già pagato", isOn: $pagata).font(.app(17, .semibold)).tint(Theme.prugna)
                     DatePicker(pagata ? "Il giorno" : "Data della fattura", selection: $giorno, displayedComponents: .date)
                         .font(.app(17))
@@ -203,7 +214,10 @@ struct NuovoIncassoView: View {
                     Button("Salva") { salva() }.bold().disabled(valore <= 0)
                 }
             }
-            .onAppear { focusImporto = true }
+            .onAppear {
+                focusImporto = true
+                attivita = store.profilo?.ateco ?? ""
+            }
         }
     }
 
@@ -212,7 +226,8 @@ struct NuovoIncassoView: View {
     private func salva() {
         let numero = String(store.fatture.count + 1)
         store.aggiungi(Fattura(numero: numero, data: giorno, cliente: cliente.isEmpty ? "Cliente" : cliente,
-                               importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: .manuale))
+                               importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: .manuale,
+                               ateco: attivita.isEmpty || attivita == store.profilo?.ateco ? nil : attivita))
         chiudi()
     }
 }

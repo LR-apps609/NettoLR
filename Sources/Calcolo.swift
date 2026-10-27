@@ -69,12 +69,21 @@ enum Calcolo {
     /// - Parameters:
     ///   - contributiVersati: contributi effettivamente versati nell'anno (deducibili); nil = stima pari ai dovuti
     ///   - fattureConBollo: fatture sopra la soglia del bollo, per il costo delle marche
+    ///   - perAttivita: con più attività, gli incassi di ognuna (codice ATECO 2007 → euro); ognuna ha la sua percentuale
     static func forfettario(_ p: Profilo, anno: Int, ricavi ricaviIn: Double, contributiVersati: Double? = nil,
-                            fattureConBollo: Int = 0, r: Regole = .attuali) -> RisultatoForfettario {
-        let gruppo = Ateco.gruppo(ateco2007: p.ateco) ?? Ateco.gruppo("altre")
-        let coefficiente = gruppo.coefficiente
+                            fattureConBollo: Int = 0, perAttivita: [String: Double]? = nil, r: Regole = .attuali) -> RisultatoForfettario {
         let ricavi = arrotonda(ricaviIn)
-        let redditoLordo = arrotonda(ricavi * coefficiente)
+        // Con più attività: reddito = somma di (incassi × percentuale) di ognuna; quel che non è assegnato va alla principale
+        let quote: [(codice: String, ricavi: Double)] = {
+            guard let perAttivita, perAttivita.count > 1 || perAttivita.keys.first != p.ateco else { return [(p.ateco, ricavi)] }
+            let assegnati = perAttivita.values.reduce(0, +)
+            var q = perAttivita.map { ($0.key, $0.value) }.sorted { $0.0 < $1.0 }
+            if ricavi - assegnati > 0.005 { q.append((p.ateco, ricavi - assegnati)) }
+            return q
+        }()
+        let gruppo = Ateco.gruppo(ateco2007: p.ateco) ?? Ateco.gruppo("altre")
+        let redditoLordo = arrotonda(quote.reduce(0) { $0 + $1.ricavi * (Ateco.gruppo(ateco2007: $1.codice) ?? Ateco.gruppo("altre")).coefficiente })
+        let coefficiente = ricavi > 0 && quote.count > 1 ? redditoLordo / ricavi : gruppo.coefficiente
         let contributi = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r).totale
         let stimati = contributiVersati == nil
         let dedotti = arrotonda(min(redditoLordo, contributiVersati ?? contributi))
@@ -99,7 +108,9 @@ enum Calcolo {
         var righe: [Riga] = [
             Riga(etichetta: "Incassato", formula: "Somma delle fatture incassate nell'anno", importo: ricavi),
             Riga(etichetta: "Reddito lordo",
-                 formula: "\(Formato.euro(ricavi)) × coefficiente \(Formato.pct(coefficiente)) (\(gruppo.nome))",
+                 formula: quote.count > 1
+                    ? quote.map { "\(Formato.euro($0.ricavi)) × \(Formato.pct((Ateco.gruppo(ateco2007: $0.codice) ?? Ateco.gruppo("altre")).coefficiente)) (\($0.codice))" }.joined(separator: " + ")
+                    : "\(Formato.euro(ricavi)) × coefficiente \(Formato.pct(coefficiente)) (\(gruppo.nome))",
                  importo: redditoLordo, fonte: r.fonte(r.forfettario.aliquotaOrdinaria)),
             Riga(etichetta: "Contributi INPS", formula: nomeGestione, importo: -contributi, fonte: fonteInps),
             Riga(etichetta: "Contributi dedotti",
@@ -196,15 +207,22 @@ enum Calcolo {
         var nIncassate: Int
         var nDaIncassare: Int
         var fattureConBollo: Int
+        /// Incassi per attività (codice ATECO 2007); vuoto se c'è una sola attività
+        var perAttivita: [String: Double] = [:]
     }
 
     static func riepilogo(_ fatture: [Fattura], anno: Int, r: Regole = .attuali) -> Riepilogo {
         let incassate = fatture.filter { $0.incassata && Giorno.anno($0.dataIncasso ?? $0.data) == anno }
         let daIncassare = fatture.filter { !$0.incassata }
         let conBollo = fatture.filter { Giorno.anno($0.data) == anno && $0.importo > r.bollo.sogliaFattura.valore }.count
+        var perAttivita: [String: Double] = [:]
+        if incassate.contains(where: { $0.ateco != nil }) {
+            for f in incassate { if let a = f.ateco { perAttivita[a, default: 0] += f.importo } }
+        }
         return Riepilogo(ricavi: arrotonda(incassate.reduce(0) { $0 + $1.importo }),
                          daIncassare: arrotonda(daIncassare.reduce(0) { $0 + $1.importo }),
-                         nIncassate: incassate.count, nDaIncassare: daIncassare.count, fattureConBollo: conBollo)
+                         nIncassate: incassate.count, nDaIncassare: daIncassare.count, fattureConBollo: conBollo,
+                         perAttivita: perAttivita)
     }
 
     // MARK: - Simulazioni

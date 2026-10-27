@@ -40,6 +40,11 @@ struct Profilo: Codable, Equatable {
     var promemoria: Bool = true
     /// Blocco con Face ID all'apertura (facoltativo: assente nei salvataggi vecchi)
     var faceID: Bool?
+    /// Altre attività (codici ATECO 2007) oltre a quella principale, ognuna con la sua percentuale
+    var altreAttivita: [String]?
+
+    /// Tutte le attività: la principale per prima
+    var attivita: [String] { [ateco] + (altreAttivita ?? []).filter { $0 != ateco } }
 }
 
 struct Fattura: Codable, Identifiable, Equatable {
@@ -56,6 +61,8 @@ struct Fattura: Codable, Identifiable, Equatable {
     /// Nel forfettario conta il giorno dell'incasso, non quello della fattura
     var dataIncasso: Date?
     var origine: Origine
+    /// L'attività (codice ATECO 2007) a cui appartiene; nil = quella principale
+    var ateco: String?
 }
 
 /// Dati dell'anno precedente, per saldo e acconti

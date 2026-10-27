@@ -215,4 +215,21 @@ final class CalcoloTests: XCTestCase {
         XCTAssertTrue(csv.hasPrefix("\u{FEFF}Numero;Data fattura"))
         XCTAssertTrue(csv.contains("3;05/03/2026;\"Rossi \"\"Il Bello\"\"\";1234,50;sì;20/03/2026"))
     }
+
+    func testPiuAttivita() {
+        // Web designer (78%) e vendita online (40%): 20.000 + 10.000
+        var p = Profilo(ateco: "74.10.21", annoApertura: 2020, requisitiStartup: false, gestione: .separata, riduzione35: false)
+        p.altreAttivita = ["47.91.10"]
+        XCTAssertEqual(p.attivita, ["74.10.21", "47.91.10"])
+        let fatture = [
+            Fattura(numero: "1", data: Giorno.data(2026, 2, 1), cliente: "A", importo: 20_000, incassata: true, dataIncasso: Giorno.data(2026, 2, 1), origine: .manuale),
+            Fattura(numero: "2", data: Giorno.data(2026, 3, 1), cliente: "B", importo: 10_000, incassata: true, dataIncasso: Giorno.data(2026, 3, 1), origine: .manuale, ateco: "47.91.10"),
+        ]
+        let riep = Calcolo.riepilogo(fatture, anno: 2026)
+        XCTAssertEqual(riep.perAttivita, ["47.91.10": 10_000])
+        let r = Calcolo.forfettario(p, anno: 2026, ricavi: riep.ricavi, perAttivita: riep.perAttivita)
+        XCTAssertEqual(r.redditoLordo, 20_000 * 0.78 + 10_000 * 0.40)
+        // Senza assegnazioni resta tutto alla principale
+        XCTAssertEqual(Calcolo.forfettario(p, anno: 2026, ricavi: 30_000).redditoLordo, 23_400)
+    }
 }

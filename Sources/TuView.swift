@@ -8,6 +8,7 @@ struct TuView: View {
     @State private var modifica = false
     @State private var documenti = false
     @State private var esporta = false
+    @State private var attivita = false
     @State private var piva = ""
     @State private var chiediCancella = false
     @State private var esitoPiva: Bool?
@@ -27,6 +28,11 @@ struct TuView: View {
                         VStack(spacing: 0) {
                             Button { modifica = true } label: {
                                 riga("house", Theme.prugna, "Il tuo lavoro", valore: lavoro(p), freccia: true)
+                            }
+                            .buttonStyle(.plain)
+                            Divider().padding(.leading, 66)
+                            Button { attivita = true } label: {
+                                riga("square.stack.3d.up", Theme.lilla, "Altre attività", valore: p.attivita.count > 1 ? "\(p.attivita.count - 1)" : "Nessuna", freccia: true)
                             }
                             .buttonStyle(.plain)
                             Divider().padding(.leading, 66)
@@ -78,6 +84,7 @@ struct TuView: View {
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $documenti) { DocumentiView() }
             .sheet(isPresented: $esporta) { EsportaView() }
+            .sheet(isPresented: $attivita) { AltreAttivitaView() }
             .sheet(isPresented: $modifica) {
                 DomandeProfilo(iniziale: store.profilo) { nuovo in
                     store.profilo = nuovo
@@ -238,5 +245,96 @@ enum PartitaIVA {
             }
         }
         return (10 - somma % 10) % 10 == c[10]
+    }
+}
+
+/// Le altre attività oltre alla principale: si cercano tra tutti i codici ATECO
+struct AltreAttivitaView: View {
+    @EnvironmentObject private var store: Store
+    @Environment(\.dismiss) private var chiudi
+    @State private var ricerca = ""
+    @State private var daScegliere: TrovatoAteco?
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Se fai più lavori, ognuno ha la sua percentuale. Quando aggiungi un incasso scegli a quale appartiene.")
+                        .font(.app(16)).foregroundStyle(Theme.muted)
+                    if let p = store.profilo {
+                        ForEach(Array(p.attivita.enumerated()), id: \.element) { i, codice in
+                            HStack(spacing: 12) {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(Ateco.nomeLavoro(codice)).font(.app(16, .semibold))
+                                    Text(i == 0 ? "Principale · ATECO \(codice)" : "ATECO \(codice)").font(.app(13)).foregroundStyle(Theme.muted)
+                                }
+                                Spacer()
+                                Text("\(Int((Ateco.gruppo(ateco2007: codice)?.coefficiente ?? 0) * 100))%").font(.app(15, .heavy)).foregroundStyle(Theme.prugna)
+                                if i > 0 {
+                                    Button { togli(codice) } label: { Image(systemName: "minus.circle.fill").font(.app(20)).foregroundStyle(Theme.avviso) }
+                                        .accessibilityLabel("Togli \(Ateco.nomeLavoro(codice))")
+                                }
+                            }
+                            .scheda(padding: 14)
+                        }
+                    }
+                    Text("Aggiungi un'attività").font(.app(17, .bold)).padding(.top, 6)
+                    HStack(spacing: 10) {
+                        Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
+                        TextField("Lavoro o codice ATECO", text: $ricerca).font(.app(17))
+                    }
+                    .padding(.horizontal, 14).frame(height: 50)
+                    .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    if let amb = daScegliere {
+                        Text("Il codice \(amb.codice) del 2025 corrisponde a più attività di prima. Quale fai?").font(.app(15, .bold))
+                        ForEach(amb.codici2007, id: \.self) { c in
+                            Button { aggiungi(c) } label: {
+                                HStack {
+                                    Text(Ateco.titolo2007(c) ?? c).font(.app(15)).multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Text("\(Int((Ateco.gruppo(ateco2007: c)?.coefficiente ?? 0) * 100))%").font(.app(14, .heavy)).foregroundStyle(Theme.prugna)
+                                }
+                                .scheda(padding: 12)
+                            }
+                            .buttonStyle(Molla())
+                        }
+                    } else {
+                        ForEach(Ateco.cerca(ricerca, max: 8)) { t in
+                            Button {
+                                if t.ambiguo { daScegliere = t } else if let c = t.codici2007.first { aggiungi(c) }
+                            } label: {
+                                HStack(alignment: .top) {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(t.nomeComune ?? t.titolo).font(.app(15, .semibold)).multilineTextAlignment(.leading)
+                                        Text("\(t.versione.rawValue) \(t.codice)").font(.app(12)).foregroundStyle(Theme.muted)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "plus.circle.fill").font(.app(20)).foregroundStyle(Theme.prugna)
+                                }
+                                .scheda(padding: 12)
+                            }
+                            .buttonStyle(Molla())
+                        }
+                    }
+                }
+                .padding(20)
+            }
+            .background(Theme.ground)
+            .navigationTitle("Le tue attività")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
+        }
+    }
+
+    private func aggiungi(_ codice: String) {
+        guard var p = store.profilo, !p.attivita.contains(codice) else { daScegliere = nil; ricerca = ""; return }
+        p.altreAttivita = (p.altreAttivita ?? []) + [codice]
+        withAnimation(.spring) { store.profilo = p }
+        daScegliere = nil
+        ricerca = ""
+    }
+
+    private func togli(_ codice: String) {
+        withAnimation(.spring) { store.profilo?.altreAttivita?.removeAll { $0 == codice } }
     }
 }
