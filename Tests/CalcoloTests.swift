@@ -161,4 +161,12 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Formato.leggiEuro("1.234"), 1_234)
         XCTAssertEqual(Formato.leggiEuro("2.000 €"), 2_000)
     }
+
+    func testGiorniInAttesa() {
+        let f = Fattura(numero: "1", data: Giorno.data(2026, 9, 1), cliente: "A", importo: 100, incassata: false, origine: .manuale)
+        XCTAssertEqual(Calcolo.giorniInAttesa(f, oggi: Giorno.data(2026, 10, 15)), 44)
+        var pagata = f
+        pagata.incassata = true
+        XCTAssertEqual(Calcolo.giorniInAttesa(pagata, oggi: Giorno.data(2026, 10, 15)), 0)
+    }
 }

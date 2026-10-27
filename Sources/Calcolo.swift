@@ -318,4 +318,11 @@ enum Calcolo {
         }
         return nil
     }
+
+    /// Da quanti giorni una fattura aspetta di essere pagata (0 se pagata)
+    static func giorniInAttesa(_ f: Fattura, oggi: Date = Date()) -> Int {
+        guard !f.incassata else { return 0 }
+        let inizio = Giorno.calendario.startOfDay(for: f.data)
+        return max(0, Giorno.calendario.dateComponents([.day], from: inizio, to: Giorno.calendario.startOfDay(for: oggi)).day ?? 0)
+    }
 }

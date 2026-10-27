@@ -68,6 +68,11 @@ struct IncassiView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(f.cliente).font(.app(16, .bold)).lineLimit(1)
                 Text("\(Formato.euroTondo(f.importo)) · ti hanno pagato?").font(.app(14)).foregroundStyle(Theme.muted)
+                let giorni = Calcolo.giorniInAttesa(f)
+                if giorni > 30 {
+                    Label("Aspetti da \(giorni) giorni", systemImage: "hourglass")
+                        .font(.app(12, .bold)).foregroundStyle(Theme.tasseTesto)
+                }
             }
             Spacer()
             Button("Sì") { withAnimation(.spring) { store.segnaIncassata(f.id) } }
