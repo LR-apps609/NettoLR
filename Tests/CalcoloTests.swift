@@ -207,4 +207,12 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(t.codici.first?.codici2007, ["74.10.21"])
         XCTAssertEqual(t.codici.count, 1)
     }
+
+    func testCSV() {
+        let f = Fattura(numero: "3", data: Giorno.data(2026, 3, 5), cliente: "Rossi \"Il Bello\"", importo: 1_234.5,
+                        incassata: true, dataIncasso: Giorno.data(2026, 3, 20), origine: .manuale)
+        let csv = Esporta.csv([f])
+        XCTAssertTrue(csv.hasPrefix("\u{FEFF}Numero;Data fattura"))
+        XCTAssertTrue(csv.contains("3;05/03/2026;\"Rossi \"\"Il Bello\"\"\";1234,50;sì;20/03/2026"))
+    }
 }

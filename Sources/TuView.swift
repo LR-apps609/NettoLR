@@ -7,6 +7,7 @@ struct TuView: View {
     @EnvironmentObject private var store: Store
     @State private var modifica = false
     @State private var documenti = false
+    @State private var esporta = false
     @State private var piva = ""
     @State private var chiediCancella = false
     @State private var esitoPiva: Bool?
@@ -43,6 +44,12 @@ struct TuView: View {
                                 get: { store.profilo?.promemoria ?? true },
                                 set: { store.profilo?.promemoria = $0 }))
                             Divider().padding(.leading, 66)
+                            Button { esporta = true } label: {
+                                riga("square.and.arrow.up", Theme.menta, "Manda al commercialista", valore: "PDF ed Excel", freccia: true)
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityIdentifier("tu.esporta")
+                            Divider().padding(.leading, 66)
                             interruttore("faceid", "Blocca con Face ID", acceso: Binding(
                                 get: { store.profilo?.faceID ?? false },
                                 set: { store.profilo?.faceID = $0 }))
@@ -70,6 +77,7 @@ struct TuView: View {
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $documenti) { DocumentiView() }
+            .sheet(isPresented: $esporta) { EsportaView() }
             .sheet(isPresented: $modifica) {
                 DomandeProfilo(iniziale: store.profilo) { nuovo in
                     store.profilo = nuovo
