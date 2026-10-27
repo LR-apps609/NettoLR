@@ -17,8 +17,8 @@ permissions:
 
 jobs:
   build:
-    # Come per le altre app LR: il Mac Intel è quasi sempre disponibile
-    runs-on: macos-15-intel
+    # Mac Apple Silicon: i Mac Intel di GitHub restavano in coda anche un'ora
+    runs-on: macos-15
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
