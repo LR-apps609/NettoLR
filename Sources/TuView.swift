@@ -6,6 +6,7 @@ import UIKit
 struct TuView: View {
     @EnvironmentObject private var store: Store
     @State private var modifica = false
+    @State private var documenti = false
     @State private var piva = ""
     @State private var chiediCancella = false
     @State private var esitoPiva: Bool?
@@ -19,7 +20,9 @@ struct TuView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Titolo(testo: "Tu")
                         intestazione(p)
-                        certificato
+                        Button { documenti = true } label: { documentiCard }
+                            .buttonStyle(Molla())
+                            .accessibilityIdentifier("tu.documenti")
                         VStack(spacing: 0) {
                             Button { modifica = true } label: {
                                 riga("house", Theme.prugna, "Il tuo lavoro", valore: lavoro(p), freccia: true)
@@ -62,6 +65,7 @@ struct TuView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            .sheet(isPresented: $documenti) { DocumentiView() }
             .sheet(isPresented: $modifica) {
                 DomandeProfilo(iniziale: store.profilo) { nuovo in
                     store.profilo = nuovo
@@ -147,20 +151,21 @@ struct TuView: View {
         }
     }
 
-    private var certificato: some View {
+    private var documentiCard: some View {
         HStack(spacing: 14) {
-            Image(systemName: "doc.viewfinder").font(.system(size: 28)).foregroundStyle(Theme.prugna)
-                .frame(width: 52, height: 60)
-                .background(Theme.prugnaSoft, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            Image(systemName: "folder.fill").font(.system(size: 24)).foregroundStyle(.white)
+                .frame(width: 52, height: 52)
+                .background(Theme.lilla, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
-                Text("Fotografa il certificato").font(.app(17, .bold))
-                Text("Leggerò io il tuo codice di attività · in arrivo").font(.app(14)).foregroundStyle(Theme.muted)
+                Text("Documenti").font(.app(17, .bold)).foregroundStyle(Theme.ink)
+                Text("Le fonti ufficiali dei calcoli, il certificato, le ricevute").font(.app(14)).foregroundStyle(Theme.muted)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
+            Image(systemName: "chevron.right").foregroundStyle(Theme.lilla)
         }
         .padding(16)
-        .overlay(RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous).strokeBorder(Theme.line, style: StrokeStyle(lineWidth: 2, dash: [6, 5])))
-        .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+        .background(Theme.lillaSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
     }
 
     private func riga(_ icona: String, _ colore: Color, _ titolo: String, valore: String, freccia: Bool = false) -> some View {

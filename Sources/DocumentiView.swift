@@ -1,0 +1,130 @@
+import SwiftUI
+
+// «Documenti»: da dove vengono i numeri (tutte le fonti ufficiali, verificate e da verificare)
+// e, più avanti, il certificato della partita IVA e le ricevute F24 fotografate.
+
+struct DocumentiView: View {
+    @Environment(\.dismiss) private var chiudi
+    private let regole = Regole.attuali
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 18) {
+                    riepilogo.entrata(0)
+
+                    sezione("Le fonti dei calcoli")
+                    VStack(spacing: 0) {
+                        ForEach(Array(fonti.enumerated()), id: \.element.titolo) { i, f in
+                            if i > 0 { Divider().padding(.leading, 52) }
+                            fonte(f)
+                        }
+                    }
+                    .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+                    .entrata(1)
+
+                    sezione("Codici ATECO")
+                    HStack(spacing: 12) {
+                        Image(systemName: "list.number").font(.app(18, .bold)).foregroundStyle(Theme.pensione)
+                            .frame(width: 40, height: 40)
+                            .background(Theme.pensioneSoft, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("\(Ateco.numeroCodici) codici ufficiali ISTAT").font(.app(16, .semibold))
+                            Text("ATECO 2007 (aggiornamento 2022), ATECO 2025 e la tavola di raccordo tra i due")
+                                .font(.app(13)).foregroundStyle(Theme.muted)
+                        }
+                    }
+                    .scheda(padding: 14)
+                    .entrata(2)
+
+                    sezione("I tuoi documenti")
+                    VStack(spacing: 10) {
+                        inArrivo("doc.viewfinder", "Certificato della partita IVA", "Lo fotografi e leggo io il codice ATECO")
+                        inArrivo("doc.text.image", "Ricevute F24", "La prova di ogni pagamento, in ordine")
+                    }
+                    .entrata(3)
+
+                    Text("NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» saranno controllate da un commercialista prima del lancio.")
+                        .font(.app(13)).foregroundStyle(Theme.muted)
+                }
+                .padding(20)
+            }
+            .background(Theme.ground)
+            .navigationTitle("Documenti")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
+        }
+    }
+
+    /// Le fonti in ordine: prima quelle verificate
+    private var fonti: [Fonte] {
+        regole.fonti.values.sorted { a, b in
+            if a.verificata != b.verificata { return a.verificata }
+            return a.titolo < b.titolo
+        }
+    }
+
+    private var riepilogo: some View {
+        let verificate = regole.fonti.values.filter(\.verificata).count
+        let totale = regole.fonti.count
+        return HStack(spacing: 16) {
+            ZStack {
+                Circle().stroke(Color.white.opacity(0.15), lineWidth: 8)
+                Circle().trim(from: 0, to: CGFloat(verificate) / CGFloat(max(totale, 1)))
+                    .stroke(Color(hex: 0x7CD3B0), style: StrokeStyle(lineWidth: 8, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
+                Text("\(verificate)/\(totale)").font(.app(15, .heavy))
+            }
+            .frame(width: 66, height: 66)
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Regole \(String(regole.anno))").font(.app(20, .bold))
+                Text("\(verificate) fonti verificate, \(totale - verificate) da verificare · aggiornate al \(Giorno.da(regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
+                    .font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.85))
+            }
+        }
+        .riquadroNotte()
+    }
+
+    private func sezione(_ t: String) -> some View {
+        Text(t.uppercased()).font(.app(12, .bold)).tracking(0.6).foregroundStyle(Theme.muted).padding(.top, 4)
+    }
+
+    @ViewBuilder
+    private func fonte(_ f: Fonte) -> some View {
+        let riga = HStack(alignment: .top, spacing: 12) {
+            Image(systemName: f.verificata ? "checkmark.seal.fill" : "questionmark.circle.fill")
+                .font(.app(20)).foregroundStyle(f.verificata ? Theme.menta : Theme.tasse)
+                .frame(width: 28)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(f.titolo).font(.app(15, .semibold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+                Text(f.verificata ? "Verificata" : "Da verificare").font(.app(12, .bold))
+                    .foregroundStyle(f.verificata ? Theme.menta : Theme.tasseTesto)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "arrow.up.right").font(.app(12, .bold)).foregroundStyle(Theme.muted)
+        }
+        .padding(14)
+        if let url = URL(string: f.url) {
+            Link(destination: url) { riga }
+        } else {
+            riga
+        }
+    }
+
+    private func inArrivo(_ icona: String, _ titolo: String, _ sotto: String) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: icona).font(.app(20)).foregroundStyle(Theme.lilla)
+                .frame(width: 40, height: 40)
+                .background(Theme.lillaSoft, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(titolo).font(.app(16, .semibold))
+                Text(sotto).font(.app(13)).foregroundStyle(Theme.muted)
+            }
+            Spacer()
+            Text("in arrivo").font(.app(11, .bold)).foregroundStyle(Theme.lilla)
+                .padding(.horizontal, 8).padding(.vertical, 4)
+                .background(Theme.lillaSoft, in: Capsule())
+        }
+        .scheda(padding: 14)
+    }
+}
