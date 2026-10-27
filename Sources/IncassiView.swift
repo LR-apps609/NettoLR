@@ -27,6 +27,16 @@ struct IncassiView: View {
                         .accessibilityIdentifier("incassi.aggiungi")
 
                     if let messaggio { Avviso(testo: messaggio) }
+                    if let esito = store.esitoImport {
+                        HStack(alignment: .top) {
+                            Label(esito, systemImage: "tray.and.arrow.down.fill").font(.app(15)).foregroundStyle(Theme.menta)
+                            Spacer()
+                            Button { store.esitoImport = nil } label: { Image(systemName: "xmark").foregroundStyle(Theme.muted) }
+                                .accessibilityLabel("Chiudi")
+                        }
+                        .padding(14)
+                        .background(Theme.mentaSoft, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    }
 
                     ForEach(store.fatture.filter { !$0.incassata }) { f in
                         inAttesa(f).transition(.asymmetric(insertion: .scale.combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))

@@ -120,6 +120,25 @@ final class Store: ObservableObject {
         fatture[i].dataIncasso = nil
     }
 
+    /// Fatture arrivate da «Apri con NettoLR»: l'esito da mostrare in Incassi
+    @Published var esitoImport: String?
+
+    /// Legge un file XML aperto da un'altra app e aggiunge le fatture
+    func importa(_ url: URL) {
+        let accesso = url.startAccessingSecurityScopedResource()
+        defer { if accesso { url.stopAccessingSecurityScopedResource() } }
+        guard let dati = try? Data(contentsOf: url) else {
+            esitoImport = "Non riesco ad aprire \(url.lastPathComponent)."
+            return
+        }
+        let letto = LettoreFatturaPA.leggi(dati)
+        let nuove = letto.fatture.filter { n in !fatture.contains { $0.numero == n.numero && $0.data == n.data && $0.cliente == n.cliente } }
+        aggiungi(nuove)
+        var righe = [nuove.isEmpty ? "Nessuna fattura nuova in \(url.lastPathComponent)." : "Aggiunte \(nuove.count) fatture da \(url.lastPathComponent). Tocca «Sì» quando te le pagano."]
+        righe += letto.errori
+        esitoImport = righe.joined(separator: "\n")
+    }
+
     func elimina(_ id: Fattura.ID) {
         fatture.removeAll { $0.id == id }
     }

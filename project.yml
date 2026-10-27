@@ -37,6 +37,13 @@ targets:
           - CFBundleURLName: it.ledion.NettoLR
             CFBundleURLSchemes: [nettolr]
         LSRequiresIPhoneOS: true
+        # «Apri con NettoLR» sulle fatture elettroniche XML (Mail, File, WhatsApp…)
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Fattura elettronica XML
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            LSItemContentTypes: [public.xml]
+        LSSupportsOpeningDocumentsInPlace: false
         ITSAppUsesNonExemptEncryption: false
         UILaunchScreen:
           UIColorName: LaunchBackground
