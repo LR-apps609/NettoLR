@@ -25,8 +25,8 @@ struct PagamentiView: View {
                     }
 
                     VStack(spacing: 0) {
-                        ForEach(store.pagamenti) { p in
-                            Button { dettaglio = p } label: { riga(p) }.buttonStyle(.plain)
+                        ForEach(Array(store.pagamenti.enumerated()), id: \.element.id) { i, p in
+                            Button { dettaglio = p } label: { riga(p) }.buttonStyle(Molla()).entrata(i + 1)
                         }
                     }
 
@@ -62,7 +62,10 @@ struct PagamentiView: View {
                 .font(.app(17)).foregroundStyle(Theme.suNotte)
         }
         .frame(maxWidth: .infinity)
-        .riquadroNotte(padding: 24)
+        .padding(24)
+        .foregroundStyle(.white)
+        .background { Aurora(colori: [Color(hex: 0xF2A07B), Theme.rosaChiaro, Color(hex: 0x7EA4DD)]) }
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
         .accessibilityElement(children: .combine)
     }
 

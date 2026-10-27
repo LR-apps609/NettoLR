@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 // «Tu»: chi sei, la partita IVA, il lavoro, la pensione, le preferenze. Tutto resta su questo iPhone.
 
@@ -6,7 +7,10 @@ struct TuView: View {
     @EnvironmentObject private var store: Store
     @State private var modifica = false
     @State private var piva = ""
-    @State private var conferma = false
+    @State private var chiediCancella = false
+    @State private var esitoPiva: Bool?
+    @State private var scossa: CGFloat = 0
+    @FocusState private var focusPiva: Bool
 
     var body: some View {
         NavigationStack {
@@ -45,7 +49,7 @@ struct TuView: View {
                         .font(.app(13)).foregroundStyle(Theme.muted)
                         .frame(maxWidth: .infinity)
 
-                        Button("Cancella tutti i dati", role: .destructive) { conferma = true }
+                        Button("Cancella tutti i dati", role: .destructive) { chiediCancella = true }
                             .font(.app(15))
                             .frame(maxWidth: .infinity)
                         Text("NettoLR \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "") · regole \(String(Regole.attuali.anno)) · È un calcolo, non una consulenza fiscale.")
@@ -64,7 +68,7 @@ struct TuView: View {
                     modifica = false
                 }
             }
-            .confirmationDialog("Cancellare profilo e incassi da questo iPhone?", isPresented: $conferma, titleVisibility: .visible) {
+            .confirmationDialog("Cancellare profilo e incassi da questo iPhone?", isPresented: $chiediCancella, titleVisibility: .visible) {
                 Button("Cancella tutto", role: .destructive) { store.cancellaTutto() }
             }
             .onAppear { piva = store.profilo?.partitaIVA ?? "" }
@@ -83,33 +87,64 @@ struct TuView: View {
                     Text("\(lavoro(p)) · dal \(String(p.annoApertura))").font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
                 }
             }
-            HStack {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Partita IVA").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.8))
-                    TextField("11 cifre", text: $piva)
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Partita IVA").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                HStack(spacing: 10) {
+                    TextField("", text: $piva, prompt: Text("11 cifre").foregroundStyle(Theme.suNotte.opacity(0.4)))
                         .keyboardType(.numberPad)
-                        .font(.app(17, .semibold)).monospacedDigit()
+                        .font(.system(size: 20, weight: .semibold, design: .monospaced))
                         .foregroundStyle(.white)
+                        .focused($focusPiva)
+                        .accessibilityIdentifier("tu.piva")
                         .onChange(of: piva) { _, nuova in
                             let cifre = String(nuova.filter(\.isNumber).prefix(11))
                             if cifre != nuova { piva = cifre }
-                            store.profilo?.partitaIVA = cifre
+                            if esitoPiva != nil { withAnimation { esitoPiva = nil } }
                         }
-                }
-                Spacer()
-                if piva.count == 11 {
-                    let valida = PartitaIVA.valida(piva)
-                    Label(valida ? "Giusta" : "Controlla", systemImage: valida ? "checkmark" : "exclamationmark.triangle")
-                        .font(.app(13, .bold))
-                        .padding(.horizontal, 10).padding(.vertical, 5)
+                    Button("Conferma") { confermaPiva() }
+                        .font(.app(15, .bold))
+                        .padding(.horizontal, 14).frame(height: 40)
                         .foregroundStyle(Theme.notte)
-                        .background(valida ? Theme.rosaChiaro : Color(hex: 0xF09A85), in: Capsule())
+                        .background(Theme.rosaChiaro, in: Capsule())
+                        .buttonStyle(Molla())
+                        .disabled(piva.isEmpty)
+                        .opacity(piva.isEmpty ? 0.5 : 1)
+                        .accessibilityIdentifier("tu.conferma")
+                }
+                .modifier(Scuoti(volte: scossa))
+                if let ok = esitoPiva {
+                    HStack(spacing: 8) {
+                        Image(systemName: ok ? "checkmark.circle.fill" : "xmark.circle.fill")
+                            .font(.app(20))
+                            .symbolEffect(.bounce, value: ok)
+                        Text(ok ? "Il codice P.IVA è corretto" : "Il codice P.IVA è sbagliato: controlla le cifre")
+                            .font(.app(15, .bold))
+                    }
+                    .foregroundStyle(ok ? Color(hex: 0x7CD3B0) : Color(hex: 0xF09A85))
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    if ok {
+                        Text("Controllo la cifra finale: non vuol dire che la partita IVA sia attiva.")
+                            .font(.app(12)).foregroundStyle(Theme.suNotte.opacity(0.6))
+                    }
                 }
             }
             .padding(14)
             .background(Theme.notteRialzo, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
         .riquadroNotte()
+    }
+
+    private func confermaPiva() {
+        focusPiva = false
+        let ok = PartitaIVA.valida(piva)
+        withAnimation(.spring(duration: 0.4, bounce: 0.4)) { esitoPiva = ok }
+        if ok {
+            store.profilo?.partitaIVA = piva
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+        } else {
+            withAnimation(.linear(duration: 0.4)) { scossa += 1 }
+            UINotificationFeedbackGenerator().notificationOccurred(.error)
+        }
     }
 
     private var certificato: some View {
@@ -153,8 +188,7 @@ struct TuView: View {
     }
 
     private func lavoro(_ p: Profilo) -> String {
-        if let a = Ateco.attivita.first(where: { $0.ateco2007 == p.ateco }) { return DomandeProfilo.nomeSemplice(a) }
-        return Ateco.gruppo(ateco2007: p.ateco)?.nome ?? p.ateco
+        Ateco.nomeLavoro(p.ateco)
     }
 
     private func nomePensione(_ p: Profilo) -> String {

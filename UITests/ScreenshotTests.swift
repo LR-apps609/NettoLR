@@ -78,6 +78,14 @@ final class ScreenshotTests: XCTestCase {
 
         scheda(4).tap(); sleep(1)
         foto("09-tu")
+        let piva = app.textFields["tu.piva"]
+        if piva.waitForExistence(timeout: 3) {
+            piva.tap()
+            piva.typeText("06363391002")
+            app.buttons["tu.conferma"].tap()
+            sleep(1)
+            foto("09b-piva-sbagliata")
+        }
     }
 
     func test3Scuro() {

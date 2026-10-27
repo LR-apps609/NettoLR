@@ -95,6 +95,7 @@ struct Anello: View {
     }
     let parti: [Parte]
     var spessore: CGFloat = 26
+    var fondo: Color = Theme.prugnaSoft
     @State private var avanzamento: CGFloat = 0
     @Environment(\.accessibilityReduceMotion) private var menoMovimento
 
@@ -102,7 +103,7 @@ struct Anello: View {
         let totale = max(parti.reduce(0) { $0 + $1.valore }, 0.0001)
         let spazio = parti.filter { $0.valore > 0 }.count > 1 ? 0.006 : 0
         ZStack {
-            Circle().stroke(Theme.prugnaSoft, lineWidth: spessore)
+            Circle().stroke(fondo, lineWidth: spessore)
             ForEach(Array(parti.enumerated()), id: \.element.id) { i, parte in
                 let inizio = parti.prefix(i).reduce(0) { $0 + $1.valore } / totale
                 let fine = inizio + parte.valore / totale

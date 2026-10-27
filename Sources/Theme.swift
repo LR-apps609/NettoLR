@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 // I colori di NettoLR: prugna per ciò che resta a te (il colore dell'app nella famiglia LR),
-// blu per la pensione (INPS), grigio per le tasse. Ogni colore ha la sua versione scura.
+// blu per la pensione (INPS), pesca per le tasse, menta per «pagato». Ogni colore ha la sua versione scura.
 // L'ottone resta il filo comune della famiglia LR: qui solo nei piccoli dettagli.
 
 enum Theme {
@@ -25,8 +25,17 @@ enum Theme {
     static let suNotte = Color(hex: 0xE9DFE6)
 
     static let pensione = Color(light: 0x3A64A0, dark: 0x7EA4DD)
-    static let tasse = Color(light: 0xB9AEB7, dark: 0x6B6475)
-    static let tasseTesto = Color(light: 0x6B6475, dark: 0xA79FB2)
+    static let tasse = Color(light: 0xE07A52, dark: 0xF2A07B)
+    static let tasseTesto = Color(light: 0xB4532F, dark: 0xF2A07B)
+    static let tasseSoft = Color(light: 0xFBE9E1, dark: 0x3A2219)
+    static let pensioneSoft = Color(light: 0xE6ECF6, dark: 0x1D2A40)
+    /// «Pagato», «giusto»
+    static let menta = Color(light: 0x23866A, dark: 0x7CD3B0)
+    static let mentaSoft = Color(light: 0xDDF1EA, dark: 0x16302A)
+    static let lilla = Color(light: 0x7A5BA6, dark: 0xB9A0E0)
+    static let lillaSoft = Color(light: 0xEDE6F6, dark: 0x2A2238)
+    /// I colori delle iniziali dei clienti, a rotazione
+    static let tavolozza: [(Color, Color)] = [(prugna, prugnaSoft), (pensione, pensioneSoft), (tasse, tasseSoft), (menta, mentaSoft), (lilla, lillaSoft)]
     static let avviso = Color(light: 0x9C3D2A, dark: 0xF09A85)
     static let avvisoSoft = Color(light: 0xF8E8E3, dark: 0x3A211B)
     static let brass = Color(light: 0xA97E3F, dark: 0xD6AA62)       // il filo della famiglia LR

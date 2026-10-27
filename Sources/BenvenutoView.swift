@@ -42,7 +42,7 @@ struct BenvenutoView: View {
             .foregroundStyle(.white)
             .padding(.horizontal, 24).padding(.bottom, 24)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Theme.notte.ignoresSafeArea())
+            .background(Aurora().opacity(0.8).ignoresSafeArea())
             .onAppear {
                 if menoMovimento { timbro = true } else { withAnimation(.spring(duration: 0.6, bounce: 0.4).delay(0.2)) { timbro = true } }
             }
@@ -77,6 +77,7 @@ struct DomandeProfilo: View {
     @State private var stipendio = ""
     @State private var nome = ""
     @State private var mostraGruppi = false
+    @State private var daScegliere: TrovatoAteco?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -136,28 +137,42 @@ struct DomandeProfilo: View {
             .padding(.horizontal, 14).frame(height: 52)
             .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
 
-            let risultati = ricerca.isEmpty ? Array(Ateco.attivita.filter { Self.popolari.contains($0.ateco2007) }) : Ateco.cerca(ricerca)
-            VStack(spacing: 8) {
-                ForEach(risultati) { a in
-                    Button { scegli(a) } label: {
-                        HStack {
-                            Text(Self.nomeSemplice(a)).font(.app(17, .semibold)).multilineTextAlignment(.leading)
-                            Spacer()
-                            if ateco == a.ateco2007 { Image(systemName: "checkmark.circle.fill").foregroundStyle(Theme.prugna) }
-                        }
-                        .padding(16)
-                        .background(ateco == a.ateco2007 ? Theme.prugnaSoft : Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            if ricerca.isEmpty {
+                Text("Per esempio").font(.app(14, .semibold)).foregroundStyle(Theme.muted)
+                FlowChips(voci: Ateco.attivita.filter { Self.popolari.contains($0.ateco2007) }.map(Ateco.nomeComune)) { ricerca = $0 }
+            }
+            if let scelto = daScegliere {
+                sceltaCodice2007(scelto)
+            } else {
+                VStack(spacing: 8) {
+                    ForEach(Ateco.cerca(ricerca)) { t in
+                        Button { scegli(t) } label: { voceTrovata(t) }
+                            .buttonStyle(Molla())
                     }
-                    .buttonStyle(.plain)
                 }
             }
+            if !ateco.isEmpty, let g = Ateco.gruppo(ateco2007: ateco) {
+                HStack(spacing: 10) {
+                    Image(systemName: "checkmark.seal.fill").font(.app(22)).foregroundStyle(Theme.menta)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(nomeLavoro) · ATECO \(ateco)").font(.app(15, .bold))
+                        Text("Conta come reddito il \(Int(g.coefficiente * 100))% di quello che incassi").font(.app(14)).foregroundStyle(Theme.muted)
+                    }
+                }
+                .padding(14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Theme.mentaSoft, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .transition(.scale(scale: 0.9).combined(with: .opacity))
+            }
+            Text("Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.")
+                .font(.app(13)).foregroundStyle(Theme.muted)
             Button(mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro") { withAnimation { mostraGruppi.toggle() } }
                 .font(.app(16, .semibold))
             if mostraGruppi {
                 VStack(spacing: 8) {
                     ForEach(Ateco.gruppi) { g in
                         Button {
-                            ateco = Self.codiceRappresentativo[g.id] ?? "74.90.99"
+                            imposta(Self.codiceRappresentativo[g.id] ?? "74.90.99")
                             nomeLavoro = g.nome
                         } label: {
                             Text(g.nome).font(.app(15)).multilineTextAlignment(.leading)
@@ -263,10 +278,67 @@ struct DomandeProfilo: View {
 
     // MARK: Logica
 
-    private func scegli(_ a: Attivita) {
-        ateco = a.ateco2007
-        nomeLavoro = Self.nomeSemplice(a)
-        gestione = a.gestioneTipica
+    private func scegli(_ t: TrovatoAteco) {
+        if t.ambiguo {
+            withAnimation(.spring) { daScegliere = t }
+            return
+        }
+        if let c = t.codici2007.first { imposta(c) }
+    }
+
+    private func imposta(_ codice2007: String) {
+        withAnimation(.spring(duration: 0.4, bounce: 0.3)) {
+            ateco = codice2007
+            nomeLavoro = Ateco.nomeLavoro(codice2007)
+            daScegliere = nil
+        }
+        if let a = Ateco.attivita.first(where: { $0.ateco2007 == codice2007 }) { gestione = a.gestioneTipica }
+    }
+
+    private func voceTrovata(_ t: TrovatoAteco) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(t.nomeComune ?? t.titolo).font(.app(16, .semibold)).multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text("\(t.versione.rawValue) \(t.codice)" + (t.nomeComune != nil ? " · \(t.titolo)" : ""))
+                    .font(.app(12)).foregroundStyle(Theme.muted).lineLimit(2)
+            }
+            Spacer(minLength: 4)
+            Text(t.percentuale)
+                .font(.app(14, .heavy))
+                .padding(.horizontal, 10).padding(.vertical, 6)
+                .foregroundStyle(t.ambiguo ? Theme.tasseTesto : Theme.prugna)
+                .background(t.ambiguo ? Theme.tasseSoft : Theme.prugnaSoft, in: Capsule())
+        }
+        .padding(14)
+        .background(t.codici2007.first == ateco && !t.ambiguo ? Theme.prugnaSoft : Theme.card,
+                    in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    /// Un codice 2025 che corrisponde a più codici 2007 con percentuali diverse: si sceglie quale
+    private func sceltaCodice2007(_ t: TrovatoAteco) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Il codice \(t.codice) del 2025 corrisponde a più attività di prima. Quale fai?")
+                .font(.app(16, .bold)).fixedSize(horizontal: false, vertical: true)
+            ForEach(t.codici2007, id: \.self) { c in
+                Button { imposta(c) } label: {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(Ateco.titolo2007(c) ?? c).font(.app(15, .semibold)).multilineTextAlignment(.leading)
+                            Text("ATECO 2007 \(c)").font(.app(12)).foregroundStyle(Theme.muted)
+                        }
+                        Spacer()
+                        Text("\(Int((Ateco.gruppo(ateco2007: c)?.coefficiente ?? 0) * 100))%").font(.app(14, .heavy)).foregroundStyle(Theme.prugna)
+                    }
+                    .padding(12)
+                    .background(Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
+                .buttonStyle(Molla())
+            }
+            Button("Annulla") { withAnimation { daScegliere = nil } }.font(.app(15, .semibold))
+        }
+        .padding(14)
+        .background(Theme.tasseSoft, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 
     private func avanti() {
@@ -292,7 +364,7 @@ struct DomandeProfilo: View {
     private func riempi() {
         guard let p = iniziale else { return }
         ateco = p.ateco
-        nomeLavoro = Ateco.attivita.first { $0.ateco2007 == p.ateco }.map(Self.nomeSemplice) ?? ""
+        nomeLavoro = Ateco.nomeLavoro(p.ateco)
         annoApertura = p.annoApertura
         primaVolta = p.requisitiStartup
         gestione = p.gestione
@@ -304,12 +376,6 @@ struct DomandeProfilo: View {
         nome = p.nome
     }
 
-    /// Il primo sinonimo, con la maiuscola: «Web designer» invece della descrizione ISTAT
-    static func nomeSemplice(_ a: Attivita) -> String {
-        guard let s = a.sinonimi.first else { return a.descrizione }
-        return s.prefix(1).uppercased() + s.dropFirst()
-    }
-
     static let popolari: Set<String> = ["74.10.21", "62.01.00", "73.11.02", "74.20.19", "85.59.90", "96.02.01", "47.91.10", "86.90.29"]
 
     /// Un codice per gruppo, quando la persona sceglie il gruppo invece del lavoro
@@ -317,4 +383,31 @@ struct DomandeProfilo: View {
         "alimentari": "10.71.20", "commercio": "47.91.10", "ambulante-alimentari": "47.81.01", "ambulante-altri": "47.82.01",
         "costruzioni": "43.39.01", "intermediari": "46.19.01", "alloggio": "56.10.11", "professionali": "74.90.99", "altre": "82.99.99",
     ]
+}
+
+/// Etichette che vanno a capo da sole, toccabili
+struct FlowChips: View {
+    let voci: [String]
+    let tocca: (String) -> Void
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            riga(voci)
+            VStack(alignment: .leading, spacing: 8) {
+                riga(Array(voci.prefix((voci.count + 1) / 2)))
+                riga(Array(voci.dropFirst((voci.count + 1) / 2)))
+            }
+        }
+    }
+    private func riga(_ v: [String]) -> some View {
+        HStack(spacing: 8) {
+            ForEach(v, id: \.self) { voce in
+                Button(voce) { tocca(voce) }
+                    .font(.app(14, .semibold))
+                    .padding(.horizontal, 12).padding(.vertical, 8)
+                    .foregroundStyle(Theme.prugna)
+                    .background(Theme.prugnaSoft, in: Capsule())
+                    .buttonStyle(Molla())
+            }
+        }
+    }
 }

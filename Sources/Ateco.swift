@@ -106,31 +106,127 @@ enum Ateco {
         Attivita(ateco2007: "49.32.10", descrizione: "Trasporto con taxi", sinonimi: ["tassista", "taxi", "ncc"], gestioneTipica: .artigiani),
     ]
 
-    private static func normalizza(_ s: String) -> String {
+    static func normalizza(_ s: String) -> String {
         s.lowercased().folding(options: [.diacriticInsensitive], locale: Formato.it)
             .replacingOccurrences(of: "’", with: " ")
             .replacingOccurrences(of: "'", with: " ")
     }
 
-    /// Cerca per codice ("62.01", "6201") o per parole ("faccio siti web")
-    static func cerca(_ testo: String, max: Int = 8) -> [Attivita] {
+    // MARK: - Tutti i codici ISTAT (Resources/Rules/ateco.json, costruito da Tools/build_ateco.py)
+
+    private struct Riga2025: Decodable {
+        let codice: String, titolo: String, codici2007: [String]
+        init(from decoder: Decoder) throws {
+            var c = try decoder.unkeyedContainer()
+            codice = try c.decode(String.self)
+            titolo = try c.decode(String.self)
+            codici2007 = try c.decode([String].self)
+        }
+    }
+
+    private struct File: Decodable {
+        let a2007: [[String]]
+        let a2025: [Riga2025]
+    }
+
+    /// Ogni voce con il suo testo già pronto per la ricerca
+    private static let elenco: [(voce: TrovatoAteco, testo: String)] = {
+        let bundle = Bundle(for: SegnaBundle.self)
+        guard let url = bundle.url(forResource: "ateco", withExtension: "json", subdirectory: "Rules")
+                ?? bundle.url(forResource: "ateco", withExtension: "json"),
+              let dati = try? Data(contentsOf: url),
+              let file = try? JSONDecoder().decode(File.self, from: dati) else { return [] }
+        let comuni = Dictionary(Ateco.attivita.map { ($0.ateco2007, $0) }, uniquingKeysWith: { a, _ in a })
+        var out: [(TrovatoAteco, String)] = []
+        for r in file.a2007 where r.count >= 2 {
+            let a = comuni[r[0]]
+            let voce = TrovatoAteco(codice: r[0], titolo: r[1], versione: .v2007, codici2007: [r[0]],
+                                    nomeComune: a.map(Ateco.nomeComune))
+            out.append((voce, Ateco.normalizza(([r[1]] + (a?.sinonimi ?? [])).joined(separator: " "))))
+        }
+        for r in file.a2025 {
+            let voce = TrovatoAteco(codice: r.codice, titolo: r.titolo, versione: .v2025, codici2007: r.codici2007, nomeComune: nil)
+            out.append((voce, Ateco.normalizza(r.titolo)))
+        }
+        return out
+    }()
+
+    static var numeroCodici: Int { elenco.count }
+
+    /// Il titolo ISTAT di un codice ATECO 2007
+    static func titolo2007(_ codice: String) -> String? {
+        elenco.first { $0.voce.versione == .v2007 && $0.voce.codice == codice }?.voce.titolo
+    }
+
+    /// Il nome che usa la gente («Web designer») se c'è, altrimenti il titolo ISTAT
+    static func nomeLavoro(_ codice2007: String) -> String {
+        if let a = attivita.first(where: { $0.ateco2007 == codice2007 }) { return nomeComune(a) }
+        return titolo2007(codice2007) ?? codice2007
+    }
+
+    static func nomeComune(_ a: Attivita) -> String {
+        guard let s = a.sinonimi.first else { return a.descrizione }
+        return s.prefix(1).uppercased() + s.dropFirst()
+    }
+
+    /// Cerca tra tutti i codici ATECO 2007 e 2025: per codice («62.01», «6201») o per parole («faccio siti web»)
+    static func cerca(_ testo: String, max: Int = 12) -> [TrovatoAteco] {
         let q = normalizza(testo.trimmingCharacters(in: .whitespaces))
         guard !q.isEmpty else { return [] }
         let numeri = cifre(q)
         if numeri.count >= 2, q.allSatisfy({ $0.isNumber || $0 == "." || $0 == " " }) {
-            return Array(attivita.filter { cifre($0.ateco2007).hasPrefix(numeri) }.prefix(max))
+            let trovati = elenco.filter { cifre($0.voce.codice).hasPrefix(numeri) }.map(\.voce)
+            // Prima i codici esatti, poi il 2007 (decide la percentuale), poi il 2025
+            return Array(trovati.sorted { a, b in
+                let ea = cifre(a.codice) == numeri, eb = cifre(b.codice) == numeri
+                if ea != eb { return ea }
+                if a.versione != b.versione { return a.versione == .v2007 }
+                return a.codice < b.codice
+            }.prefix(max))
         }
         let parole = q.split(separator: " ").map(String.init).filter { $0.count > 2 }
-        func punteggio(_ a: Attivita) -> Int {
-            let testo = normalizza(([a.descrizione] + a.sinonimi).joined(separator: " "))
-            let base = parole.reduce(0) { $0 + (testo.contains($1) ? 1 : 0) }
-            return base + (a.sinonimi.contains { q.contains(normalizza($0)) } ? 2 : 0)
+        guard !parole.isEmpty else { return [] }
+        let punteggi: [(TrovatoAteco, Int)] = elenco.compactMap { e in
+            let colpite = parole.filter { e.testo.contains($0) }.count
+            guard colpite > 0 else { return nil }
+            var punti = colpite * 10
+            if colpite == parole.count { punti += 20 }
+            if e.voce.nomeComune != nil { punti += 5 }
+            if let comune = attivita.first(where: { $0.ateco2007 == e.voce.codice }),
+               comune.sinonimi.contains(where: { q.contains(normalizza($0)) }) { punti += 40 }
+            if e.voce.versione == .v2007 { punti += 1 }
+            return (e.voce, punti)
         }
-        return attivita
-            .map { ($0, punteggio($0)) }
-            .filter { $0.1 > 0 }
-            .sorted { $0.1 > $1.1 }
-            .prefix(max)
-            .map(\.0)
+        return Array(punteggi.sorted { $0.1 > $1.1 }.prefix(max).map(\.0))
+    }
+}
+
+/// Un codice ATECO trovato nella ricerca, 2007 o 2025
+struct TrovatoAteco: Identifiable, Equatable {
+    enum Versione: String { case v2007 = "ATECO 2007", v2025 = "ATECO 2025" }
+    var id: String { versione.rawValue + codice }
+    let codice: String
+    let titolo: String
+    let versione: Versione
+    /// I codici 2007 corrispondenti (per un codice 2007: sé stesso)
+    let codici2007: [String]
+    /// Il nome che usa la gente, se è tra i lavori più comuni
+    let nomeComune: String?
+
+    /// I gruppi di coefficiente toccati: più di uno = bisogna scegliere il codice 2007
+    var gruppi: [GruppoCoefficiente] {
+        var visti: [GruppoCoefficiente] = []
+        for c in codici2007 {
+            if let g = Ateco.gruppo(ateco2007: c), !visti.contains(g) { visti.append(g) }
+        }
+        return visti
+    }
+
+    var ambiguo: Bool { gruppi.count > 1 }
+
+    var percentuale: String {
+        let valori = gruppi.map { Int(($0.coefficiente * 100).rounded()) }
+        guard let minimo = valori.min(), let massimo = valori.max() else { return "?" }
+        return minimo == massimo ? "\(minimo)%" : "\(minimo)–\(massimo)%"
     }
 }

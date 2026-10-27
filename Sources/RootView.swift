@@ -33,11 +33,14 @@ struct RootView: View {
         // Il timbro e la vibrazione quando segni un incasso
         .overlay {
             if store.ultimoIncasso > 0 {
-                TimbroAnimato()
+                ZStack {
+                    Coriandoli().ignoresSafeArea()
+                    TimbroAnimato()
+                }
                     .id(store.ultimoIncasso)
                     .transition(.opacity)
                     .task(id: store.ultimoIncasso) {
-                        try? await Task.sleep(for: .seconds(0.9))
+                        try? await Task.sleep(for: .seconds(1.5))
                         withAnimation(.easeOut(duration: 0.3)) { timbroVisibile = false }
                     }
                     .opacity(timbroVisibile ? 1 : 0)

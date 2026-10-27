@@ -32,6 +32,7 @@ struct ProvaView: View {
                             Text("te ne restano").font(.app(16)).foregroundStyle(Theme.muted)
                             Text(Formato.euroTondo(s.nettoExtra)).font(.cifra(52)).foregroundStyle(Theme.prugna)
                                 .contentTransition(.numericText(value: s.nettoExtra))
+                                .scaleEffect(1 + min(extra, 20_000) / 200_000, anchor: .leading)
                             GeometryReader { geo in
                                 let pensione = dopo.contributi - prima.contributi
                                 let tot = max(extra, 1)
@@ -58,9 +59,9 @@ struct ProvaView: View {
                         .scheda(padding: 22)
                         .animation(.easeOut(duration: 0.2), value: extra)
 
-                        voce(.conviene, "Mi conviene il forfettario?", "scalemass")
-                        voce(.obiettivo, "Quanto devo fatturare?", "target")
-                        voce(.dipendente, "E se fossi dipendente?", "briefcase")
+                        voce(.conviene, "Mi conviene il forfettario?", "scalemass.fill", Theme.prugna, Theme.prugnaSoft).entrata(1)
+                        voce(.obiettivo, "Quanto devo fatturare?", "target", Theme.tasseTesto, Theme.tasseSoft).entrata(2)
+                        voce(.dipendente, "E se fossi dipendente?", "briefcase.fill", Theme.pensione, Theme.pensioneSoft).entrata(3)
                     }
                     .padding(.horizontal, 20).padding(.vertical, 12)
                 }
@@ -77,19 +78,20 @@ struct ProvaView: View {
         }
     }
 
-    private func voce(_ d: Domanda, _ testo: String, _ icona: String) -> some View {
+    private func voce(_ d: Domanda, _ testo: String, _ icona: String, _ colore: Color, _ fondo: Color) -> some View {
         Button { domanda = d } label: {
             HStack(spacing: 14) {
-                Image(systemName: icona).font(.system(size: 20, weight: .semibold)).foregroundStyle(Theme.prugna)
-                    .frame(width: 44, height: 44)
-                    .background(Theme.prugnaSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                Text(testo).font(.app(17, .semibold))
+                Image(systemName: icona).font(.system(size: 20, weight: .semibold)).foregroundStyle(.white)
+                    .frame(width: 46, height: 46)
+                    .background(colore, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                Text(testo).font(.app(17, .bold)).foregroundStyle(Theme.ink)
                 Spacer()
-                Image(systemName: "chevron.right").foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").foregroundStyle(colore)
             }
-            .scheda(padding: 14)
+            .padding(14)
+            .background(fondo, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
         }
-        .buttonStyle(.plain)
+        .buttonStyle(Molla())
         .accessibilityIdentifier("prova.\(d.rawValue)")
     }
 }

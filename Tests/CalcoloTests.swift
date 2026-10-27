@@ -131,9 +131,21 @@ final class CalcoloTests: XCTestCase {
     }
 
     func testRicerca() {
-        XCTAssertEqual(Ateco.cerca("parrucchiera").first?.ateco2007, "96.02.01")
-        XCTAssertEqual(Ateco.cerca("62.01").first?.ateco2007, "62.01.00")
-        XCTAssertEqual(Ateco.cerca("faccio il web designer").first?.ateco2007, "74.10.21")
+        XCTAssertGreaterThan(Ateco.numeroCodici, 2_400)
+        XCTAssertEqual(Ateco.cerca("parrucchiera").first?.codice, "96.02.01")
+        XCTAssertEqual(Ateco.cerca("62.01").first?.codice, "62.01.00")
+        XCTAssertEqual(Ateco.cerca("faccio il web designer").first?.codice, "74.10.21")
+        // Un codice ATECO 2025 con un solo corrispondente 2007
+        let grafica = Ateco.cerca("74.12.01").first
+        XCTAssertEqual(grafica?.versione, .v2025)
+        XCTAssertEqual(grafica?.codici2007, ["74.10.21"])
+        XCTAssertEqual(grafica?.percentuale, "78%")
+        // Un codice 2025 che corrisponde a più codici 2007 con percentuali diverse
+        let ambiguo = Ateco.cerca("47.91.10").first { $0.versione == .v2025 }
+        XCTAssertEqual(ambiguo?.ambiguo, true)
+        // Un codice qualunque, fuori dai lavori più comuni
+        XCTAssertEqual(Ateco.cerca("01.11.10").first?.percentuale, "67%")
+        XCTAssertEqual(Ateco.titolo2007("62.01.00"), "Produzione di software non connesso all'edizione")
     }
 
     func testPartitaIVA() {

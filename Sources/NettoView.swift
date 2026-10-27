@@ -1,6 +1,7 @@
+import Charts
 import SwiftUI
 
-// La prima scheda: quanto ti resta, dove vanno i soldi, cosa mettere da parte. Niente altro.
+// La prima scheda: quanto ti resta (l'anello si tocca), cosa mettere da parte, l'anno mese per mese.
 
 struct NettoView: View {
     @EnvironmentObject private var store: Store
@@ -12,35 +13,20 @@ struct NettoView: View {
         NavigationStack {
             ScrollView {
                 if let p = store.profilo, let res = store.risultato {
-                    VStack(spacing: 18) {
-                        HStack {
-                            NomeApp()
-                            Spacer()
-                            Button { vaiA(.tu) } label: {
-                                Text(String(p.nome.prefix(1)).uppercased().isEmpty ? "Tu" : String(p.nome.prefix(1)).uppercased())
-                                    .font(.app(17, .bold)).foregroundStyle(Theme.prugna)
-                                    .frame(width: 44, height: 44)
-                                    .background(Theme.prugnaSoft, in: Circle())
-                            }
-                            .accessibilityLabel("Il tuo profilo")
+                    VStack(spacing: 16) {
+                        intestazione(p).entrata(0)
+                        AnelloNetto(res: res, anno: store.anno).entrata(1)
+                        ForEach(Array((Calcolo.avvisi(p, ricaviAnno: res.ricavi) + [Calcolo.avvisoFineStartup(p)].compactMap { $0 }).enumerated()), id: \.offset) { i, a in
+                            Avviso(testo: a).entrata(2 + i)
                         }
-
-                        anello(res)
-
-                        ForEach(Calcolo.avvisi(p, ricaviAnno: res.ricavi), id: \.self) { Avviso(testo: $0) }
-                        if let a = Calcolo.avvisoFineStartup(p) { Avviso(testo: a) }
-
-                        daMettereDaParte(res)
-
-                        Button { capire = true } label: {
-                            riga(icona: "sparkles", testo: "Capire in 1 minuto")
+                        daMettereDaParte(res).entrata(3)
+                        GraficoMesi(mesi: store.incassiPerMese).entrata(4)
+                        HStack(spacing: 12) {
+                            tessera("Capire in 1 minuto", "sparkles", Theme.lilla, Theme.lillaSoft) { capire = true }
+                            tessera("Come lo calcolo?", "function", Theme.pensione, Theme.pensioneSoft) { calcolo = true }
+                                .accessibilityIdentifier("netto.calcolo")
                         }
-                        .buttonStyle(.plain)
-                        Button { calcolo = true } label: {
-                            riga(icona: "questionmark.circle", testo: "Come lo calcolo?")
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityIdentifier("netto.calcolo")
+                        .entrata(5)
                     }
                     .padding(.horizontal, 20).padding(.vertical, 12)
                 }
@@ -52,73 +38,205 @@ struct NettoView: View {
         }
     }
 
-    private func anello(_ res: RisultatoForfettario) -> some View {
-        VStack(spacing: 10) {
-            ZStack {
-                Anello(parti: [
-                    .init(valore: max(res.netto, 0), colore: Theme.prugna),
-                    .init(valore: res.contributi, colore: Theme.pensione),
-                    .init(valore: res.imposta + res.bolli, colore: Theme.tasse),
-                ])
-                VStack(spacing: 2) {
-                    Text("sono tuoi").font(.app(15)).foregroundStyle(Theme.muted)
-                    NumeroCheConta(valore: res.netto, dimensione: 38)
-                    Text("nel \(String(store.anno))").font(.app(15)).foregroundStyle(Theme.muted)
-                }
-                .padding(.horizontal, 40)
+    private func intestazione(_ p: Profilo) -> some View {
+        HStack(alignment: .center) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(Date().formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Formato.it)).capitalized)
+                    .font(.app(14, .semibold)).foregroundStyle(Theme.muted)
+                Text(p.nome.isEmpty ? "Ciao!" : "Ciao \(p.nome)!")
+                    .font(.system(size: 30, weight: .heavy, design: .rounded))
             }
-            .frame(width: 250, height: 250)
-            .accessibilityElement(children: .combine)
-
-            HStack(spacing: 8) {
-                Pillola(colore: Theme.prugna, testo: "Tuoi")
-                Pillola(colore: Theme.pensione, testo: "Pensione \(Formato.euroTondo(res.contributi))")
-                Pillola(colore: Theme.tasse, testo: "Tasse \(Formato.euroTondo(res.imposta + res.bolli))")
+            Spacer()
+            Button { vaiA(.tu) } label: {
+                Marca().frame(width: 40, height: 40)
+                    .padding(6)
+                    .background(Theme.notte, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
             }
-            .minimumScaleFactor(0.8)
-            if res.ricavi == 0 {
-                Text("Aggiungi il primo incasso per vedere il tuo anno.").font(.app(15)).foregroundStyle(Theme.muted)
-            }
+            .buttonStyle(Molla())
+            .accessibilityLabel("Il tuo profilo")
         }
     }
 
-    @ViewBuilder
     private func daMettereDaParte(_ res: RisultatoForfettario) -> some View {
         Button { vaiA(.pagamenti) } label: {
             HStack(spacing: 16) {
-                Image(systemName: "banknote")
-                    .font(.system(size: 24, weight: .semibold))
-                    .frame(width: 52, height: 52)
-                    .background(Theme.prugna, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .foregroundStyle(.white)
+                Salvadanaio(riempimento: riempimento)
+                    .frame(width: 58, height: 58)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Metti da parte").font(.app(14, .semibold)).foregroundStyle(Theme.rosaChiaro)
+                    Text("Metti da parte").font(.app(14, .bold)).foregroundStyle(Theme.tasseTesto)
                     if let prossimo = store.prossimoPagamento {
-                        Text(Formato.euroTondo(prossimo.importo)).font(.cifra(26))
+                        Text(Formato.euroTondo(prossimo.importo)).font(.cifra(28)).foregroundStyle(Theme.ink)
                         Text("entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
-                            .font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                            .font(.app(14)).foregroundStyle(Theme.muted)
                     } else {
-                        Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(26))
-                        Text("per tasse e pensione di quest'anno").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                        Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
+                        Text("per tasse e pensione di quest'anno").font(.app(14)).foregroundStyle(Theme.muted)
                     }
                 }
                 Spacer()
-                Image(systemName: "chevron.right").foregroundStyle(Theme.suNotte.opacity(0.6))
+                Image(systemName: "chevron.right").foregroundStyle(Theme.tasseTesto)
             }
-            .riquadroNotte()
+            .padding(18)
+            .background(Theme.tasseSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
         }
-        .buttonStyle(.plain)
+        .buttonStyle(Molla())
     }
 
-    private func riga(icona: String, testo: String) -> some View {
-        HStack(spacing: 12) {
-            Image(systemName: icona).font(.app(20)).foregroundStyle(Theme.prugna)
-            Text(testo).font(.app(16, .semibold))
-            Spacer()
-            Image(systemName: "chevron.right").foregroundStyle(Theme.muted)
-        }
-        .scheda(padding: 16)
+    /// Quanto manca al prossimo pagamento: il salvadanaio si riempie man mano che la data si avvicina
+    private var riempimento: Double {
+        guard let prossimo = store.prossimoPagamento else { return 0.5 }
+        let giorni = Calendar.current.dateComponents([.day], from: Date(), to: prossimo.data).day ?? 0
+        return max(0.1, min(1, 1 - Double(giorni) / 120))
     }
+
+    private func tessera(_ testo: String, _ icona: String, _ colore: Color, _ fondo: Color, azione: @escaping () -> Void) -> some View {
+        Button(action: azione) {
+            VStack(alignment: .leading, spacing: 18) {
+                Image(systemName: icona).font(.system(size: 22, weight: .bold)).foregroundStyle(colore)
+                Text(testo).font(.app(16, .bold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+            }
+            .frame(maxWidth: .infinity, minHeight: 104, alignment: .topLeading)
+            .padding(16)
+            .background(fondo, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+        }
+        .buttonStyle(Molla())
+    }
+}
+
+/// L'anello del netto su fondo che si muove. Si tocca: mostra a turno la parte tua, la pensione, le tasse.
+struct AnelloNetto: View {
+    let res: RisultatoForfettario
+    let anno: Int
+    @State private var scelta = 0
+
+    var body: some View {
+        let parti: [(String, Double, Color)] = [
+            ("sono tuoi", max(res.netto, 0), Theme.rosaChiaro),
+            ("vanno alla pensione", res.contributi, Color(hex: 0x7EA4DD)),
+            ("sono tasse", res.imposta + res.bolli, Color(hex: 0xF2A07B)),
+        ]
+        let scelto = parti[scelta]
+        VStack(spacing: 14) {
+            Button {
+                withAnimation(.spring(duration: 0.4, bounce: 0.3)) { scelta = (scelta + 1) % parti.count }
+            } label: {
+                ZStack {
+                    Anello(parti: parti.enumerated().map { i, p in
+                        .init(valore: p.1, colore: i == scelta ? p.2 : p.2.opacity(0.45))
+                    }, spessore: 24, fondo: Color.white.opacity(0.12))
+                    VStack(spacing: 2) {
+                        Text(scelto.0).font(.app(15, .semibold)).foregroundStyle(scelto.2)
+                            .contentTransition(.opacity)
+                        NumeroCheConta(valore: scelto.1, dimensione: 36, colore: .white)
+                        Text("nel \(String(anno))").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.7))
+                    }
+                    .padding(.horizontal, 40)
+                }
+                .frame(width: 240, height: 240)
+            }
+            .buttonStyle(Molla())
+            .sensoryFeedback(.selection, trigger: scelta)
+            .accessibilityLabel("\(scelto.0): \(Formato.euroTondo(scelto.1)). Tocca per cambiare.")
+
+            HStack(spacing: 8) {
+                ForEach(Array(parti.enumerated()), id: \.offset) { i, p in
+                    Button {
+                        withAnimation(.spring(duration: 0.4, bounce: 0.3)) { scelta = i }
+                    } label: {
+                        HStack(spacing: 6) {
+                            Circle().fill(p.2).frame(width: 9, height: 9)
+                            Text(["Tuoi", "Pensione", "Tasse"][i]).font(.app(14, .semibold))
+                        }
+                        .padding(.horizontal, 12).padding(.vertical, 8)
+                        .foregroundStyle(i == scelta ? Theme.notte : .white)
+                        .background(i == scelta ? p.2 : Color.white.opacity(0.1), in: Capsule())
+                    }
+                    .buttonStyle(Molla())
+                }
+            }
+            if res.ricavi == 0 {
+                Text("Aggiungi il primo incasso per vedere il tuo anno.").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+            } else {
+                Text("su \(Formato.euroTondo(res.ricavi)) incassati · tocca l'anello").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.7))
+            }
+        }
+        .padding(.vertical, 22)
+        .frame(maxWidth: .infinity)
+        .background { Aurora() }
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+    }
+}
+
+/// Il salvadanaio che si riempie
+struct Salvadanaio: View {
+    let riempimento: Double
+    @State private var livello = 0.0
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Theme.card)
+            RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Theme.tasse.opacity(0.85))
+                .frame(height: 58 * livello)
+            Image(systemName: "eurosign")
+                .font(.system(size: 24, weight: .heavy, design: .rounded))
+                .foregroundStyle(livello > 0.5 ? .white : Theme.tasseTesto)
+                .frame(maxHeight: .infinity)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .onAppear { withAnimation(.spring(duration: 1.2, bounce: 0.3).delay(0.3)) { livello = riempimento } }
+        .accessibilityHidden(true)
+    }
+}
+
+/// L'anno mese per mese: quanto hai incassato. Tocca un mese per vedere la cifra.
+struct GraficoMesi: View {
+    let mesi: [(mese: Int, totale: Double)]
+    @State private var cresciuto = false
+    @State private var selezione: Int?
+
+    var body: some View {
+        let massimo = mesi.map(\.totale).max() ?? 0
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text("Il tuo anno").font(.app(17, .bold))
+                Spacer()
+                if let m = selezione, let v = mesi.first(where: { $0.mese == m }) {
+                    Text("\(Self.nome(m)): \(Formato.euroTondo(v.totale))").font(.app(14, .semibold)).foregroundStyle(Theme.prugna)
+                }
+            }
+            if massimo == 0 {
+                Text("Qui vedrai i tuoi incassi, mese per mese.").font(.app(14)).foregroundStyle(Theme.muted)
+            } else {
+                Chart(mesi, id: \.mese) { m in
+                    BarMark(x: .value("Mese", Self.nome(m.mese)), y: .value("Incassato", cresciuto ? m.totale : 0))
+                        .foregroundStyle(m.mese == selezione ? Theme.tasse : Theme.prugna)
+                        .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                }
+                .chartYAxis(.hidden)
+                .chartXAxis {
+                    AxisMarks { _ in AxisValueLabel().font(.app(10)).foregroundStyle(Theme.muted) }
+                }
+                .chartYScale(domain: 0...(massimo * 1.1))
+                .chartOverlay { proxy in
+                    GeometryReader { _ in
+                        Rectangle().fill(.clear).contentShape(Rectangle())
+                            .onTapGesture { punto in
+                                if let nome: String = proxy.value(atX: punto.x), let i = Self.nomi.firstIndex(of: nome) {
+                                    withAnimation(.snappy) { selezione = selezione == i + 1 ? nil : i + 1 }
+                                }
+                            }
+                    }
+                }
+                .frame(height: 130)
+                .sensoryFeedback(.selection, trigger: selezione)
+            }
+        }
+        .scheda()
+        .onAppear { withAnimation(.spring(duration: 0.9, bounce: 0.2).delay(0.4)) { cresciuto = true } }
+    }
+
+    static let nomi = ["G", "F", "M", "A", "M ", "G ", "L", "A ", "S", "O", "N", "D"]
+    static func nome(_ mese: Int) -> String { nomi[max(0, min(11, mese - 1))] }
 }
 
 /// I dettagli per chi li vuole: il calcolo riga per riga, con le fonti ufficiali

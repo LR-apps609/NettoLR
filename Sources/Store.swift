@@ -54,6 +54,18 @@ final class Store: ObservableObject {
                                    fattureConBollo: r.fattureConBollo)
     }
 
+    /// Incassato in ogni mese dell'anno (1…12)
+    var incassiPerMese: [(mese: Int, totale: Double)] {
+        (1...12).map { m in
+            let tot = fatture.filter { f in
+                guard f.incassata else { return false }
+                let d = f.dataIncasso ?? f.data
+                return Giorno.anno(d) == anno && Giorno.calendario.component(.month, from: d) == m
+            }.reduce(0) { $0 + $1.importo }
+            return (m, arrotonda(tot))
+        }
+    }
+
     var pagamenti: [Pagamento] {
         guard let profilo else { return [] }
         return Pagamenti.anno2026(profilo, precedente: annoPrecedente)

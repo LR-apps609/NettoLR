@@ -1,3 +1,13 @@
+Novità della 0.2.0 (più carattere, tutti i codici ATECO):
+• Tutti i codici ATECO ufficiali ISTAT: 1.241 del 2007 e 1.290 del 2025, cercabili per parole o per codice, con la percentuale accanto
+• Se un codice 2025 corrisponde a più attività di prima con percentuali diverse, l'app ti chiede quale fai
+• Partita IVA: pulsante «Conferma» e messaggio «Il codice P.IVA è corretto / sbagliato», con vibrazione e scossa se è sbagliato
+• Netto: saluto, anello su sfondo che si muove, si tocca per vedere a turno tuoi, pensione e tasse
+• Il salvadanaio «Metti da parte» che si riempie, il grafico del tuo anno mese per mese (si tocca)
+• Coriandoli insieme al timbro quando segni un incasso
+• Più colori: pesca per le tasse, menta per «pagato», iniziali colorate dei clienti, una tinta per ogni domanda di «Prova»
+• Le schede entrano una dopo l'altra, i pulsanti rispondono al dito
+
 Novità della 0.1.0 (prima versione SwiftUI):
 • Cinque schede: Netto, Incassi, Prova, Pagamenti, Tu
 • Benvenuto con la marca da bollo e quattro domande facili

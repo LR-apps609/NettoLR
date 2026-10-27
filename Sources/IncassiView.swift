@@ -19,13 +19,18 @@ struct IncassiView: View {
                         Text("ricevuti nel \(String(store.anno))").font(.app(16)).foregroundStyle(Theme.muted)
                     }
 
-                    Button { nuovo = true } label: { Label("Aggiungi un incasso", systemImage: "plus") }
+                    Button { nuovo = true } label: {
+                        Label("Aggiungi un incasso", systemImage: "plus.circle.fill")
+                            .symbolEffect(.bounce, value: store.fatture.count)
+                    }
                         .buttonStyle(PulsantePieno())
                         .accessibilityIdentifier("incassi.aggiungi")
 
                     if let messaggio { Avviso(testo: messaggio) }
 
-                    ForEach(store.fatture.filter { !$0.incassata }) { f in inAttesa(f) }
+                    ForEach(store.fatture.filter { !$0.incassata }) { f in
+                        inAttesa(f).transition(.asymmetric(insertion: .scale.combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))
+                    }
 
                     let pagate = store.fatture.filter(\.incassata)
                     if pagate.isEmpty && store.fatture.isEmpty {
@@ -38,7 +43,7 @@ struct IncassiView: View {
                         .frame(maxWidth: .infinity).padding(.vertical, 30)
                     }
                     VStack(spacing: 4) {
-                        ForEach(pagate) { f in pagata(f) }
+                        ForEach(Array(pagate.enumerated()), id: \.element.id) { i, f in pagata(f).entrata(min(i, 8)) }
                     }
 
                     Button("Importa dalle fatture elettroniche") { importa = true }
@@ -86,7 +91,10 @@ struct IncassiView: View {
                     .font(.app(14)).foregroundStyle(Theme.muted)
             }
             Spacer()
-            Text(Formato.euroTondo(f.importo)).font(.app(17, .bold)).monospacedDigit()
+            VStack(alignment: .trailing, spacing: 2) {
+                Text(Formato.euroTondo(f.importo)).font(.app(17, .bold)).monospacedDigit()
+                Label("pagata", systemImage: "checkmark").font(.app(11, .bold)).foregroundStyle(Theme.menta)
+            }
         }
         .padding(.vertical, 10).padding(.horizontal, 4)
         .contentShape(Rectangle())
@@ -97,11 +105,12 @@ struct IncassiView: View {
     }
 
     private func iniziale(_ nome: String, piena: Bool) -> some View {
-        Text(String(nome.prefix(1)).uppercased())
+        let (colore, fondo) = Theme.colori(per: nome)
+        return Text(String(nome.prefix(1)).uppercased())
             .font(.app(18, .heavy))
-            .foregroundStyle(Theme.prugna)
+            .foregroundStyle(piena ? Color.white : colore)
             .frame(width: 44, height: 44)
-            .background(piena ? Theme.card : Theme.prugnaSoft, in: Circle())
+            .background(piena ? colore : fondo, in: Circle())
     }
 
     private func leggi(_ esito: Result<[URL], Error>) {
