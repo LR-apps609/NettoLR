@@ -17,6 +17,10 @@ enum Gestione: String, Codable, CaseIterable, Identifiable {
 }
 
 struct Profilo: Codable, Equatable {
+    /// Solo per salutare: facoltativo
+    var nome: String = ""
+    /// Facoltativa; controllata con la cifra di controllo, mai inviata
+    var partitaIVA: String = ""
     /// Codice ATECO 2007, es. "62.01.00": per il 2026 il coefficiente si determina ancora da questo
     var ateco: String
     var annoApertura: Int
@@ -31,6 +35,9 @@ struct Profilo: Codable, Equatable {
     var cassaFisso: Double?
     /// Reddito da lavoro dipendente o pensione dell'anno precedente
     var redditoDipendente: Double?
+    /// Solo Gestione Separata: aggiunge il 4% INPS in fattura (rivalsa), pagato dal cliente
+    var rivalsa4: Bool = false
+    var promemoria: Bool = true
 }
 
 struct Fattura: Codable, Identifiable, Equatable {

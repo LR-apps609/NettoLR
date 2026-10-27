@@ -1,0 +1,9 @@
+Novità della 0.1.0 (prima versione SwiftUI):
+• Cinque schede: Netto, Incassi, Prova, Pagamenti, Tu
+• Benvenuto con la marca da bollo e quattro domande facili
+• Netto: l'anello che si disegna da solo, il netto che conta, «Metti da parte», «Come lo calcolo?» con le fonti
+• Incassi: aggiungi in un tocco, «Ti hanno pagato? Sì» con il timbro e la vibrazione, importa le fatture XML
+• Prova: il cursore «e se incassassi altri…», Mi conviene il forfettario?, Quanto devo fatturare (anche l'ora), E se fossi dipendente?
+• Pagamenti: conto alla rovescia, linea del tempo, dati per l'F24 da copiare
+• Tu: partita IVA controllata, lavoro, pensione, 4% INPS in fattura, promemoria
+• Capire in 1 minuto: tre passi con i tuoi numeri

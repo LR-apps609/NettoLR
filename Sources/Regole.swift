@@ -83,7 +83,7 @@ struct Regole: Codable {
         let addizionaliDefault: Voce<Double>
     }
 
-    func fonte<T>(_ voce: Voce<T>) -> Fonte { fonti[voce.fonte] ?? .sconosciuta }
+    func fonte<T: Codable>(_ voce: Voce<T>) -> Fonte { fonti[voce.fonte] ?? .sconosciuta }
 
     /// Le regole dell'anno in corso dell'app
     static let attuali: Regole = carica(anno: 2026)

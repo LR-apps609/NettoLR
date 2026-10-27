@@ -1,0 +1,98 @@
+# Compila NettoLR su un Mac di GitHub a ogni modifica, esegue i test del motore di calcolo
+# e fa il giro delle schermate nel simulatore. Le foto finiscono nel ramo «screenshots».
+name: Compila NettoLR
+
+on:
+  push:
+    paths-ignore: ["docs/**", "**.md"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write        # per pubblicare le foto dell'app nel ramo «screenshots»
+
+jobs:
+  build:
+    # Come per le altre app LR: il Mac Intel è quasi sempre disponibile
+    runs-on: macos-15-intel
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+
+      - name: XcodeGen
+        run: brew install xcodegen
+
+      - name: Progetto
+        run: xcodegen generate
+
+      - name: Compilazione (simulatore iPhone, senza firma)
+        run: |
+          status=0
+          xcodebuild -project NettoLR.xcodeproj -scheme NettoLR -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build > build.log 2>&1 || status=$?
+          grep -E "^/.*:[0-9]+:[0-9]+: (error|warning):" build.log | sort -u | head -n 40 | while IFS= read -r l; do
+            f=$(echo "$l" | cut -d: -f1); n=$(echo "$l" | cut -d: -f2); k=$(echo "$l" | cut -d: -f4 | tr -d ' '); m=$(echo "$l" | cut -d: -f5-)
+            echo "::$k file=${f#$GITHUB_WORKSPACE/},line=$n::$m"
+          done
+          grep -E "error:|BUILD (SUCCEEDED|FAILED)" build.log | sort -u | head -n 60 || true
+          grep -E "error:" build.log | grep -vE "^/.*:[0-9]+:[0-9]+: error:" | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          exit $status
+
+      - name: Test automatici (motore di calcolo)
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          echo "Simulatore: $SIM"
+          status=0
+          xcodebuild test -project NettoLR.xcodeproj -scheme NettoLRTests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-test \
+            CODE_SIGNING_ALLOWED=NO > test.log 2>&1 || status=$?
+          grep -E "error:|Test Case .*(passed|failed)|Executed|TEST (SUCCEEDED|FAILED)" test.log | sort -u | head -n 80 || true
+          grep -E "error:" test.log | sort -u | head -n 12 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          exit $status
+
+      - name: Foto dell'app (giro nel simulatore)
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          xcrun simctl boot "$SIM" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
+          status=0
+          xcodebuild test -project NettoLR.xcodeproj -scheme NettoLRUITests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
+          grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
+          grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          ls -la screenshots || true
+          exit $status
+
+      - name: Pubblica le foto nel ramo «screenshots»
+        if: always()
+        run: |
+          N=$(ls screenshots/*.png 2>/dev/null | wc -l | tr -d ' ')
+          echo "::notice::Foto dell'app: $N"
+          if [ "$N" -eq 0 ]; then echo "Nessuna foto da pubblicare"; exit 0; fi
+          cd screenshots
+          echo "Foto di $GITHUB_SHA dal ramo ${GITHUB_REF_NAME} ($(date -u +%Y-%m-%dT%H:%MZ))" > README.md
+          git init -q && git checkout -q -b screenshots && git add .
+          git -c user.name="NettoLR CI" -c user.email="ci@nettolr.invalid" commit -qm "Foto dell'app per $GITHUB_SHA"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3
+
+      - name: Registri
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registri
+          path: |
+            build.log
+            test.log
+            ui.log

@@ -1,0 +1,13 @@
+# Generati dalla compilazione
+build/
+build-test/
+build-ui/
+*.xcodeproj/
+build.log
+test.log
+ui.log
+screenshots/
+.DS_Store
+Sources/Info.plist
+__pycache__/
+xcuserdata/

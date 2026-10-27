@@ -75,7 +75,7 @@ enum Calcolo {
         let coefficiente = gruppo.coefficiente
         let ricavi = arrotonda(ricaviIn)
         let redditoLordo = arrotonda(ricavi * coefficiente)
-        let contributi = contributi(p, reddito: redditoLordo, forfettario: true, r: r).totale
+        let contributi = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r).totale
         let stimati = contributiVersati == nil
         let dedotti = arrotonda(min(redditoLordo, contributiVersati ?? contributi))
         let imponibile = arrotonda(max(0, redditoLordo - dedotti))
@@ -167,7 +167,7 @@ enum Calcolo {
         let ricavi = arrotonda(ricaviIn)
         let costi = arrotonda(costiIn)
         let reddito = arrotonda(max(0, ricavi - costi))
-        let contributi = contributi(p, reddito: reddito, forfettario: false, r: r).totale
+        let contributi = Self.contributi(p, reddito: reddito, forfettario: false, r: r).totale
         let imponibile = arrotonda(max(0, reddito - contributi))
         let irpef = arrotonda(max(0, irpefLorda(imponibile, r: r) - detrazioneLavoroAutonomo(imponibile)))
         let aliqAdd = addizionali ?? r.irpef.addizionaliDefault.valore
@@ -258,5 +258,64 @@ enum Calcolo {
             out.append("Inserisci l'aliquota della tua cassa professionale per un calcolo dei contributi corretto.")
         }
         return out
+    }
+
+    // MARK: - Funzioni della roadmap (fase 1)
+
+    /// Di un incasso, quanto mettere da parte per tasse e pensione (al margine, con gli incassi già fatti)
+    static func daMettereDaParte(_ p: Profilo, anno: Int, ricaviAttuali: Double, incasso: Double, r: Regole = .attuali) -> Double {
+        let s = seFatturoAncora(p, anno: anno, ricaviAttuali: ricaviAttuali, extra: incasso, r: r)
+        return arrotonda(incasso - s.nettoExtra)
+    }
+
+    /// Con la rivalsa INPS del 4% il cliente paga compenso × 1,04: tutto è ricavo
+    static func conRivalsa(_ compenso: Double) -> Double { arrotonda(compenso * 1.04) }
+
+    /// Tariffa oraria minima per avere un netto mensile, con le ore fatturabili in un anno
+    static func tariffaOraria(_ p: Profilo, anno: Int, nettoMensile: Double, oreAnno: Double = 1_400, r: Regole = .attuali) -> Double {
+        guard oreAnno > 0 else { return 0 }
+        return (incassoPerNetto(p, anno: anno, netto: nettoMensile * 12, r: r) / oreAnno).rounded(.up)
+    }
+
+    /// Detrazione per lavoro dipendente (art. 13 c. 1 TUIR), anno intero
+    static func detrazioneDipendente(_ reddito: Double) -> Double {
+        if reddito <= 15_000 { return 1_955 }
+        if reddito <= 28_000 { return arrotonda(1_910 + 1_190 * (28_000 - reddito) / 13_000) }
+        if reddito <= 50_000 { return arrotonda(1_910 * (50_000 - reddito) / 22_000) }
+        return 0
+    }
+
+    /// Netto annuo di un dipendente con una certa RAL (stima semplificata: contributi 9,19%, IRPEF,
+    /// detrazione lavoro dipendente, addizionali medie; senza cuneo fiscale né trattamento integrativo)
+    static func nettoDipendente(ral: Double, r: Regole = .attuali) -> Double {
+        let contributi = ral * 0.0919
+        let imponibile = max(0, ral - contributi)
+        let irpef = max(0, irpefLorda(imponibile, r: r) - detrazioneDipendente(imponibile))
+        let addizionali = imponibile * r.irpef.addizionaliDefault.valore
+        return arrotonda(ral - contributi - irpef - addizionali)
+    }
+
+    /// La RAL da dipendente che darebbe lo stesso netto annuo
+    static func ralEquivalente(netto: Double, r: Regole = .attuali) -> Double {
+        var basso = 0.0
+        var alto = netto * 3 + 10_000
+        for _ in 0..<60 {
+            let medio = (basso + alto) / 2
+            if nettoDipendente(ral: medio, r: r) < netto { basso = medio } else { alto = medio }
+        }
+        return (alto / 100).rounded(.up) * 100
+    }
+
+    /// Avviso sull'aliquota al 5%: quanti mesi mancano alla fine (nil se non applicabile o lontana)
+    static func avvisoFineStartup(_ p: Profilo, oggi: Date = Date(), r: Regole = .attuali) -> String? {
+        guard let ultimo = ultimoAnnoStartup(p, r: r) else { return nil }
+        let annoOggi = Giorno.anno(oggi)
+        if ultimo == annoOggi {
+            return "Quest'anno è l'ultimo con le tasse al 5%. Dal \(ultimo + 1) passano al 15%."
+        }
+        if ultimo == annoOggi + 1 {
+            return "Le tasse al 5% valgono fino al \(ultimo). Poi passano al 15%."
+        }
+        return nil
     }
 }
