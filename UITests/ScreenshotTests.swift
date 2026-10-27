@@ -45,7 +45,7 @@ final class ScreenshotTests: XCTestCase {
             calcolo.tap()
             sleep(1)
             foto("03-come-lo-calcolo")
-            app.swipeDown(velocity: .fast)
+            app.buttons["Fatto"].firstMatch.tap()
             sleep(1)
         }
 
