@@ -8,6 +8,7 @@ struct NettoView: View {
     let vaiA: (RootView.Scheda) -> Void
     @State private var calcolo = false
     @State private var capire = false
+    @State private var guide = false
 
     var body: some View {
         NavigationStack {
@@ -27,6 +28,24 @@ struct NettoView: View {
                                 .accessibilityIdentifier("netto.calcolo")
                         }
                         .entrata(5)
+                        Button { guide = true } label: {
+                            HStack(spacing: 14) {
+                                Image(systemName: "book.pages.fill").font(.system(size: 22, weight: .bold)).foregroundStyle(.white)
+                                    .frame(width: 48, height: 48)
+                                    .background(Theme.menta, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Guide").font(.app(17, .bold)).foregroundStyle(Theme.ink)
+                                    Text("Aprire, chiudere, capire la partita IVA").font(.app(14)).foregroundStyle(Theme.muted)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundStyle(Theme.menta)
+                            }
+                            .padding(14)
+                            .background(Theme.mentaSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+                        }
+                        .buttonStyle(Molla())
+                        .entrata(6)
+                        .accessibilityIdentifier("netto.guide")
                     }
                     .padding(.horizontal, 20).padding(.vertical, 12)
                 }
@@ -35,6 +54,7 @@ struct NettoView: View {
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $calcolo) { ComeLoCalcoloView() }
             .fullScreenCover(isPresented: $capire) { CapireView() }
+            .sheet(isPresented: $guide) { GuideView() }
         }
     }
 

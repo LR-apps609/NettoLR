@@ -49,6 +49,15 @@ final class ScreenshotTests: XCTestCase {
             sleep(1)
         }
 
+        let guide = app.buttons["netto.guide"]
+        if guide.waitForExistence(timeout: 3) {
+            guide.tap()
+            sleep(1)
+            foto("03b-guide")
+            app.buttons["Fatto"].firstMatch.tap()
+            sleep(1)
+        }
+
         scheda(1).tap(); sleep(2)
         foto("04-incassi")
         let aggiungi = app.buttons["incassi.aggiungi"]
