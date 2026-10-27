@@ -11,3 +11,4 @@ screenshots/
 Sources/Info.plist
 __pycache__/
 xcuserdata/
+.strumenti/

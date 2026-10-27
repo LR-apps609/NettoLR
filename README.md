@@ -7,6 +7,19 @@ quanto mettere da parte e quando pagare. In parole semplici, con la fonte uffici
 > ⚠️ Versione 0.1: le regole 2026 sono prese da circolari INPS e pagine dell'Agenzia delle Entrate, ma alcune voci sono
 > ancora **da verificare** e le formule vanno rilette da un commercialista. L'app lo scrive in chiaro.
 
+## Installare sul tuo iPhone
+
+Serve un Mac con **Xcode** (gratis dal Mac App Store), il tuo **Apple ID** e il cavo dell'iPhone.
+Apri il Terminale, incolla questa riga e premi Invio:
+
+```
+curl -fsSL https://raw.githubusercontent.com/LR-apps609/NettoLR/main/installa.sh | zsh
+```
+
+Scarica NettoLR in `~/NettoLR`, prepara il progetto e apre Xcode; poi scegli il tuo Apple ID in *Signing & Capabilities*
+e premi ▶︎. Per aggiornare, rilancia la stessa riga. In alternativa: scarica lo ZIP del repository e fai doppio clic su
+`Installa su iPhone.command`.
+
 ## Come è fatto
 
 | File | Cosa fa |
@@ -29,6 +42,7 @@ quanto mettere da parte e quando pagare. In parole semplici, con la fonte uffici
 | `Tests/CalcoloTests.swift` | Test del motore di calcolo |
 | `UITests/ScreenshotTests.swift` | Giro dell'app con le foto di ogni schermata |
 | `Tools/make_icon.py` | Ridisegna l'icona (Pillow) |
+| `installa.sh` | Scarica, prepara il progetto e apre Xcode sul Mac |
 
 ## Compilazione e prove
 
