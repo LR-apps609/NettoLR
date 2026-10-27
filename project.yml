@@ -42,6 +42,7 @@ targets:
           UIColorName: LaunchBackground
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHumanReadableCopyright: "LR apps"
+        NSFaceIDUsageDescription: "NettoLR usa Face ID per tenere al sicuro i tuoi numeri, se lo attivi in «Tu»."
         NSCameraUsageDescription: "NettoLR legge il codice ATECO dal certificato della partita IVA che fotografi. La foto resta sul telefono."
     settings:
       base:

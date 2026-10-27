@@ -38,6 +38,8 @@ struct Profilo: Codable, Equatable {
     /// Solo Gestione Separata: aggiunge il 4% INPS in fattura (rivalsa), pagato dal cliente
     var rivalsa4: Bool = false
     var promemoria: Bool = true
+    /// Blocco con Face ID all'apertura (facoltativo: assente nei salvataggi vecchi)
+    var faceID: Bool?
 }
 
 struct Fattura: Codable, Identifiable, Equatable {

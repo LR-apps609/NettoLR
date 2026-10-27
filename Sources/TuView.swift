@@ -42,6 +42,10 @@ struct TuView: View {
                             interruttore("bell", "Promemoria", acceso: Binding(
                                 get: { store.profilo?.promemoria ?? true },
                                 set: { store.profilo?.promemoria = $0 }))
+                            Divider().padding(.leading, 66)
+                            interruttore("faceid", "Blocca con Face ID", acceso: Binding(
+                                get: { store.profilo?.faceID ?? false },
+                                set: { store.profilo?.faceID = $0 }))
                         }
                         .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
 
