@@ -1,0 +1,238 @@
+{
+  "anno": 2026,
+  "aggiornatoAl": "2026-10-27",
+  "fonti": {
+    "ade_forfettario": {
+      "titolo": "Agenzia delle Entrate – Regime forfetario",
+      "url": "https://www.agenziaentrate.gov.it/portale/regime-forfetario-le-regole-2020-/infogen-regime-forfetario-le-regole-2020-",
+      "data": "2026-10-27",
+      "stato": "verificato"
+    },
+    "l190_2014": {
+      "titolo": "L. 190/2014, art. 1 cc. 54-89 (all. 4 come sostituito da L. 145/2018)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2014-12-23;190",
+      "data": "2026-10-27",
+      "stato": "da-verificare"
+    },
+    "inps_gs_2026": {
+      "titolo": "INPS – Circolare n. 8 del 03/02/2026 (Gestione Separata)",
+      "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/02/Circolare_15153/Allegati/16573_Circolare-numero-8-del-03-02-2026.pdf",
+      "data": "2026-02-03",
+      "stato": "verificato"
+    },
+    "inps_ac_2026": {
+      "titolo": "INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti)",
+      "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/02/Circolare_15162/Allegati/16561_Circolare-numero-14-del-09-02-2026.pdf",
+      "data": "2026-02-09",
+      "stato": "verificato"
+    },
+    "inps_ac_rate": {
+      "titolo": "INPS – Circolare n. 14/2026, scadenze delle rate fisse (16 o 17 novembre da riconfermare)",
+      "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/02/Circolare_15162/Allegati/16561_Circolare-numero-14-del-09-02-2026.pdf",
+      "data": "2026-02-09",
+      "stato": "da-verificare"
+    },
+    "l199_2025": {
+      "titolo": "L. 199/2025 (Legge di Bilancio 2026), art. 1 c. 3 – scaglioni IRPEF",
+      "url": "https://www.gazzettaufficiale.it/",
+      "data": "2025-12-30",
+      "stato": "da-verificare"
+    },
+    "addizionali": {
+      "titolo": "Stima media addizionali (regionale 1,23–3,33% + comunale fino a 0,8%)",
+      "url": "https://www1.finanze.gov.it/finanze/pagina_dichiarazioni/public/dichiarazioni.php",
+      "data": "2026-10-27",
+      "stato": "da-verificare"
+    },
+    "dl_89_2026": {
+      "titolo": "D.L. 22/05/2026 n. 89, art. 6 – proroga versamenti ISA e forfettari",
+      "url": "https://www.gazzettaufficiale.it/",
+      "data": "2026-05-22",
+      "stato": "da-verificare"
+    },
+    "ade_acconti": {
+      "titolo": "Agenzia delle Entrate – Ris. 93/E del 12/11/2019 (acconti 50/50)",
+      "url": "https://agenziaentrate.gov.it/portale/documents/20143/2152057/082_Com.+st.+Risoluzione+rate+acconti+12.11.19/4d231aca-dab4-4315-0941-c465302cd66e",
+      "data": "2019-11-12",
+      "stato": "verificato"
+    },
+    "ade_acconti_soglia": {
+      "titolo": "Soglia della prima rata d'acconto (103 €): fonti non concordi",
+      "url": "https://agenziaentrate.gov.it/portale/documents/20143/2152057/082_Com.+st.+Risoluzione+rate+acconti+12.11.19/4d231aca-dab4-4315-0941-c465302cd66e",
+      "data": "2019-11-12",
+      "stato": "da-verificare"
+    },
+    "ade_bollo": {
+      "titolo": "Agenzia delle Entrate – L'imposta di bollo sulle fatture elettroniche (giugno 2026)",
+      "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/l-imposta_di_bollo_sulle_fatture_elettronichegiugno2026",
+      "data": "2026-06-01",
+      "stato": "verificato"
+    }
+  },
+  "forfettario": {
+    "sogliaRicavi": {
+      "valore": 85000,
+      "fonte": "ade_forfettario"
+    },
+    "sogliaUscitaImmediata": {
+      "valore": 100000,
+      "fonte": "ade_forfettario"
+    },
+    "limiteRedditoDipendente": {
+      "valore": 35000,
+      "fonte": "ade_forfettario"
+    },
+    "aliquotaOrdinaria": {
+      "valore": 0.15,
+      "fonte": "l190_2014"
+    },
+    "aliquotaStartup": {
+      "valore": 0.05,
+      "fonte": "l190_2014"
+    },
+    "anniStartup": {
+      "valore": 5,
+      "fonte": "l190_2014"
+    }
+  },
+  "gestioneSeparata": {
+    "aliquota": {
+      "valore": 0.2607,
+      "fonte": "inps_gs_2026"
+    },
+    "aliquotaAltraCopertura": {
+      "valore": 0.24,
+      "fonte": "inps_gs_2026"
+    },
+    "massimale": {
+      "valore": 122295,
+      "fonte": "inps_gs_2026"
+    },
+    "minimale": {
+      "valore": 18808,
+      "fonte": "inps_gs_2026"
+    },
+    "accontoPercentuale": {
+      "valore": 0.8,
+      "fonte": "inps_gs_2026"
+    }
+  },
+  "artigianiCommercianti": {
+    "minimale": {
+      "valore": 18808,
+      "fonte": "inps_ac_2026"
+    },
+    "sogliaAliquotaMaggiorata": {
+      "valore": 56224,
+      "fonte": "inps_ac_2026"
+    },
+    "massimale": {
+      "valore": 122295,
+      "fonte": "inps_ac_2026"
+    },
+    "artigiani": {
+      "fissoAnnuo": {
+        "valore": 4521.36,
+        "fonte": "inps_ac_2026"
+      },
+      "aliquota": {
+        "valore": 0.24,
+        "fonte": "inps_ac_2026"
+      },
+      "aliquotaMaggiorata": {
+        "valore": 0.25,
+        "fonte": "inps_ac_2026"
+      }
+    },
+    "commercianti": {
+      "fissoAnnuo": {
+        "valore": 4611.64,
+        "fonte": "inps_ac_2026"
+      },
+      "aliquota": {
+        "valore": 0.2448,
+        "fonte": "inps_ac_2026"
+      },
+      "aliquotaMaggiorata": {
+        "valore": 0.2548,
+        "fonte": "inps_ac_2026"
+      }
+    },
+    "riduzioneForfettari": {
+      "valore": 0.35,
+      "fonte": "inps_ac_2026"
+    },
+    "scadenzeRateFisse": {
+      "valore": [
+        "2026-05-18",
+        "2026-08-20",
+        "2026-11-16",
+        "2027-02-16"
+      ],
+      "fonte": "inps_ac_rate"
+    }
+  },
+  "versamenti": {
+    "saldoPrimoAcconto": {
+      "valore": "2026-07-20",
+      "fonte": "dl_89_2026"
+    },
+    "saldoPrimoAccontoMaggiorato": {
+      "valore": "2026-08-20",
+      "fonte": "dl_89_2026"
+    },
+    "maggiorazioneDifferito": {
+      "valore": 0.008,
+      "fonte": "dl_89_2026"
+    },
+    "secondoAcconto": {
+      "valore": "2026-11-30",
+      "fonte": "ade_acconti"
+    },
+    "quotaPrimoAcconto": {
+      "valore": 0.5,
+      "fonte": "ade_acconti"
+    },
+    "sogliaNessunAcconto": {
+      "valore": 51.65,
+      "fonte": "ade_acconti"
+    },
+    "sogliaPrimaRata": {
+      "valore": 103,
+      "fonte": "ade_acconti_soglia"
+    }
+  },
+  "bollo": {
+    "importo": {
+      "valore": 2,
+      "fonte": "ade_bollo"
+    },
+    "sogliaFattura": {
+      "valore": 77.47,
+      "fonte": "ade_bollo"
+    }
+  },
+  "irpef": {
+    "scaglioni": {
+      "valore": [
+        {
+          "fino": 28000,
+          "aliquota": 0.23
+        },
+        {
+          "fino": 50000,
+          "aliquota": 0.33
+        },
+        {
+          "fino": null,
+          "aliquota": 0.43
+        }
+      ],
+      "fonte": "l199_2025"
+    },
+    "addizionaliDefault": {
+      "valore": 0.02,
+      "fonte": "addizionali"
+    }
+  }
+}
