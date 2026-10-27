@@ -62,12 +62,8 @@ struct TuView: View {
                         }
                         .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
 
-                        HStack(spacing: 8) {
-                            Image(systemName: "lock.fill")
-                            Text("Tutto resta su questo iPhone")
-                        }
-                        .font(.app(13)).foregroundStyle(Theme.muted)
-                        .frame(maxWidth: .infinity)
+                        privacy
+
 
                         Button("Cancella tutti i dati", role: .destructive) { chiediCancella = true }
                             .font(.app(15))
@@ -168,6 +164,29 @@ struct TuView: View {
             withAnimation(.linear(duration: 0.4)) { scossa += 1 }
             UINotificationFeedbackGenerator().notificationOccurred(.error)
         }
+    }
+
+    /// La privacy in tre righe
+    private var privacy: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("La tua privacy, in tre righe", systemImage: "lock.shield.fill")
+                .font(.app(16, .bold)).foregroundStyle(Theme.menta)
+            ForEach(Array([
+                "I tuoi dati restano su questo iPhone: niente account, niente server.",
+                "Nessuna pubblicità, nessuna statistica, nessun tracciamento.",
+                "Le foto dei documenti si leggono sul telefono e non vengono salvate.",
+            ].enumerated()), id: \.offset) { i, riga in
+                HStack(alignment: .top, spacing: 10) {
+                    Text("\(i + 1)").font(.app(13, .heavy)).foregroundStyle(Theme.menta)
+                        .frame(width: 22, height: 22).background(Theme.card, in: Circle())
+                    Text(riga).font(.app(15)).fixedSize(horizontal: false, vertical: true)
+                }
+                .accessibilityElement(children: .combine)
+            }
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.mentaSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
     }
 
     private var documentiCard: some View {

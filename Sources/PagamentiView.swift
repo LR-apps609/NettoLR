@@ -93,6 +93,8 @@ struct PagamentiView: View {
         .padding(.vertical, 10).padding(.horizontal, 4)
         .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.it))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato" : "")")
     }
 }
 

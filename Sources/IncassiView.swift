@@ -113,6 +113,8 @@ struct IncassiView: View {
         }
         .padding(.vertical, 10).padding(.horizontal, 4)
         .contentShape(Rectangle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(f.cliente), \(Formato.euroTondo(f.importo)), pagata il \((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
         .contextMenu {
             Button("Non ancora pagata", systemImage: "arrow.uturn.backward") { store.annullaIncasso(f.id) }
             Button("Elimina", systemImage: "trash", role: .destructive) { store.elimina(f.id) }
