@@ -238,7 +238,8 @@ struct TuView: View {
                 .background(colore.opacity(0.12), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
             Text(titolo.tradotto).font(.app(16, .semibold))
             Spacer()
-            Text(valore.tradotto).font(.app(15)).foregroundStyle(Theme.muted).lineLimit(1)
+            Text(valore.tradotto).font(.app(15)).foregroundStyle(Theme.muted).lineLimit(1).minimumScaleFactor(0.7)
+
             if freccia { Image(systemName: "chevron.right").font(.app(13)).foregroundStyle(Theme.muted) }
         }
         .padding(.horizontal, 16).padding(.vertical, 12)
