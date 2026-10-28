@@ -1,0 +1,2524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Resources/InfoPlist.xcstrings" source-language="it" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="26.3" build-num="17C529"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>NettoLR</source>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>NettoLR</source>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
+        <source>NettoLR legge il codice ATECO dal certificato della partita IVA che fotografi. La foto resta sul telefono.</source>
+        <note>Privacy - Camera Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSFaceIDUsageDescription" xml:space="preserve">
+        <source>NettoLR usa Face ID per tenere al sicuro i tuoi numeri, se lo attivi in «Tu».</source>
+        <note>Privacy - Face ID Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSHumanReadableCopyright" xml:space="preserve">
+        <source>LR apps</source>
+        <note>Copyright (human-readable)</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Resources/Localizable.xcstrings" source-language="it" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="26.3" build-num="17C529"/>
+    </header>
+    <body>
+      <trans-unit id="" xml:space="preserve">
+        <source/>
+        <note/>
+      </trans-unit>
+      <trans-unit id=" ti avvisa prima" xml:space="preserve">
+        <source> ti avvisa prima</source>
+        <target state="translated"> warns you in advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ %@" xml:space="preserve">
+        <source>%1$@ %2$@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ al mese" xml:space="preserve">
+        <source>%@ al mese</source>
+        <target state="translated">%@ a month</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ all'anno" xml:space="preserve">
+        <source>%@ all'anno</source>
+        <target state="translated">%@ a year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ l'ora" xml:space="preserve">
+        <source>%@ l'ora</source>
+        <target state="translated">%@ an hour</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ stimato (dipende da Regione e Comune)" xml:space="preserve">
+        <source>%@ stimato (dipende da Regione e Comune)</source>
+        <target state="translated">%@ estimated (depends on region and town)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ · ATECO %@" xml:space="preserve">
+        <source>%1$@ · ATECO %2$@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ · ATECO 2007 %@" xml:space="preserve">
+        <source>%1$@ · ATECO 2007 %2$@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ · dal %@" xml:space="preserve">
+        <source>%@ · dal %@</source>
+        <target state="translated">%@ · since %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ · ti hanno pagato?" xml:space="preserve">
+        <source>%@ · ti hanno pagato?</source>
+        <target state="translated">%@ · have you been paid?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ × coefficiente %@ (%@)" xml:space="preserve">
+        <source>%@ × coefficiente %@ (%@)</source>
+        <target state="translated">%@ × coefficient %@ (%@)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@, %@, %@%@" xml:space="preserve">
+        <source>%1$@, %2$@, %3$@%4$@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@, %@, pagata il %@" xml:space="preserve">
+        <source>%@, %@, pagata il %@</source>
+        <target state="translated">%@, %@, paid on %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@. In NettoLR trovi i dati per l'F24." xml:space="preserve">
+        <source>%@. In NettoLR trovi i dati per l'F24.</source>
+        <target state="translated">%@. The F24 details are in NettoLR.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@. Tieni da parte i soldi." xml:space="preserve">
+        <source>%@. Tieni da parte i soldi.</source>
+        <target state="translated">%@. Keep the money aside.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@: %@" xml:space="preserve">
+        <source>%1$@: %2$@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@: %@. Tocca per cambiare." xml:space="preserve">
+        <source>%@: %@. Tocca per cambiare.</source>
+        <target state="translated">%@: %@. Tap to change.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@: non riesco ad aprirlo." xml:space="preserve">
+        <source>%@: non riesco ad aprirlo.</source>
+        <target state="translated">%@: I can't open it.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld codici ufficiali ISTAT" xml:space="preserve">
+        <source>%lld codici ufficiali ISTAT</source>
+        <target state="translated">%lld official ISTAT codes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld fatture sopra %@ × %@" xml:space="preserve">
+        <source>%lld fatture sopra %@ × %@</source>
+        <target state="translated">%lld invoices over %@ × %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld fonti verificate, %lld da verificare · aggiornate al %@" xml:space="preserve">
+        <source>%lld fonti verificate, %lld da verificare · aggiornate al %@</source>
+        <target state="translated">%lld sources verified, %lld to be checked · updated %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld €" xml:space="preserve">
+        <source>%lld €</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld%%" xml:space="preserve">
+        <source>%lld%%</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld/%lld" xml:space="preserve">
+        <source>%1$lld/%2$lld</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="+%@ all'anno" xml:space="preserve">
+        <source>+%@ all'anno</source>
+        <target state="translated">+%@ a year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id=", pagato" xml:space="preserve">
+        <source>, pagato</source>
+        <target state="translated">, paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/anno" xml:space="preserve">
+        <source>/anno</source>
+        <target state="translated">/year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/mese" xml:space="preserve">
+        <source>/mese</source>
+        <target state="translated">/month</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="0" xml:space="preserve">
+        <source>0</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="0 €" xml:space="preserve">
+        <source>0 €</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="2 €" xml:space="preserve">
+        <source>2 €</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi." xml:space="preserve">
+        <source>2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.</source>
+        <target state="translated">€2 for every invoice over €77.47. You can also find the exact amount on the Fatture e Corrispettivi portal.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="4% INPS in fattura" xml:space="preserve">
+        <source>4% INPS in fattura</source>
+        <target state="translated">4% INPS on invoices</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="5%% fino al %@" xml:space="preserve">
+        <source>5%% fino al %@</source>
+        <target state="translated">5%% until %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="7 domande, un minuto" xml:space="preserve">
+        <source>7 domande, un minuto</source>
+        <target state="translated">7 questions, one minute</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="11 cifre" xml:space="preserve">
+        <source>11 cifre</source>
+        <target state="translated">11 digits</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="30" xml:space="preserve">
+        <source>30</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="100 €" xml:space="preserve">
+        <source>100 €</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="1791 secondo acconto" xml:space="preserve">
+        <source>1791 secondo acconto</source>
+        <target state="translated">1791 second advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="1792 saldo %@ · 1790 primo acconto %@" xml:space="preserve">
+        <source>1792 saldo %@ · 1790 primo acconto %@</source>
+        <target state="translated">1792 balance %@ · 1790 first advance %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="ATECO 2007 %@" xml:space="preserve">
+        <source>ATECO 2007 %@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="ATECO 2007 (aggiornamento 2022), ATECO 2025 e la tavola di raccordo tra i due" xml:space="preserve">
+        <source>ATECO 2007 (aggiornamento 2022), ATECO 2025 e la tavola di raccordo tra i due</source>
+        <target state="translated">ATECO 2007 (2022 update), ATECO 2025 and the conversion table between them</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Abbonati per continuare a vedere quanto ti resta." xml:space="preserve">
+        <source>Abbonati per continuare a vedere quanto ti resta.</source>
+        <target state="translated">Subscribe to keep seeing what you really take home.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Acquisto non riuscito. Riprova tra poco." xml:space="preserve">
+        <source>Acquisto non riuscito. Riprova tra poco.</source>
+        <target state="translated">Purchase failed. Please try again shortly.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Addizionali" xml:space="preserve">
+        <source>Addizionali</source>
+        <target state="translated">Local surtaxes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungi gli incassi e qui vedrai il mese migliore." xml:space="preserve">
+        <source>Aggiungi gli incassi e qui vedrai il mese migliore.</source>
+        <target state="translated">Add your income and your best month will show up here.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungi il primo incasso per vedere il tuo anno." xml:space="preserve">
+        <source>Aggiungi il primo incasso per vedere il tuo anno.</source>
+        <target state="translated">Add your first payment to see your year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungi la ricevuta F24" xml:space="preserve">
+        <source>Aggiungi la ricevuta F24</source>
+        <target state="translated">Add the F24 receipt</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungi un incasso" xml:space="preserve">
+        <source>Aggiungi un incasso</source>
+        <target state="translated">Add a payment received</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungi un'attività" xml:space="preserve">
+        <source>Aggiungi un'attività</source>
+        <target state="translated">Add an activity</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiungile da «Pagamenti» quando segni «Ho pagato»" xml:space="preserve">
+        <source>Aggiungile da «Pagamenti» quando segni «Ho pagato»</source>
+        <target state="translated">Add them from “Payments” when you tap “I've paid”</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiunte %lld fatture da %@. Tocca «Sì» quando te le pagano." xml:space="preserve">
+        <source>Aggiunte %lld fatture da %@. Tocca «Sì» quando te le pagano.</source>
+        <target state="translated">Added %lld invoices from %@. Tap “Yes” when they're paid.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aggiunte %lld fatture. Tocca «Sì» quando te le pagano." xml:space="preserve">
+        <source>Aggiunte %lld fatture. Tocca «Sì» quando te le pagano.</source>
+        <target state="translated">Added %lld invoices. Tap “Yes” when they're paid.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Altre attività" xml:space="preserve">
+        <source>Altre attività</source>
+        <target state="translated">Other activities</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Altre attività economiche" xml:space="preserve">
+        <source>Altre attività economiche</source>
+        <target state="translated">Other economic activities</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Anche tramite società collegate." xml:space="preserve">
+        <source>Anche tramite società collegate.</source>
+        <target state="translated">Including through related companies.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ancora nessun incasso" xml:space="preserve">
+        <source>Ancora nessun incasso</source>
+        <target state="translated">No income yet</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Anno" xml:space="preserve">
+        <source>Anno</source>
+        <target state="translated">Year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Annuale" xml:space="preserve">
+        <source>Annuale</source>
+        <target state="translated">Yearly</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Annulla" xml:space="preserve">
+        <source>Annulla</source>
+        <target state="translated">Cancel</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Anticipi di pensione già pagati" xml:space="preserve">
+        <source>Anticipi di pensione già pagati</source>
+        <target state="translated">Pension advances already paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Anticipi di tasse già pagati per il %@" xml:space="preserve">
+        <source>Anticipi di tasse già pagati per il %@</source>
+        <target state="translated">Tax advances already paid for %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Apri un PDF" xml:space="preserve">
+        <source>Apri un PDF</source>
+        <target state="translated">Open a PDF</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Apri un conto dedicato al lavoro: non è obbligatorio, ma ti aiuta a tenere separati i soldi delle tasse." xml:space="preserve">
+        <source>Apri un conto dedicato al lavoro: non è obbligatorio, ma ti aiuta a tenere separati i soldi delle tasse.</source>
+        <target state="translated">Open a bank account just for work: it isn't required, but it helps you keep the tax money separate.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te." xml:space="preserve">
+        <source>Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te.</source>
+        <target state="translated">Opening a VAT number is free: just apply online to the Agenzia delle Entrate, or have an accountant do it for you.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aprire la partita IVA in 7 passi" xml:space="preserve">
+        <source>Aprire la partita IVA in 7 passi</source>
+        <target state="translated">Opening a VAT number in 7 steps</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aprire, chiudere, capire la partita IVA" xml:space="preserve">
+        <source>Aprire, chiudere, capire la partita IVA</source>
+        <target state="translated">Opening, closing and understanding your VAT number</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Artigiani" xml:space="preserve">
+        <source>Artigiani</source>
+        <target state="translated">Artisans</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Artigiani, riduzione 35%" xml:space="preserve">
+        <source>Artigiani, riduzione 35%</source>
+        <target state="translated">Artisans, 35% reduction</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Aspetti da %lld giorni" xml:space="preserve">
+        <source>Aspetti da %lld giorni</source>
+        <target state="translated">Waiting %lld days</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Attiva la PEC, la posta certificata: per le imprese e gli iscritti a un albo è obbligatoria." xml:space="preserve">
+        <source>Attiva la PEC, la posta certificata: per le imprese e gli iscritti a un albo è obbligatoria.</source>
+        <target state="translated">Set up a PEC, the certified email: it's mandatory for businesses and members of a professional register.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Attività dei servizi di alloggio e di ristorazione" xml:space="preserve">
+        <source>Attività dei servizi di alloggio e di ristorazione</source>
+        <target state="translated">Accommodation and food services</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi" xml:space="preserve">
+        <source>Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi</source>
+        <target state="translated">Professional, scientific, technical, health, education, financial and insurance services</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Attivo" xml:space="preserve">
+        <source>Attivo</source>
+        <target state="translated">Active</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Avanti" xml:space="preserve">
+        <source>Avanti</source>
+        <target state="translated">Next</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Avvocati, ingegneri, psicologi…" xml:space="preserve">
+        <source>Avvocati, ingegneri, psicologi…</source>
+        <target state="translated">Lawyers, engineers, psychologists…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Blocca con Face ID" xml:space="preserve">
+        <source>Blocca con Face ID</source>
+        <target state="translated">Lock with Face ID</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Bollo delle fatture (%@ trimestre)" xml:space="preserve">
+        <source>Bollo delle fatture (%@ trimestre)</source>
+        <target state="translated">Invoice stamp duty (quarter %@)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Bollo delle fatture elettroniche: scadenze dei quattro trimestri e rinvio sotto 5.000 €." xml:space="preserve">
+        <source>Bollo delle fatture elettroniche: scadenze dei quattro trimestri e rinvio sotto 5.000 €.</source>
+        <target state="translated">E-invoice stamp duty: deadlines for the four quarters and deferral below €5,000.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al %@." xml:space="preserve">
+        <source>Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al %@.</source>
+        <target state="translated">Calculated with NettoLR, not tax advice. Rules updated %@.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cambia la ricevuta" xml:space="preserve">
+        <source>Cambia la ricevuta</source>
+        <target state="translated">Change the receipt</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cancella tutti i dati" xml:space="preserve">
+        <source>Cancella tutti i dati</source>
+        <target state="translated">Delete all data</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cancella tutto" xml:space="preserve">
+        <source>Cancella tutto</source>
+        <target state="translated">Delete everything</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cancellare profilo e incassi da questo iPhone?" xml:space="preserve">
+        <source>Cancellare profilo e incassi da questo iPhone?</source>
+        <target state="translated">Delete your profile and income from this iPhone?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Capire in 1 minuto" xml:space="preserve">
+        <source>Capire in 1 minuto</source>
+        <target state="translated">Understand it in 1 minute</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cassa professionale" xml:space="preserve">
+        <source>Cassa professionale</source>
+        <target state="translated">Professional pension fund</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cassa professionale %@ (dato inserito da te)" xml:space="preserve">
+        <source>Cassa professionale %@ (dato inserito da te)</source>
+        <target state="translated">Professional fund %@ (entered by you)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Certificato P.IVA" xml:space="preserve">
+        <source>Certificato P.IVA</source>
+        <target state="translated">VAT number certificate</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Certificato della partita IVA" xml:space="preserve">
+        <source>Certificato della partita IVA</source>
+        <target state="translated">VAT number certificate</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Che lavoro fai?" xml:space="preserve">
+        <source>Che lavoro fai?</source>
+        <target state="translated">What do you do for work?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chi controlla una SRL con attività simili non può stare nel forfettario." xml:space="preserve">
+        <source>Chi controlla una SRL con attività simili non può stare nel forfettario.</source>
+        <target state="translated">If you control an SRL doing similar work, you can't use the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chi è nel forfettario non aggiunge l'IVA alle fatture e non la recupera sugli acquisti." xml:space="preserve">
+        <source>Chi è nel forfettario non aggiunge l'IVA alle fatture e non la recupera sugli acquisti.</source>
+        <target state="translated">On the flat-rate scheme you don't add VAT to invoices and you don't reclaim it on purchases.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chi ha quote in società di persone o associazioni professionali non può stare nel forfettario." xml:space="preserve">
+        <source>Chi ha quote in società di persone o associazioni professionali non può stare nel forfettario.</source>
+        <target state="translated">If you hold shares in a partnership or a professional association, you can't use the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chi ti paga?" xml:space="preserve">
+        <source>Chi ti paga?</source>
+        <target state="translated">Who's paying you?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chiedi almeno" xml:space="preserve">
+        <source>Chiedi almeno</source>
+        <target state="translated">Charge at least</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chiudere la partita IVA" xml:space="preserve">
+        <source>Chiudere la partita IVA</source>
+        <target state="translated">Closing your VAT number</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Chiudi" xml:space="preserve">
+        <source>Chiudi</source>
+        <target state="translated">Close</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ciao" xml:space="preserve">
+        <source>Ciao</source>
+        <target state="translated">Hi</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ciao %@!" xml:space="preserve">
+        <source>Ciao %@!</source>
+        <target state="translated">Hi %@!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ciao!" xml:space="preserve">
+        <source>Ciao!</source>
+        <target state="translated">Hi!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cliente" xml:space="preserve">
+        <source>Cliente</source>
+        <target state="translated">Client</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Clienti" xml:space="preserve">
+        <source>Clienti</source>
+        <target state="translated">Clients</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Codici ATECO" xml:space="preserve">
+        <source>Codici ATECO</source>
+        <target state="translated">ATECO codes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Come lo calcolo" xml:space="preserve">
+        <source>Come lo calcolo</source>
+        <target state="translated">How I work it out</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Come lo calcolo?" xml:space="preserve">
+        <source>Come lo calcolo?</source>
+        <target state="translated">How do I work it out?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Come ti chiamiamo?" xml:space="preserve">
+        <source>Come ti chiamiamo?</source>
+        <target state="translated">What should we call you?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Commercianti" xml:space="preserve">
+        <source>Commercianti</source>
+        <target state="translated">Shopkeepers and traders</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Commercianti, riduzione 35%" xml:space="preserve">
+        <source>Commercianti, riduzione 35%</source>
+        <target state="translated">Shopkeepers and traders, 35% reduction</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Commercio all'ingrosso e al dettaglio" xml:space="preserve">
+        <source>Commercio all'ingrosso e al dettaglio</source>
+        <target state="translated">Wholesale and retail trade</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Commercio ambulante di altri prodotti" xml:space="preserve">
+        <source>Commercio ambulante di altri prodotti</source>
+        <target state="translated">Street trading of other goods</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Commercio ambulante di prodotti alimentari e bevande" xml:space="preserve">
+        <source>Commercio ambulante di prodotti alimentari e bevande</source>
+        <target state="translated">Street trading of food and drinks</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Compila la richiesta di apertura (modello AA9/12) sul sito dell'Agenzia delle Entrate con SPID o CIE, oppure falla fare a un commercialista o a un CAF. Scegli il regime forfettario." xml:space="preserve">
+        <source>Compila la richiesta di apertura (modello AA9/12) sul sito dell'Agenzia delle Entrate con SPID o CIE, oppure falla fare a un commercialista o a un CAF. Scegli il regime forfettario.</source>
+        <target state="translated">Fill in the opening request (form AA9/12) on the Agenzia delle Entrate website with SPID or CIE, or have an accountant or a CAF do it. Choose the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Con il 4%% INPS in fattura il cliente paga %@: inserisci quella cifra se è già compresa." xml:space="preserve">
+        <source>Con il 4%% INPS in fattura il cliente paga %@: inserisci quella cifra se è già compresa.</source>
+        <target state="translated">With the 4%% INPS on the invoice the client pays %@: enter that figure if it's already included.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Con la partita IVA quest'anno ti restano %@." xml:space="preserve">
+        <source>Con la partita IVA quest'anno ti restano %@.</source>
+        <target state="translated">With your VAT number you keep %@ this year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario." xml:space="preserve">
+        <source>Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario.</source>
+        <target state="translated">With more than €35,000 from employment or a pension, you can't open the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Con queste spese conviene il regime normale" xml:space="preserve">
+        <source>Con queste spese conviene il regime normale</source>
+        <target state="translated">With these expenses, the standard regime is better</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Condividi" xml:space="preserve">
+        <source>Condividi</source>
+        <target state="translated">Share</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Condizioni d'uso (Apple)" xml:space="preserve">
+        <source>Condizioni d'uso (Apple)</source>
+        <target state="translated">Terms of use (Apple)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conferma" xml:space="preserve">
+        <source>Conferma</source>
+        <target state="translated">Check</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conserva fatture e ricevute per almeno 10 anni." xml:space="preserve">
+        <source>Conserva fatture e ricevute per almeno 10 anni.</source>
+        <target state="translated">Keep invoices and receipts for at least 10 years.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conta come reddito il %lld%% di quello che incassi" xml:space="preserve">
+        <source>Conta come reddito il %lld%% di quello che incassi</source>
+        <target state="translated">%lld%% of what you bring in counts as income</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?" xml:space="preserve">
+        <source>Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?</source>
+        <target state="translated">What counts is the day you get paid, not the invoice date. That's why NettoLR asks: have you been paid?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conta quando ti pagano" xml:space="preserve">
+        <source>Conta quando ti pagano</source>
+        <target state="translated">It counts when you get paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Conta quello che ti pagano davvero in un anno." xml:space="preserve">
+        <source>Conta quello che ti pagano davvero in un anno.</source>
+        <target state="translated">Count what you actually get paid in a year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Continua" xml:space="preserve">
+        <source>Continua</source>
+        <target state="translated">Continue</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Contributi INPS" xml:space="preserve">
+        <source>Contributi INPS</source>
+        <target state="translated">INPS contributions</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Contributi INPS della Gestione Separata." xml:space="preserve">
+        <source>Contributi INPS della Gestione Separata.</source>
+        <target state="translated">INPS contributions to the Gestione Separata.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Contributi dedotti" xml:space="preserve">
+        <source>Contributi dedotti</source>
+        <target state="translated">Contributions deducted</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Contributi effettivamente versati nell'anno" xml:space="preserve">
+        <source>Contributi effettivamente versati nell'anno</source>
+        <target state="translated">Contributions actually paid during the year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Contributo minimo all'anno" xml:space="preserve">
+        <source>Contributo minimo all'anno</source>
+        <target state="translated">Minimum contribution per year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Controlli una SRL che fa lo stesso lavoro che faresti tu?" xml:space="preserve">
+        <source>Controlli una SRL che fa lo stesso lavoro che faresti tu?</source>
+        <target state="translated">Do you control an SRL that does the same work you would?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Controllo la cifra finale: non vuol dire che la partita IVA sia attiva." xml:space="preserve">
+        <source>Controllo la cifra finale: non vuol dire che la partita IVA sia attiva.</source>
+        <target state="translated">I check the final digit: it doesn't mean the VAT number is active.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Copia di sicurezza" xml:space="preserve">
+        <source>Copia di sicurezza</source>
+        <target state="translated">Backup</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Copia i dati" xml:space="preserve">
+        <source>Copia i dati</source>
+        <target state="translated">Copy the details</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Copia salvata." xml:space="preserve">
+        <source>Copia salvata.</source>
+        <target state="translated">Backup saved.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Copiato" xml:space="preserve">
+        <source>Copiato</source>
+        <target state="translated">Copied</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cosa è cambiato" xml:space="preserve">
+        <source>Cosa è cambiato</source>
+        <target state="translated">What's changed</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Così superi %@: dal prossimo anno cambi regime." xml:space="preserve">
+        <source>Così superi %@: dal prossimo anno cambi regime.</source>
+        <target state="translated">That takes you over %@: you'd change regime from next year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Così superi %@: esci subito dal forfettario. Senti un commercialista prima." xml:space="preserve">
+        <source>Così superi %@: esci subito dal forfettario. Senti un commercialista prima.</source>
+        <target state="translated">That takes you over %@: you'd leave the flat-rate scheme immediately. Talk to an accountant first.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Così superi 85.000 €: dal prossimo anno cambi regime." xml:space="preserve">
+        <source>Così superi 85.000 €: dal prossimo anno cambi regime.</source>
+        <target state="translated">That takes you over €85,000: you'd change regime from next year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Così superi 100.000 €: esci subito dal forfettario. Senti un commercialista prima." xml:space="preserve">
+        <source>Così superi 100.000 €: esci subito dal forfettario. Senti un commercialista prima.</source>
+        <target state="translated">That takes you over €100,000: you'd leave the flat-rate scheme immediately. Talk to an accountant first.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Costi reali" xml:space="preserve">
+        <source>Costi reali</source>
+        <target state="translated">Actual costs</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Costruzioni e attività immobiliari" xml:space="preserve">
+        <source>Costruzioni e attività immobiliari</source>
+        <target state="translated">Construction and real estate</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="DIC" xml:space="preserve">
+        <source>DIC</source>
+        <target state="translated">DEC</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da capo" xml:space="preserve">
+        <source>Da capo</source>
+        <target state="translated">From the start</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da dipendente ti servirebbe uno stipendio lordo di" xml:space="preserve">
+        <source>Da dipendente ti servirebbe uno stipendio lordo di</source>
+        <target state="translated">As an employee you'd need a gross salary of</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da guardare e da condividere" xml:space="preserve">
+        <source>Da guardare e da condividere</source>
+        <target state="translated">To watch and to share</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da mettere da parte" xml:space="preserve">
+        <source>Da mettere da parte</source>
+        <target state="translated">To set aside</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da quando hai la partita IVA?" xml:space="preserve">
+        <source>Da quando hai la partita IVA?</source>
+        <target state="translated">Since when have you had your VAT number?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da verificare" xml:space="preserve">
+        <source>Da verificare</source>
+        <target state="translated">To be checked</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Da verificare: " xml:space="preserve">
+        <source>Da verificare: </source>
+        <target state="translated">To be checked: </target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Data della fattura" xml:space="preserve">
+        <source>Data della fattura</source>
+        <target state="translated">Invoice date</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dati ripristinati." xml:space="preserve">
+        <source>Dati ripristinati.</source>
+        <target state="translated">Data restored.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Devi incassare" xml:space="preserve">
+        <source>Devi incassare</source>
+        <target state="translated">You need to bring in</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Di ogni 100 € sono rimasti a te" xml:space="preserve">
+        <source>Di ogni 100 € sono rimasti a te</source>
+        <target state="translated">Of every €100, you kept</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dicci quanto hai pagato l'anno scorso: calcoliamo date e importi di quest'anno." xml:space="preserve">
+        <source>Dicci quanto hai pagato l'anno scorso: calcoliamo date e importi di quest'anno.</source>
+        <target state="translated">Tell us what you paid last year: we'll work out this year's dates and amounts.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Documenti" xml:space="preserve">
+        <source>Documenti</source>
+        <target state="translated">Documents</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Domanda %lld di %lld" xml:space="preserve">
+        <source>Domanda %lld di %lld</source>
+        <target state="translated">Question %lld of %lld</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Domanda %lld di 4" xml:space="preserve">
+        <source>Domanda %lld di 4</source>
+        <target state="translated">Question %lld of 4</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dove versi la pensione?" xml:space="preserve">
+        <source>Dove versi la pensione?</source>
+        <target state="translated">Where do you pay your pension contributions?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="E se fossi dipendente?" xml:space="preserve">
+        <source>E se fossi dipendente?</source>
+        <target state="translated">What if I were an employee?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="E se incassassi altri…" xml:space="preserve">
+        <source>E se incassassi altri…</source>
+        <target state="translated">What if I brought in another…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Elimina" xml:space="preserve">
+        <source>Elimina</source>
+        <target state="translated">Delete</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Entro 30 giorni dalla fine dell'attività comunica la chiusura (modello AA9/12, o ComUnica se sei iscritto alla Camera di Commercio)." xml:space="preserve">
+        <source>Entro 30 giorni dalla fine dell'attività comunica la chiusura (modello AA9/12, o ComUnica se sei iscritto alla Camera di Commercio).</source>
+        <target state="translated">Within 30 days of stopping work, report the closure (form AA9/12, or ComUnica if you're registered with the Chamber of Commerce).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="È la prima volta che lavori in proprio?" xml:space="preserve">
+        <source>È la prima volta che lavori in proprio?</source>
+        <target state="translated">Is this your first time working for yourself?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="È uguale" xml:space="preserve">
+        <source>È uguale</source>
+        <target state="translated">It's the same</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="È una guida, non una consulenza: per i casi particolari senti un commercialista." xml:space="preserve">
+        <source>È una guida, non una consulenza: per i casi particolari senti un commercialista.</source>
+        <target state="translated">This is a guide, not advice: for special cases, talk to an accountant.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fai e incassa le ultime fatture." xml:space="preserve">
+        <source>Fai e incassa le ultime fatture.</source>
+        <target state="translated">Issue and collect your last invoices.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fai il test «Posso aprire il forfettario?» qui sotto." xml:space="preserve">
+        <source>Fai il test «Posso aprire il forfettario?» qui sotto.</source>
+        <target state="translated">Take the “Can I use the flat-rate scheme?” test below.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fai una copia dei tuoi dati" xml:space="preserve">
+        <source>Fai una copia dei tuoi dati</source>
+        <target state="translated">Back up your data</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fatto" xml:space="preserve">
+        <source>Fatto</source>
+        <target state="translated">Done</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fattura" xml:space="preserve">
+        <source>Fattura</source>
+        <target state="translated">Invoice</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fattura %@: dati mancanti, aggiungila a mano." xml:space="preserve">
+        <source>Fattura %@: dati mancanti, aggiungila a mano.</source>
+        <target state="translated">Invoice %@: details missing, add it by hand.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fonte non trovata" xml:space="preserve">
+        <source>Fonte non trovata</source>
+        <target state="translated">Source not found</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fonte: " xml:space="preserve">
+        <source>Fonte: </source>
+        <target state="translated">Source: </target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fotografa il certificato di attribuzione della partita IVA o la visura camerale: leggo io il codice ATECO." xml:space="preserve">
+        <source>Fotografa il certificato di attribuzione della partita IVA o la visura camerale: leggo io il codice ATECO.</source>
+        <target state="translated">Take a photo of your VAT number certificate or Chamber of Commerce extract: I'll read the ATECO code.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fotografa il documento" xml:space="preserve">
+        <source>Fotografa il documento</source>
+        <target state="translated">Photograph the document</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fotografa la fattura" xml:space="preserve">
+        <source>Fotografa la fattura</source>
+        <target state="translated">Photograph the invoice</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Funziona anche senza internet" xml:space="preserve">
+        <source>Funziona anche senza internet</source>
+        <target state="translated">Works offline too</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="GEN" xml:space="preserve">
+        <source>GEN</source>
+        <target state="translated">JAN</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Gestione Separata" xml:space="preserve">
+        <source>Gestione Separata</source>
+        <target state="translated">Gestione Separata</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Gestione Separata %@" xml:space="preserve">
+        <source>Gestione Separata %@</source>
+        <target state="translated">Gestione Separata %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Gestisci l'abbonamento" xml:space="preserve">
+        <source>Gestisci l'abbonamento</source>
+        <target state="translated">Manage subscription</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Grazie!" xml:space="preserve">
+        <source>Grazie!</source>
+        <target state="translated">Thank you!</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Guarda e ascolta" xml:space="preserve">
+        <source>Guarda e ascolta</source>
+        <target state="translated">Watch and listen</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Guide" xml:space="preserve">
+        <source>Guide</source>
+        <target state="translated">Guides</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai anche uno stipendio o una pensione?" xml:space="preserve">
+        <source>Hai anche uno stipendio o una pensione?</source>
+        <target state="translated">Do you also have a salary or a pension?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai chiesto lo sconto del 35% sui contributi?" xml:space="preserve">
+        <source>Hai chiesto lo sconto del 35% sui contributi?</source>
+        <target state="translated">Did you apply for the 35% discount on contributions?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai quote in una società di persone, un'associazione professionale o un'impresa familiare?" xml:space="preserve">
+        <source>Hai quote in una società di persone, un'associazione professionale o un'impresa familiare?</source>
+        <target state="translated">Do you hold shares in a partnership, a professional association or a family business?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai superato %@: dal prossimo anno passi al regime ordinario." xml:space="preserve">
+        <source>Hai superato %@: dal prossimo anno passi al regime ordinario.</source>
+        <target state="translated">You've gone over %@: from next year you move to the standard regime.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai superato %@: esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista." xml:space="preserve">
+        <source>Hai superato %@: esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista.</source>
+        <target state="translated">You've gone over %@: you leave the flat-rate scheme this year, charging VAT from the invoice that crosses the limit. Talk to an accountant right away.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hai uno stipendio o una pensione sopra 35.000 € all'anno?" xml:space="preserve">
+        <source>Hai uno stipendio o una pensione sopra 35.000 € all'anno?</source>
+        <target state="translated">Do you have a salary or pension over €35,000 a year?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ho capito" xml:space="preserve">
+        <source>Ho capito</source>
+        <target state="translated">Got it</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ho il certificato della partita IVA: fotografalo" xml:space="preserve">
+        <source>Ho il certificato della partita IVA: fotografalo</source>
+        <target state="translated">I have my VAT number certificate: photograph it</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ho pagato" xml:space="preserve">
+        <source>Ho pagato</source>
+        <target state="translated">I've paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ho riempito i campi: controllali prima di salvare." xml:space="preserve">
+        <source>Ho riempito i campi: controllali prima di salvare.</source>
+        <target state="translated">I've filled in the fields: check them before saving.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ho un codice regalo" xml:space="preserve">
+        <source>Ho un codice regalo</source>
+        <target state="translated">I have a gift code</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I contributi tolti sono una stima. In «Pagamenti» puoi inserire quelli che hai davvero versato." xml:space="preserve">
+        <source>I contributi tolti sono una stima. In «Pagamenti» puoi inserire quelli che hai davvero versato.</source>
+        <target state="translated">The contributions deducted are an estimate. In “Payments” you can enter the ones you actually paid.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I dati dell'anno scorso" xml:space="preserve">
+        <source>I dati dell'anno scorso</source>
+        <target state="translated">Last year's figures</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I due regimi si equivalgono." xml:space="preserve">
+        <source>I due regimi si equivalgono.</source>
+        <target state="translated">The two regimes come out the same.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I soldi della pensione non sono persi." xml:space="preserve">
+        <source>I soldi della pensione non sono persi.</source>
+        <target state="translated">Pension money isn't lost.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I tuoi dati non si cancellano: li ritrovi tutti appena ti abboni." xml:space="preserve">
+        <source>I tuoi dati non si cancellano: li ritrovi tutti appena ti abboni.</source>
+        <target state="translated">Your data isn't deleted: it'll all be there as soon as you subscribe.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I tuoi dati restano su questo iPhone: niente account, niente server." xml:space="preserve">
+        <source>I tuoi dati restano su questo iPhone: niente account, niente server.</source>
+        <target state="translated">Your data stays on this iPhone: no account, no servers.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I tuoi dati restano sul telefono" xml:space="preserve">
+        <source>I tuoi dati restano sul telefono</source>
+        <target state="translated">Your data stays on your phone</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="I tuoi documenti" xml:space="preserve">
+        <source>I tuoi documenti</source>
+        <target state="translated">Your documents</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS" xml:space="preserve">
+        <source>INPS</source>
+        <target state="translated">INPS</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS artigiani" xml:space="preserve">
+        <source>INPS artigiani</source>
+        <target state="translated">INPS artisans</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS commercianti" xml:space="preserve">
+        <source>INPS commercianti</source>
+        <target state="translated">INPS traders</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS, Artigiani" xml:space="preserve">
+        <source>INPS, Artigiani</source>
+        <target state="translated">INPS, Artisans</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS, Commercianti" xml:space="preserve">
+        <source>INPS, Commercianti</source>
+        <target state="translated">INPS, Shopkeepers and traders</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="INPS, Gestione Separata" xml:space="preserve">
+        <source>INPS, Gestione Separata</source>
+        <target state="translated">INPS, Gestione Separata</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="IRPEF netta" xml:space="preserve">
+        <source>IRPEF netta</source>
+        <target state="translated">Net IRPEF</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="IVA 22%" xml:space="preserve">
+        <source>IVA 22%</source>
+        <target state="translated">VAT 22%</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="IVA esclusa (in ordinario l'IVA si incassa e si versa)" xml:space="preserve">
+        <source>IVA esclusa (in ordinario l'IVA si incassa e si versa)</source>
+        <target state="translated">Excluding VAT (in the standard regime VAT is collected and paid over)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il %@" xml:space="preserve">
+        <source>Il %@</source>
+        <target state="translated">%@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il calcolo (regime forfettario)" xml:space="preserve">
+        <source>Il calcolo (regime forfettario)</source>
+        <target state="translated">The calculation (flat-rate scheme)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il calcolo riga per riga, gli incassi, i pagamenti" xml:space="preserve">
+        <source>Il calcolo riga per riga, gli incassi, i pagamenti</source>
+        <target state="translated">The calculation line by line, income, payments</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il codice %@ del 2025 corrisponde a più attività di prima. Quale fai?" xml:space="preserve">
+        <source>Il codice %@ del 2025 corrisponde a più attività di prima. Quale fai?</source>
+        <target state="translated">The 2025 code %@ matches several older activities. Which one do you do?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il codice P.IVA è corretto" xml:space="preserve">
+        <source>Il codice P.IVA è corretto</source>
+        <target state="translated">The VAT number is valid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il codice P.IVA è sbagliato: controlla le cifre" xml:space="preserve">
+        <source>Il codice P.IVA è sbagliato: controlla le cifre</source>
+        <target state="translated">The VAT number is wrong: check the digits</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il dipendente ha anche ferie pagate, malattia e TFR, che qui non sono contati. Stima semplificata." xml:space="preserve">
+        <source>Il dipendente ha anche ferie pagate, malattia e TFR, che qui non sono contati. Stima semplificata.</source>
+        <target state="translated">Employees also get paid holidays, sick pay and severance (TFR), which aren't counted here. Simplified estimate.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il file non sembra una fattura elettronica XML." xml:space="preserve">
+        <source>Il file non sembra una fattura elettronica XML.</source>
+        <target state="translated">This file doesn't look like an XML e-invoice.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il forfettario è per chi risiede in Italia (o in UE con quasi tutti i redditi in Italia)." xml:space="preserve">
+        <source>Il forfettario è per chi risiede in Italia (o in UE con quasi tutti i redditi in Italia).</source>
+        <target state="translated">The flat-rate scheme is for Italian residents (or EU residents with almost all their income in Italy).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il forfettario in 2 minuti" xml:space="preserve">
+        <source>Il forfettario in 2 minuti</source>
+        <target state="translated">The flat-rate scheme in 2 minutes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il giorno" xml:space="preserve">
+        <source>Il giorno</source>
+        <target state="translated">On</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il mese migliore è stato" xml:space="preserve">
+        <source>Il mese migliore è stato</source>
+        <target state="translated">Your best month was</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il mio %@" xml:space="preserve">
+        <source>Il mio %@</source>
+        <target state="translated">My %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il mio %@ con NettoLR" xml:space="preserve">
+        <source>Il mio %@ con NettoLR</source>
+        <target state="translated">My %@ with NettoLR</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il reddito da dipendente supera %@: potresti non avere i requisiti per il forfettario. Verifica con un commercialista." xml:space="preserve">
+        <source>Il reddito da dipendente supera %@: potresti non avere i requisiti per il forfettario. Verifica con un commercialista.</source>
+        <target state="translated">Your employment income is over %@: you may not qualify for the flat-rate scheme. Check with an accountant.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il resto è andato alla pensione e alle tasse." xml:space="preserve">
+        <source>Il resto è andato alla pensione e alle tasse.</source>
+        <target state="translated">The rest went to your pension and taxes.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il ripristino sostituisce i dati che hai adesso su questo iPhone. Vuoi continuare?" xml:space="preserve">
+        <source>Il ripristino sostituisce i dati che hai adesso su questo iPhone. Vuoi continuare?</source>
+        <target state="translated">Restoring replaces the data currently on this iPhone. Continue?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo %@" xml:space="preserve">
+        <source>Il tuo %@</source>
+        <target state="translated">Your %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo %@ in 30 secondi" xml:space="preserve">
+        <source>Il tuo %@ in 30 secondi</source>
+        <target state="translated">Your %@ in 30 seconds</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo anno" xml:space="preserve">
+        <source>Il tuo anno</source>
+        <target state="translated">Your year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo lavoro" xml:space="preserve">
+        <source>Il tuo lavoro</source>
+        <target state="translated">Your work</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo nome (facoltativo)" xml:space="preserve">
+        <source>Il tuo nome (facoltativo)</source>
+        <target state="translated">Your name (optional)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo obiettivo" xml:space="preserve">
+        <source>Il tuo obiettivo</source>
+        <target state="translated">Your goal</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Il tuo profilo" xml:space="preserve">
+        <source>Il tuo profilo</source>
+        <target state="translated">Your profile</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Importa dalle fatture elettroniche" xml:space="preserve">
+        <source>Importa dalle fatture elettroniche</source>
+        <target state="translated">Import from e-invoices</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Importo: %@" xml:space="preserve">
+        <source>Importo: %@</source>
+        <target state="translated">Amount: %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Imposta sostitutiva %@" xml:space="preserve">
+        <source>Imposta sostitutiva %@</source>
+        <target state="translated">Flat tax %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="In fattura si scrive che l'operazione è fatta «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014»." xml:space="preserve">
+        <source>In fattura si scrive che l'operazione è fatta «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014».</source>
+        <target state="translated">On the invoice you write that the transaction is made «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014».</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassato" xml:space="preserve">
+        <source>Incassato</source>
+        <target state="translated">Received</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassato − contributi − imposta − bolli" xml:space="preserve">
+        <source>Incassato − contributi − imposta − bolli</source>
+        <target state="translated">Received − contributions − tax − stamps</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassato − costi − contributi − imposte" xml:space="preserve">
+        <source>Incassato − costi − contributi − imposte</source>
+        <target state="translated">Received − costs − contributions − taxes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassi" xml:space="preserve">
+        <source>Incassi</source>
+        <target state="translated">Income</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassi mese per mese: %@ in tutto, il mese migliore è %@ con %@." xml:space="preserve">
+        <source>Incassi mese per mese: %@ in tutto, il mese migliore è %@ con %@.</source>
+        <target state="translated">Income month by month: %@ in total, your best month is %@ with %@.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Incassi per Excel" xml:space="preserve">
+        <source>Incassi per Excel</source>
+        <target state="translated">Income for Excel</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Indietro" xml:space="preserve">
+        <source>Indietro</source>
+        <target state="translated">Back</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Industrie alimentari e delle bevande" xml:space="preserve">
+        <source>Industrie alimentari e delle bevande</source>
+        <target state="translated">Food and drink manufacturing</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Iniziamo" xml:space="preserve">
+        <source>Iniziamo</source>
+        <target state="translated">Let's start</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Inserisci l'aliquota della tua cassa professionale per un calcolo dei contributi corretto." xml:space="preserve">
+        <source>Inserisci l'aliquota della tua cassa professionale per un calcolo dei contributi corretto.</source>
+        <target state="translated">Enter your professional fund's rate for an accurate contributions calculation.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Intermediari del commercio" xml:space="preserve">
+        <source>Intermediari del commercio</source>
+        <target state="translated">Trade intermediaries</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'App Store non risponde. Controlla la connessione e riprova." xml:space="preserve">
+        <source>L'App Store non risponde. Controlla la connessione e riprova.</source>
+        <target state="translated">The App Store isn't responding. Check your connection and try again.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'acquisto aspetta un'approvazione (per esempio di In famiglia)." xml:space="preserve">
+        <source>L'acquisto aspetta un'approvazione (per esempio di In famiglia).</source>
+        <target state="translated">The purchase is waiting for approval (for example from Family Sharing).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'anno dopo paghi il saldo di tasse e pensione e fai l'ultima dichiarazione dei redditi." xml:space="preserve">
+        <source>L'anno dopo paghi il saldo di tasse e pensione e fai l'ultima dichiarazione dei redditi.</source>
+        <target state="translated">The following year you pay the balance of taxes and pension and file your last tax return.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'anno scorso" xml:space="preserve">
+        <source>L'anno scorso</source>
+        <target state="translated">Last year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'anticipo sulle tasse di quest'anno." xml:space="preserve">
+        <source>L'anticipo sulle tasse di quest'anno.</source>
+        <target state="translated">The advance on this year's taxes.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="LR" xml:space="preserve">
+        <source>LR</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La copia contiene i tuoi dati: tienila in un posto sicuro. iCloud Drive la protegge con il tuo Apple ID." xml:space="preserve">
+        <source>La copia contiene i tuoi dati: tienila in un posto sicuro. iCloud Drive la protegge con il tuo Apple ID.</source>
+        <target state="translated">The backup contains your data: keep it somewhere safe. iCloud Drive protects it with your Apple ID.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui." xml:space="preserve">
+        <source>La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui.</source>
+        <target state="translated">The certificate photo is read on your phone and not saved; the receipts you add stay only here.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La foto resta sul telefono: la lettura avviene sull'iPhone, senza internet." xml:space="preserve">
+        <source>La foto resta sul telefono: la lettura avviene sull'iPhone, senza internet.</source>
+        <target state="translated">The photo stays on your phone: it's read on the iPhone, without internet.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La partita IVA in un minuto" xml:space="preserve">
+        <source>La partita IVA in un minuto</source>
+        <target state="translated">Your VAT number in one minute</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La prova è finita" xml:space="preserve">
+        <source>La prova è finita</source>
+        <target state="translated">Your trial has ended</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La quota fissa che si paga anche senza guadagni." xml:space="preserve">
+        <source>La quota fissa che si paga anche senza guadagni.</source>
+        <target state="translated">The fixed amount you pay even with no earnings.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La strada della maggior parte dei liberi professionisti" xml:space="preserve">
+        <source>La strada della maggior parte dei liberi professionisti</source>
+        <target state="translated">The route most freelancers take</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La tua cassa" xml:space="preserve">
+        <source>La tua cassa</source>
+        <target state="translated">Your fund</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La tua privacy, in tre righe" xml:space="preserve">
+        <source>La tua privacy, in tre righe</source>
+        <target state="translated">Your privacy, in three lines</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lavoreresti soprattutto per chi ti ha fatto da datore di lavoro negli ultimi 2 anni?" xml:space="preserve">
+        <source>Lavoreresti soprattutto per chi ti ha fatto da datore di lavoro negli ultimi 2 anni?</source>
+        <target state="translated">Would you mainly work for someone who employed you in the last 2 years?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lavoro o codice ATECO" xml:space="preserve">
+        <source>Lavoro o codice ATECO</source>
+        <target state="translated">Job or ATECO code</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Le fonti dei calcoli" xml:space="preserve">
+        <source>Le fonti dei calcoli</source>
+        <target state="translated">Where the numbers come from</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Le fonti ufficiali dei calcoli, il certificato, le ricevute" xml:space="preserve">
+        <source>Le fonti ufficiali dei calcoli, il certificato, le ricevute</source>
+        <target state="translated">Official sources, your certificate, your receipts</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Le tasse al 5%% valgono fino al %@. Poi passano al 15%%." xml:space="preserve">
+        <source>Le tasse al 5%% valgono fino al %@. Poi passano al 15%%.</source>
+        <target state="translated">The 5%% tax rate lasts until %@. Then it goes up to 15%%.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Le tue attività" xml:space="preserve">
+        <source>Le tue attività</source>
+        <target state="translated">Your activities</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Leggi da una foto o un PDF" xml:space="preserve">
+        <source>Leggi da una foto o un PDF</source>
+        <target state="translated">Read from a photo or PDF</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Leggo il documento…" xml:space="preserve">
+        <source>Leggo il documento…</source>
+        <target state="translated">Reading the document…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Leggo la fattura…" xml:space="preserve">
+        <source>Leggo la fattura…</source>
+        <target state="translated">Reading the invoice…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Li ritrovi quando smetti di lavorare." xml:space="preserve">
+        <source>Li ritrovi quando smetti di lavorare.</source>
+        <target state="translated">You get it back when you stop working.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai." xml:space="preserve">
+        <source>Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai.</source>
+        <target state="translated">You'll find them in your tax return, or ask your accountant. Leave blank what you don't know.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lo fotografi e leggo io il codice ATECO" xml:space="preserve">
+        <source>Lo fotografi e leggo io il codice ATECO</source>
+        <target state="translated">Take a photo and I'll read the ATECO code</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Logo di NettoLR" xml:space="preserve">
+        <source>Logo di NettoLR</source>
+        <target state="translated">NettoLR logo</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lordo, dell'anno scorso. Non conta se quel lavoro è già finito." xml:space="preserve">
+        <source>Lordo, dell'anno scorso. Non conta se quel lavoro è già finito.</source>
+        <target state="translated">Gross, last year. It doesn't matter if that job has already ended.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Manda" xml:space="preserve">
+        <source>Manda</source>
+        <target state="translated">Send</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Manda al commercialista" xml:space="preserve">
+        <source>Manda al commercialista</source>
+        <target state="translated">Send to your accountant</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Marche da bollo" xml:space="preserve">
+        <source>Marche da bollo</source>
+        <target state="translated">Revenue stamps</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mensile" xml:space="preserve">
+        <source>Mensile</source>
+        <target state="translated">Monthly</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mese" xml:space="preserve">
+        <source>Mese</source>
+        <target state="translated">Month</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mese migliore" xml:space="preserve">
+        <source>Mese migliore</source>
+        <target state="translated">Best month</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Metti da parte" xml:space="preserve">
+        <source>Metti da parte</source>
+        <target state="translated">Set aside</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Metti la voce" xml:space="preserve">
+        <source>Metti la voce</source>
+        <target state="translated">Turn the voice on</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mi conviene il forfettario?" xml:space="preserve">
+        <source>Mi conviene il forfettario?</source>
+        <target state="translated">Is the flat-rate scheme right for me?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mi conviene?" xml:space="preserve">
+        <source>Mi conviene?</source>
+        <target state="translated">Is it worth it?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mi hanno già pagato" xml:space="preserve">
+        <source>Mi hanno già pagato</source>
+        <target state="translated">I've already been paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mostra gli importi" xml:space="preserve">
+        <source>Mostra gli importi</source>
+        <target state="translated">Show amounts</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nascondi" xml:space="preserve">
+        <source>Nascondi</source>
+        <target state="translated">Hide</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Negozi, vendita online, agenti…" xml:space="preserve">
+        <source>Negozi, vendita online, agenti…</source>
+        <target state="translated">Shops, online sales, agents…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nel %@ hai incassato" xml:space="preserve">
+        <source>Nel %@ hai incassato</source>
+        <target state="translated">In %@ you brought in</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nel forfettario le spese non si scaricano: c'è una percentuale fissa. Nel regime normale sì. Stima semplificata, senza IVA e senza detrazioni personali." xml:space="preserve">
+        <source>Nel forfettario le spese non si scaricano: c'è una percentuale fissa. Nel regime normale sì. Stima semplificata, senza IVA e senza detrazioni personali.</source>
+        <target state="translated">On the flat-rate scheme you can't deduct expenses: there's a fixed percentage instead. In the standard regime you can. Simplified estimate, without VAT or personal deductions.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno." xml:space="preserve">
+        <source>Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno.</source>
+        <target state="translated">On the flat-rate scheme you don't count expenses: the State takes a fixed share of what you bring in and treats it as your profit.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (dal 40% all'86%)." xml:space="preserve">
+        <source>Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (dal 40% all'86%).</source>
+        <target state="translated">On the flat-rate scheme your actual expenses don't count: the State treats a fixed percentage of what you bring in as your income, depending on your ATECO code (from 40% to 86%).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro." xml:space="preserve">
+        <source>Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.</source>
+        <target state="translated">You don't add VAT to your invoices. Above 77 euros you just add a 2-euro revenue stamp.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nessun pagamento in vista" xml:space="preserve">
+        <source>Nessun pagamento in vista</source>
+        <target state="translated">No payments coming up</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nessuna" xml:space="preserve">
+        <source>Nessuna</source>
+        <target state="translated">None</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nessuna fattura nuova in %@." xml:space="preserve">
+        <source>Nessuna fattura nuova in %@.</source>
+        <target state="translated">No new invoices in %@.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nessuna pubblicità, nessuna statistica, nessun tracciamento." xml:space="preserve">
+        <source>Nessuna pubblicità, nessuna statistica, nessun tracciamento.</source>
+        <target state="translated">No ads, no analytics, no tracking.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Netto" xml:space="preserve">
+        <source>Netto</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR" xml:space="preserve">
+        <source>NettoLR</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR %@ · regole %@ · È un calcolo, non una consulenza fiscale." xml:space="preserve">
+        <source>NettoLR %@ · regole %@ · È un calcolo, non una consulenza fiscale.</source>
+        <target state="translated">NettoLR %@ · %@ rules · It's a calculation, not tax advice.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR completo" xml:space="preserve">
+        <source>NettoLR completo</source>
+        <target state="translated">NettoLR Complete</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR completo è attivo, piano %@." xml:space="preserve">
+        <source>NettoLR completo è attivo, piano %@.</source>
+        <target state="translated">NettoLR Complete is active, %@ plan.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR completo è attivo." xml:space="preserve">
+        <source>NettoLR completo è attivo.</source>
+        <target state="translated">NettoLR Complete is active.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR è bloccata" xml:space="preserve">
+        <source>NettoLR è bloccata</source>
+        <target state="translated">NettoLR is locked</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» saranno controllate da un commercialista prima del lancio." xml:space="preserve">
+        <source>NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» saranno controllate da un commercialista prima del lancio.</source>
+        <target state="translated">NettoLR does a calculation, not tax advice. Items marked “to be checked” will be reviewed by an accountant before launch.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti." xml:space="preserve">
+        <source>NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti.</source>
+        <target state="translated">NettoLR prepares the amounts and codes to copy into the F24 in your online banking. It doesn't make payments.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="NettoLR · riepilogo %@" xml:space="preserve">
+        <source>NettoLR · riepilogo %@</source>
+        <target state="translated">NettoLR · %@ summary</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di 85.000 € all'anno." xml:space="preserve">
+        <source>Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di 85.000 € all'anno.</source>
+        <target state="translated">No IRPEF, no local surtaxes, no VAT, as long as you bring in less than €85,000 a year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Niente account, niente moduli" xml:space="preserve">
+        <source>Niente account, niente moduli</source>
+        <target state="translated">No account, no forms</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="No" xml:space="preserve">
+        <source>No</source>
+        <target state="translated">No</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nome del cliente" xml:space="preserve">
+        <source>Nome del cliente</source>
+        <target state="translated">Client name</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non ancora pagata" xml:space="preserve">
+        <source>Non ancora pagata</source>
+        <target state="translated">Not paid yet</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non ho trovato codici ATECO. Prova con una foto più dritta e ben illuminata, oppure cerca il tuo lavoro a mano." xml:space="preserve">
+        <source>Non ho trovato codici ATECO. Prova con una foto più dritta e ben illuminata, oppure cerca il tuo lavoro a mano.</source>
+        <target state="translated">I couldn't find any ATECO codes. Try a straighter, well-lit photo, or search for your job by hand.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non riesco ad aprire %@." xml:space="preserve">
+        <source>Non riesco ad aprire %@.</source>
+        <target state="translated">I can't open %@.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non riesco ad aprire il file." xml:space="preserve">
+        <source>Non riesco ad aprire il file.</source>
+        <target state="translated">I can't open the file.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non sei sicuro? Lo trovi nel cassetto previdenziale INPS o chiedilo al commercialista." xml:space="preserve">
+        <source>Non sei sicuro? Lo trovi nel cassetto previdenziale INPS o chiedilo al commercialista.</source>
+        <target state="translated">Not sure? You'll find it in your INPS account (cassetto previdenziale), or ask your accountant.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non sono riuscito a leggere i dati: prova con una foto più nitida o scrivili tu." xml:space="preserve">
+        <source>Non sono riuscito a leggere i dati: prova con una foto più nitida o scrivili tu.</source>
+        <target state="translated">I couldn't read the details: try a sharper photo or type them in.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non trovo abbonamenti attivi con questo Apple ID." xml:space="preserve">
+        <source>Non trovo abbonamenti attivi con questo Apple ID.</source>
+        <target state="translated">I can't find an active subscription for this Apple ID.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Non trovo il mio lavoro" xml:space="preserve">
+        <source>Non trovo il mio lavoro</source>
+        <target state="translated">I can't find my job</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nota di credito %@: non aggiunta. Se riduce un incasso già segnato, correggilo a mano." xml:space="preserve">
+        <source>Nota di credito %@: non aggiunta. Se riduce un incasso già segnato, correggilo a mano.</source>
+        <target state="translated">Credit note %@: not added. If it reduces a payment you've already entered, correct that by hand.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Nuovo incasso" xml:space="preserve">
+        <source>Nuovo incasso</source>
+        <target state="translated">New payment received</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Oggi si paga" xml:space="preserve">
+        <source>Oggi si paga</source>
+        <target state="translated">Payment due today</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ogni 100 € che ti pagano…" xml:space="preserve">
+        <source>Ogni 100 € che ti pagano…</source>
+        <target state="translated">Of every €100 you're paid…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ogni volta che ti pagano, aggiungilo qui: ti diciamo subito quanto è tuo." xml:space="preserve">
+        <source>Ogni volta che ti pagano, aggiungilo qui: ti diciamo subito quanto è tuo.</source>
+        <target state="translated">Every time you get paid, add it here: we'll tell you right away how much is yours.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="PDF ed Excel" xml:space="preserve">
+        <source>PDF ed Excel</source>
+        <target state="translated">PDF and Excel</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pagamenti" xml:space="preserve">
+        <source>Pagamenti</source>
+        <target state="translated">Payments</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pagamenti %@" xml:space="preserve">
+        <source>Pagamenti %@</source>
+        <target state="translated">Payments %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pagato il %@" xml:space="preserve">
+        <source>Pagato il %@</source>
+        <target state="translated">Paid on %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Paghi ogni mese" xml:space="preserve">
+        <source>Paghi ogni mese</source>
+        <target state="translated">Billed monthly</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Paghi una volta all'anno" xml:space="preserve">
+        <source>Paghi una volta all'anno</source>
+        <target state="translated">Billed once a year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Parlane con un commercialista prima di cambiare." xml:space="preserve">
+        <source>Parlane con un commercialista prima di cambiare.</source>
+        <target state="translated">Talk to an accountant before switching.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Parlane con un commercialista: ci sono casi particolari." xml:space="preserve">
+        <source>Parlane con un commercialista: ci sono casi particolari.</source>
+        <target state="translated">Talk to an accountant: there are special cases.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Parole semplici, zero sigle" xml:space="preserve">
+        <source>Parole semplici, zero sigle</source>
+        <target state="translated">Plain words, no jargon</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Parrucchieri, idraulici, elettricisti…" xml:space="preserve">
+        <source>Parrucchieri, idraulici, elettricisti…</source>
+        <target state="translated">Hairdressers, plumbers, electricians…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Partita IVA" xml:space="preserve">
+        <source>Partita IVA</source>
+        <target state="translated">VAT number</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Partita IVA %@" xml:space="preserve">
+        <source>Partita IVA %@</source>
+        <target state="translated">VAT number %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Partita IVA %@: corretta" xml:space="preserve">
+        <source>Partita IVA %@: corretta</source>
+        <target state="translated">VAT number %@: valid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pausa" xml:space="preserve">
+        <source>Pausa</source>
+        <target state="translated">Pause</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensi di incassare meno di 85.000 € all'anno?" xml:space="preserve">
+        <source>Pensi di incassare meno di 85.000 € all'anno?</source>
+        <target state="translated">Do you expect to bring in less than €85,000 a year?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione" xml:space="preserve">
+        <source>Pensione</source>
+        <target state="translated">Pension</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione %@" xml:space="preserve">
+        <source>Pensione %@</source>
+        <target state="translated">Pension %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione (INPS) dovuta per il %@" xml:space="preserve">
+        <source>Pensione (INPS) dovuta per il %@</source>
+        <target state="translated">Pension (INPS) due for %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione (INPS) pagata quest'anno" xml:space="preserve">
+        <source>Pensione (INPS) pagata quest'anno</source>
+        <target state="translated">Pension (INPS) paid this year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione artigiani e commercianti 2026: nuovo minimo di reddito (18.808 €) e nuove quote fisse (circolare INPS 14/2026)." xml:space="preserve">
+        <source>Pensione artigiani e commercianti 2026: nuovo minimo di reddito (18.808 €) e nuove quote fisse (circolare INPS 14/2026).</source>
+        <target state="translated">2026 pension for artisans and traders: new minimum income (€18,808) and new fixed amounts (INPS circular 14/2026).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione in Gestione Separata 2026: aliquota 26,07% e nuovo massimale (circolare INPS 8/2026)." xml:space="preserve">
+        <source>Pensione in Gestione Separata 2026: aliquota 26,07% e nuovo massimale (circolare INPS 8/2026).</source>
+        <target state="translated">2026 Gestione Separata pension: 26.07% rate and new ceiling (INPS circular 8/2026).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione: %@ · aperta nel %@" xml:space="preserve">
+        <source>Pensione: %@ · aperta nel %@</source>
+        <target state="translated">Pension: %@ · opened in %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione: il conto dell'anno scorso e un anticipo" xml:space="preserve">
+        <source>Pensione: il conto dell'anno scorso e un anticipo</source>
+        <target state="translated">Pension: last year's balance and an advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione: rata fissa %lld di 4" xml:space="preserve">
+        <source>Pensione: rata fissa %lld di 4</source>
+        <target state="translated">Pension: fixed instalment %lld of 4</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione: se sei un libero professionista ti iscrivi alla Gestione Separata INPS online. Se sei artigiano o commerciante passi dalla Camera di Commercio (ComUnica) e, se serve, dal Comune." xml:space="preserve">
+        <source>Pensione: se sei un libero professionista ti iscrivi alla Gestione Separata INPS online. Se sei artigiano o commerciante passi dalla Camera di Commercio (ComUnica) e, se serve, dal Comune.</source>
+        <target state="translated">Pension: if you're a freelancer you register with the INPS Gestione Separata online. If you're an artisan or trader you go through the Chamber of Commerce (ComUnica) and, if needed, the town hall.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Pensione: secondo anticipo" xml:space="preserve">
+        <source>Pensione: secondo anticipo</source>
+        <target state="translated">Pension: second advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per esempio" xml:space="preserve">
+        <source>Per esempio</source>
+        <target state="translated">For example</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per esempio una snc, una sas o uno studio associato." xml:space="preserve">
+        <source>Per esempio una snc, una sas o uno studio associato.</source>
+        <target state="translated">For example an snc, an sas or an associated practice.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per il commercialista" xml:space="preserve">
+        <source>Per il commercialista</source>
+        <target state="translated">For your accountant</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per il tuo lavoro il %lld%%: su questo paghi pensione e tasse" xml:space="preserve">
+        <source>Per il tuo lavoro il %lld%%: su questo paghi pensione e tasse</source>
+        <target state="translated">For your work it's %lld%%: that's what you pay pension and tax on</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per l'F24" xml:space="preserve">
+        <source>Per l'F24</source>
+        <target state="translated">For the F24</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per quale lavoro?" xml:space="preserve">
+        <source>Per quale lavoro?</source>
+        <target state="translated">For which job?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di 85.000 €." xml:space="preserve">
+        <source>Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di 85.000 €.</source>
+        <target state="translated">That's why NettoLR asks “Have you been paid?”: only money actually received counts towards the calculations and the €85,000 limit.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Percentuale della tua cassa (es. 14,5)" xml:space="preserve">
+        <source>Percentuale della tua cassa (es. 14,5)</source>
+        <target state="translated">Your fund's rate (e.g. 14.5)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Perché non metto l'IVA in fattura" xml:space="preserve">
+        <source>Perché non metto l'IVA in fattura</source>
+        <target state="translated">Why I don't charge VAT</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Posso aprire il forfettario?" xml:space="preserve">
+        <source>Posso aprire il forfettario?</source>
+        <target state="translated">Can I use the flat-rate scheme?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Prepariamo due file da mandare a chi ti segue la contabilità." xml:space="preserve">
+        <source>Prepariamo due file da mandare a chi ti segue la contabilità.</source>
+        <target state="translated">We'll prepare two files to send to whoever does your accounts.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Principale · ATECO %@" xml:space="preserve">
+        <source>Principale · ATECO %@</source>
+        <target state="translated">Main · ATECO %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Probabilmente il forfettario non fa per te." xml:space="preserve">
+        <source>Probabilmente il forfettario non fa per te.</source>
+        <target state="translated">The flat-rate scheme probably isn't for you.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Promemoria" xml:space="preserve">
+        <source>Promemoria</source>
+        <target state="translated">Reminders</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Promemoria di tutti i pagamenti" xml:space="preserve">
+        <source>Promemoria di tutti i pagamenti</source>
+        <target state="translated">Reminders for every payment</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Prova" xml:space="preserve">
+        <source>Prova</source>
+        <target state="translated">Try it</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Prova: %lld giorni" xml:space="preserve">
+        <source>Prova: %lld giorni</source>
+        <target state="translated">Trial: %lld days</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione." xml:space="preserve">
+        <source>Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.</source>
+        <target state="translated">You can also type the ATECO code, old (2007) or new (2025): it's on your VAT number certificate or your tax return.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quante ore a settimana fatturi davvero?" xml:space="preserve">
+        <source>Quante ore a settimana fatturi davvero?</source>
+        <target state="translated">How many hours a week do you actually bill?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto devo fatturare?" xml:space="preserve">
+        <source>Quanto devo fatturare?</source>
+        <target state="translated">How much do I need to invoice?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto incassi in un anno" xml:space="preserve">
+        <source>Quanto incassi in un anno</source>
+        <target state="translated">How much you bring in a year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto spendi per lavorare (computer, affitto, auto…)" xml:space="preserve">
+        <source>Quanto spendi per lavorare (computer, affitto, auto…)</source>
+        <target state="translated">What you spend on work (computer, rent, car…)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto ti resta,&#10;davvero?" xml:space="preserve">
+        <source>Quanto ti resta,
+davvero?</source>
+        <target state="translated">How much do you
+really keep?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto vuoi che ti resti al mese" xml:space="preserve">
+        <source>Quanto vuoi che ti resti al mese</source>
+        <target state="translated">How much you want to keep each month</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto, all'anno, lordo" xml:space="preserve">
+        <source>Quanto, all'anno, lordo</source>
+        <target state="translated">How much per year, gross</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quanto?" xml:space="preserve">
+        <source>Quanto?</source>
+        <target state="translated">How much?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quest'anno è l'ultimo con le tasse al 5%%. Dal %@ passano al 15%%." xml:space="preserve">
+        <source>Quest'anno è l'ultimo con le tasse al 5%%. Dal %@ passano al 15%%.</source>
+        <target state="translated">This is the last year at the 5%% tax rate. From %@ it goes up to 15%%.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Questo file non è una copia di NettoLR." xml:space="preserve">
+        <source>Questo file non è una copia di NettoLR.</source>
+        <target state="translated">This file isn't a NettoLR backup.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Qui vedrai i tuoi incassi, mese per mese." xml:space="preserve">
+        <source>Qui vedrai i tuoi incassi, mese per mese.</source>
+        <target state="translated">You'll see your income here, month by month.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Reddito imponibile" xml:space="preserve">
+        <source>Reddito imponibile</source>
+        <target state="translated">Taxable income</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Reddito lordo" xml:space="preserve">
+        <source>Reddito lordo</source>
+        <target state="translated">Gross income</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole %@" xml:space="preserve">
+        <source>Regole %@</source>
+        <target state="translated">%@ rules</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole %@ aggiornate al %@. È un calcolo, non una consulenza fiscale." xml:space="preserve">
+        <source>Regole %@ aggiornate al %@. È un calcolo, non una consulenza fiscale.</source>
+        <target state="translated">%@ rules updated %@. It's a calculation, not tax advice.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole 2025 inserite per rifare i conti dell'anno scorso: tutte da verificare con il commercialista." xml:space="preserve">
+        <source>Regole 2025 inserite per rifare i conti dell'anno scorso: tutte da verificare con il commercialista.</source>
+        <target state="translated">2025 rules added to redo last year's sums: all to be checked with an accountant.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole 2027 provvisorie: valori del 2026 e scadenze di legge del 2027, in attesa delle circolari INPS e della legge di bilancio. Tutto da verificare." xml:space="preserve">
+        <source>Regole 2027 provvisorie: valori del 2026 e scadenze di legge del 2027, in attesa delle circolari INPS e della legge di bilancio. Tutto da verificare.</source>
+        <target state="translated">Provisional 2027 rules: 2026 values and the statutory 2027 deadlines, pending the INPS circulars and the budget law. All to be checked.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole aggiornate ogni anno" xml:space="preserve">
+        <source>Regole aggiornate ogni anno</source>
+        <target state="translated">Rules updated every year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Regole cambiate: %lld novità" xml:space="preserve">
+        <source>Regole cambiate: %lld novità</source>
+        <target state="translated">Rules changed: %lld updates</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ricevuta F24" xml:space="preserve">
+        <source>Ricevuta F24</source>
+        <target state="translated">F24 receipt</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ricevute" xml:space="preserve">
+        <source>Ricevute</source>
+        <target state="translated">Receipts</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ricevute F24" xml:space="preserve">
+        <source>Ricevute F24</source>
+        <target state="translated">F24 receipts</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Riepilogo %@ in PDF" xml:space="preserve">
+        <source>Riepilogo %@ in PDF</source>
+        <target state="translated">%@ summary as PDF</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rimasto a me" xml:space="preserve">
+        <source>Rimasto a me</source>
+        <target state="translated">Kept by me</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Riprendi" xml:space="preserve">
+        <source>Riprendi</source>
+        <target state="translated">Resume</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ripristina acquisto" xml:space="preserve">
+        <source>Ripristina acquisto</source>
+        <target state="translated">Restore purchase</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ripristina da una copia" xml:space="preserve">
+        <source>Ripristina da una copia</source>
+        <target state="translated">Restore from a backup</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Saldo e primo acconto delle tasse 2026 spostati al 20 luglio (D.L. 89/2026, da verificare)." xml:space="preserve">
+        <source>Saldo e primo acconto delle tasse 2026 spostati al 20 luglio (D.L. 89/2026, da verificare).</source>
+        <target state="translated">Balance and first advance of 2026 taxes moved to 20 July (Decree-Law 89/2026, to be checked).</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Salva" xml:space="preserve">
+        <source>Salva</source>
+        <target state="translated">Save</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Salva una copia" xml:space="preserve">
+        <source>Salva una copia</source>
+        <target state="translated">Save a backup</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Salva una copia di profilo, incassi, pagamenti e ricevute. Mettila in iCloud Drive: se cambi telefono la ritrovi." xml:space="preserve">
+        <source>Salva una copia di profilo, incassi, pagamenti e ricevute. Mettila in iCloud Drive: se cambi telefono la ritrovi.</source>
+        <target state="translated">Save a copy of your profile, income, payments and receipts. Put it in iCloud Drive: if you change phones, it'll be there.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sblocca" xml:space="preserve">
+        <source>Sblocca</source>
+        <target state="translated">Unlock</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sblocca i tuoi numeri" xml:space="preserve">
+        <source>Sblocca i tuoi numeri</source>
+        <target state="translated">Unlock your numbers</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Scaglioni 23% / 33% / 43% meno detrazione lavoro autonomo" xml:space="preserve">
+        <source>Scaglioni 23% / 33% / 43% meno detrazione lavoro autonomo</source>
+        <target state="translated">23% / 33% / 43% brackets minus the self-employment deduction</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Scegli come fare le fatture elettroniche: va bene anche il programma gratuito dell'Agenzia delle Entrate." xml:space="preserve">
+        <source>Scegli come fare le fatture elettroniche: va bene anche il programma gratuito dell'Agenzia delle Entrate.</source>
+        <target state="translated">Choose how to issue e-invoices: the free Agenzia delle Entrate software is fine.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Scegli una foto" xml:space="preserve">
+        <source>Scegli una foto</source>
+        <target state="translated">Choose a photo</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Scrivilo come lo diresti a un amico" xml:space="preserve">
+        <source>Scrivilo come lo diresti a un amico</source>
+        <target state="translated">Write it the way you'd tell a friend</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se è la prima volta, per cinque anni le tasse sono al 5% invece del 15%." xml:space="preserve">
+        <source>Se è la prima volta, per cinque anni le tasse sono al 5% invece del 15%.</source>
+        <target state="translated">If it's your first time, tax is 5% instead of 15% for five years.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se è la tua prima attività in proprio, per cinque anni le tasse sono al 5% invece del 15%." xml:space="preserve">
+        <source>Se è la tua prima attività in proprio, per cinque anni le tasse sono al 5% invece del 15%.</source>
+        <target state="translated">If it's your first self-employed activity, tax is 5% instead of 15% for five years.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se fai più lavori, ognuno ha la sua percentuale. Quando aggiungi un incasso scegli a quale appartiene." xml:space="preserve">
+        <source>Se fai più lavori, ognuno ha la sua percentuale. Quando aggiungi un incasso scegli a quale appartiene.</source>
+        <target state="translated">If you do several jobs, each has its own percentage. When you add a payment, choose which one it belongs to.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se fatturi soprattutto all'ex datore di lavoro degli ultimi due anni il forfettario non è ammesso." xml:space="preserve">
+        <source>Se fatturi soprattutto all'ex datore di lavoro degli ultimi due anni il forfettario non è ammesso.</source>
+        <target state="translated">If you mainly invoice a former employer from the last two years, the flat-rate scheme isn't allowed.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se la SRL fa cose diverse, rispondi no." xml:space="preserve">
+        <source>Se la SRL fa cose diverse, rispondi no.</source>
+        <target state="translated">If the SRL does different work, answer no.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se sei artigiano o commerciante chiudi anche la posizione INPS (passa da ComUnica). In Gestione Separata non serve nulla." xml:space="preserve">
+        <source>Se sei artigiano o commerciante chiudi anche la posizione INPS (passa da ComUnica). In Gestione Separata non serve nulla.</source>
+        <target state="translated">If you're an artisan or trader, also close your INPS position (through ComUnica). In the Gestione Separata there's nothing to do.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Se vivi in un altro paese UE e guadagni in Italia almeno il 75%, rispondi sì." xml:space="preserve">
+        <source>Se vivi in un altro paese UE e guadagni in Italia almeno il 75%, rispondi sì.</source>
+        <target state="translated">If you live in another EU country and earn at least 75% in Italy, answer yes.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sei vicino alla soglia: mancano %@ a %@." xml:space="preserve">
+        <source>Sei vicino alla soglia: mancano %@ a %@.</source>
+        <target state="translated">You're close to the limit: %@ to go before %@.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Senza riduzione 35%" xml:space="preserve">
+        <source>Senza riduzione 35%</source>
+        <target state="translated">Without the 35% reduction</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Serve più di %@ all'anno: con questo obiettivo usciresti dal forfettario." xml:space="preserve">
+        <source>Serve più di %@ all'anno: con questo obiettivo usciresti dal forfettario.</source>
+        <target state="translated">That needs more than %@ a year: with this goal you'd leave the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario." xml:space="preserve">
+        <source>Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario.</source>
+        <target state="translated">That needs more than €85,000 a year: with this goal you'd leave the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Si paga dopo. Per questo conviene mettere da parte." xml:space="preserve">
+        <source>Si paga dopo. Per questo conviene mettere da parte.</source>
+        <target state="translated">You pay later. That's why it pays to set money aside.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Si può pagare fino al %@ con lo %@ in più." xml:space="preserve">
+        <source>Si può pagare fino al %@ con lo %@ in più.</source>
+        <target state="translated">You can pay until %@ with %@ extra.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo." xml:space="preserve">
+        <source>Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo.</source>
+        <target state="translated">Renews automatically. Cancel anytime in Settings › your name › Subscriptions, at least 24 hours before renewal.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sì" xml:space="preserve">
+        <source>Sì</source>
+        <target state="translated">Yes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sì, %@ mi ha pagato" xml:space="preserve">
+        <source>Sì, %@ mi ha pagato</source>
+        <target state="translated">Yes, %@ has paid me</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sì, da quello che mi dici puoi aprire il forfettario." xml:space="preserve">
+        <source>Sì, da quello che mi dici puoi aprire il forfettario.</source>
+        <target state="translated">Yes, from what you've told me you can use the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sì, per te conviene" xml:space="preserve">
+        <source>Sì, per te conviene</source>
+        <target state="translated">Yes, it's worth it for you</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sì, ripristina" xml:space="preserve">
+        <source>Sì, ripristina</source>
+        <target state="translated">Yes, restore</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Solo una parte conta: su questa paghi pensione e tasse" xml:space="preserve">
+        <source>Solo una parte conta: su questa paghi pensione e tasse</source>
+        <target state="translated">Only part of it counts: that's what you pay pension and tax on</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Somma delle fatture incassate nell'anno" xml:space="preserve">
+        <source>Somma delle fatture incassate nell'anno</source>
+        <target state="translated">Total of invoices paid during the year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sopra 20.000 € di spese per lavoratori non si può stare nel forfettario." xml:space="preserve">
+        <source>Sopra 20.000 € di spese per lavoratori non si può stare nel forfettario.</source>
+        <target state="translated">With over €20,000 in staff costs you can't use the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sopra 77,47 € serve la marca da bollo da 2 €: NettoLR la conta da sola e te la ricorda ogni trimestre." xml:space="preserve">
+        <source>Sopra 77,47 € serve la marca da bollo da 2 €: NettoLR la conta da sola e te la ricorda ogni trimestre.</source>
+        <target state="translated">Above €77.47 you need a €2 revenue stamp: NettoLR counts them for you and reminds you every quarter.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Sopra 85.000 € di incassi all'anno non si può stare nel forfettario." xml:space="preserve">
+        <source>Sopra 85.000 € di incassi all'anno non si può stare nel forfettario.</source>
+        <target state="translated">Above €85,000 of income a year you can't use the flat-rate scheme.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Spenderai più di 20.000 € all'anno per dipendenti o collaboratori?" xml:space="preserve">
+        <source>Spenderai più di 20.000 € all'anno per dipendenti o collaboratori?</source>
+        <target state="translated">Will you spend more than €20,000 a year on employees or contractors?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Spese documentate inserite da te" xml:space="preserve">
+        <source>Spese documentate inserite da te</source>
+        <target state="translated">Documented expenses you entered</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Stima: contributi dell'anno, come se fossero versati nell'anno" xml:space="preserve">
+        <source>Stima: contributi dell'anno, come se fossero versati nell'anno</source>
+        <target state="translated">Estimate: this year's contributions, as if paid during the year</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Stipendi, collaboratori, lavoro accessorio." xml:space="preserve">
+        <source>Stipendi, collaboratori, lavoro accessorio.</source>
+        <target state="translated">Salaries, contractors, occasional work.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il 15%, o il 5% per i primi cinque anni se è la tua prima attività." xml:space="preserve">
+        <source>Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il 15%, o il 5% per i primi cinque anni se è la tua prima attività.</source>
+        <target state="translated">On that income you pay your pension (INPS). Subtract the contributions you paid during the year and pay a single tax on the rest: 15%, or 5% for the first five years if it's your first business.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Su quella parte paghi la pensione e una sola tassa. NettoLR mette da parte i conti per te, e ti avvisa quando pagare." xml:space="preserve">
+        <source>Su quella parte paghi la pensione e una sola tassa. NettoLR mette da parte i conti per te, e ti avvisa quando pagare.</source>
+        <target state="translated">On that part you pay your pension and a single tax. NettoLR keeps track for you and tells you when to pay.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tasse" xml:space="preserve">
+        <source>Tasse</source>
+        <target state="translated">Taxes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tasse %@" xml:space="preserve">
+        <source>Tasse %@</source>
+        <target state="translated">Taxes %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tasse dovute per il %@" xml:space="preserve">
+        <source>Tasse dovute per il %@</source>
+        <target state="translated">Taxes due for %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tasse: il conto dell'anno scorso e un anticipo" xml:space="preserve">
+        <source>Tasse: il conto dell'anno scorso e un anticipo</source>
+        <target state="translated">Taxes: last year's balance and an advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tasse: secondo anticipo" xml:space="preserve">
+        <source>Tasse: secondo anticipo</source>
+        <target state="translated">Taxes: second advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Te lo diciamo con quattro domande facili." xml:space="preserve">
+        <source>Te lo diciamo con quattro domande facili.</source>
+        <target state="translated">We'll tell you with four easy questions.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ti resta" xml:space="preserve">
+        <source>Ti resta</source>
+        <target state="translated">You keep</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ti resta 1 giorno di prova gratuita." xml:space="preserve">
+        <source>Ti resta 1 giorno di prova gratuita.</source>
+        <target state="translated">You have 1 day left in your free trial.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Ti restano %lld giorni di prova gratuita." xml:space="preserve">
+        <source>Ti restano %lld giorni di prova gratuita.</source>
+        <target state="translated">You have %lld days left in your free trial.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Togli %@" xml:space="preserve">
+        <source>Togli %@</source>
+        <target state="translated">Remove %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Togli la voce" xml:space="preserve">
+        <source>Togli la voce</source>
+        <target state="translated">Turn the voice off</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tra una settimana si paga" xml:space="preserve">
+        <source>Tra una settimana si paga</source>
+        <target state="translated">Payment due in a week</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Trova il tuo codice ATECO: cerca il tuo lavoro in NettoLR, ti mostra anche la percentuale." xml:space="preserve">
+        <source>Trova il tuo codice ATECO: cerca il tuo lavoro in NettoLR, ti mostra anche la percentuale.</source>
+        <target state="translated">Find your ATECO code: search for your job in NettoLR, it shows the percentage too.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tu" xml:space="preserve">
+        <source>Tu</source>
+        <target state="translated">You</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tuoi" xml:space="preserve">
+        <source>Tuoi</source>
+        <target state="translated">Yours</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tutto con le tue mani." xml:space="preserve">
+        <source>Tutto con le tue mani.</source>
+        <target state="translated">All your own work.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Un file .csv che si apre con Excel o Numbers" xml:space="preserve">
+        <source>Un file .csv che si apre con Excel o Numbers</source>
+        <target state="translated">A .csv file that opens in Excel or Numbers</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Una cassa del mio ordine" xml:space="preserve">
+        <source>Una cassa del mio ordine</source>
+        <target state="translated">My professional body's fund</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Una fattura fatta a dicembre e pagata a gennaio conta per l'anno nuovo." xml:space="preserve">
+        <source>Una fattura fatta a dicembre e pagata a gennaio conta per l'anno nuovo.</source>
+        <target state="translated">An invoice issued in December and paid in January counts for the new year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Usa questo" xml:space="preserve">
+        <source>Usa questo</source>
+        <target state="translated">Use this</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Verificata" xml:space="preserve">
+        <source>Verificata</source>
+        <target state="translated">Verified</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Vivi in Italia?" xml:space="preserve">
+        <source>Vivi in Italia?</source>
+        <target state="translated">Do you live in Italy?</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="causale PXX · acconto 40%" xml:space="preserve">
+        <source>causale PXX · acconto 40%</source>
+        <target state="translated">code PXX · 40% advance</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="causale PXX · saldo %@ + acconto %@" xml:space="preserve">
+        <source>causale PXX · saldo %@ + acconto %@</source>
+        <target state="translated">code PXX · balance %@ + advance %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="cioè %@ in un anno." xml:space="preserve">
+        <source>cioè %@ in un anno.</source>
+        <target state="translated">that's %@ a year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="circa %@ lordi al mese, su 13 mensilità." xml:space="preserve">
+        <source>circa %@ lordi al mese, su 13 mensilità.</source>
+        <target state="translated">about %@ gross a month, over 13 monthly payments.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="codice tributo %@ · anno %@" xml:space="preserve">
+        <source>codice tributo %@ · anno %@</source>
+        <target state="translated">tax code %@ · year %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="con %@ incassati." xml:space="preserve">
+        <source>con %@ incassati.</source>
+        <target state="translated">with %@ received.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="contando 46 settimane di lavoro all'anno." xml:space="preserve">
+        <source>contando 46 settimane di lavoro all'anno.</source>
+        <target state="translated">assuming 46 working weeks a year.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="da incassare" xml:space="preserve">
+        <source>da incassare</source>
+        <target state="translated">not yet received</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="da pagare entro il %@" xml:space="preserve">
+        <source>da pagare entro il %@</source>
+        <target state="translated">to pay by %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="entro il %@" xml:space="preserve">
+        <source>entro il %@</source>
+        <target state="translated">by %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="è appena iniziato" xml:space="preserve">
+        <source>è appena iniziato</source>
+        <target state="translated">has just begun</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="giorni" xml:space="preserve">
+        <source>giorni</source>
+        <target state="translated">days</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="giorno" xml:space="preserve">
+        <source>giorno</source>
+        <target state="translated">day</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="in arrivo" xml:space="preserve">
+        <source>in arrivo</source>
+        <target state="translated">coming soon</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="incassata" xml:space="preserve">
+        <source>incassata</source>
+        <target state="translated">received</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="modello F24 precompilato nel Cassetto previdenziale INPS" xml:space="preserve">
+        <source>modello F24 precompilato nel Cassetto previdenziale INPS</source>
+        <target state="translated">pre-filled F24 in your INPS account (Cassetto previdenziale)</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="nel %@" xml:space="preserve">
+        <source>nel %@</source>
+        <target state="translated">in %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="pagata" xml:space="preserve">
+        <source>pagata</source>
+        <target state="translated">paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="pagato" xml:space="preserve">
+        <source>pagato</source>
+        <target state="translated">paid</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="per tasse e pensione di quest'anno" xml:space="preserve">
+        <source>per tasse e pensione di quest'anno</source>
+        <target state="translated">for this year's taxes and pension</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="restano a te" xml:space="preserve">
+        <source>restano a te</source>
+        <target state="translated">stay with you</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="ricevuti nel %@" xml:space="preserve">
+        <source>ricevuti nel %@</source>
+        <target state="translated">received in %@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="risparmi il %lld%%" xml:space="preserve">
+        <source>risparmi il %lld%%</source>
+        <target state="translated">save %lld%%</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="rispetto al regime normale, con queste spese." xml:space="preserve">
+        <source>rispetto al regime normale, con queste spese.</source>
+        <target state="translated">compared with the standard regime, with these expenses.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="senza numero" xml:space="preserve">
+        <source>senza numero</source>
+        <target state="translated">no number</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="sono tasse" xml:space="preserve">
+        <source>sono tasse</source>
+        <target state="translated">are taxes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="sono tuoi" xml:space="preserve">
+        <source>sono tuoi</source>
+        <target state="translated">are yours</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="su %@ incassati · tocca l'anello" xml:space="preserve">
+        <source>su %@ incassati · tocca l'anello</source>
+        <target state="translated">of %@ received · tap the ring</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="te ne restano" xml:space="preserve">
+        <source>te ne restano</source>
+        <target state="translated">you keep</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="vanno alla pensione" xml:space="preserve">
+        <source>vanno alla pensione</source>
+        <target state="translated">go to your pension</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="vanno alla tua pensione" xml:space="preserve">
+        <source>vanno alla tua pensione</source>
+        <target state="translated">go to your pension</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="«Metti da parte %@ entro il %@»" xml:space="preserve">
+        <source>«Metti da parte %@ entro il %@»</source>
+        <target state="translated">“Set aside %@ by %@”</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="«Tra un mese tocca pagare: tieni pronti i soldi»" xml:space="preserve">
+        <source>«Tra un mese tocca pagare: tieni pronti i soldi»</source>
+        <target state="translated">“Payment due in a month: keep the money ready”</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="€" xml:space="preserve">
+        <source>€</source>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
