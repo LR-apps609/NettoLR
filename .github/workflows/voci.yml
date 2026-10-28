@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir -p uscita
           python - <<'PY' 2>&1 | tee voci.log || true
-          import os, soundfile as sf
+          import os, torch, soundfile as sf
           from voxcpm import VoxCPM
           m = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False, device="cpu", optimize=False)
           sr = m.tts_model.sample_rate
@@ -43,7 +43,8 @@ jobs:
           }
           for nome, descr in voci.items():
               for i, frase in enumerate([os.environ["FRASE2"], os.environ["FRASE"]], 1):
-                  wav = m.generate(text=descr + frase, cfg_value=2.0, inference_timesteps=10, seed=42)
+                  torch.manual_seed(42)
+                  wav = m.generate(text=descr + frase, cfg_value=2.0, inference_timesteps=10)
                   sf.write(f"uscita/voxcpm-{nome}-{i}.wav", wav, sr)
                   print(nome, i, "fatto", flush=True)
           PY
