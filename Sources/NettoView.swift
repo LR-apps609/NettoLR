@@ -279,6 +279,9 @@ struct GraficoMesi: View {
                     }
                 }
                 .frame(height: 130)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(descrizioneGrafico)
+
                 .sensoryFeedback(.selection, trigger: selezione)
             }
         }
@@ -286,7 +289,18 @@ struct GraficoMesi: View {
         .onAppear { withAnimation(.spring(duration: 0.9, bounce: 0.2).delay(0.4)) { cresciuto = true } }
     }
 
-    /// Le iniziali dei mesi nella lingua dell'app; le doppie hanno uno spazio in più, perché il grafico vuole nomi diversi
+    /// Per VoiceOver: il totale e il mese migliore, invece di dodici barre
+    private var descrizioneGrafico: String {
+        let totale = mesi.reduce(0) { $0 + $1.totale }
+        guard let migliore = mesi.max(by: { $0.totale < $1.totale }), migliore.totale > 0 else { return "" }
+        var c = Calendar(identifier: .gregorian)
+        c.locale = Formato.lingua
+        let mese = c.standaloneMonthSymbols[migliore.mese - 1]
+        return String(localized: "Incassi mese per mese: \(Formato.euroTondo(totale)) in tutto, il mese migliore è \(mese) con \(Formato.euroTondo(migliore.totale)).")
+    }
+
+    /// Le iniziali dei mesi nella lingua dell'app
+; le doppie hanno uno spazio in più, perché il grafico vuole nomi diversi
     static let nomi: [String] = {
         var c = Calendar(identifier: .gregorian)
         c.locale = Formato.lingua

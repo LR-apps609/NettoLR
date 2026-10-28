@@ -164,7 +164,26 @@ final class ScreenshotTests: XCTestCase {
         }
     }
 
+    /// Testo molto grande (accessibilità) e la schermata dell'abbonamento in italiano
+    func test6TestoGrande() {
+        XCUIDevice.shared.appearance = .light
+        app.launchArguments = ["-uitest", "-uiProva", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT",
+                               "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"]
+        app.launch()
+        XCTAssertTrue(scheda(0).waitForExistence(timeout: 15))
+        sleep(2)
+        foto("18-grande-netto")
+        scheda(1).tap(); sleep(2)
+        foto("19-grande-incassi")
+        scheda(3).tap(); sleep(2)
+        foto("20-grande-pagamenti")
+        scheda(4).tap(); sleep(1)
+        foto("21-grande-tu")
+        if tocca("tu.completo") { sleep(1); foto("22-grande-completo"); chiudi() }
+    }
+
     /// Tocca un elemento se c'è (pulsante con quell'identificativo)
+
     @discardableResult
     private func tocca(_ id: String) -> Bool {
         let e = app.buttons[id]
