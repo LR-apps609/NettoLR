@@ -29,7 +29,7 @@ enum Video {
 struct VideoView: View {
     var scene: [Scena] = Video.partitaIVA
     @Environment(\.dismiss) private var chiudi
-    @StateObject private var voce = Voce()
+    @StateObject private var voce = Narratore()
     @State private var indice = 0
     @State private var avanzamento = 0.0
     @State private var conVoce = true
@@ -132,7 +132,7 @@ struct VideoView: View {
 
 /// La voce italiana dell'iPhone
 @MainActor
-final class Voce: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     private let sintetizzatore = AVSpeechSynthesizer()
     @Published var parla = false
 
