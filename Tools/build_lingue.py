@@ -63,12 +63,15 @@ def dalle_regole() -> set[str]:
         d = json.loads(f.read_text())
         for c in d["forfettario"]["coefficienti"]["valore"]:
             chiavi.add(c["nome"])
+        for n in d.get("novita", []):
+            chiavi.add(n["testo"])
     return chiavi
 
 
 def principale():
     traduzioni = json.loads(TRADUZIONI.read_text()) if TRADUZIONI.exists() else {}
-    chiavi = dai_sorgenti() | dalle_regole()
+    # Anche le frasi già tradotte che il compilatore estrarrà alla prossima esportazione (quelle con %@, %lld…)
+    chiavi = dai_sorgenti() | dalle_regole() | set(traduzioni)
     if len(sys.argv) > 1:
         chiavi |= dal_compilatore(Path(sys.argv[1]))
     stringhe = {}

@@ -312,5 +312,23 @@
       "valore": 0.02,
       "fonte": "addizionali"
     }
-  }
+  },
+  "novita": [
+    {
+      "data": "2026-10-27",
+      "testo": "Saldo e primo acconto delle tasse 2026 spostati al 20 luglio (D.L. 89/2026, da verificare)."
+    },
+    {
+      "data": "2026-10-27",
+      "testo": "Bollo delle fatture elettroniche: scadenze dei quattro trimestri e rinvio sotto 5.000 €."
+    },
+    {
+      "data": "2026-02-09",
+      "testo": "Pensione artigiani e commercianti 2026: nuovo minimo di reddito (18.808 €) e nuove quote fisse (circolare INPS 14/2026)."
+    },
+    {
+      "data": "2026-02-03",
+      "testo": "Pensione in Gestione Separata 2026: aliquota 26,07% e nuovo massimale (circolare INPS 8/2026)."
+    }
+  ]
 }

@@ -188,6 +188,39 @@
         }
       }
     },
+    ", pagato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", paid"
+          }
+        }
+      }
+    },
+    "/anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/year"
+          }
+        }
+      }
+    },
+    "/mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/month"
+          }
+        }
+      }
+    },
     "11 cifre": {
       "extractionState": "manual",
       "localizations": {
@@ -261,6 +294,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "7 questions, one minute"
+          }
+        }
+      }
+    },
+    "ATECO 2007 (aggiornamento 2022), ATECO 2025 e la tavola di raccordo tra i due": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ATECO 2007 (2022 update), ATECO 2025 and the conversion table between them"
           }
         }
       }
@@ -485,6 +529,17 @@
         }
       }
     },
+    "Apri un PDF": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open a PDF"
+          }
+        }
+      }
+    },
     "Apri un conto dedicato al lavoro: non è obbligatorio, ma ti aiuta a tenere separati i soldi delle tasse.": {
       "extractionState": "manual",
       "localizations": {
@@ -646,6 +701,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Invoice stamp duty (quarter %@)"
+          }
+        }
+      }
+    },
+    "Bollo delle fatture elettroniche: scadenze dei quattro trimestri e rinvio sotto 5.000 €.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E-invoice stamp duty: deadlines for the four quarters and deferral below €5,000."
           }
         }
       }
@@ -877,6 +943,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hi!"
+          }
+        }
+      }
+    },
+    "Cliente": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Client"
           }
         }
       }
@@ -1266,6 +1343,17 @@
         }
       }
     },
+    "Cosa è cambiato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What's changed"
+          }
+        }
+      }
+    },
     "Costi reali": {
       "extractionState": "manual",
       "localizations": {
@@ -1640,6 +1728,17 @@
         }
       }
     },
+    "Fotografa la fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photograph the invoice"
+          }
+        }
+      }
+    },
     "Funziona anche senza internet": {
       "extractionState": "manual",
       "localizations": {
@@ -1823,6 +1922,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "I've paid"
+          }
+        }
+      }
+    },
+    "Ho riempito i campi: controllali prima di salvare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I've filled in the fields: check them before saving."
           }
         }
       }
@@ -2663,6 +2773,17 @@
         }
       }
     },
+    "Leggi da una foto o un PDF": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read from a photo or PDF"
+          }
+        }
+      }
+    },
     "Leggo il documento…": {
       "extractionState": "manual",
       "localizations": {
@@ -2670,6 +2791,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Reading the document…"
+          }
+        }
+      }
+    },
+    "Leggo la fattura…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reading the invoice…"
           }
         }
       }
@@ -3169,6 +3301,17 @@
         }
       }
     },
+    "Non sono riuscito a leggere i dati: prova con una foto più nitida o scrivili tu.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't read the details: try a sharper photo or type them in."
+          }
+        }
+      }
+    },
     "Non trovo abbonamenti attivi con questo Apple ID.": {
       "extractionState": "manual",
       "localizations": {
@@ -3429,6 +3572,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pension (INPS) paid this year"
+          }
+        }
+      }
+    },
+    "Pensione artigiani e commercianti 2026: nuovo minimo di reddito (18.808 €) e nuove quote fisse (circolare INPS 14/2026).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2026 pension for artisans and traders: new minimum income (€18,808) and new fixed amounts (INPS circular 14/2026)."
+          }
+        }
+      }
+    },
+    "Pensione in Gestione Separata 2026: aliquota 26,07% e nuovo massimale (circolare INPS 8/2026).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2026 Gestione Separata pension: 26.07% rate and new ceiling (INPS circular 8/2026)."
           }
         }
       }
@@ -3851,6 +4016,28 @@
         }
       }
     },
+    "Regole 2025 inserite per rifare i conti dell'anno scorso: tutte da verificare con il commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2025 rules added to redo last year's sums: all to be checked with an accountant."
+          }
+        }
+      }
+    },
+    "Regole 2027 provvisorie: valori del 2026 e scadenze di legge del 2027, in attesa delle circolari INPS e della legge di bilancio. Tutto da verificare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Provisional 2027 rules: 2026 values and the statutory 2027 deadlines, pending the INPS circulars and the budget law. All to be checked."
+          }
+        }
+      }
+    },
     "Regole aggiornate ogni anno": {
       "extractionState": "manual",
       "localizations": {
@@ -3858,6 +4045,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Rules updated every year"
+          }
+        }
+      }
+    },
+    "Regole cambiate: %lld novità": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rules changed: %lld updates"
           }
         }
       }
@@ -3946,6 +4144,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Restore from a backup"
+          }
+        }
+      }
+    },
+    "Saldo e primo acconto delle tasse 2026 spostati al 20 luglio (D.L. 89/2026, da verificare).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Balance and first advance of 2026 taxes moved to 20 July (Decree-Law 89/2026, to be checked)."
           }
         }
       }
@@ -4859,6 +5068,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "compared with the standard regime, with these expenses."
+          }
+        }
+      }
+    },
+    "senza numero": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "no number"
           }
         }
       }

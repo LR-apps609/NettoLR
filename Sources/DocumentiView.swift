@@ -7,6 +7,8 @@ struct DocumentiView: View {
     @Environment(\.dismiss) private var chiudi
     @EnvironmentObject private var store: Store
     @State private var certificato = false
+    @State private var nuove: [Regole.Novita] = []
+
     private var regole: Regole { store.regole }
 
     var body: some View {
@@ -14,6 +16,29 @@ struct DocumentiView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     riepilogo.entrata(0)
+
+                    if let novita = regole.novita, !novita.isEmpty {
+                        sezione("Cosa è cambiato")
+                        VStack(alignment: .leading, spacing: 12) {
+                            ForEach(novita, id: \.self) { n in
+                                let nuova = nuove.contains(n)
+                                HStack(alignment: .top, spacing: 12) {
+                                    Image(systemName: nuova ? "sparkles" : "checkmark.circle")
+                                        .font(.app(16, .bold)).foregroundStyle(nuova ? Theme.tasseTesto : Theme.muted)
+                                        .frame(width: 24)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(Giorno.da(n.data).formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua)))
+                                            .font(.app(12, .bold)).foregroundStyle(nuova ? Theme.tasseTesto : Theme.muted)
+                                        Text(n.testo.tradotto).font(.app(15)).fixedSize(horizontal: false, vertical: true)
+                                    }
+                                }
+                            }
+                        }
+                        .scheda(padding: 16)
+                        .entrata(1)
+
+                        .accessibilityIdentifier("documenti.novita")
+                    }
 
                     sezione("Le fonti dei calcoli")
                     VStack(spacing: 0) {
@@ -63,6 +88,9 @@ struct DocumentiView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
             .sheet(isPresented: $certificato) { CertificatoView() }
+            // Le novità restano evidenziate finché la schermata è aperta, poi contano come viste
+            .onAppear { nuove = store.novitaNuove }
+            .onDisappear { store.segnaNovitaViste() }
         }
     }
 

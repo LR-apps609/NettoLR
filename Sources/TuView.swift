@@ -218,10 +218,17 @@ struct TuView: View {
                     .multilineTextAlignment(.leading)
             }
             Spacer()
+            if !store.novitaNuove.isEmpty {
+                Text("\(store.novitaNuove.count)").font(.app(13, .heavy)).foregroundStyle(.white)
+                    .frame(minWidth: 24, minHeight: 24)
+                    .background(Theme.tasse, in: Capsule())
+                    .accessibilityLabel(String(localized: "Regole cambiate: \(store.novitaNuove.count) novità"))
+            }
             Image(systemName: "chevron.right").foregroundStyle(Theme.lilla)
         }
         .padding(16)
         .background(Theme.lillaSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+
     }
 
     private func riga(_ icona: String, _ colore: Color, _ titolo: String, valore: String, freccia: Bool = false) -> some View {

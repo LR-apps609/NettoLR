@@ -20,6 +20,10 @@ final class Store: ObservableObject {
     @Published var ricevute: [String: String] = [:] { didSet { salva() } }
     /// Cambia a ogni incasso segnato: fa partire timbro e vibrazione
     @Published var ultimoIncasso = 0
+    /// La data dell'ultima novità delle regole già vista in Documenti
+    @Published var regoleViste = UserDefaults.standard.string(forKey: "regoleViste") ?? "" {
+        didSet { UserDefaults.standard.set(regoleViste, forKey: "regoleViste") }
+    }
 
     /// L'anno che si sta guardando (si cambia in Netto)
     @Published var anno = Regole.attuali.anno
@@ -51,7 +55,23 @@ final class Store: ObservableObject {
             carica()
         }
         caricato = true
+        // Al primo avvio non c'è niente di «nuovo»: le novità contano da qui in avanti
+        if regoleViste.isEmpty { segnaNovitaViste() }
     }
+
+    /// Le novità delle regole dell'anno in corso non ancora viste
+    var novitaNuove: [Regole.Novita] {
+        (Regole.attuali.novita ?? []).filter { $0.data > regoleViste }
+    }
+
+    func segnaNovitaViste() {
+        guard let ultima = (Regole.attuali.novita ?? []).map(\.data).max(), ultima > regoleViste else { return }
+        regoleViste = ultima
+        // Anche durante init (dove didSet non scatta)
+        UserDefaults.standard.set(ultima, forKey: "regoleViste")
+
+    }
+
 
     // MARK: - Calcoli pronti per le schermate
 

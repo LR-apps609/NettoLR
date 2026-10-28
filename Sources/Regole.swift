@@ -20,6 +20,14 @@ struct Regole: Codable {
     let versamenti: Versamenti
     let bollo: Bollo
     let irpef: Irpef
+    /// Cosa è cambiato nelle regole, in parole semplici (il più recente per primo); si mostra in Documenti
+    let novita: [Novita]?
+
+    struct Novita: Codable, Hashable {
+        /// "2026-10-27"
+        let data: String
+        let testo: String
+    }
 
     struct Forfettario: Codable {
         let sogliaRicavi: Voce<Double>
@@ -98,11 +106,26 @@ struct Regole: Codable {
 
     func fonte<T: Codable>(_ voce: Voce<T>) -> Fonte { fonti[voce.fonte] ?? .sconosciuta }
 
-    /// Le regole dell'anno in corso dell'app
-    static let attuali: Regole = carica(anno: 2026)
+    /// Gli anni per cui ci sono le regole: i file Resources/Rules/regole-AAAA.json presenti nell'app
+    static let anniDisponibili: [Int] = {
+        let bundle = Bundle(for: SegnaBundle.self)
+        let urls = (bundle.urls(forResourcesWithExtension: "json", subdirectory: "Rules") ?? [])
+            + (bundle.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? [])
+        let anni = Set(urls.compactMap { u -> Int? in
+            let nome = u.deletingPathExtension().lastPathComponent
+            guard nome.hasPrefix("regole-") else { return nil }
+            return Int(nome.dropFirst("regole-".count))
+        })
+        return anni.isEmpty ? [2026] : anni.sorted()
+    }()
 
-    /// Gli anni per cui ci sono le regole (Resources/Rules/regole-AAAA.json)
-    static let anniDisponibili = [2025, 2026]
+    /// Le regole dell'anno in corso: l'anno di oggi se c'è il suo file, altrimenti il più recente prima di oggi.
+    /// Così, quando arriva regole-2027.json, dal 1° gennaio 2027 l'app passa da sola al nuovo anno.
+    static let attuali: Regole = {
+        let oggi = Giorno.anno(Date())
+        let anno = anniDisponibili.filter { $0 <= oggi }.max() ?? anniDisponibili.min() ?? 2026
+        return carica(anno: anno)
+    }()
 
     private static let tutte: [Int: Regole] = Dictionary(uniqueKeysWithValues: anniDisponibili.map { ($0, carica(anno: $0)) })
 

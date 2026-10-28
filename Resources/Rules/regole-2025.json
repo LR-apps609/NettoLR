@@ -300,5 +300,11 @@
       "valore": 0.02,
       "fonte": "addizionali"
     }
-  }
+  },
+  "novita": [
+    {
+      "data": "2026-10-27",
+      "testo": "Regole 2025 inserite per rifare i conti dell'anno scorso: tutte da verificare con il commercialista."
+    }
+  ]
 }

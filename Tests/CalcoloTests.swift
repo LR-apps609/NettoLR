@@ -236,6 +236,20 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Calcolo.forfettario(p, anno: 2026, ricavi: 30_000).redditoLordo, 23_400)
     }
 
+    func testAnniDelleRegole() {
+        // Gli anni si leggono dai file: 2027 c'è (provvisorio) ma l'anno in corso resta quello di oggi
+        XCTAssertTrue(Set([2025, 2026, 2027]).isSubset(of: Set(Regole.anniDisponibili)))
+        XCTAssertLessThanOrEqual(Regole.attuali.anno, Giorno.anno(Date()))
+        let r27 = Regole.per(anno: 2027)
+        XCTAssertEqual(r27.anno, 2027)
+        XCTAssertTrue(r27.fonti.values.allSatisfy { !$0.verificata }, "Le regole 2027 sono tutte da verificare")
+        XCTAssertFalse(Regole.per(anno: 2026).novita?.isEmpty ?? true)
+        // Le scadenze 2027 cadono nel 2027 (il quarto bollo e la quarta rata nel 2028)
+        let p = Pagamenti.anno(Profilo(nome: "", partitaIVA: "", ateco: "96.02.01", annoApertura: 2020, requisitiStartup: false,
+                                       gestione: .artigiani, riduzione35: false), precedente: DatiAnnoPrecedente(), r: r27)
+        XCTAssertEqual(p.map { Giorno.anno($0.data) }.min(), 2027)
+    }
+
     func testRegole2025() {
         let r = Regole.per(anno: 2025)
         XCTAssertEqual(r.anno, 2025)
