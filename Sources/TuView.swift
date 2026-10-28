@@ -9,6 +9,7 @@ struct TuView: View {
     @State private var documenti = false
     @State private var esporta = false
     @State private var attivita = false
+    @State private var backup = false
     @State private var piva = ""
     @State private var chiediCancella = false
     @State private var esitoPiva: Bool?
@@ -56,6 +57,11 @@ struct TuView: View {
                             .buttonStyle(.plain)
                             .accessibilityIdentifier("tu.esporta")
                             Divider().padding(.leading, 66)
+                            Button { backup = true } label: {
+                                riga("icloud", Theme.pensione, "Copia di sicurezza", valore: "iCloud Drive", freccia: true)
+                            }
+                            .buttonStyle(.plain)
+                            Divider().padding(.leading, 66)
                             interruttore("faceid", "Blocca con Face ID", acceso: Binding(
                                 get: { store.profilo?.faceID ?? false },
                                 set: { store.profilo?.faceID = $0 }))
@@ -81,6 +87,7 @@ struct TuView: View {
             .sheet(isPresented: $documenti) { DocumentiView() }
             .sheet(isPresented: $esporta) { EsportaView() }
             .sheet(isPresented: $attivita) { AltreAttivitaView() }
+            .sheet(isPresented: $backup) { BackupView() }
             .sheet(isPresented: $modifica) {
                 DomandeProfilo(iniziale: store.profilo) { nuovo in
                     store.profilo = nuovo

@@ -247,4 +247,21 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(pag.first?.data, Giorno.da("2025-07-21"))
         XCTAssertEqual(Calcolo.irpefLorda(40_000, r: r), 6_440 + 12_000 * 0.35)
     }
+
+    @MainActor
+    func testCopiaDiSicurezza() throws {
+        let store = Store.shared
+        let prima = store.fatture
+        let primoProfilo = store.profilo
+        store.profilo = sviluppatore
+        store.fatture = [Fattura(numero: "1", data: Giorno.data(2026, 1, 2), cliente: "A", importo: 10, incassata: true, origine: .manuale)]
+        let copia = try store.copiaDiSicurezza()
+        store.fatture = []
+        try store.ripristina(copia)
+        XCTAssertEqual(store.fatture.count, 1)
+        XCTAssertEqual(store.profilo?.ateco, "62.01.00")
+        XCTAssertThrowsError(try store.ripristina(Data("{}".utf8)))
+        store.fatture = prima
+        store.profilo = primoProfilo
+    }
 }

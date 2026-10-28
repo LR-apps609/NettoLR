@@ -28,7 +28,7 @@ final class Store: ObservableObject {
     private var annoCorrente: Bool { anno == Regole.attuali.anno }
     private var caricato = false
 
-    private struct Salvataggio: Codable {
+    struct Salvataggio: Codable {
         var profilo: Profilo?
         var fatture: [Fattura]
         var annoPrecedente: DatiAnnoPrecedente
@@ -170,6 +170,41 @@ final class Store: ObservableObject {
     func immagineRicevuta(_ id: String) -> UIImage? {
         guard let nome = ricevute[id] else { return nil }
         return UIImage(contentsOfFile: Self.cartellaRicevute.appending(path: nome).path)
+    }
+
+    // MARK: - Copia di sicurezza (file .nettolr da salvare in iCloud Drive o in File)
+
+    /// Tutti i dati in un file, ricevute comprese
+    func copiaDiSicurezza() throws -> Data {
+        var foto: [String: Data] = [:]
+        for (_, nome) in ricevute {
+            if let d = try? Data(contentsOf: Self.cartellaRicevute.appending(path: nome)) { foto[nome] = d }
+        }
+        let copia = Copia(versione: 1, creata: Date(), dati: Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente,
+                          contributiVersati: contributiVersati, pagati: pagati, ricevute: ricevute), foto: foto)
+        return try JSONEncoder().encode(copia)
+    }
+
+    /// Rimette i dati da una copia: sostituisce quelli attuali
+    func ripristina(_ dati: Data) throws {
+        let copia = try JSONDecoder().decode(Copia.self, from: dati)
+        try FileManager.default.createDirectory(at: Self.cartellaRicevute, withIntermediateDirectories: true)
+        for (nome, d) in copia.foto where !nome.contains("/") {
+            try d.write(to: Self.cartellaRicevute.appending(path: nome), options: [.atomic, .completeFileProtection])
+        }
+        profilo = copia.dati.profilo
+        fatture = copia.dati.fatture
+        annoPrecedente = copia.dati.annoPrecedente
+        contributiVersati = copia.dati.contributiVersati
+        pagati = copia.dati.pagati ?? [:]
+        ricevute = copia.dati.ricevute ?? [:]
+    }
+
+    struct Copia: Codable {
+        var versione: Int
+        var creata: Date
+        var dati: Salvataggio
+        var foto: [String: Data]
     }
 
     func cancellaTutto() {
