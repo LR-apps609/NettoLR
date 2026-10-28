@@ -1,3 +1,4 @@
+import PhotosUI
 import SwiftUI
 import UIKit
 
@@ -117,9 +118,11 @@ struct DettaglioPagamentoView: View {
     @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var chiudi
     @State private var copiato = false
+    @State private var fotoRicevuta: PhotosPickerItem?
 
     var body: some View {
         NavigationStack {
+            ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text(Formato.euro(pagamento.importo)).font(.cifra(40))
                 Text(pagamento.titolo).font(.app(18, .semibold))
@@ -145,13 +148,31 @@ struct DettaglioPagamentoView: View {
                 .buttonStyle(PulsantePieno(colore: Theme.menta, testo: .white))
                 .sensoryFeedback(.success, trigger: fatto)
                 .accessibilityIdentifier("pagamento.fatto")
+                if let foto = store.immagineRicevuta(pagamento.id) {
+                    Image(uiImage: foto).resizable().scaledToFit()
+                        .frame(maxHeight: 220)
+                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .accessibilityLabel("Ricevuta F24")
+                }
+                PhotosPicker(selection: $fotoRicevuta, matching: .images) {
+                    Label(store.ricevute[pagamento.id] == nil ? "Aggiungi la ricevuta F24" : "Cambia la ricevuta", systemImage: "doc.text.image")
+                }
+                .buttonStyle(PulsanteBordo())
+                .onChange(of: fotoRicevuta) { _, voce in
+                    guard let voce else { return }
+                    Task {
+                        if let dati = try? await voce.loadTransferable(type: Data.self), let img = UIImage(data: dati) {
+                            withAnimation(.spring) { store.salvaRicevuta(img, per: pagamento) }
+                        }
+                    }
+                }
                 if let url = URL(string: pagamento.fonte.url) {
                     Link((pagamento.fonte.verificata ? "Fonte: " : "Da verificare: ") + pagamento.fonte.titolo, destination: url)
                         .font(.app(13))
                 }
-                Spacer()
             }
             .padding(20)
+            }
             .background(Theme.ground)
             .navigationTitle(pagamento.data.formatted(.dateTime.day().month(.wide).year().locale(Formato.it)))
             .navigationBarTitleDisplayMode(.inline)

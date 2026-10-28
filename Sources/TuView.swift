@@ -174,7 +174,7 @@ struct TuView: View {
             ForEach(Array([
                 "I tuoi dati restano su questo iPhone: niente account, niente server.",
                 "Nessuna pubblicità, nessuna statistica, nessun tracciamento.",
-                "Le foto dei documenti si leggono sul telefono e non vengono salvate.",
+                "La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui.",
             ].enumerated()), id: \.offset) { i, riga in
                 HStack(alignment: .top, spacing: 10) {
                     Text("\(i + 1)").font(.app(13, .heavy)).foregroundStyle(Theme.menta)

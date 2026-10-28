@@ -45,7 +45,11 @@ struct DocumentiView: View {
                             voce("doc.viewfinder", "Certificato della partita IVA", "Lo fotografi e leggo io il codice ATECO")
                         }
                         .buttonStyle(Molla())
-                        inArrivo("doc.text.image", "Ricevute F24", "La prova di ogni pagamento, in ordine")
+                        if store.ricevute.isEmpty {
+                            voce("doc.text.image", "Ricevute F24", "Aggiungile da «Pagamenti» quando segni «Ho pagato»")
+                        } else {
+                            ricevuteF24
+                        }
                     }
                     .entrata(3)
 
@@ -60,6 +64,29 @@ struct DocumentiView: View {
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
             .sheet(isPresented: $certificato) { CertificatoView() }
         }
+    }
+
+    private var ricevuteF24: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Ricevute F24").font(.app(16, .semibold))
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(store.pagamenti.filter { store.ricevute[$0.id] != nil }) { p in
+                        VStack(alignment: .leading, spacing: 4) {
+                            if let img = store.immagineRicevuta(p.id) {
+                                Image(uiImage: img).resizable().scaledToFill()
+                                    .frame(width: 110, height: 140).clipped()
+                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            }
+                            Text(p.data.formatted(.dateTime.day().month(.abbreviated).locale(Formato.it))).font(.app(12, .bold))
+                            Text(Formato.euroTondo(p.importo)).font(.app(12)).foregroundStyle(Theme.muted)
+                        }
+                        .accessibilityElement(children: .combine)
+                    }
+                }
+            }
+        }
+        .scheda(padding: 14)
     }
 
     private func voce(_ icona: String, _ titolo: String, _ sotto: String) -> some View {

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UIKit
 
 // Lo stato dell'app. Tutto resta sul telefono, in un file JSON nella cartella dell'app:
 // nessun account, nessun server.
@@ -15,6 +16,8 @@ final class Store: ObservableObject {
     @Published var contributiVersati: Double? { didSet { salva() } }
     /// I pagamenti segnati come fatti, con il giorno
     @Published var pagati: [String: Date] = [:] { didSet { salva() } }
+    /// Le ricevute F24 fotografate: pagamento → nome del file in Application Support/Ricevute
+    @Published var ricevute: [String: String] = [:] { didSet { salva() } }
     /// Cambia a ogni incasso segnato: fa partire timbro e vibrazione
     @Published var ultimoIncasso = 0
 
@@ -31,6 +34,7 @@ final class Store: ObservableObject {
         var annoPrecedente: DatiAnnoPrecedente
         var contributiVersati: Double?
         var pagati: [String: Date]?
+        var ricevute: [String: String]?
     }
 
     private static var file: URL {
@@ -147,7 +151,30 @@ final class Store: ObservableObject {
         pagati[p.id] = fatto ? Date() : nil
     }
 
+    static var cartellaRicevute: URL { URL.applicationSupportDirectory.appending(path: "Ricevute") }
+
+    /// Salva la foto della ricevuta di un pagamento (JPEG, protetta dal codice dell'iPhone)
+    func salvaRicevuta(_ immagine: UIImage, per p: Pagamento) {
+        guard let dati = immagine.jpegData(compressionQuality: 0.7) else { return }
+        let nome = "ricevuta-\(Int(p.data.timeIntervalSince1970))-\(abs(p.titolo.hashValue)).jpg"
+        do {
+            try FileManager.default.createDirectory(at: Self.cartellaRicevute, withIntermediateDirectories: true)
+            try dati.write(to: Self.cartellaRicevute.appending(path: nome), options: [.atomic, .completeFileProtection])
+            ricevute[p.id] = nome
+            if pagati[p.id] == nil { pagati[p.id] = Date() }
+        } catch {
+            print("NettoLR: ricevuta non salvata: \(error)")
+        }
+    }
+
+    func immagineRicevuta(_ id: String) -> UIImage? {
+        guard let nome = ricevute[id] else { return nil }
+        return UIImage(contentsOfFile: Self.cartellaRicevute.appending(path: nome).path)
+    }
+
     func cancellaTutto() {
+        try? FileManager.default.removeItem(at: Self.cartellaRicevute)
+        ricevute = [:]
         pagati = [:]
         profilo = nil
         fatture = []
@@ -159,7 +186,7 @@ final class Store: ObservableObject {
 
     private func salva() {
         guard caricato, !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
-        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati, pagati: pagati)
+        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati, pagati: pagati, ricevute: ricevute)
         do {
             try FileManager.default.createDirectory(at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
             try JSONEncoder().encode(dati).write(to: Self.file, options: [.atomic, .completeFileProtection])
@@ -176,6 +203,7 @@ final class Store: ObservableObject {
         annoPrecedente = s.annoPrecedente
         contributiVersati = s.contributiVersati
         pagati = s.pagati ?? [:]
+        ricevute = s.ricevute ?? [:]
     }
 
     /// Dati di esempio per le foto automatiche (e per le prove): una web designer in Gestione Separata
