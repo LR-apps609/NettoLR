@@ -9,6 +9,7 @@ struct NettoView: View {
     @State private var calcolo = false
     @State private var capire = false
     @State private var guide = false
+    @State private var annoInBreve = false
 
     var body: some View {
         NavigationStack {
@@ -46,6 +47,21 @@ struct NettoView: View {
                         .buttonStyle(Molla())
                         .entrata(6)
                         .accessibilityIdentifier("netto.guide")
+                        if res.ricavi > 0 {
+                            Button { annoInBreve = true } label: {
+                                HStack(spacing: 14) {
+                                    Image(systemName: "play.circle.fill").font(.system(size: 30)).foregroundStyle(Theme.rosaChiaro)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text("Il tuo \(String(store.anno)) in 30 secondi").font(.app(17, .bold))
+                                        Text("Da guardare e da condividere").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                                    }
+                                    Spacer()
+                                }
+                                .riquadroNotte(padding: 16)
+                            }
+                            .buttonStyle(Molla())
+                            .entrata(7)
+                        }
                     }
                     .padding(.horizontal, 20).padding(.vertical, 12)
                 }
@@ -55,6 +71,7 @@ struct NettoView: View {
             .sheet(isPresented: $calcolo) { ComeLoCalcoloView() }
             .fullScreenCover(isPresented: $capire) { CapireView() }
             .sheet(isPresented: $guide) { GuideView() }
+            .fullScreenCover(isPresented: $annoInBreve) { AnnoInBreveView() }
         }
     }
 
