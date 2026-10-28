@@ -1178,13 +1178,13 @@
         }
       }
     },
-    "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?": {
+    "Conta il giorno in cui ti pagano, non quello della fattura. Per questo noi ti chiediamo se ti hanno pagato.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "What counts is the day you get paid, not the invoice date. That's why NettoLR asks: have you been paid?"
+            "value": "What counts is the day you get paid, not the invoice date. That's why we ask whether you've been paid."
           }
         }
       }
@@ -4588,13 +4588,13 @@
         }
       }
     },
-    "Su quella parte paghi la pensione e una sola tassa. NettoLR tiene i conti per te e ti avvisa quando pagare.": {
+    "Su quella parte paghi la pensione e una sola tassa. Noi teniamo i conti per te, e ti avvisiamo quando pagare.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "On that part you pay your pension and a single tax. NettoLR keeps track for you and tells you when to pay."
+            "value": "On that part you pay your pension and a single tax. We keep track for you, and tell you when to pay."
           }
         }
       }

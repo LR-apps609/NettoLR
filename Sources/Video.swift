@@ -23,9 +23,9 @@ enum Video {
 
               testo: "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.", audio: "scena-3"),
         Scena(illustrazione: "cassa", colore: Theme.lilla,
-              testo: "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?", audio: "scena-4"),
+              testo: "Conta il giorno in cui ti pagano, non quello della fattura. Per questo noi ti chiediamo se ti hanno pagato.", audio: "scena-4"),
         Scena(illustrazione: "chiudi", colore: Theme.tasseTesto,
-              testo: "Su quella parte paghi la pensione e una sola tassa. NettoLR tiene i conti per te e ti avvisa quando pagare.", audio: "scena-5"),
+              testo: "Su quella parte paghi la pensione e una sola tassa. Noi teniamo i conti per te, e ti avvisiamo quando pagare.", audio: "scena-5"),
     ]
 }
 
