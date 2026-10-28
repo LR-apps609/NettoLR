@@ -4,6 +4,9 @@ name: Voci (campioni open source)
 # Chatterbox (MIT) e Qwen3-TTS (Apache 2.0). Ogni modello pubblica nel suo ramo (voci-chatterbox, voci-qwen).
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/voci.yml"]
 
 permissions:
   contents: write
