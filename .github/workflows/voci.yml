@@ -1,0 +1,86 @@
+name: Voci (campioni open source)
+
+# Genera campioni di voce italiana con modelli open source utilizzabili anche a pagamento:
+# Chatterbox (MIT) e Qwen3-TTS (Apache 2.0). Ogni modello pubblica nel suo ramo (voci-chatterbox, voci-qwen).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FRASE: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno."
+
+jobs:
+  chatterbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installa
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q chatterbox-tts
+      - name: Campioni
+        run: |
+          mkdir -p uscita
+          python - <<'PY'
+          import os, torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+          m = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          for nome, esag in [("normale", 0.5), ("espressiva", 0.8)]:
+              w = m.generate(os.environ["FRASE"], language_id="it", exaggeration=esag, cfg_weight=0.5)
+              ta.save(f"uscita/chatterbox-{nome}.wav", w, m.sr)
+          PY
+      - name: Pubblica
+        run: |
+          cd uscita && git init -q && git checkout -q -b voci-chatterbox
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add . && git commit -qm "Campioni Chatterbox"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voci-chatterbox
+
+  qwen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installa
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q qwen-tts soundfile
+      - name: Voci descritte a parole
+        run: |
+          mkdir -p uscita
+          python - <<'PY'
+          import os, torch, soundfile as sf
+          from qwen_tts import Qwen3TTSModel
+          m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign", device_map="cpu", dtype=torch.float32)
+          voci = {
+              "donna": "Voce femminile italiana sui 35 anni, calda e rassicurante, accento neutro senza inflessioni regionali, ritmo calmo e sorridente, come un'amica che spiega una cosa difficile in modo semplice.",
+              "uomo": "Voce maschile italiana sui 40 anni, profonda e cordiale, accento neutro, ritmo tranquillo e chiaro, tono da narratore di documentari.",
+          }
+          for nome, descrizione in voci.items():
+              wavs, sr = m.generate_voice_design(text=os.environ["FRASE"], language="Italian", instruct=descrizione)
+              sf.write(f"uscita/qwen-{nome}.wav", wavs[0], sr)
+              print(nome, "fatto", flush=True)
+          PY
+      - name: Voce già pronta
+        run: |
+          python - <<'PY'
+          import os, torch, soundfile as sf
+          from qwen_tts import Qwen3TTSModel
+          m = Qwen3TTSModel.from_pretrained("Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice", device_map="cpu", dtype=torch.float32)
+          wavs, sr = m.generate_custom_voice(text=os.environ["FRASE"], language="Italian", speaker="Serena", instruct="Tono caldo e rassicurante.")
+          sf.write("uscita/qwen-serena.wav", wavs[0], sr)
+          PY
+      - name: Pubblica
+        if: always()
+        run: |
+          cd uscita && git init -q && git checkout -q -b voci-qwen
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add . && git commit -qm "Campioni Qwen3-TTS"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voci-qwen

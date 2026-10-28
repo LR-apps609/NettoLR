@@ -4,7 +4,7 @@ name: Compila NettoLR
 
 on:
   push:
-    paths-ignore: ["docs/**", "**.md", ".github/workflows/istat.yml", "installa.sh", "sito/**", "Tools/build_sito.py"]
+    paths-ignore: ["docs/**", "**.md", ".github/workflows/istat.yml", "installa.sh", ".github/workflows/voci.yml", "sito/**", "Tools/build_sito.py"]
   pull_request:
   workflow_dispatch:
 
