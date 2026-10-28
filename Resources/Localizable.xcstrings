@@ -4588,13 +4588,13 @@
         }
       }
     },
-    "Su quella parte paghi la pensione e una sola tassa. Noi teniamo i conti per te, e ti avvisiamo quando pagare.": {
+    "Su quella parte paghi la pensione e una sola tassa. Noi teniamo i conti per te, e ti avvisiamo quando devi pagare.": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "On that part you pay your pension and a single tax. We keep track for you, and tell you when to pay."
+            "value": "On that part you pay your pension and a single tax. We keep track for you, and tell you when you need to pay."
           }
         }
       }
