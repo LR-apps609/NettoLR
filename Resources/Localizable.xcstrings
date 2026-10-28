@@ -562,6 +562,17 @@
         }
       }
     },
+    "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opening a VAT number is free: just apply online to the Agenzia delle Entrate, or have an accountant do it for you."
+          }
+        }
+      }
+    },
     "Aprire, chiudere, capire la partita IVA": {
       "extractionState": "manual",
       "localizations": {
@@ -2681,17 +2692,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your VAT number in one minute"
-          }
-        }
-      }
-    },
-    "La partita IVA si apre gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che lo fa per te.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Opening a VAT number is free: just apply online to the Agenzia delle Entrate, or have an accountant do it for you."
           }
         }
       }
