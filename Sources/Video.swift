@@ -2,28 +2,30 @@ import SwiftUI
 import AVFoundation
 
 // «La partita IVA in un minuto»: scene animate con sottotitoli e una voce che legge.
-// Per ora la voce è quella italiana dell'iPhone; le voci registrate (ElevenLabs) prenderanno il suo posto
-// come file audio nell'app, uno per scena, con lo stesso testo dei sottotitoli.
+// La voce è registrata una volta sola (VoxCPM2, licenza Apache) e sta nell'app in Resources/Voce:
+// un file per scena e per lingua, con lo stesso testo dei sottotitoli. Se un file manca legge la voce dell'iPhone.
 
 struct Scena {
     let illustrazione: String
     let colore: Color
     let testo: String
+    /// Il nome del file audio in Resources/Voce, senza lingua né estensione (es. «scena-1»)
+    var audio: String? = nil
 }
 
 enum Video {
     static let partitaIVA: [Scena] = [
         Scena(illustrazione: "apri", colore: Theme.menta,
-              testo: "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te."),
+              testo: "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te.", audio: "scena-1"),
         Scena(illustrazione: "forfettario", colore: Theme.prugna,
-              testo: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno."),
+              testo: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno.", audio: "scena-2"),
         Scena(illustrazione: "iva", colore: Theme.pensione,
 
-              testo: "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro."),
+              testo: "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.", audio: "scena-3"),
         Scena(illustrazione: "cassa", colore: Theme.lilla,
-              testo: "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?"),
+              testo: "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?", audio: "scena-4"),
         Scena(illustrazione: "chiudi", colore: Theme.tasseTesto,
-              testo: "Su quella parte paghi la pensione e una sola tassa. NettoLR mette da parte i conti per te, e ti avvisa quando pagare."),
+              testo: "Su quella parte paghi la pensione e una sola tassa. NettoLR tiene i conti per te e ti avvisa quando pagare.", audio: "scena-5"),
     ]
 }
 
@@ -74,7 +76,7 @@ struct VideoView: View {
                 HStack(spacing: 14) {
                     tasto(conVoce ? "speaker.wave.2.fill" : "speaker.slash.fill", conVoce ? "Togli la voce" : "Metti la voce") {
                         conVoce.toggle()
-                        if conVoce { voce.leggi(scene[indice].testo.tradotto) } else { voce.ferma() }
+                        if conVoce { voce.leggi(scene[indice].testo.tradotto, audio: scene[indice].audio) } else { voce.ferma() }
                     }
                     tasto("backward.fill", "Indietro") { vai(max(indice - 1, 0)) }
                     tasto(inPausa ? "play.fill" : "pause.fill", inPausa ? "Riprendi" : "Pausa", grande: true) {
@@ -114,9 +116,9 @@ struct VideoView: View {
     private func scena() async {
         guard !inPausa else { return }
         let testo = scene[indice].testo.tradotto
-        let durata = max(4, Double(testo.count) / 14)
+        let durata = Narratore.durata(scene[indice].audio) ?? max(4, Double(testo.count) / 14)
         avanzamento = 0
-        if conVoce { voce.leggi(testo) }
+        if conVoce { voce.leggi(testo, audio: scene[indice].audio) }
         withAnimation(.linear(duration: durata)) { avanzamento = 1 }
         try? await Task.sleep(for: .seconds(durata))
         while conVoce && voce.parla && !Task.isCancelled { try? await Task.sleep(for: .milliseconds(200)) }
@@ -131,10 +133,25 @@ struct VideoView: View {
     }
 }
 
-/// La voce italiana dell'iPhone
+/// La voce registrata della scena, o quella dell'iPhone se il file manca
 @MainActor
-final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
+final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
     private let sintetizzatore = AVSpeechSynthesizer()
+    private var lettore: AVAudioPlayer?
+
+    /// Il file della scena nella lingua dell'app
+    static func file(_ audio: String?) -> URL? {
+        guard let audio else { return nil }
+        let lingua = Formato.inglese ? "en" : "it"
+        return Bundle.main.url(forResource: "\(audio)-\(lingua)", withExtension: "m4a", subdirectory: "Voce")
+            ?? Bundle.main.url(forResource: "\(audio)-\(lingua)", withExtension: "m4a")
+    }
+
+    /// Quanto dura la registrazione della scena (nil se non c'è)
+    static func durata(_ audio: String?) -> Double? {
+        guard let url = file(audio), let p = try? AVAudioPlayer(contentsOf: url) else { return nil }
+        return p.duration
+    }
     @Published var parla = false
     /// La frase in corso: la fine di una frase interrotta non deve fermare quella nuova
     private var corrente: ObjectIdentifier?
@@ -144,9 +161,16 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         sintetizzatore.delegate = self
     }
 
-    func leggi(_ testo: String) {
+    func leggi(_ testo: String, audio: String? = nil) {
         ferma()
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+        if let url = Self.file(audio), let p = try? AVAudioPlayer(contentsOf: url) {
+            p.delegate = self
+            lettore = p
+            parla = true
+            p.play()
+            return
+        }
         let frase = AVSpeechUtterance(string: testo)
         let lingua = Bundle.main.preferredLocalizations.first == "en" ? "en-GB" : "it-IT"
         frase.voice = AVSpeechSynthesisVoice.speechVoices()
@@ -161,6 +185,8 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
 
     func ferma() {
         corrente = nil
+        lettore?.stop()
+        lettore = nil
         sintetizzatore.stopSpeaking(at: .immediate)
         parla = false
     }
@@ -169,6 +195,11 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     func chiudi() {
         ferma()
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+    }
+
+    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let id = ObjectIdentifier(player)
+        Task { @MainActor in if self.lettore.map { ObjectIdentifier($0) } == id { self.parla = false } }
     }
 
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {

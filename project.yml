@@ -23,6 +23,10 @@ targets:
       - path: Resources/Localizable.xcstrings
       - path: NOVITA.txt
         buildPhase: resources
+      # Le voci registrate del video, una per scena e per lingua
+      - path: Resources/Voce
+        type: folder
+        buildPhase: resources
       # Le regole fiscali dell'anno (aliquote, soglie, scadenze, fonti): le stesse servono al sito
       - path: Resources/Rules
         type: folder
