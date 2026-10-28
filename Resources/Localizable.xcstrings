@@ -1,7 +1,4945 @@
 {
-  "sourceLanguage" : "it",
-  "strings" : {
-
+  "sourceLanguage": "it",
+  "strings": {
+    " ti avvisa prima": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " warns you in advance"
+          }
+        }
+      }
+    },
+    "%@ al mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ a month"
+          }
+        }
+      }
+    },
+    "%@ all'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ a year"
+          }
+        }
+      }
+    },
+    "%@ l'ora": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ an hour"
+          }
+        }
+      }
+    },
+    "%@ stimato (dipende da Regione e Comune)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ estimated (depends on region and town)"
+          }
+        }
+      }
+    },
+    "%@ · ti hanno pagato?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · have you been paid?"
+          }
+        }
+      }
+    },
+    "%@ × coefficiente %@ (%@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ × coefficient %@ (%@)"
+          }
+        }
+      }
+    },
+    "%@, %@, pagata il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %@, paid on %@"
+          }
+        }
+      }
+    },
+    "%@. In NettoLR trovi i dati per l'F24.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. The F24 details are in NettoLR."
+          }
+        }
+      }
+    },
+    "%@. Tieni da parte i soldi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@. Keep the money aside."
+          }
+        }
+      }
+    },
+    "%@: %@. Tocca per cambiare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@. Tap to change."
+          }
+        }
+      }
+    },
+    "%@: non riesco ad aprirlo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: I can't open it."
+          }
+        }
+      }
+    },
+    "%lld codici ufficiali ISTAT": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld official ISTAT codes"
+          }
+        }
+      }
+    },
+    "%lld fatture sopra %@ × %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld invoices over %@ × %@"
+          }
+        }
+      }
+    },
+    "%lld fonti verificate, %lld da verificare · aggiornate al %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sources verified, %lld to be checked · updated %@"
+          }
+        }
+      }
+    },
+    "+%@ all'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%@ a year"
+          }
+        }
+      }
+    },
+    "11 cifre": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "11 digits"
+          }
+        }
+      }
+    },
+    "1791 secondo acconto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1791 second advance"
+          }
+        }
+      }
+    },
+    "1792 saldo %@ · 1790 primo acconto %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1792 balance %@ · 1790 first advance %@"
+          }
+        }
+      }
+    },
+    "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "€2 for every invoice over €77.47. You can also find the exact amount on the Fatture e Corrispettivi portal."
+          }
+        }
+      }
+    },
+    "4% INPS in fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "4% INPS on invoices"
+          }
+        }
+      }
+    },
+    "5%% fino al %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5%% until %@"
+          }
+        }
+      }
+    },
+    "7 domande, un minuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 questions, one minute"
+          }
+        }
+      }
+    },
+    "Abbonati per continuare a vedere quanto ti resta.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscribe to keep seeing what you really take home."
+          }
+        }
+      }
+    },
+    "Acquisto non riuscito. Riprova tra poco.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase failed. Please try again shortly."
+          }
+        }
+      }
+    },
+    "Addizionali": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Local surtaxes"
+          }
+        }
+      }
+    },
+    "Aggiungi gli incassi e qui vedrai il mese migliore.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add your income and your best month will show up here."
+          }
+        }
+      }
+    },
+    "Aggiungi il primo incasso per vedere il tuo anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add your first payment to see your year."
+          }
+        }
+      }
+    },
+    "Aggiungi la ricevuta F24": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add the F24 receipt"
+          }
+        }
+      }
+    },
+    "Aggiungi un incasso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a payment received"
+          }
+        }
+      }
+    },
+    "Aggiungi un'attività": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add an activity"
+          }
+        }
+      }
+    },
+    "Aggiungile da «Pagamenti» quando segni «Ho pagato»": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add them from “Payments” when you tap “I've paid”"
+          }
+        }
+      }
+    },
+    "Aggiunte %lld fatture da %@. Tocca «Sì» quando te le pagano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Added %lld invoices from %@. Tap “Yes” when they're paid."
+          }
+        }
+      }
+    },
+    "Aggiunte %lld fatture. Tocca «Sì» quando te le pagano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Added %lld invoices. Tap “Yes” when they're paid."
+          }
+        }
+      }
+    },
+    "Altre attività": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Other activities"
+          }
+        }
+      }
+    },
+    "Altre attività economiche": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Other economic activities"
+          }
+        }
+      }
+    },
+    "Anche tramite società collegate.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Including through related companies."
+          }
+        }
+      }
+    },
+    "Ancora nessun incasso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No income yet"
+          }
+        }
+      }
+    },
+    "Anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Year"
+          }
+        }
+      }
+    },
+    "Annuale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
+        }
+      }
+    },
+    "Annulla": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "Anticipi di pensione già pagati": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension advances already paid"
+          }
+        }
+      }
+    },
+    "Anticipi di tasse già pagati per il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tax advances already paid for %@"
+          }
+        }
+      }
+    },
+    "Apri un conto dedicato al lavoro: non è obbligatorio, ma ti aiuta a tenere separati i soldi delle tasse.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open a bank account just for work: it isn't required, but it helps you keep the tax money separate."
+          }
+        }
+      }
+    },
+    "Aprire la partita IVA in 7 passi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opening a VAT number in 7 steps"
+          }
+        }
+      }
+    },
+    "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opening a VAT number is free: just apply online to the Agenzia delle Entrate, or have an accountant do it for you."
+          }
+        }
+      }
+    },
+    "Aprire, chiudere, capire la partita IVA": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opening, closing and understanding your VAT number"
+          }
+        }
+      }
+    },
+    "Artigiani": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artisans"
+          }
+        }
+      }
+    },
+    "Artigiani, riduzione 35%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artisans, 35% reduction"
+          }
+        }
+      }
+    },
+    "Aspetti da %lld giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting %lld days"
+          }
+        }
+      }
+    },
+    "Attiva la PEC, la posta certificata: per le imprese e gli iscritti a un albo è obbligatoria.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set up a PEC, the certified email: it's mandatory for businesses and members of a professional register."
+          }
+        }
+      }
+    },
+    "Attività dei servizi di alloggio e di ristorazione": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accommodation and food services"
+          }
+        }
+      }
+    },
+    "Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Professional, scientific, technical, health, education, financial and insurance services"
+          }
+        }
+      }
+    },
+    "Attivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active"
+          }
+        }
+      }
+    },
+    "Avanti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
+          }
+        }
+      }
+    },
+    "Avvocati, ingegneri, psicologi…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lawyers, engineers, psychologists…"
+          }
+        }
+      }
+    },
+    "Blocca con Face ID": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock with Face ID"
+          }
+        }
+      }
+    },
+    "Bollo delle fatture (%@ trimestre)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice stamp duty (quarter %@)"
+          }
+        }
+      }
+    },
+    "Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calculated with NettoLR, not tax advice. Rules updated %@."
+          }
+        }
+      }
+    },
+    "Cambia la ricevuta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change the receipt"
+          }
+        }
+      }
+    },
+    "Cancella tutti i dati": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete all data"
+          }
+        }
+      }
+    },
+    "Cancella tutto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete everything"
+          }
+        }
+      }
+    },
+    "Cancellare profilo e incassi da questo iPhone?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete your profile and income from this iPhone?"
+          }
+        }
+      }
+    },
+    "Capire in 1 minuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Understand it in 1 minute"
+          }
+        }
+      }
+    },
+    "Cassa professionale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Professional pension fund"
+          }
+        }
+      }
+    },
+    "Cassa professionale %@ (dato inserito da te)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Professional fund %@ (entered by you)"
+          }
+        }
+      }
+    },
+    "Certificato P.IVA": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT number certificate"
+          }
+        }
+      }
+    },
+    "Certificato della partita IVA": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT number certificate"
+          }
+        }
+      }
+    },
+    "Che lavoro fai?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What do you do for work?"
+          }
+        }
+      }
+    },
+    "Chi controlla una SRL con attività simili non può stare nel forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you control an SRL doing similar work, you can't use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Chi ha quote in società di persone o associazioni professionali non può stare nel forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you hold shares in a partnership or a professional association, you can't use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Chi ti paga?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Who's paying you?"
+          }
+        }
+      }
+    },
+    "Chi è nel forfettario non aggiunge l'IVA alle fatture e non la recupera sugli acquisti.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the flat-rate scheme you don't add VAT to invoices and you don't reclaim it on purchases."
+          }
+        }
+      }
+    },
+    "Chiedi almeno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Charge at least"
+          }
+        }
+      }
+    },
+    "Chiudere la partita IVA": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Closing your VAT number"
+          }
+        }
+      }
+    },
+    "Chiudi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        }
+      }
+    },
+    "Ciao": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hi"
+          }
+        }
+      }
+    },
+    "Ciao %@!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hi %@!"
+          }
+        }
+      }
+    },
+    "Ciao!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hi!"
+          }
+        }
+      }
+    },
+    "Clienti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clients"
+          }
+        }
+      }
+    },
+    "Codici ATECO": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ATECO codes"
+          }
+        }
+      }
+    },
+    "Come lo calcolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How I work it out"
+          }
+        }
+      }
+    },
+    "Come lo calcolo?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How do I work it out?"
+          }
+        }
+      }
+    },
+    "Come ti chiamiamo?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What should we call you?"
+          }
+        }
+      }
+    },
+    "Commercianti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shopkeepers and traders"
+          }
+        }
+      }
+    },
+    "Commercianti, riduzione 35%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shopkeepers and traders, 35% reduction"
+          }
+        }
+      }
+    },
+    "Commercio all'ingrosso e al dettaglio": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wholesale and retail trade"
+          }
+        }
+      }
+    },
+    "Commercio ambulante di altri prodotti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Street trading of other goods"
+          }
+        }
+      }
+    },
+    "Commercio ambulante di prodotti alimentari e bevande": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Street trading of food and drinks"
+          }
+        }
+      }
+    },
+    "Compila la richiesta di apertura (modello AA9/12) sul sito dell'Agenzia delle Entrate con SPID o CIE, oppure falla fare a un commercialista o a un CAF. Scegli il regime forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fill in the opening request (form AA9/12) on the Agenzia delle Entrate website with SPID or CIE, or have an accountant or a CAF do it. Choose the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Con il 4%% INPS in fattura il cliente paga %@: inserisci quella cifra se è già compresa.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With the 4%% INPS on the invoice the client pays %@: enter that figure if it's already included."
+          }
+        }
+      }
+    },
+    "Con la partita IVA quest'anno ti restano %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With your VAT number you keep %@ this year."
+          }
+        }
+      }
+    },
+    "Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With more than €35,000 from employment or a pension, you can't open the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Con queste spese conviene il regime normale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With these expenses, the standard regime is better"
+          }
+        }
+      }
+    },
+    "Condividi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share"
+          }
+        }
+      }
+    },
+    "Condizioni d'uso (Apple)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of use (Apple)"
+          }
+        }
+      }
+    },
+    "Conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Check"
+          }
+        }
+      }
+    },
+    "Conserva fatture e ricevute per almeno 10 anni.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep invoices and receipts for at least 10 years."
+          }
+        }
+      }
+    },
+    "Conta come reddito il %lld%% di quello che incassi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%% of what you bring in counts as income"
+          }
+        }
+      }
+    },
+    "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What counts is the day you get paid, not the invoice date. That's why NettoLR asks: have you been paid?"
+          }
+        }
+      }
+    },
+    "Conta quando ti pagano": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It counts when you get paid"
+          }
+        }
+      }
+    },
+    "Conta quello che ti pagano davvero in un anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Count what you actually get paid in a year."
+          }
+        }
+      }
+    },
+    "Continua": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        }
+      }
+    },
+    "Contributi INPS": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS contributions"
+          }
+        }
+      }
+    },
+    "Contributi INPS della Gestione Separata.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS contributions to the Gestione Separata."
+          }
+        }
+      }
+    },
+    "Contributi dedotti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contributions deducted"
+          }
+        }
+      }
+    },
+    "Contributi effettivamente versati nell'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contributions actually paid during the year"
+          }
+        }
+      }
+    },
+    "Contributo minimo all'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimum contribution per year"
+          }
+        }
+      }
+    },
+    "Controlli una SRL che fa lo stesso lavoro che faresti tu?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you control an SRL that does the same work you would?"
+          }
+        }
+      }
+    },
+    "Controllo la cifra finale: non vuol dire che la partita IVA sia attiva.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I check the final digit: it doesn't mean the VAT number is active."
+          }
+        }
+      }
+    },
+    "Copia di sicurezza": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup"
+          }
+        }
+      }
+    },
+    "Copia i dati": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy the details"
+          }
+        }
+      }
+    },
+    "Copia salvata.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup saved."
+          }
+        }
+      }
+    },
+    "Copiato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copied"
+          }
+        }
+      }
+    },
+    "Costi reali": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actual costs"
+          }
+        }
+      }
+    },
+    "Costruzioni e attività immobiliari": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Construction and real estate"
+          }
+        }
+      }
+    },
+    "Così superi 100.000 €: esci subito dal forfettario. Senti un commercialista prima.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That takes you over €100,000: you'd leave the flat-rate scheme immediately. Talk to an accountant first."
+          }
+        }
+      }
+    },
+    "Così superi 85.000 €: dal prossimo anno cambi regime.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That takes you over €85,000: you'd change regime from next year."
+          }
+        }
+      }
+    },
+    "DIC": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DEC"
+          }
+        }
+      }
+    },
+    "Da capo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "From the start"
+          }
+        }
+      }
+    },
+    "Da dipendente ti servirebbe uno stipendio lordo di": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "As an employee you'd need a gross salary of"
+          }
+        }
+      }
+    },
+    "Da guardare e da condividere": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To watch and to share"
+          }
+        }
+      }
+    },
+    "Da mettere da parte": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To set aside"
+          }
+        }
+      }
+    },
+    "Da quando hai la partita IVA?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Since when have you had your VAT number?"
+          }
+        }
+      }
+    },
+    "Da verificare": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To be checked"
+          }
+        }
+      }
+    },
+    "Da verificare: ": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To be checked: "
+          }
+        }
+      }
+    },
+    "Data della fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice date"
+          }
+        }
+      }
+    },
+    "Dati ripristinati.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data restored."
+          }
+        }
+      }
+    },
+    "Devi incassare": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You need to bring in"
+          }
+        }
+      }
+    },
+    "Di ogni 100 € sono rimasti a te": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Of every €100, you kept"
+          }
+        }
+      }
+    },
+    "Dicci quanto hai pagato l'anno scorso: calcoliamo date e importi di quest'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tell us what you paid last year: we'll work out this year's dates and amounts."
+          }
+        }
+      }
+    },
+    "Documenti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documents"
+          }
+        }
+      }
+    },
+    "Domanda %lld di %lld": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Question %lld of %lld"
+          }
+        }
+      }
+    },
+    "Domanda %lld di 4": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Question %lld of 4"
+          }
+        }
+      }
+    },
+    "Dove versi la pensione?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where do you pay your pension contributions?"
+          }
+        }
+      }
+    },
+    "E se fossi dipendente?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What if I were an employee?"
+          }
+        }
+      }
+    },
+    "E se incassassi altri…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What if I brought in another…"
+          }
+        }
+      }
+    },
+    "Elimina": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        }
+      }
+    },
+    "Entro 30 giorni dalla fine dell'attività comunica la chiusura (modello AA9/12, o ComUnica se sei iscritto alla Camera di Commercio).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Within 30 days of stopping work, report the closure (form AA9/12, or ComUnica if you're registered with the Chamber of Commerce)."
+          }
+        }
+      }
+    },
+    "Fai e incassa le ultime fatture.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issue and collect your last invoices."
+          }
+        }
+      }
+    },
+    "Fai il test «Posso aprire il forfettario?» qui sotto.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take the “Can I use the flat-rate scheme?” test below."
+          }
+        }
+      }
+    },
+    "Fai una copia dei tuoi dati": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back up your data"
+          }
+        }
+      }
+    },
+    "Fatto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        }
+      }
+    },
+    "Fattura %@: dati mancanti, aggiungila a mano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice %@: details missing, add it by hand."
+          }
+        }
+      }
+    },
+    "Fonte non trovata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source not found"
+          }
+        }
+      }
+    },
+    "Fonte: ": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source: "
+          }
+        }
+      }
+    },
+    "Fotografa il certificato di attribuzione della partita IVA o la visura camerale: leggo io il codice ATECO.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take a photo of your VAT number certificate or Chamber of Commerce extract: I'll read the ATECO code."
+          }
+        }
+      }
+    },
+    "Fotografa il documento": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photograph the document"
+          }
+        }
+      }
+    },
+    "Funziona anche senza internet": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Works offline too"
+          }
+        }
+      }
+    },
+    "GEN": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JAN"
+          }
+        }
+      }
+    },
+    "Gestione Separata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestione Separata"
+          }
+        }
+      }
+    },
+    "Gestione Separata %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestione Separata %@"
+          }
+        }
+      }
+    },
+    "Gestisci l'abbonamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage subscription"
+          }
+        }
+      }
+    },
+    "Grazie!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thank you!"
+          }
+        }
+      }
+    },
+    "Guarda e ascolta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Watch and listen"
+          }
+        }
+      }
+    },
+    "Guide": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guides"
+          }
+        }
+      }
+    },
+    "Hai anche uno stipendio o una pensione?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you also have a salary or a pension?"
+          }
+        }
+      }
+    },
+    "Hai chiesto lo sconto del 35% sui contributi?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Did you apply for the 35% discount on contributions?"
+          }
+        }
+      }
+    },
+    "Hai quote in una società di persone, un'associazione professionale o un'impresa familiare?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you hold shares in a partnership, a professional association or a family business?"
+          }
+        }
+      }
+    },
+    "Hai superato %@: dal prossimo anno passi al regime ordinario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've gone over %@: from next year you move to the standard regime."
+          }
+        }
+      }
+    },
+    "Hai superato %@: esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've gone over %@: you leave the flat-rate scheme this year, charging VAT from the invoice that crosses the limit. Talk to an accountant right away."
+          }
+        }
+      }
+    },
+    "Hai uno stipendio o una pensione sopra 35.000 € all'anno?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you have a salary or pension over €35,000 a year?"
+          }
+        }
+      }
+    },
+    "Ho capito": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Got it"
+          }
+        }
+      }
+    },
+    "Ho il certificato della partita IVA: fotografalo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I have my VAT number certificate: photograph it"
+          }
+        }
+      }
+    },
+    "Ho pagato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I've paid"
+          }
+        }
+      }
+    },
+    "Ho un codice regalo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I have a gift code"
+          }
+        }
+      }
+    },
+    "I contributi tolti sono una stima. In «Pagamenti» puoi inserire quelli che hai davvero versato.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The contributions deducted are an estimate. In “Payments” you can enter the ones you actually paid."
+          }
+        }
+      }
+    },
+    "I dati dell'anno scorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last year's figures"
+          }
+        }
+      }
+    },
+    "I due regimi si equivalgono.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The two regimes come out the same."
+          }
+        }
+      }
+    },
+    "I soldi della pensione non sono persi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension money isn't lost."
+          }
+        }
+      }
+    },
+    "I tuoi dati non si cancellano: li ritrovi tutti appena ti abboni.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data isn't deleted: it'll all be there as soon as you subscribe."
+          }
+        }
+      }
+    },
+    "I tuoi dati restano su questo iPhone: niente account, niente server.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data stays on this iPhone: no account, no servers."
+          }
+        }
+      }
+    },
+    "I tuoi dati restano sul telefono": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data stays on your phone"
+          }
+        }
+      }
+    },
+    "I tuoi documenti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your documents"
+          }
+        }
+      }
+    },
+    "INPS": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS"
+          }
+        }
+      }
+    },
+    "INPS artigiani": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS artisans"
+          }
+        }
+      }
+    },
+    "INPS commercianti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS traders"
+          }
+        }
+      }
+    },
+    "INPS, Artigiani": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS, Artisans"
+          }
+        }
+      }
+    },
+    "INPS, Commercianti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS, Shopkeepers and traders"
+          }
+        }
+      }
+    },
+    "INPS, Gestione Separata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "INPS, Gestione Separata"
+          }
+        }
+      }
+    },
+    "IRPEF netta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Net IRPEF"
+          }
+        }
+      }
+    },
+    "IVA 22%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT 22%"
+          }
+        }
+      }
+    },
+    "IVA esclusa (in ordinario l'IVA si incassa e si versa)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Excluding VAT (in the standard regime VAT is collected and paid over)"
+          }
+        }
+      }
+    },
+    "Il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
+        }
+      }
+    },
+    "Il calcolo (regime forfettario)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The calculation (flat-rate scheme)"
+          }
+        }
+      }
+    },
+    "Il calcolo riga per riga, gli incassi, i pagamenti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The calculation line by line, income, payments"
+          }
+        }
+      }
+    },
+    "Il codice %@ del 2025 corrisponde a più attività di prima. Quale fai?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The 2025 code %@ matches several older activities. Which one do you do?"
+          }
+        }
+      }
+    },
+    "Il codice P.IVA è corretto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The VAT number is valid"
+          }
+        }
+      }
+    },
+    "Il codice P.IVA è sbagliato: controlla le cifre": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The VAT number is wrong: check the digits"
+          }
+        }
+      }
+    },
+    "Il dipendente ha anche ferie pagate, malattia e TFR, che qui non sono contati. Stima semplificata.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Employees also get paid holidays, sick pay and severance (TFR), which aren't counted here. Simplified estimate."
+          }
+        }
+      }
+    },
+    "Il file non sembra una fattura elettronica XML.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This file doesn't look like an XML e-invoice."
+          }
+        }
+      }
+    },
+    "Il forfettario in 2 minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The flat-rate scheme in 2 minutes"
+          }
+        }
+      }
+    },
+    "Il forfettario è per chi risiede in Italia (o in UE con quasi tutti i redditi in Italia).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The flat-rate scheme is for Italian residents (or EU residents with almost all their income in Italy)."
+          }
+        }
+      }
+    },
+    "Il giorno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On"
+          }
+        }
+      }
+    },
+    "Il mese migliore è stato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your best month was"
+          }
+        }
+      }
+    },
+    "Il mio %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My %@"
+          }
+        }
+      }
+    },
+    "Il mio %@ con NettoLR": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My %@ with NettoLR"
+          }
+        }
+      }
+    },
+    "Il reddito da dipendente supera %@: potresti non avere i requisiti per il forfettario. Verifica con un commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your employment income is over %@: you may not qualify for the flat-rate scheme. Check with an accountant."
+          }
+        }
+      }
+    },
+    "Il resto è andato alla pensione e alle tasse.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The rest went to your pension and taxes."
+          }
+        }
+      }
+    },
+    "Il ripristino sostituisce i dati che hai adesso su questo iPhone. Vuoi continuare?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restoring replaces the data currently on this iPhone. Continue?"
+          }
+        }
+      }
+    },
+    "Il tuo %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your %@"
+          }
+        }
+      }
+    },
+    "Il tuo %@ in 30 secondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your %@ in 30 seconds"
+          }
+        }
+      }
+    },
+    "Il tuo anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your year"
+          }
+        }
+      }
+    },
+    "Il tuo lavoro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your work"
+          }
+        }
+      }
+    },
+    "Il tuo nome (facoltativo)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your name (optional)"
+          }
+        }
+      }
+    },
+    "Il tuo obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your goal"
+          }
+        }
+      }
+    },
+    "Il tuo profilo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your profile"
+          }
+        }
+      }
+    },
+    "Importa dalle fatture elettroniche": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import from e-invoices"
+          }
+        }
+      }
+    },
+    "Importo: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amount: %@"
+          }
+        }
+      }
+    },
+    "Imposta sostitutiva %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Flat tax %@"
+          }
+        }
+      }
+    },
+    "In fattura si scrive che l'operazione è fatta «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014».": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the invoice you write that the transaction is made «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014»."
+          }
+        }
+      }
+    },
+    "Incassato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Received"
+          }
+        }
+      }
+    },
+    "Incassato − contributi − imposta − bolli": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Received − contributions − tax − stamps"
+          }
+        }
+      }
+    },
+    "Incassato − costi − contributi − imposte": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Received − costs − contributions − taxes"
+          }
+        }
+      }
+    },
+    "Incassi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Income"
+          }
+        }
+      }
+    },
+    "Incassi per Excel": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Income for Excel"
+          }
+        }
+      }
+    },
+    "Indietro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        }
+      }
+    },
+    "Industrie alimentari e delle bevande": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Food and drink manufacturing"
+          }
+        }
+      }
+    },
+    "Iniziamo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Let's start"
+          }
+        }
+      }
+    },
+    "Inserisci l'aliquota della tua cassa professionale per un calcolo dei contributi corretto.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter your professional fund's rate for an accurate contributions calculation."
+          }
+        }
+      }
+    },
+    "Intermediari del commercio": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trade intermediaries"
+          }
+        }
+      }
+    },
+    "L'App Store non risponde. Controlla la connessione e riprova.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The App Store isn't responding. Check your connection and try again."
+          }
+        }
+      }
+    },
+    "L'acquisto aspetta un'approvazione (per esempio di In famiglia).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The purchase is waiting for approval (for example from Family Sharing)."
+          }
+        }
+      }
+    },
+    "L'anno dopo paghi il saldo di tasse e pensione e fai l'ultima dichiarazione dei redditi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The following year you pay the balance of taxes and pension and file your last tax return."
+          }
+        }
+      }
+    },
+    "L'anno scorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last year"
+          }
+        }
+      }
+    },
+    "L'anticipo sulle tasse di quest'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The advance on this year's taxes."
+          }
+        }
+      }
+    },
+    "La copia contiene i tuoi dati: tienila in un posto sicuro. iCloud Drive la protegge con il tuo Apple ID.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The backup contains your data: keep it somewhere safe. iCloud Drive protects it with your Apple ID."
+          }
+        }
+      }
+    },
+    "La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The certificate photo is read on your phone and not saved; the receipts you add stay only here."
+          }
+        }
+      }
+    },
+    "La foto resta sul telefono: la lettura avviene sull'iPhone, senza internet.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The photo stays on your phone: it's read on the iPhone, without internet."
+          }
+        }
+      }
+    },
+    "La partita IVA in un minuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your VAT number in one minute"
+          }
+        }
+      }
+    },
+    "La prova è finita": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your trial has ended"
+          }
+        }
+      }
+    },
+    "La quota fissa che si paga anche senza guadagni.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The fixed amount you pay even with no earnings."
+          }
+        }
+      }
+    },
+    "La strada della maggior parte dei liberi professionisti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The route most freelancers take"
+          }
+        }
+      }
+    },
+    "La tua cassa": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your fund"
+          }
+        }
+      }
+    },
+    "La tua privacy, in tre righe": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your privacy, in three lines"
+          }
+        }
+      }
+    },
+    "Lavoreresti soprattutto per chi ti ha fatto da datore di lavoro negli ultimi 2 anni?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Would you mainly work for someone who employed you in the last 2 years?"
+          }
+        }
+      }
+    },
+    "Lavoro o codice ATECO": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Job or ATECO code"
+          }
+        }
+      }
+    },
+    "Le fonti dei calcoli": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where the numbers come from"
+          }
+        }
+      }
+    },
+    "Le fonti ufficiali dei calcoli, il certificato, le ricevute": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Official sources, your certificate, your receipts"
+          }
+        }
+      }
+    },
+    "Le tasse al 5%% valgono fino al %@. Poi passano al 15%%.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The 5%% tax rate lasts until %@. Then it goes up to 15%%."
+          }
+        }
+      }
+    },
+    "Le tue attività": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your activities"
+          }
+        }
+      }
+    },
+    "Leggo il documento…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reading the document…"
+          }
+        }
+      }
+    },
+    "Li ritrovi quando smetti di lavorare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You get it back when you stop working."
+          }
+        }
+      }
+    },
+    "Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You'll find them in your tax return, or ask your accountant. Leave blank what you don't know."
+          }
+        }
+      }
+    },
+    "Lo fotografi e leggo io il codice ATECO": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take a photo and I'll read the ATECO code"
+          }
+        }
+      }
+    },
+    "Logo di NettoLR": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR logo"
+          }
+        }
+      }
+    },
+    "Lordo, dell'anno scorso. Non conta se quel lavoro è già finito.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gross, last year. It doesn't matter if that job has already ended."
+          }
+        }
+      }
+    },
+    "Manda": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send"
+          }
+        }
+      }
+    },
+    "Manda al commercialista": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send to your accountant"
+          }
+        }
+      }
+    },
+    "Marche da bollo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revenue stamps"
+          }
+        }
+      }
+    },
+    "Mensile": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        }
+      }
+    },
+    "Mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Month"
+          }
+        }
+      }
+    },
+    "Mese migliore": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Best month"
+          }
+        }
+      }
+    },
+    "Metti da parte": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set aside"
+          }
+        }
+      }
+    },
+    "Metti la voce": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn the voice on"
+          }
+        }
+      }
+    },
+    "Mi conviene il forfettario?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Is the flat-rate scheme right for me?"
+          }
+        }
+      }
+    },
+    "Mi conviene?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Is it worth it?"
+          }
+        }
+      }
+    },
+    "Mi hanno già pagato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I've already been paid"
+          }
+        }
+      }
+    },
+    "Mostra gli importi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show amounts"
+          }
+        }
+      }
+    },
+    "Nascondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hide"
+          }
+        }
+      }
+    },
+    "Negozi, vendita online, agenti…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shops, online sales, agents…"
+          }
+        }
+      }
+    },
+    "Nel %@ hai incassato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In %@ you brought in"
+          }
+        }
+      }
+    },
+    "Nel forfettario le spese non si scaricano: c'è una percentuale fissa. Nel regime normale sì. Stima semplificata, senza IVA e senza detrazioni personali.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the flat-rate scheme you can't deduct expenses: there's a fixed percentage instead. In the standard regime you can. Simplified estimate, without VAT or personal deductions."
+          }
+        }
+      }
+    },
+    "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the flat-rate scheme you don't count expenses: the State takes a fixed share of what you bring in and treats it as your profit."
+          }
+        }
+      }
+    },
+    "Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (dal 40% all'86%).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the flat-rate scheme your actual expenses don't count: the State treats a fixed percentage of what you bring in as your income, depending on your ATECO code (from 40% to 86%)."
+          }
+        }
+      }
+    },
+    "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You don't add VAT to your invoices. Above 77 euros you just add a 2-euro revenue stamp."
+          }
+        }
+      }
+    },
+    "Nessun pagamento in vista": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No payments coming up"
+          }
+        }
+      }
+    },
+    "Nessuna": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
+          }
+        }
+      }
+    },
+    "Nessuna fattura nuova in %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No new invoices in %@."
+          }
+        }
+      }
+    },
+    "Nessuna pubblicità, nessuna statistica, nessun tracciamento.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No ads, no analytics, no tracking."
+          }
+        }
+      }
+    },
+    "NettoLR %@ · regole %@ · È un calcolo, non una consulenza fiscale.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR %@ · %@ rules · It's a calculation, not tax advice."
+          }
+        }
+      }
+    },
+    "NettoLR completo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR Complete"
+          }
+        }
+      }
+    },
+    "NettoLR completo è attivo, piano %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR Complete is active, %@ plan."
+          }
+        }
+      }
+    },
+    "NettoLR completo è attivo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR Complete is active."
+          }
+        }
+      }
+    },
+    "NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» saranno controllate da un commercialista prima del lancio.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR does a calculation, not tax advice. Items marked “to be checked” will be reviewed by an accountant before launch."
+          }
+        }
+      }
+    },
+    "NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR prepares the amounts and codes to copy into the F24 in your online banking. It doesn't make payments."
+          }
+        }
+      }
+    },
+    "NettoLR · riepilogo %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR · %@ summary"
+          }
+        }
+      }
+    },
+    "NettoLR è bloccata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR is locked"
+          }
+        }
+      }
+    },
+    "Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di 85.000 € all'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No IRPEF, no local surtaxes, no VAT, as long as you bring in less than €85,000 a year."
+          }
+        }
+      }
+    },
+    "Niente account, niente moduli": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No account, no forms"
+          }
+        }
+      }
+    },
+    "No": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        }
+      }
+    },
+    "Nome del cliente": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Client name"
+          }
+        }
+      }
+    },
+    "Non ancora pagata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not paid yet"
+          }
+        }
+      }
+    },
+    "Non ho trovato codici ATECO. Prova con una foto più dritta e ben illuminata, oppure cerca il tuo lavoro a mano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't find any ATECO codes. Try a straighter, well-lit photo, or search for your job by hand."
+          }
+        }
+      }
+    },
+    "Non riesco ad aprire %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I can't open %@."
+          }
+        }
+      }
+    },
+    "Non riesco ad aprire il file.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I can't open the file."
+          }
+        }
+      }
+    },
+    "Non sei sicuro? Lo trovi nel cassetto previdenziale INPS o chiedilo al commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not sure? You'll find it in your INPS account (cassetto previdenziale), or ask your accountant."
+          }
+        }
+      }
+    },
+    "Non trovo abbonamenti attivi con questo Apple ID.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I can't find an active subscription for this Apple ID."
+          }
+        }
+      }
+    },
+    "Non trovo il mio lavoro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I can't find my job"
+          }
+        }
+      }
+    },
+    "Nuovo incasso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New payment received"
+          }
+        }
+      }
+    },
+    "Oggi si paga": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment due today"
+          }
+        }
+      }
+    },
+    "Ogni 100 € che ti pagano…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Of every €100 you're paid…"
+          }
+        }
+      }
+    },
+    "Ogni volta che ti pagano, aggiungilo qui: ti diciamo subito quanto è tuo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every time you get paid, add it here: we'll tell you right away how much is yours."
+          }
+        }
+      }
+    },
+    "PDF ed Excel": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PDF and Excel"
+          }
+        }
+      }
+    },
+    "Pagamenti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payments"
+          }
+        }
+      }
+    },
+    "Pagato il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid on %@"
+          }
+        }
+      }
+    },
+    "Paghi ogni mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Billed monthly"
+          }
+        }
+      }
+    },
+    "Paghi una volta all'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Billed once a year"
+          }
+        }
+      }
+    },
+    "Parlane con un commercialista prima di cambiare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Talk to an accountant before switching."
+          }
+        }
+      }
+    },
+    "Parlane con un commercialista: ci sono casi particolari.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Talk to an accountant: there are special cases."
+          }
+        }
+      }
+    },
+    "Parole semplici, zero sigle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plain words, no jargon"
+          }
+        }
+      }
+    },
+    "Parrucchieri, idraulici, elettricisti…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hairdressers, plumbers, electricians…"
+          }
+        }
+      }
+    },
+    "Partita IVA": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT number"
+          }
+        }
+      }
+    },
+    "Partita IVA %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT number %@"
+          }
+        }
+      }
+    },
+    "Partita IVA %@: corretta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "VAT number %@: valid"
+          }
+        }
+      }
+    },
+    "Pausa": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        }
+      }
+    },
+    "Pensi di incassare meno di 85.000 € all'anno?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you expect to bring in less than €85,000 a year?"
+          }
+        }
+      }
+    },
+    "Pensione": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension"
+          }
+        }
+      }
+    },
+    "Pensione %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension %@"
+          }
+        }
+      }
+    },
+    "Pensione (INPS) dovuta per il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension (INPS) due for %@"
+          }
+        }
+      }
+    },
+    "Pensione (INPS) pagata quest'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension (INPS) paid this year"
+          }
+        }
+      }
+    },
+    "Pensione: %@ · aperta nel %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension: %@ · opened in %@"
+          }
+        }
+      }
+    },
+    "Pensione: il conto dell'anno scorso e un anticipo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension: last year's balance and an advance"
+          }
+        }
+      }
+    },
+    "Pensione: rata fissa %lld di 4": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension: fixed instalment %lld of 4"
+          }
+        }
+      }
+    },
+    "Pensione: se sei un libero professionista ti iscrivi alla Gestione Separata INPS online. Se sei artigiano o commerciante passi dalla Camera di Commercio (ComUnica) e, se serve, dal Comune.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension: if you're a freelancer you register with the INPS Gestione Separata online. If you're an artisan or trader you go through the Chamber of Commerce (ComUnica) and, if needed, the town hall."
+          }
+        }
+      }
+    },
+    "Pensione: secondo anticipo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension: second advance"
+          }
+        }
+      }
+    },
+    "Per esempio": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For example"
+          }
+        }
+      }
+    },
+    "Per esempio una snc, una sas o uno studio associato.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For example an snc, an sas or an associated practice."
+          }
+        }
+      }
+    },
+    "Per il commercialista": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For your accountant"
+          }
+        }
+      }
+    },
+    "Per il tuo lavoro il %lld%%: su questo paghi pensione e tasse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For your work it's %lld%%: that's what you pay pension and tax on"
+          }
+        }
+      }
+    },
+    "Per l'F24": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For the F24"
+          }
+        }
+      }
+    },
+    "Per quale lavoro?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For which job?"
+          }
+        }
+      }
+    },
+    "Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di 85.000 €.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That's why NettoLR asks “Have you been paid?”: only money actually received counts towards the calculations and the €85,000 limit."
+          }
+        }
+      }
+    },
+    "Percentuale della tua cassa (es. 14,5)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your fund's rate (e.g. 14.5)"
+          }
+        }
+      }
+    },
+    "Perché non metto l'IVA in fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why I don't charge VAT"
+          }
+        }
+      }
+    },
+    "Posso aprire il forfettario?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Can I use the flat-rate scheme?"
+          }
+        }
+      }
+    },
+    "Prepariamo due file da mandare a chi ti segue la contabilità.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We'll prepare two files to send to whoever does your accounts."
+          }
+        }
+      }
+    },
+    "Principale · ATECO %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Main · ATECO %@"
+          }
+        }
+      }
+    },
+    "Probabilmente il forfettario non fa per te.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The flat-rate scheme probably isn't for you."
+          }
+        }
+      }
+    },
+    "Promemoria": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders"
+          }
+        }
+      }
+    },
+    "Promemoria di tutti i pagamenti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders for every payment"
+          }
+        }
+      }
+    },
+    "Prova": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try it"
+          }
+        }
+      }
+    },
+    "Prova: %lld giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trial: %lld days"
+          }
+        }
+      }
+    },
+    "Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can also type the ATECO code, old (2007) or new (2025): it's on your VAT number certificate or your tax return."
+          }
+        }
+      }
+    },
+    "Quante ore a settimana fatturi davvero?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How many hours a week do you actually bill?"
+          }
+        }
+      }
+    },
+    "Quanto devo fatturare?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much do I need to invoice?"
+          }
+        }
+      }
+    },
+    "Quanto incassi in un anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much you bring in a year"
+          }
+        }
+      }
+    },
+    "Quanto spendi per lavorare (computer, affitto, auto…)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What you spend on work (computer, rent, car…)"
+          }
+        }
+      }
+    },
+    "Quanto ti resta,\ndavvero?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much do you\nreally keep?"
+          }
+        }
+      }
+    },
+    "Quanto vuoi che ti resti al mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much you want to keep each month"
+          }
+        }
+      }
+    },
+    "Quanto, all'anno, lordo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much per year, gross"
+          }
+        }
+      }
+    },
+    "Quanto?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How much?"
+          }
+        }
+      }
+    },
+    "Quest'anno è l'ultimo con le tasse al 5%%. Dal %@ passano al 15%%.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is the last year at the 5%% tax rate. From %@ it goes up to 15%%."
+          }
+        }
+      }
+    },
+    "Questo file non è una copia di NettoLR.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This file isn't a NettoLR backup."
+          }
+        }
+      }
+    },
+    "Qui vedrai i tuoi incassi, mese per mese.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You'll see your income here, month by month."
+          }
+        }
+      }
+    },
+    "Reddito imponibile": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxable income"
+          }
+        }
+      }
+    },
+    "Reddito lordo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gross income"
+          }
+        }
+      }
+    },
+    "Regole %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ rules"
+          }
+        }
+      }
+    },
+    "Regole %@ aggiornate al %@. È un calcolo, non una consulenza fiscale.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ rules updated %@. It's a calculation, not tax advice."
+          }
+        }
+      }
+    },
+    "Regole aggiornate ogni anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rules updated every year"
+          }
+        }
+      }
+    },
+    "Ricevuta F24": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "F24 receipt"
+          }
+        }
+      }
+    },
+    "Ricevute": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receipts"
+          }
+        }
+      }
+    },
+    "Ricevute F24": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "F24 receipts"
+          }
+        }
+      }
+    },
+    "Riepilogo %@ in PDF": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ summary as PDF"
+          }
+        }
+      }
+    },
+    "Rimasto a me": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kept by me"
+          }
+        }
+      }
+    },
+    "Riprendi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume"
+          }
+        }
+      }
+    },
+    "Ripristina acquisto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore purchase"
+          }
+        }
+      }
+    },
+    "Ripristina da una copia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore from a backup"
+          }
+        }
+      }
+    },
+    "Salva": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        }
+      }
+    },
+    "Salva una copia": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save a backup"
+          }
+        }
+      }
+    },
+    "Salva una copia di profilo, incassi, pagamenti e ricevute. Mettila in iCloud Drive: se cambi telefono la ritrovi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save a copy of your profile, income, payments and receipts. Put it in iCloud Drive: if you change phones, it'll be there."
+          }
+        }
+      }
+    },
+    "Sblocca": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock"
+          }
+        }
+      }
+    },
+    "Sblocca i tuoi numeri": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock your numbers"
+          }
+        }
+      }
+    },
+    "Scaglioni 23% / 33% / 43% meno detrazione lavoro autonomo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "23% / 33% / 43% brackets minus the self-employment deduction"
+          }
+        }
+      }
+    },
+    "Scegli come fare le fatture elettroniche: va bene anche il programma gratuito dell'Agenzia delle Entrate.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose how to issue e-invoices: the free Agenzia delle Entrate software is fine."
+          }
+        }
+      }
+    },
+    "Scegli una foto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a photo"
+          }
+        }
+      }
+    },
+    "Scrivilo come lo diresti a un amico": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write it the way you'd tell a friend"
+          }
+        }
+      }
+    },
+    "Se fai più lavori, ognuno ha la sua percentuale. Quando aggiungi un incasso scegli a quale appartiene.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you do several jobs, each has its own percentage. When you add a payment, choose which one it belongs to."
+          }
+        }
+      }
+    },
+    "Se fatturi soprattutto all'ex datore di lavoro degli ultimi due anni il forfettario non è ammesso.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you mainly invoice a former employer from the last two years, the flat-rate scheme isn't allowed."
+          }
+        }
+      }
+    },
+    "Se la SRL fa cose diverse, rispondi no.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If the SRL does different work, answer no."
+          }
+        }
+      }
+    },
+    "Se sei artigiano o commerciante chiudi anche la posizione INPS (passa da ComUnica). In Gestione Separata non serve nulla.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you're an artisan or trader, also close your INPS position (through ComUnica). In the Gestione Separata there's nothing to do."
+          }
+        }
+      }
+    },
+    "Se vivi in un altro paese UE e guadagni in Italia almeno il 75%, rispondi sì.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you live in another EU country and earn at least 75% in Italy, answer yes."
+          }
+        }
+      }
+    },
+    "Se è la prima volta, per cinque anni le tasse sono al 5% invece del 15%.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If it's your first time, tax is 5% instead of 15% for five years."
+          }
+        }
+      }
+    },
+    "Se è la tua prima attività in proprio, per cinque anni le tasse sono al 5% invece del 15%.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If it's your first self-employed activity, tax is 5% instead of 15% for five years."
+          }
+        }
+      }
+    },
+    "Sei vicino alla soglia: mancano %@ a %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You're close to the limit: %@ to go before %@."
+          }
+        }
+      }
+    },
+    "Senza riduzione 35%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Without the 35% reduction"
+          }
+        }
+      }
+    },
+    "Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That needs more than €85,000 a year: with this goal you'd leave the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Si paga dopo. Per questo conviene mettere da parte.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You pay later. That's why it pays to set money aside."
+          }
+        }
+      }
+    },
+    "Si può pagare fino al %@ con lo %@ in più.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can pay until %@ with %@ extra."
+          }
+        }
+      }
+    },
+    "Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renews automatically. Cancel anytime in Settings › your name › Subscriptions, at least 24 hours before renewal."
+          }
+        }
+      }
+    },
+    "Solo una parte conta: su questa paghi pensione e tasse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only part of it counts: that's what you pay pension and tax on"
+          }
+        }
+      }
+    },
+    "Somma delle fatture incassate nell'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total of invoices paid during the year"
+          }
+        }
+      }
+    },
+    "Sopra 20.000 € di spese per lavoratori non si può stare nel forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With over €20,000 in staff costs you can't use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Sopra 77,47 € serve la marca da bollo da 2 €: NettoLR la conta da sola e te la ricorda ogni trimestre.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above €77.47 you need a €2 revenue stamp: NettoLR counts them for you and reminds you every quarter."
+          }
+        }
+      }
+    },
+    "Sopra 85.000 € di incassi all'anno non si può stare nel forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above €85,000 of income a year you can't use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Spenderai più di 20.000 € all'anno per dipendenti o collaboratori?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Will you spend more than €20,000 a year on employees or contractors?"
+          }
+        }
+      }
+    },
+    "Spese documentate inserite da te": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documented expenses you entered"
+          }
+        }
+      }
+    },
+    "Stima: contributi dell'anno, come se fossero versati nell'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estimate: this year's contributions, as if paid during the year"
+          }
+        }
+      }
+    },
+    "Stipendi, collaboratori, lavoro accessorio.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salaries, contractors, occasional work."
+          }
+        }
+      }
+    },
+    "Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il 15%, o il 5% per i primi cinque anni se è la tua prima attività.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On that income you pay your pension (INPS). Subtract the contributions you paid during the year and pay a single tax on the rest: 15%, or 5% for the first five years if it's your first business."
+          }
+        }
+      }
+    },
+    "Su quella parte paghi la pensione e una sola tassa. NettoLR mette da parte i conti per te, e ti avvisa quando pagare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On that part you pay your pension and a single tax. NettoLR keeps track for you and tells you when to pay."
+          }
+        }
+      }
+    },
+    "Sì": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes"
+          }
+        }
+      }
+    },
+    "Sì, %@ mi ha pagato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes, %@ has paid me"
+          }
+        }
+      }
+    },
+    "Sì, da quello che mi dici puoi aprire il forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes, from what you've told me you can use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Sì, per te conviene": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes, it's worth it for you"
+          }
+        }
+      }
+    },
+    "Sì, ripristina": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes, restore"
+          }
+        }
+      }
+    },
+    "Tasse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes"
+          }
+        }
+      }
+    },
+    "Tasse %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes %@"
+          }
+        }
+      }
+    },
+    "Tasse dovute per il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes due for %@"
+          }
+        }
+      }
+    },
+    "Tasse: il conto dell'anno scorso e un anticipo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes: last year's balance and an advance"
+          }
+        }
+      }
+    },
+    "Tasse: secondo anticipo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes: second advance"
+          }
+        }
+      }
+    },
+    "Te lo diciamo con quattro domande facili.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We'll tell you with four easy questions."
+          }
+        }
+      }
+    },
+    "Ti resta": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You keep"
+          }
+        }
+      }
+    },
+    "Ti resta 1 giorno di prova gratuita.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You have 1 day left in your free trial."
+          }
+        }
+      }
+    },
+    "Ti restano %lld giorni di prova gratuita.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You have %lld days left in your free trial."
+          }
+        }
+      }
+    },
+    "Togli %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove %@"
+          }
+        }
+      }
+    },
+    "Togli la voce": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn the voice off"
+          }
+        }
+      }
+    },
+    "Tra una settimana si paga": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment due in a week"
+          }
+        }
+      }
+    },
+    "Trova il tuo codice ATECO: cerca il tuo lavoro in NettoLR, ti mostra anche la percentuale.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Find your ATECO code: search for your job in NettoLR, it shows the percentage too."
+          }
+        }
+      }
+    },
+    "Tu": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You"
+          }
+        }
+      }
+    },
+    "Tuoi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yours"
+          }
+        }
+      }
+    },
+    "Tutto con le tue mani.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All your own work."
+          }
+        }
+      }
+    },
+    "Un file .csv che si apre con Excel o Numbers": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A .csv file that opens in Excel or Numbers"
+          }
+        }
+      }
+    },
+    "Una cassa del mio ordine": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My professional body's fund"
+          }
+        }
+      }
+    },
+    "Una fattura fatta a dicembre e pagata a gennaio conta per l'anno nuovo.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An invoice issued in December and paid in January counts for the new year."
+          }
+        }
+      }
+    },
+    "Usa questo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use this"
+          }
+        }
+      }
+    },
+    "Verificata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verified"
+          }
+        }
+      }
+    },
+    "Vivi in Italia?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you live in Italy?"
+          }
+        }
+      }
+    },
+    "causale PXX · acconto 40%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "code PXX · 40% advance"
+          }
+        }
+      }
+    },
+    "causale PXX · saldo %@ + acconto %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "code PXX · balance %@ + advance %@"
+          }
+        }
+      }
+    },
+    "cioè %@ in un anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "that's %@ a year."
+          }
+        }
+      }
+    },
+    "circa %@ lordi al mese, su 13 mensilità.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "about %@ gross a month, over 13 monthly payments."
+          }
+        }
+      }
+    },
+    "codice tributo %@ · anno %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tax code %@ · year %@"
+          }
+        }
+      }
+    },
+    "con %@ incassati.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "with %@ received."
+          }
+        }
+      }
+    },
+    "contando 46 settimane di lavoro all'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "assuming 46 working weeks a year."
+          }
+        }
+      }
+    },
+    "da incassare": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "not yet received"
+          }
+        }
+      }
+    },
+    "da pagare entro il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "to pay by %@"
+          }
+        }
+      }
+    },
+    "entro il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "by %@"
+          }
+        }
+      }
+    },
+    "in arrivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "coming soon"
+          }
+        }
+      }
+    },
+    "modello F24 precompilato nel Cassetto previdenziale INPS": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pre-filled F24 in your INPS account (Cassetto previdenziale)"
+          }
+        }
+      }
+    },
+    "nel %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %@"
+          }
+        }
+      }
+    },
+    "pagata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "paid"
+          }
+        }
+      }
+    },
+    "per tasse e pensione di quest'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "for this year's taxes and pension"
+          }
+        }
+      }
+    },
+    "restano a te": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "stay with you"
+          }
+        }
+      }
+    },
+    "ricevuti nel %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "received in %@"
+          }
+        }
+      }
+    },
+    "risparmi il %lld%%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "save %lld%%"
+          }
+        }
+      }
+    },
+    "rispetto al regime normale, con queste spese.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "compared with the standard regime, with these expenses."
+          }
+        }
+      }
+    },
+    "sono tasse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "are taxes"
+          }
+        }
+      }
+    },
+    "sono tuoi": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "are yours"
+          }
+        }
+      }
+    },
+    "su %@ incassati · tocca l'anello": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "of %@ received · tap the ring"
+          }
+        }
+      }
+    },
+    "te ne restano": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "you keep"
+          }
+        }
+      }
+    },
+    "vanno alla pensione": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "go to your pension"
+          }
+        }
+      }
+    },
+    "vanno alla tua pensione": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "go to your pension"
+          }
+        }
+      }
+    },
+    "«Metti da parte %@ entro il %@»": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“Set aside %@ by %@”"
+          }
+        }
+      }
+    },
+    "«Tra un mese tocca pagare: tieni pronti i soldi»": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“Payment due in a month: keep the money ready”"
+          }
+        }
+      }
+    },
+    "È la prima volta che lavori in proprio?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Is this your first time working for yourself?"
+          }
+        }
+      }
+    },
+    "È uguale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's the same"
+          }
+        }
+      }
+    },
+    "È una guida, non una consulenza: per i casi particolari senti un commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is a guide, not advice: for special cases, talk to an accountant."
+          }
+        }
+      }
+    },
+    "è appena iniziato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "has just begun"
+          }
+        }
+      }
+    }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

@@ -116,7 +116,29 @@ final class ScreenshotTests: XCTestCase {
         foto("11-pagamenti-scuro")
     }
 
+    /// La versione inglese: le stesse schermate con l'iPhone in inglese
+    func test4Inglese() {
+        XCUIDevice.shared.appearance = .light
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(en)", "-AppleLocale", "en_GB"]
+        app.launch()
+        XCTAssertTrue(scheda(0).waitForExistence(timeout: 15))
+        sleep(2)
+        foto("12-en-netto")
+        let calcolo = app.buttons["netto.calcolo"]
+        if calcolo.waitForExistence(timeout: 3) {
+            calcolo.tap(); sleep(1)
+            foto("13-en-come-lo-calcolo")
+            (app.buttons["Done"].exists ? app.buttons["Done"] : app.buttons["Fatto"]).firstMatch.tap(); sleep(1)
+
+        }
+        scheda(3).tap(); sleep(2)
+        foto("14-en-pagamenti")
+        scheda(4).tap(); sleep(1)
+        foto("15-en-tu")
+    }
+
     private func foto(_ nome: String) {
+
         let immagine = XCUIScreen.main.screenshot()
         let allegato = XCTAttachment(screenshot: immagine)
         allegato.name = nome
