@@ -40,7 +40,8 @@ struct Blocco: ViewModifier {
             sbloccato = true          // nessun Face ID né codice impostato: non si blocca nessuno fuori
             return
         }
-        contesto.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Sblocca i tuoi numeri") { ok, _ in
+        contesto.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Sblocca i tuoi numeri".tradotto
+) { ok, _ in
             DispatchQueue.main.async { withAnimation(.easeOut(duration: 0.3)) { sbloccato = ok } }
         }
     }

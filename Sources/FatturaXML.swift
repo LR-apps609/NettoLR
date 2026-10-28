@@ -31,10 +31,10 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
         parser.shouldProcessNamespaces = true
         parser.delegate = lettore
         if !parser.parse() && lettore.esito.fatture.isEmpty {
-            return Esito(errori: ["Il file non sembra una fattura elettronica XML."])
+            return Esito(errori: ["Il file non sembra una fattura elettronica XML.".tradotto])
         }
         if lettore.esito.fatture.isEmpty && lettore.esito.errori.isEmpty {
-            lettore.esito.errori.append("Il file non sembra una fattura elettronica XML.")
+            lettore.esito.errori.append("Il file non sembra una fattura elettronica XML.".tradotto)
         }
         return lettore.esito
     }
@@ -93,7 +93,8 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
             importo = c.imponibili
         }
         guard let numero = c.numero, let data = c.data, let importo else {
-            esito.errori.append("Fattura \(c.numero ?? "senza numero"): dati mancanti, aggiungila a mano.")
+            esito.errori.append(String(localized: "Fattura \(c.numero ?? "senza numero".tradotto): dati mancanti, aggiungila a mano."))
+
             return
         }
         let chi = !cliente.isEmpty ? cliente : [nome, cognome].filter { !$0.isEmpty }.joined(separator: " ")

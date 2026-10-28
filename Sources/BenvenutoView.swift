@@ -53,7 +53,7 @@ struct BenvenutoView: View {
     private func promessa(_ testo: String) -> some View {
         HStack(spacing: 12) {
             Image(systemName: "checkmark").font(.app(16, .bold)).foregroundStyle(Theme.rosaChiaro)
-            Text(testo).font(.app(17)).foregroundStyle(Theme.suNotte)
+            Text(testo.tradotto).font(.app(17)).foregroundStyle(Theme.suNotte)
         }
     }
 }
@@ -112,7 +112,7 @@ struct DomandeProfilo: View {
                         .background(Theme.raised, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
                         .accessibilityLabel("Indietro")
                 }
-                Button(passo < 3 ? "Avanti" : "Fatto") { avanti() }
+                Button((passo < 3 ? "Avanti" : "Fatto").tradotto) { avanti() }
                     .buttonStyle(PulsantePieno())
                     .disabled(passo == 0 && ateco.isEmpty)
                     .opacity(passo == 0 && ateco.isEmpty ? 0.4 : 1)
@@ -180,7 +180,7 @@ struct DomandeProfilo: View {
             .accessibilityIdentifier("profilo.certificato")
             Text("Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.")
                 .font(.app(13)).foregroundStyle(Theme.muted)
-            Button(mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro") { withAnimation { mostraGruppi.toggle() } }
+            Button((mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro").tradotto) { withAnimation { mostraGruppi.toggle() } }
                 .font(.app(16, .semibold))
             if mostraGruppi {
                 VStack(spacing: 8) {
@@ -189,7 +189,7 @@ struct DomandeProfilo: View {
                             imposta(Self.codiceRappresentativo[g.id] ?? "74.90.99")
                             nomeLavoro = g.nome
                         } label: {
-                            Text(g.nome).font(.app(15)).multilineTextAlignment(.leading)
+                            Text(g.nome.tradotto).font(.app(15)).multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(14)
                                 .background(nomeLavoro == g.nome ? Theme.prugnaSoft : Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -255,7 +255,7 @@ struct DomandeProfilo: View {
     // MARK: Pezzi
 
     private func domanda(_ testo: String, piccola: Bool = false) -> some View {
-        Text(testo)
+        Text(testo.tradotto)
             .font(.system(size: piccola ? 22 : 30, weight: .heavy, design: .rounded))
             .fixedSize(horizontal: false, vertical: true)
             .padding(.top, piccola ? 8 : 0)
@@ -264,7 +264,7 @@ struct DomandeProfilo: View {
     private func sceltaSiNo(_ valore: Binding<Bool>) -> some View {
         HStack(spacing: 10) {
             ForEach([true, false], id: \.self) { v in
-                Button(v ? "Sì" : "No") { valore.wrappedValue = v }
+                Button((v ? "Sì" : "No").tradotto) { valore.wrappedValue = v }
                     .font(.app(17, .bold))
                     .frame(maxWidth: .infinity, minHeight: 52)
                     .foregroundStyle(valore.wrappedValue == v ? Theme.suPrugna : Theme.ink)
@@ -277,8 +277,9 @@ struct DomandeProfilo: View {
         Button { gestione = g } label: {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(titolo).font(.app(17, .semibold))
-                    Text(sotto).font(.app(14)).foregroundStyle(Theme.muted)
+                    Text(titolo.tradotto).font(.app(17, .semibold))
+                    Text(sotto.tradotto).font(.app(14)).foregroundStyle(Theme.muted)
+
                 }
                 Spacer()
                 Image(systemName: gestione == g ? "checkmark.circle.fill" : "circle")

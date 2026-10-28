@@ -162,7 +162,7 @@ struct Pillola: View {
     var body: some View {
         HStack(spacing: 6) {
             Circle().fill(colore).frame(width: 10, height: 10)
-            Text(testo).font(.app(14, .semibold))
+            Text(testo.tradotto).font(.app(14, .semibold))
         }
         .padding(.horizontal, 12).padding(.vertical, 7)
         .background(Theme.card, in: Capsule())
@@ -175,7 +175,7 @@ struct Avviso: View {
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: "exclamationmark.circle.fill").foregroundStyle(Theme.avviso)
-            Text(testo).font(.app(15)).foregroundStyle(Theme.avviso)
+            Text(testo.tradotto).font(.app(15)).foregroundStyle(Theme.avviso)
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -187,7 +187,7 @@ struct Avviso: View {
 struct Titolo: View {
     let testo: String
     var body: some View {
-        Text(testo).font(.system(size: 34, weight: .heavy, design: .rounded)).foregroundStyle(Theme.ink)
+        Text(testo.tradotto).font(.system(size: 34, weight: .heavy, design: .rounded)).foregroundStyle(Theme.ink)
             .frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityAddTraits(.isHeader)
     }
@@ -200,7 +200,8 @@ struct CampoEuro: View {
     var segnaposto = "0"
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(etichetta).font(.app(14)).foregroundStyle(Theme.muted)
+            Text(etichetta.tradotto).font(.app(14)).foregroundStyle(Theme.muted)
+
             HStack {
                 TextField(segnaposto, text: $testo).keyboardType(.decimalPad).font(.app(20, .semibold))
                 Text("€").font(.app(20, .semibold)).foregroundStyle(Theme.muted)

@@ -29,7 +29,7 @@ struct IncassiView: View {
                     if let messaggio { Avviso(testo: messaggio) }
                     if let esito = store.esitoImport {
                         HStack(alignment: .top) {
-                            Label(esito, systemImage: "tray.and.arrow.down.fill").font(.app(15)).foregroundStyle(Theme.menta)
+                            Label(esito.tradotto, systemImage: "tray.and.arrow.down.fill").font(.app(15)).foregroundStyle(Theme.menta)
                             Spacer()
                             Button { store.esitoImport = nil } label: { Image(systemName: "xmark").foregroundStyle(Theme.muted) }
                                 .accessibilityLabel("Chiudi")
@@ -102,7 +102,7 @@ struct IncassiView: View {
             iniziale(f.cliente, piena: false)
             VStack(alignment: .leading, spacing: 2) {
                 Text(f.cliente).font(.app(16, .semibold)).lineLimit(1)
-                Text((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.it)))
+                Text((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))
                     .font(.app(14)).foregroundStyle(Theme.muted)
             }
             Spacer()
@@ -114,7 +114,7 @@ struct IncassiView: View {
         .padding(.vertical, 10).padding(.horizontal, 4)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(f.cliente), \(Formato.euroTondo(f.importo)), pagata il \((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
+        .accessibilityLabel("\(f.cliente), \(Formato.euroTondo(f.importo)), pagata il \((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
         .contextMenu {
             Button("Non ancora pagata", systemImage: "arrow.uturn.backward") { store.annullaIncasso(f.id) }
             Button("Elimina", systemImage: "trash", role: .destructive) { store.elimina(f.id) }
@@ -137,13 +137,13 @@ struct IncassiView: View {
         for url in urls {
             let accesso = url.startAccessingSecurityScopedResource()
             defer { if accesso { url.stopAccessingSecurityScopedResource() } }
-            guard let dati = try? Data(contentsOf: url) else { errori.append("\(url.lastPathComponent): non riesco ad aprirlo."); continue }
+            guard let dati = try? Data(contentsOf: url) else { errori.append(String(localized: "\(url.lastPathComponent): non riesco ad aprirlo.")); continue }
             let letto = LettoreFatturaPA.leggi(dati)
             store.aggiungi(letto.fatture)
             n += letto.fatture.count
             errori += letto.errori.map { "\(url.lastPathComponent): \($0)" }
         }
-        messaggio = (["Aggiunte \(n) fatture. Tocca «Sì» quando te le pagano."] + errori).joined(separator: "\n")
+        messaggio = ([String(localized: "Aggiunte \(n) fatture. Tocca «Sì» quando te le pagano.")] + errori).joined(separator: "\n")
     }
 }
 
@@ -211,7 +211,8 @@ struct NuovoIncassoView: View {
                         }
                     }
                     Toggle("Mi hanno già pagato", isOn: $pagata).font(.app(17, .semibold)).tint(Theme.prugna)
-                    DatePicker(pagata ? "Il giorno" : "Data della fattura", selection: $giorno, displayedComponents: .date)
+                    DatePicker((pagata ? "Il giorno" : "Data della fattura").tradotto, selection:
+ $giorno, displayedComponents: .date)
                         .font(.app(17))
                         .environment(\.locale, Formato.it)
                 }

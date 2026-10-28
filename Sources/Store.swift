@@ -132,13 +132,14 @@ final class Store: ObservableObject {
         let accesso = url.startAccessingSecurityScopedResource()
         defer { if accesso { url.stopAccessingSecurityScopedResource() } }
         guard let dati = try? Data(contentsOf: url) else {
-            esitoImport = "Non riesco ad aprire \(url.lastPathComponent)."
+            esitoImport = String(localized: "Non riesco ad aprire \(url.lastPathComponent).")
             return
         }
         let letto = LettoreFatturaPA.leggi(dati)
         let nuove = letto.fatture.filter { n in !fatture.contains { $0.numero == n.numero && $0.data == n.data && $0.cliente == n.cliente } }
         aggiungi(nuove)
-        var righe = [nuove.isEmpty ? "Nessuna fattura nuova in \(url.lastPathComponent)." : "Aggiunte \(nuove.count) fatture da \(url.lastPathComponent). Tocca «Sì» quando te le pagano."]
+        var righe = [nuove.isEmpty ? String(localized: "Nessuna fattura nuova in \(url.lastPathComponent).") : String(localized: "Aggiunte \(nuove.count) fatture da \(url.lastPathComponent). Tocca «Sì» quando te le pagano.")]
+
         righe += letto.errori
         esitoImport = righe.joined(separator: "\n")
     }

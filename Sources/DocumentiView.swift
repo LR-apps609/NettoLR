@@ -78,7 +78,7 @@ struct DocumentiView: View {
                                     .frame(width: 110, height: 140).clipped()
                                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             }
-                            Text(p.data.formatted(.dateTime.day().month(.abbreviated).locale(Formato.it))).font(.app(12, .bold))
+                            Text(p.data.formatted(.dateTime.day().month(.abbreviated).locale(Formato.lingua))).font(.app(12, .bold))
                             Text(Formato.euroTondo(p.importo)).font(.app(12)).foregroundStyle(Theme.muted)
                         }
                         .accessibilityElement(children: .combine)
@@ -95,8 +95,8 @@ struct DocumentiView: View {
                 .frame(width: 40, height: 40)
                 .background(Theme.prugna, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
-                Text(titolo).font(.app(16, .semibold)).foregroundStyle(Theme.ink)
-                Text(sotto).font(.app(13)).foregroundStyle(Theme.muted)
+                Text(titolo.tradotto).font(.app(16, .semibold)).foregroundStyle(Theme.ink)
+                Text(sotto.tradotto).font(.app(13)).foregroundStyle(Theme.muted)
             }
             Spacer()
             Image(systemName: "chevron.right").foregroundStyle(Theme.prugna)
@@ -126,7 +126,7 @@ struct DocumentiView: View {
             .frame(width: 66, height: 66)
             VStack(alignment: .leading, spacing: 4) {
                 Text("Regole \(String(regole.anno))").font(.app(20, .bold))
-                Text("\(verificate) fonti verificate, \(totale - verificate) da verificare · aggiornate al \(Giorno.da(regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
+                Text("\(verificate) fonti verificate, \(totale - verificate) da verificare · aggiornate al \(Giorno.da(regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
                     .font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.85))
             }
         }
@@ -134,7 +134,7 @@ struct DocumentiView: View {
     }
 
     private func sezione(_ t: String) -> some View {
-        Text(t.uppercased()).font(.app(12, .bold)).tracking(0.6).foregroundStyle(Theme.muted).padding(.top, 4)
+        Text(t.tradotto.uppercased()).font(.app(12, .bold)).tracking(0.6).foregroundStyle(Theme.muted).padding(.top, 4)
     }
 
     @ViewBuilder
@@ -145,7 +145,8 @@ struct DocumentiView: View {
                 .frame(width: 28)
             VStack(alignment: .leading, spacing: 3) {
                 Text(f.titolo).font(.app(15, .semibold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
-                Text(f.verificata ? "Verificata" : "Da verificare").font(.app(12, .bold))
+                Text((f.verificata ? "Verificata" : "Da verificare").tradotto).font(.app(12, .bold))
+
                     .foregroundStyle(f.verificata ? Theme.menta : Theme.tasseTesto)
             }
             Spacer(minLength: 0)
@@ -165,8 +166,8 @@ struct DocumentiView: View {
                 .frame(width: 40, height: 40)
                 .background(Theme.lillaSoft, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
-                Text(titolo).font(.app(16, .semibold))
-                Text(sotto).font(.app(13)).foregroundStyle(Theme.muted)
+                Text(titolo.tradotto).font(.app(16, .semibold))
+                Text(sotto.tradotto).font(.app(13)).foregroundStyle(Theme.muted)
             }
             Spacer()
             Text("in arrivo").font(.app(11, .bold)).foregroundStyle(Theme.lilla)

@@ -54,12 +54,12 @@ struct PagamentiView: View {
                 ArcoGiorni(frazione: 1 - min(Double(giorni), 120) / 120)
                 VStack(spacing: 0) {
                     Text("\(giorni)").font(.cifra(56))
-                    Text(giorni == 1 ? "giorno" : "giorni").font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                    Text((giorni == 1 ? "giorno" : "giorni").tradotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
                 }
             }
             .frame(width: 160, height: 160)
             Text(Formato.euroTondo(importo)).font(.cifra(34))
-            Text("da pagare entro il \(data.formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
+            Text("da pagare entro il \(data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
                 .font(.app(17)).foregroundStyle(Theme.suNotte)
         }
         .frame(maxWidth: .infinity)
@@ -85,7 +85,7 @@ struct PagamentiView: View {
                     .frame(width: 18)
             }
             VStack(alignment: .leading, spacing: 2) {
-                Text(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.it))).font(.app(16, .semibold))
+                Text(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))).font(.app(16, .semibold))
                 Text(p.titolo).font(.app(14)).foregroundStyle(Theme.muted)
             }
             Spacer()
@@ -95,7 +95,7 @@ struct PagamentiView: View {
         .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.it))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato" : "")")
+        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : "")")
     }
 }
 
@@ -132,8 +132,8 @@ struct DettaglioPagamentoView: View {
                     Text(pagamento.codice).font(.system(size: 15, design: .monospaced)).textSelection(.enabled)
                 }
                 .scheda(padding: 14)
-                Button(copiato ? "Copiato" : "Copia i dati") {
-                    UIPasteboard.general.string = "\(pagamento.titolo)\n\(pagamento.codice)\nImporto: \(Formato.euro(pagamento.importo))"
+                Button((copiato ? "Copiato" : "Copia i dati").tradotto) {
+                    UIPasteboard.general.string = "\(pagamento.titolo)\n\(pagamento.codice)\n" + String(localized: "Importo: \(Formato.euro(pagamento.importo))")
                     copiato = true
                 }
                 .buttonStyle(PulsantePieno())
@@ -142,7 +142,7 @@ struct DettaglioPagamentoView: View {
                 Button {
                     withAnimation(.spring) { store.segnaPagato(pagamento, fatto == nil) }
                 } label: {
-                    Label(fatto == nil ? "Ho pagato" : "Pagato il \(fatto!.formatted(.dateTime.day().month(.wide).locale(Formato.it)))",
+                    Label(fatto == nil ? "Ho pagato".tradotto : String(localized: "Pagato il \(fatto!.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))"),
                           systemImage: fatto == nil ? "checkmark.circle" : "checkmark.circle.fill")
                 }
                 .buttonStyle(PulsantePieno(colore: Theme.menta, testo: .white))
@@ -156,7 +156,7 @@ struct DettaglioPagamentoView: View {
                 }
                 let etichettaRicevuta = store.ricevute[pagamento.id] == nil ? "Aggiungi la ricevuta F24" : "Cambia la ricevuta"
                 PhotosPicker(selection: $fotoRicevuta, matching: .images) {
-                    Label(etichettaRicevuta, systemImage: "doc.text.image")
+                    Label(etichettaRicevuta.tradotto, systemImage: "doc.text.image")
                 }
                 .buttonStyle(PulsanteBordo())
                 .onChange(of: fotoRicevuta) { _, voce in
@@ -168,14 +168,14 @@ struct DettaglioPagamentoView: View {
                     }
                 }
                 if let url = URL(string: pagamento.fonte.url) {
-                    Link((pagamento.fonte.verificata ? "Fonte: " : "Da verificare: ") + pagamento.fonte.titolo, destination: url)
+                    Link((pagamento.fonte.verificata ? "Fonte: " : "Da verificare: ").tradotto + pagamento.fonte.titolo, destination: url)
                         .font(.app(13))
                 }
             }
             .padding(20)
             }
             .background(Theme.ground)
-            .navigationTitle(pagamento.data.formatted(.dateTime.day().month(.wide).year().locale(Formato.it)))
+            .navigationTitle(pagamento.data.formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua)))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
         }
@@ -197,10 +197,11 @@ struct AnnoScorsoView: View {
         FoglioProva(titolo: "L'anno scorso") {
             Text("Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai.")
                 .font(.app(15)).foregroundStyle(Theme.muted)
-            CampoEuro(etichetta: "Tasse dovute per il \(String(store.anno - 1))", testo: $imposta)
-            CampoEuro(etichetta: "Anticipi di tasse già pagati per il \(String(store.anno - 1))", testo: $acconti)
+            CampoEuro(etichetta: String(localized: "Tasse dovute per il \(String(store.anno - 1))"), testo: $imposta)
+            CampoEuro(etichetta: String(localized: "Anticipi di tasse già pagati per il \(String(store.anno - 1))"), testo: $acconti)
             if store.profilo?.gestione == .separata {
-                CampoEuro(etichetta: "Pensione (INPS) dovuta per il \(String(store.anno - 1))", testo: $pensione)
+                CampoEuro(etichetta: String(localized: "Pensione (INPS) dovuta per il \(String(store.anno - 1))"), testo: $pensione)
+
                 CampoEuro(etichetta: "Anticipi di pensione già pagati", testo: $accontiPensione)
             }
             CampoEuro(etichetta: "Pensione (INPS) pagata quest'anno", testo: $versati)

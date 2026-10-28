@@ -152,11 +152,18 @@ struct CompletoView: View {
                     }
                     if acquisto.completo {
                         Text("Grazie!").font(.system(size: 44, weight: .heavy, design: .rounded))
-                        Text("NettoLR completo è attivo\(acquisto.piano.map { ", piano \($0.lowercased())" } ?? "").").font(.app(19))
+                        Group {
+                            if let piano = acquisto.piano {
+                                Text("NettoLR completo è attivo, piano \(piano.tradotto.lowercased()).")
+                            } else {
+                                Text("NettoLR completo è attivo.")
+                            }
+                        }
+                        .font(.app(19))
                         Button("Gestisci l'abbonamento") { gestisci = true }
                             .buttonStyle(PulsanteBordo())
                     } else {
-                        Text(bloccato ? "La prova è finita" : "NettoLR completo")
+                        Text((bloccato ? "La prova è finita" : "NettoLR completo").tradotto)
                             .font(.system(size: 40, weight: .heavy, design: .rounded))
                         Text(sottotitolo).font(.app(19)).opacity(0.9)
                         VStack(alignment: .leading, spacing: 12) {
@@ -190,7 +197,7 @@ struct CompletoView: View {
                         }
                         .font(.app(15, .semibold))
                         if let m = acquisto.messaggio {
-                            Text(m).font(.app(15, .semibold)).padding(12)
+                            Text(m.tradotto).font(.app(15, .semibold)).padding(12)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .background(Color.white.opacity(0.16), in: RoundedRectangle(cornerRadius: 14))
                         }
@@ -215,9 +222,10 @@ struct CompletoView: View {
     }
 
     private var sottotitolo: String {
-        if bloccato { return "Abbonati per continuare a vedere quanto ti resta." }
+        if bloccato { return "Abbonati per continuare a vedere quanto ti resta.".tradotto }
         let g = acquisto.giorniRimasti
-        return g == 1 ? "Ti resta 1 giorno di prova gratuita." : "Ti restano \(g) giorni di prova gratuita."
+        return g == 1 ? "Ti resta 1 giorno di prova gratuita.".tradotto : String(localized: "Ti restano \(g) giorni di prova gratuita.")
+
     }
 
     /// Una delle due scelte: annuale (con il risparmio) o mensile
@@ -230,17 +238,17 @@ struct CompletoView: View {
                     .font(.system(size: 24, weight: .semibold))
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: 8) {
-                        Text(annuale ? "Annuale" : "Mensile").font(.app(18, .bold))
+                        Text((annuale ? "Annuale" : "Mensile").tradotto).font(.app(18, .bold))
                         if annuale, let r = acquisto.risparmioAnnuale {
                             Text("risparmi il \(r)%").font(.app(13, .heavy)).foregroundStyle(Theme.notte)
                                 .padding(.horizontal, 8).padding(.vertical, 3)
                                 .background(Theme.rosaChiaro, in: Capsule())
                         }
                     }
-                    Text(annuale ? "Paghi una volta all'anno" : "Paghi ogni mese").font(.app(14)).opacity(0.8)
+                    Text((annuale ? "Paghi una volta all'anno" : "Paghi ogni mese").tradotto).font(.app(14)).opacity(0.8)
                 }
                 Spacer()
-                Text(prodotto.map { $0.displayPrice + (annuale ? "/anno" : "/mese") } ?? "…").font(.app(17, .heavy))
+                Text(prodotto.map { $0.displayPrice + (annuale ? "/anno" : "/mese").tradotto } ?? "…").font(.app(17, .heavy))
             }
             .padding(16)
             .background(Color.white.opacity(scelto ? 0.24 : 0.1), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
@@ -255,7 +263,7 @@ struct CompletoView: View {
         HStack(spacing: 12) {
             Image(systemName: icona).font(.system(size: 17, weight: .bold)).foregroundStyle(Theme.notte)
                 .frame(width: 34, height: 34).background(Color.white, in: Circle())
-            Text(testo).font(.app(17, .semibold))
+            Text(testo.tradotto).font(.app(17, .semibold))
         }
     }
 }

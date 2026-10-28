@@ -34,7 +34,8 @@ struct BackupView: View {
                     Button { apri = true } label: { Label("Ripristina da una copia", systemImage: "icloud.and.arrow.down") }
                         .buttonStyle(PulsanteBordo())
                     if let esito {
-                        Label(esito.testo, systemImage: esito.ok ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                        Label(esito.testo.tradotto, systemImage:
+ esito.ok ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                             .font(.app(15, .semibold)).foregroundStyle(esito.ok ? Theme.menta : Theme.avviso)
                     }
                     if conferma != nil {

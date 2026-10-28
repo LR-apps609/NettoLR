@@ -84,7 +84,7 @@ struct ProvaView: View {
                 Image(systemName: icona).font(.system(size: 20, weight: .semibold)).foregroundStyle(.white)
                     .frame(width: 46, height: 46)
                     .background(colore, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                Text(testo).font(.app(17, .bold)).foregroundStyle(Theme.ink)
+                Text(testo.tradotto).font(.app(17, .bold)).foregroundStyle(Theme.ink)
                 Spacer()
                 Image(systemName: "chevron.right").foregroundStyle(colore)
             }
@@ -103,9 +103,9 @@ struct RispostaSecca: View {
     let sotto: String
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(sopra).font(.app(15, .semibold)).foregroundStyle(Theme.rosaChiaro)
+            Text(sopra.tradotto).font(.app(15, .semibold)).foregroundStyle(Theme.rosaChiaro)
             Text(grande).font(.cifra(30)).minimumScaleFactor(0.6).lineLimit(1)
-            Text(sotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.85))
+            Text(sotto.tradotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.85))
         }
         .riquadroNotte()
     }
@@ -123,7 +123,7 @@ struct FoglioProva<Contenuto: View>: View {
             }
             .background(Theme.ground)
             .scrollDismissesKeyboard(.interactively)
-            .navigationTitle(titolo)
+            .navigationTitle(titolo.tradotto)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
         }
@@ -150,9 +150,9 @@ struct ConvieneView: View {
                 if abs(diff) < 50 {
                     RispostaSecca(sopra: "È uguale", grande: "± \(Formato.euroTondo(abs(diff)))", sotto: "I due regimi si equivalgono.")
                 } else if diff > 0 {
-                    RispostaSecca(sopra: "Sì, per te conviene", grande: "+\(Formato.euroTondo(diff)) all'anno", sotto: "rispetto al regime normale, con queste spese.")
+                    RispostaSecca(sopra: "Sì, per te conviene", grande: String(localized: "+\(Formato.euroTondo(diff)) all'anno"), sotto: "rispetto al regime normale, con queste spese.")
                 } else {
-                    RispostaSecca(sopra: "Con queste spese conviene il regime normale", grande: "+\(Formato.euroTondo(-diff)) all'anno", sotto: "Parlane con un commercialista prima di cambiare.")
+                    RispostaSecca(sopra: "Con queste spese conviene il regime normale", grande: String(localized: "+\(Formato.euroTondo(-diff)) all'anno"), sotto: "Parlane con un commercialista prima di cambiare.")
                 }
                 Text("Nel forfettario le spese non si scaricano: c'è una percentuale fissa. Nel regime normale sì. Stima semplificata, senza IVA e senza detrazioni personali.")
                     .font(.app(14)).foregroundStyle(Theme.muted)
@@ -174,8 +174,8 @@ struct ObiettivoView: View {
                 let lordo = Calcolo.incassoPerNetto(p, anno: store.anno, netto: netto * 12)
                 let oreAnno = Formato.leggiEuro(ore) * 46          // 46 settimane di lavoro
                 CampoEuro(etichetta: "Quanto vuoi che ti resti al mese", testo: $mensile)
-                RispostaSecca(sopra: "Devi incassare", grande: "\(Formato.euroTondo(lordo / 12)) al mese",
-                              sotto: "cioè \(Formato.euroTondo(lordo)) in un anno.")
+                RispostaSecca(sopra: "Devi incassare", grande: String(localized: "\(Formato.euroTondo(lordo / 12)) al mese"),
+                              sotto: String(localized: "cioè \(Formato.euroTondo(lordo)) in un anno."))
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Quante ore a settimana fatturi davvero?").font(.app(14)).foregroundStyle(Theme.muted)
                     TextField("30", text: $ore).keyboardType(.numberPad).font(.app(20, .semibold))
@@ -183,7 +183,7 @@ struct ObiettivoView: View {
                         .background(Theme.raised, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                 }
                 if oreAnno > 0 {
-                    RispostaSecca(sopra: "Chiedi almeno", grande: "\(Formato.euroTondo((lordo / oreAnno).rounded(.up))) l'ora",
+                    RispostaSecca(sopra: "Chiedi almeno", grande: String(localized: "\(Formato.euroTondo((lordo / oreAnno).rounded(.up))) l'ora"),
                                   sotto: "contando 46 settimane di lavoro all'anno.")
                 }
                 if lordo > store.regole.forfettario.sogliaRicavi.valore {
@@ -203,8 +203,8 @@ struct DipendenteView: View {
             if let res = store.risultato {
                 let ral = Calcolo.ralEquivalente(netto: res.netto)
                 Text("Con la partita IVA quest'anno ti restano \(Formato.euroTondo(res.netto)).").font(.app(17))
-                RispostaSecca(sopra: "Da dipendente ti servirebbe uno stipendio lordo di", grande: "\(Formato.euroTondo(ral)) all'anno",
-                              sotto: "circa \(Formato.euroTondo(ral / 13)) lordi al mese, su 13 mensilità.")
+                RispostaSecca(sopra: "Da dipendente ti servirebbe uno stipendio lordo di", grande: String(localized: "\(Formato.euroTondo(ral)) all'anno"),
+                              sotto: String(localized: "circa \(Formato.euroTondo(ral / 13)) lordi al mese, su 13 mensilità."))
                 Text("Il dipendente ha anche ferie pagate, malattia e TFR, che qui non sono contati. Stima semplificata.")
                     .font(.app(14)).foregroundStyle(Theme.muted)
             }

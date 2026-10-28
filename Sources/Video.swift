@@ -63,7 +63,7 @@ struct VideoView: View {
                     .id(indice)
                     .transition(.asymmetric(insertion: .scale(scale: 0.8).combined(with: .opacity), removal: .opacity))
                 Spacer()
-                Text(scene[indice].testo)
+                Text(scene[indice].testo.tradotto)
                     .font(.app(21, .semibold))
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
@@ -73,7 +73,7 @@ struct VideoView: View {
                 HStack(spacing: 14) {
                     tasto(conVoce ? "speaker.wave.2.fill" : "speaker.slash.fill", conVoce ? "Togli la voce" : "Metti la voce") {
                         conVoce.toggle()
-                        if conVoce { voce.leggi(scene[indice].testo) } else { voce.ferma() }
+                        if conVoce { voce.leggi(scene[indice].testo.tradotto) } else { voce.ferma() }
                     }
                     tasto("backward.fill", "Indietro") { vai(max(indice - 1, 0)) }
                     tasto(inPausa ? "play.fill" : "pause.fill", inPausa ? "Riprendi" : "Pausa", grande: true) {
@@ -99,7 +99,7 @@ struct VideoView: View {
                 .background(Color.white.opacity(grande ? 0.3 : 0.16), in: Circle())
         }
         .buttonStyle(Molla())
-        .accessibilityLabel(etichetta)
+        .accessibilityLabel(etichetta.tradotto)
     }
 
     private func vai(_ i: Int) {
@@ -112,7 +112,7 @@ struct VideoView: View {
     /// Una scena dura quanto la voce che la legge (o il tempo di leggerla, senza voce)
     private func scena() async {
         guard !inPausa else { return }
-        let testo = scene[indice].testo
+        let testo = scene[indice].testo.tradotto
         let durata = max(4, Double(testo.count) / 14)
         avanzamento = 0
         if conVoce { voce.leggi(testo) }
@@ -145,9 +145,11 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
         ferma()
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
         let frase = AVSpeechUtterance(string: testo)
+        let lingua = Bundle.main.preferredLocalizations.first == "en" ? "en-GB" : "it-IT"
         frase.voice = AVSpeechSynthesisVoice.speechVoices()
-            .filter { $0.language == "it-IT" }
-            .max { $0.quality.rawValue < $1.quality.rawValue } ?? AVSpeechSynthesisVoice(language: "it-IT")
+            .filter { $0.language == lingua }
+            .max { $0.quality.rawValue < $1.quality.rawValue } ?? AVSpeechSynthesisVoice(language: lingua)
+
         frase.rate = AVSpeechUtteranceDefaultSpeechRate * 0.95
         parla = true
         sintetizzatore.speak(frase)

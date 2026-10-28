@@ -78,9 +78,9 @@ struct NettoView: View {
     private func intestazione(_ p: Profilo) -> some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(Date().formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Formato.it)).capitalized)
+                Text(Date().formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Formato.lingua)).capitalized)
                     .font(.app(14, .semibold)).foregroundStyle(Theme.muted)
-                Text(p.nome.isEmpty ? "Ciao!" : "Ciao \(p.nome)!")
+                Text(p.nome.isEmpty ? "Ciao!".tradotto : String(localized: "Ciao \(p.nome)!"))
                     .font(.system(size: 30, weight: .heavy, design: .rounded))
                 Menu {
                     Picker("Anno", selection: $store.anno) {
@@ -117,7 +117,7 @@ struct NettoView: View {
                     Text("Metti da parte").font(.app(14, .bold)).foregroundStyle(Theme.tasseTesto)
                     if let prossimo = store.prossimoPagamento {
                         Text(Formato.euroTondo(prossimo.importo)).font(.cifra(28)).foregroundStyle(Theme.ink)
-                        Text("entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.it)))")
+                        Text("entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
                             .font(.app(14)).foregroundStyle(Theme.muted)
                     } else {
                         Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
@@ -144,7 +144,7 @@ struct NettoView: View {
         Button(action: azione) {
             VStack(alignment: .leading, spacing: 18) {
                 Image(systemName: icona).font(.system(size: 22, weight: .bold)).foregroundStyle(colore)
-                Text(testo).font(.app(16, .bold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+                Text(testo.tradotto).font(.app(16, .bold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
             }
             .frame(maxWidth: .infinity, minHeight: 104, alignment: .topLeading)
             .padding(16)
@@ -176,7 +176,7 @@ struct AnelloNetto: View {
                         .init(valore: p.1, colore: i == scelta ? p.2 : p.2.opacity(0.45))
                     }, spessore: 24, fondo: Color.white.opacity(0.12))
                     VStack(spacing: 2) {
-                        Text(scelto.0).font(.app(15, .semibold)).foregroundStyle(scelto.2)
+                        Text(scelto.0.tradotto).font(.app(15, .semibold)).foregroundStyle(scelto.2)
                             .contentTransition(.opacity)
                         NumeroCheConta(valore: scelto.1, dimensione: 36, colore: .white)
                         Text("nel \(String(anno))").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.7))
@@ -187,7 +187,7 @@ struct AnelloNetto: View {
             }
             .buttonStyle(Molla())
             .sensoryFeedback(.selection, trigger: scelta)
-            .accessibilityLabel("\(scelto.0): \(Formato.euroTondo(scelto.1)). Tocca per cambiare.")
+            .accessibilityLabel("\(scelto.0.tradotto): \(Formato.euroTondo(scelto.1)). Tocca per cambiare.")
 
             HStack(spacing: 8) {
                 ForEach(Array(parti.enumerated()), id: \.offset) { i, p in
@@ -196,7 +196,7 @@ struct AnelloNetto: View {
                     } label: {
                         HStack(spacing: 6) {
                             Circle().fill(p.2).frame(width: 9, height: 9)
-                            Text(["Tuoi", "Pensione", "Tasse"][i]).font(.app(14, .semibold))
+                            Text(["Tuoi", "Pensione", "Tasse"][i].tradotto).font(.app(14, .semibold))
                         }
                         .padding(.horizontal, 12).padding(.vertical, 8)
                         .foregroundStyle(i == scelta ? Theme.notte : .white)
@@ -286,7 +286,18 @@ struct GraficoMesi: View {
         .onAppear { withAnimation(.spring(duration: 0.9, bounce: 0.2).delay(0.4)) { cresciuto = true } }
     }
 
-    static let nomi = ["G", "F", "M", "A", "M ", "G ", "L", "A ", "S", "O", "N", "D"]
+    /// Le iniziali dei mesi nella lingua dell'app; le doppie hanno uno spazio in più, perché il grafico vuole nomi diversi
+    static let nomi: [String] = {
+        var c = Calendar(identifier: .gregorian)
+        c.locale = Formato.lingua
+        var visti: [String: Int] = [:]
+        return c.veryShortStandaloneMonthSymbols.map { s in
+            let n = visti[s, default: 0]
+            visti[s] = n + 1
+            return s + String(repeating: " ", count: n)
+        }
+    }()
+
     static func nome(_ mese: Int) -> String { nomi[max(0, min(11, mese - 1))] }
 }
 
@@ -305,14 +316,14 @@ struct ComeLoCalcoloView: View {
                                 let ultima = r.id == res.righe.last?.id
                                 VStack(alignment: .leading, spacing: 3) {
                                     HStack {
-                                        Text(r.etichetta).font(.app(ultima ? 18 : 16, ultima ? .bold : .regular))
+                                        Text(r.etichetta.tradotto).font(.app(ultima ? 18 : 16, ultima ? .bold : .regular))
                                         Spacer()
                                         Text(Formato.euro(r.importo)).font(.app(ultima ? 18 : 16, ultima ? .bold : .regular)).monospacedDigit()
                                             .foregroundStyle(r.importo < 0 ? Theme.muted : Theme.ink)
                                     }
-                                    Text(r.formula).font(.app(13)).foregroundStyle(Theme.muted)
+                                    Text(r.formula.tradotto).font(.app(13)).foregroundStyle(Theme.muted)
                                     if let f = r.fonte, let url = URL(string: f.url) {
-                                        Link((f.verificata ? "Fonte: " : "Da verificare: ") + f.titolo, destination: url)
+                                        Link((f.verificata ? "Fonte: " : "Da verificare: ").tradotto + f.titolo, destination: url)
                                             .font(.app(13)).foregroundStyle(f.verificata ? Theme.prugna : Theme.tasseTesto)
                                     }
                                 }
@@ -325,7 +336,7 @@ struct ComeLoCalcoloView: View {
                                 .font(.app(14)).foregroundStyle(Theme.muted)
                         }
                     }
-                    Text("Regole \(String(store.anno)) aggiornate al \(Giorno.da(store.regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).year().locale(Formato.it))). È un calcolo, non una consulenza fiscale.")
+                    Text("Regole \(String(store.anno)) aggiornate al \(Giorno.da(store.regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua))). È un calcolo, non una consulenza fiscale.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
                 }
                 .padding(20)

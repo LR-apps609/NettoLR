@@ -65,8 +65,9 @@ struct RiepilogoPDF: View {
                 ForEach(res.righe) { r in
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(r.etichetta).font(.system(size: 11, weight: .semibold))
-                            Text(r.formula).font(.system(size: 9)).foregroundStyle(.secondary)
+                            Text(r.etichetta.tradotto).font(.system(size: 11, weight: .semibold))
+                            Text(r.formula.tradotto).font(.system(size: 9)).foregroundStyle(.secondary)
+
                         }
                         Spacer()
                         Text(Formato.euro(r.importo)).font(.system(size: 11).monospacedDigit())
@@ -79,7 +80,7 @@ struct RiepilogoPDF: View {
                     Text(Formato.dataCorta(f.dataIncasso ?? f.data)).frame(width: 70, alignment: .leading)
                     Text(f.cliente).lineLimit(1)
                     Spacer()
-                    Text(f.incassata ? "incassata" : "da incassare").foregroundStyle(.secondary)
+                    Text((f.incassata ? "incassata" : "da incassare").tradotto).foregroundStyle(.secondary)
                     Text(Formato.euro(f.importo)).monospacedDigit().frame(width: 90, alignment: .trailing)
                 }
                 .font(.system(size: 10))
@@ -93,7 +94,8 @@ struct RiepilogoPDF: View {
                         Text(p.codice).foregroundStyle(.secondary)
                     }
                     Spacer()
-                    Text(store.pagati[p.id] != nil ? "pagato" : "").foregroundStyle(.secondary)
+                    Text((store.pagati[p.id] != nil ? "pagato" : "").tradotto).foregroundStyle(.secondary)
+
                     Text(Formato.euro(p.importo)).monospacedDigit().frame(width: 90, alignment: .trailing)
                 }
                 .font(.system(size: 10))
@@ -109,7 +111,7 @@ struct RiepilogoPDF: View {
     }
 
     private func sezione(_ t: String) -> some View {
-        Text(t).font(.system(size: 13, weight: .bold)).padding(.top, 6)
+        Text(t.tradotto).font(.system(size: 13, weight: .bold)).padding(.top, 6)
     }
 }
 
@@ -123,7 +125,7 @@ struct EsportaView: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 18) {
                 Text("Prepariamo due file da mandare a chi ti segue la contabilità.").font(.app(17))
-                voce("doc.richtext", Theme.prugna, "Riepilogo \(String(store.anno)) in PDF", "Il calcolo riga per riga, gli incassi, i pagamenti")
+                voce("doc.richtext", Theme.prugna, String(localized: "Riepilogo \(String(store.anno)) in PDF"), "Il calcolo riga per riga, gli incassi, i pagamenti")
                 voce("tablecells", Theme.menta, "Incassi per Excel", "Un file .csv che si apre con Excel o Numbers")
                 Spacer()
                 if file.isEmpty {
@@ -149,8 +151,8 @@ struct EsportaView: View {
                 .frame(width: 44, height: 44)
                 .background(colore, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             VStack(alignment: .leading, spacing: 2) {
-                Text(titolo).font(.app(16, .semibold))
-                Text(sotto).font(.app(13)).foregroundStyle(Theme.muted)
+                Text(titolo.tradotto).font(.app(16, .semibold))
+                Text(sotto.tradotto).font(.app(13)).foregroundStyle(Theme.muted)
             }
         }
         .scheda(padding: 14)

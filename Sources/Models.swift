@@ -8,10 +8,10 @@ enum Gestione: String, Codable, CaseIterable, Identifiable {
 
     var nome: String {
         switch self {
-        case .separata: "Gestione Separata"
-        case .artigiani: "Artigiani"
-        case .commercianti: "Commercianti"
-        case .cassa: "Cassa professionale"
+        case .separata: "Gestione Separata".tradotto
+        case .artigiani: "Artigiani".tradotto
+        case .commercianti: "Commercianti".tradotto
+        case .cassa: "Cassa professionale".tradotto
         }
     }
 }
@@ -121,7 +121,15 @@ enum Giorno {
     }
 }
 
+// MARK: - Traduzioni
+
+extension String {
+    /// La traduzione di un testo italiano dal catalogo Localizable (versione inglese), o il testo stesso
+    var tradotto: String { Bundle.main.localizedString(forKey: self, value: self, table: nil) }
+}
+
 // MARK: - Formati italiani
+
 
 enum Formato {
     static let it = Locale(identifier: "it_IT")
@@ -153,8 +161,10 @@ enum Formato {
         (n * 100).formatted(.number.locale(it).precision(.fractionLength(0...2))) + "%"
     }
     static func data(_ d: Date) -> String {
-        d.formatted(.dateTime.day().month(.wide).year().locale(it))
+        d.formatted(.dateTime.day().month(.wide).year().locale(lingua))
     }
+    /// La lingua dell'app per i nomi di mesi e giorni (gli importi restano sempre all'italiana)
+    static var lingua: Locale { Bundle.main.preferredLocalizations.first == "en" ? Locale(identifier: "en_GB") : it }
     static func dataCorta(_ d: Date) -> String {
         d.formatted(.dateTime.day(.twoDigits).month(.twoDigits).year().locale(it))
     }

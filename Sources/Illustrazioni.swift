@@ -107,7 +107,7 @@ struct Illustrazione: View {
             .frame(height: 30)
             HStack(spacing: 6) {
                 Image(systemName: "arrow.turn.down.right").foregroundStyle(colore)
-                Text(coefficiente == nil ? "Solo una parte conta: su questa paghi pensione e tasse" : "Per il tuo lavoro il \(Int((quota * 100).rounded()))%: su questo paghi pensione e tasse")
+                Text(coefficiente == nil ? "Solo una parte conta: su questa paghi pensione e tasse".tradotto : String(localized: "Per il tuo lavoro il \(Int((quota * 100).rounded()))%: su questo paghi pensione e tasse"))
                     .font(.app(13)).foregroundStyle(Theme.ink)
                     .lineLimit(2).minimumScaleFactor(0.8)
             }
@@ -166,7 +166,8 @@ struct Illustrazione: View {
 
     private func foglio(_ mese: String, _ giorno: String, acceso: Bool) -> some View {
         VStack(spacing: 0) {
-            Text(mese).font(.app(12, .heavy)).foregroundStyle(.white)
+            Text(mese.tradotto).font(.app(12, .heavy)).foregroundStyle(.white)
+
                 .frame(maxWidth: .infinity).padding(.vertical, 4)
                 .background(acceso ? colore : Theme.muted.opacity(0.5))
             Text(giorno).font(.system(size: 30, weight: .heavy, design: .rounded))

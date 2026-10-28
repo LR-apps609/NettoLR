@@ -123,7 +123,7 @@ struct GuideView: View {
                     Image(systemName: g.icona).font(.system(size: 18, weight: .bold)).foregroundStyle(.white)
                         .frame(width: 40, height: 40)
                         .background(g.colore, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    Text(g.titolo).font(.app(17, .bold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+                    Text(g.titolo.tradotto).font(.app(17, .bold)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
                     Spacer()
                     Image(systemName: "chevron.down").rotationEffect(.degrees(open ? 180 : 0)).foregroundStyle(g.colore)
                 }
@@ -140,7 +140,8 @@ struct GuideView: View {
                                     .frame(width: 26, height: 26)
                                     .background(Theme.card, in: Circle())
                             }
-                            Text(p).font(.app(16)).fixedSize(horizontal: false, vertical: true)
+                            Text(p.tradotto).font(.app(16)).fixedSize(horizontal: false, vertical: true)
+
                         }
                     }
                 }
@@ -201,8 +202,8 @@ struct TestForfettarioView: View {
                 let d = Self.domande[risposte.count]
                 VStack(alignment: .leading, spacing: 14) {
                     Text("Domanda \(risposte.count + 1) di \(Self.domande.count)").font(.app(14, .semibold)).foregroundStyle(Theme.muted)
-                    Text(d.testo).font(.system(size: 30, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
-                    Text(d.aiuto).font(.app(16)).foregroundStyle(Theme.muted)
+                    Text(d.testo.tradotto).font(.system(size: 30, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
+                    Text(d.aiuto.tradotto).font(.app(16)).foregroundStyle(Theme.muted)
                 }
                 .id(risposte.count)
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .opacity))

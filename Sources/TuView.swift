@@ -27,7 +27,7 @@ struct TuView: View {
                         intestazione(p)
                         Button { completo = true } label: {
                             riga("seal", Theme.brass, "NettoLR completo",
-                                 valore: acquisto.completo ? (acquisto.piano ?? "Attivo") : "Prova: \(acquisto.giorniRimasti) giorni", freccia: true)
+                                 valore: acquisto.completo ? (acquisto.piano ?? "Attivo") : String(localized: "Prova: \(acquisto.giorniRimasti) giorni"), freccia: true)
                                 .foregroundStyle(Theme.ink)
                                 .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
                         }
@@ -120,7 +120,7 @@ struct TuView: View {
                     .frame(width: 56, height: 56)
                     .background(Theme.rosaChiaro, in: Circle())
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(p.nome.isEmpty ? "Ciao" : p.nome).font(.app(20, .bold))
+                    Text(p.nome.isEmpty ? "Ciao".tradotto : p.nome).font(.app(20, .bold))
                     Text("\(lavoro(p)) · dal \(String(p.annoApertura))").font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
                 }
             }
@@ -154,7 +154,7 @@ struct TuView: View {
                         Image(systemName: ok ? "checkmark.circle.fill" : "xmark.circle.fill")
                             .font(.app(20))
                             .symbolEffect(.bounce, value: ok)
-                        Text(ok ? "Il codice P.IVA è corretto" : "Il codice P.IVA è sbagliato: controlla le cifre")
+                        Text((ok ? "Il codice P.IVA è corretto" : "Il codice P.IVA è sbagliato: controlla le cifre").tradotto)
                             .font(.app(15, .bold))
                     }
                     .foregroundStyle(ok ? Color(hex: 0x7CD3B0) : Color(hex: 0xF09A85))
@@ -197,7 +197,7 @@ struct TuView: View {
                 HStack(alignment: .top, spacing: 10) {
                     Text("\(i + 1)").font(.app(13, .heavy)).foregroundStyle(Theme.menta)
                         .frame(width: 22, height: 22).background(Theme.card, in: Circle())
-                    Text(riga).font(.app(15)).fixedSize(horizontal: false, vertical: true)
+                    Text(riga.tradotto).font(.app(15)).fixedSize(horizontal: false, vertical: true)
                 }
                 .accessibilityElement(children: .combine)
             }
@@ -229,9 +229,9 @@ struct TuView: View {
             Image(systemName: icona).font(.system(size: 17, weight: .semibold)).foregroundStyle(colore)
                 .frame(width: 36, height: 36)
                 .background(colore.opacity(0.12), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-            Text(titolo).font(.app(16, .semibold))
+            Text(titolo.tradotto).font(.app(16, .semibold))
             Spacer()
-            Text(valore).font(.app(15)).foregroundStyle(Theme.muted).lineLimit(1)
+            Text(valore.tradotto).font(.app(15)).foregroundStyle(Theme.muted).lineLimit(1)
             if freccia { Image(systemName: "chevron.right").font(.app(13)).foregroundStyle(Theme.muted) }
         }
         .padding(.horizontal, 16).padding(.vertical, 12)
@@ -243,7 +243,7 @@ struct TuView: View {
             Image(systemName: icona).font(.system(size: 17, weight: .semibold)).foregroundStyle(Theme.prugna)
                 .frame(width: 36, height: 36)
                 .background(Theme.prugnaSoft, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-            Toggle(titolo, isOn: acceso).font(.app(16, .semibold)).tint(Theme.prugna)
+            Toggle(titolo.tradotto, isOn: acceso).font(.app(16, .semibold)).tint(Theme.prugna)
         }
         .padding(.horizontal, 16).padding(.vertical, 8)
     }
@@ -262,7 +262,7 @@ struct TuView: View {
     }
 
     private func tasse(_ p: Profilo) -> String {
-        if let ultimo = Calcolo.ultimoAnnoStartup(p), ultimo >= store.anno { return "5% fino al \(ultimo)" }
+        if let ultimo = Calcolo.ultimoAnnoStartup(p), ultimo >= store.anno { return String(localized: "5% fino al \(String(ultimo))") }
         return "15%"
     }
 }
@@ -303,7 +303,8 @@ struct AltreAttivitaView: View {
                             HStack(spacing: 12) {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(Ateco.nomeLavoro(codice)).font(.app(16, .semibold))
-                                    Text(i == 0 ? "Principale · ATECO \(codice)" : "ATECO \(codice)").font(.app(13)).foregroundStyle(Theme.muted)
+                                    Text(i == 0 ? String(localized: "Principale · ATECO \(codice)") : "ATECO \(codice)").font(.app(13)).foregroundStyle(Theme.muted)
+
                                 }
                                 Spacer()
                                 Text("\(Int((Ateco.gruppo(ateco2007: codice)?.coefficiente ?? 0) * 100))%").font(.app(15, .heavy)).foregroundStyle(Theme.prugna)

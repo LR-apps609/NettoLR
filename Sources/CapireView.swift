@@ -56,7 +56,7 @@ struct CapireView: View {
                             (Text("Netto").foregroundStyle(Theme.rosaChiaro) + Text("LR").foregroundStyle(Theme.rosaChiaro).fontWeight(.heavy) + Text(" ti avvisa prima").foregroundStyle(Theme.rosaChiaro))
                                 .font(.app(16, .semibold))
                             if let prossimo = store.prossimoPagamento {
-                                Text("«Metti da parte \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.it)))»")
+                                Text("«Metti da parte \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))»")
                                     .font(.system(size: 28, weight: .heavy, design: .rounded))
                             } else {
                                 Text("«Tra un mese tocca pagare: tieni pronti i soldi»")
@@ -72,7 +72,8 @@ struct CapireView: View {
             .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .opacity))
 
             Spacer()
-            Button(passo < 2 ? "Avanti" : "Ho capito") {
+            Button((passo < 2 ? "Avanti" : "Ho capito").tradotto) {
+
                 if passo < 2 { withAnimation(.spring(duration: 0.4)) { passo += 1 } } else { chiudi() }
             }
             .buttonStyle(PulsantePieno())
@@ -84,7 +85,7 @@ struct CapireView: View {
     }
 
     private func titolo(_ t: String) -> some View {
-        Text(t).font(.system(size: 34, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
+        Text(t.tradotto).font(.system(size: 34, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
     }
 }
 
@@ -104,7 +105,7 @@ struct Colonne: View {
                             .fill(parte.1)
                             .frame(height: cresciute ? max(10, (geo.size.height - 110) * parte.0 / 100) : 0)
                             .animation(.spring(duration: 0.8, bounce: 0.2).delay(Double(i) * 0.15), value: cresciute)
-                        Text(parte.2).font(.app(16, .semibold)).frame(height: 44, alignment: .top)
+                        Text(parte.2.tradotto).font(.app(16, .semibold)).frame(height: 44, alignment: .top)
                     }
                     .frame(maxWidth: .infinity)
                 }

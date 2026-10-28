@@ -23,8 +23,9 @@ enum Promemoria {
                       let alle9 = Giorno.calendario.date(bySettingHour: 9, minute: 0, second: 0, of: quando),
                       alle9 > oggi else { continue }
                 let contenuto = UNMutableNotificationContent()
-                contenuto.title = "\(titolo): \(Formato.euroTondo(totale))"
-                contenuto.body = prima > 0 ? "\(cosa). Tieni da parte i soldi." : "\(cosa). In NettoLR trovi i dati per l'F24."
+                contenuto.title = "\(titolo.tradotto): \(Formato.euroTondo(totale))"
+                contenuto.body = prima > 0 ? String(localized: "\(cosa). Tieni da parte i soldi.") : String(localized: "\(cosa). In NettoLR trovi i dati per l'F24.")
+
                 contenuto.sound = .default
                 let quandoComponenti = Giorno.calendario.dateComponents([.year, .month, .day, .hour, .minute], from: alle9)
                 let richiesta = UNNotificationRequest(

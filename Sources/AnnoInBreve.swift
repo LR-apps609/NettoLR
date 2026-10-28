@@ -78,17 +78,22 @@ struct AnnoInBreveView: View {
     private var mesi: [(mese: Int, totale: Double)] { store.incassiPerMese }
     private var meseMigliore: (mese: Int, totale: Double)? { mesi.max { $0.totale < $1.totale }.flatMap { $0.totale > 0 ? $0 : nil } }
     private var clienti: Int { Set(store.fatture.filter { $0.incassata && Giorno.anno($0.dataIncasso ?? $0.data) == store.anno }.map(\.cliente)).count }
-    private static let nomiMesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
+    /// I nomi dei mesi nella lingua dell'app
+    private static var nomiMesi: [String] {
+        var c = Calendar(identifier: .gregorian)
+        c.locale = Formato.lingua
+        return c.standaloneMonthSymbols
+    }
 
     @ViewBuilder
     private var contenuto: some View {
         let res = store.risultato
         switch passo {
         case 0:
-            grande("Nel \(String(store.anno)) hai incassato", Formato.euroTondo(res?.ricavi ?? 0), "Tutto con le tue mani.")
+            grande(String(localized: "Nel \(String(store.anno)) hai incassato"), Formato.euroTondo(res?.ricavi ?? 0), "Tutto con le tue mani.")
         case 1:
             if let m = meseMigliore {
-                grande("Il mese migliore è stato", Self.nomiMesi[m.mese - 1].capitalized, "con \(Formato.euroTondo(m.totale)) incassati.")
+                grande("Il mese migliore è stato", Self.nomiMesi[m.mese - 1].capitalized, String(localized: "con \(Formato.euroTondo(m.totale)) incassati."))
             } else {
                 grande("Il tuo anno", "è appena iniziato", "Aggiungi gli incassi e qui vedrai il mese migliore.")
             }
@@ -104,9 +109,10 @@ struct AnnoInBreveView: View {
 
     private func grande(_ sopra: String, _ numero: String, _ sotto: String) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(sopra).font(.app(22, .semibold)).opacity(0.9)
-            Text(numero).font(.system(size: 64, weight: .heavy, design: .rounded)).minimumScaleFactor(0.5).lineLimit(1)
-            Text(sotto).font(.app(19)).opacity(0.85)
+            Text(sopra.tradotto).font(.app(22, .semibold)).opacity(0.9)
+            Text(numero.tradotto).font(
+.system(size: 64, weight: .heavy, design: .rounded)).minimumScaleFactor(0.5).lineLimit(1)
+            Text(sotto.tradotto).font(.app(19)).opacity(0.85)
         }
     }
 
@@ -156,7 +162,8 @@ struct CartolinaAnno: View {
 
     private func riga(_ etichetta: String, _ valore: String) -> some View {
         HStack {
-            Text(etichetta).font(.system(size: 15, weight: .semibold, design: .rounded)).foregroundStyle(Color(hex: 0xE9DFE6))
+            Text(etichetta.tradotto).font(.system(size: 15, weight: .semibold, design: .rounded)).foregroundStyle(Color(hex: 0xE9DFE6))
+
             Spacer()
             Text(valore).font(.system(size: 20, weight: .heavy, design: .rounded))
         }

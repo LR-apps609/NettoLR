@@ -101,10 +101,10 @@ enum Calcolo {
         case .cassa: nil
         }
         let nomeGestione = switch p.gestione {
-        case .separata: "Gestione Separata \(Formato.pct(r.gestioneSeparata.aliquota.valore))"
-        case .artigiani: "Artigiani" + (p.riduzione35 ? ", riduzione 35%" : "")
-        case .commercianti: "Commercianti" + (p.riduzione35 ? ", riduzione 35%" : "")
-        case .cassa: "Cassa professionale \(Formato.pct(p.cassaAliquota ?? 0)) (dato inserito da te)"
+        case .separata: String(localized: "Gestione Separata \(Formato.pct(r.gestioneSeparata.aliquota.valore))")
+        case .artigiani: (p.riduzione35 ? "Artigiani, riduzione 35%" : "Artigiani").tradotto
+        case .commercianti: (p.riduzione35 ? "Commercianti, riduzione 35%" : "Commercianti").tradotto
+        case .cassa: String(localized: "Cassa professionale \(Formato.pct(p.cassaAliquota ?? 0)) (dato inserito da te)")
         }
 
         var righe: [Riga] = [
@@ -112,7 +112,7 @@ enum Calcolo {
             Riga(etichetta: "Reddito lordo",
                  formula: quote.count > 1
                     ? quote.map { "\(Formato.euro($0.ricavi)) × \(Formato.pct((Ateco.gruppo(ateco2007: $0.codice) ?? Ateco.gruppo("altre")).coefficiente)) (\($0.codice))" }.joined(separator: " + ")
-                    : "\(Formato.euro(ricavi)) × coefficiente \(Formato.pct(coefficiente)) (\(gruppo.nome))",
+                    : String(localized: "\(Formato.euro(ricavi)) × coefficiente \(Formato.pct(coefficiente)) (\(gruppo.nome.tradotto))"),
                  importo: redditoLordo, fonte: r.fonte(r.forfettario.aliquotaOrdinaria)),
             Riga(etichetta: "Contributi INPS", formula: nomeGestione, importo: -contributi, fonte: fonteInps),
             Riga(etichetta: "Contributi dedotti",
@@ -120,13 +120,13 @@ enum Calcolo {
                                   : "Contributi effettivamente versati nell'anno",
                  importo: dedotti),
             Riga(etichetta: "Reddito imponibile", formula: "\(Formato.euro(redditoLordo)) − \(Formato.euro(dedotti))", importo: imponibile),
-            Riga(etichetta: "Imposta sostitutiva \(Formato.pct(aliquota))",
+            Riga(etichetta: String(localized: "Imposta sostitutiva \(Formato.pct(aliquota))"),
                  formula: "\(Formato.euro(imponibile)) × \(Formato.pct(aliquota))",
                  importo: -imposta, fonte: r.fonte(r.forfettario.aliquotaOrdinaria)),
         ]
         if bolli > 0 {
             righe.append(Riga(etichetta: "Marche da bollo",
-                              formula: "\(fattureConBollo) fatture sopra \(Formato.euro(r.bollo.sogliaFattura.valore)) × \(Formato.euro(r.bollo.importo.valore))",
+                              formula: String(localized: "\(fattureConBollo) fatture sopra \(Formato.euro(r.bollo.sogliaFattura.valore)) × \(Formato.euro(r.bollo.importo.valore))"),
                               importo: -bolli, fonte: r.fonte(r.bollo.importo)))
         }
         righe.append(Riga(etichetta: "Ti resta", formula: "Incassato − contributi − imposta − bolli", importo: netto))
@@ -195,7 +195,7 @@ enum Calcolo {
                 Riga(etichetta: "Contributi INPS", formula: "Senza riduzione 35%", importo: -contributi),
                 Riga(etichetta: "IRPEF netta", formula: "Scaglioni 23% / 33% / 43% meno detrazione lavoro autonomo",
                      importo: -irpef, fonte: r.fonte(r.irpef.scaglioni)),
-                Riga(etichetta: "Addizionali", formula: "\(Formato.pct(aliqAdd)) stimato (dipende da Regione e Comune)",
+                Riga(etichetta: "Addizionali", formula: String(localized: "\(Formato.pct(aliqAdd)) stimato (dipende da Regione e Comune)"),
                      importo: -add, fonte: r.fonte(r.irpef.addizionaliDefault)),
                 Riga(etichetta: "Ti resta", formula: "Incassato − costi − contributi − imposte", importo: netto),
             ])
@@ -265,14 +265,14 @@ enum Calcolo {
         var out: [String] = []
         let f = r.forfettario
         if ricaviAnno > f.sogliaUscitaImmediata.valore {
-            out.append("Hai superato \(Formato.euro(f.sogliaUscitaImmediata.valore)): esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista.")
+            out.append(String(localized: "Hai superato \(Formato.euro(f.sogliaUscitaImmediata.valore)): esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista."))
         } else if ricaviAnno > f.sogliaRicavi.valore {
-            out.append("Hai superato \(Formato.euro(f.sogliaRicavi.valore)): dal prossimo anno passi al regime ordinario.")
+            out.append(String(localized: "Hai superato \(Formato.euro(f.sogliaRicavi.valore)): dal prossimo anno passi al regime ordinario."))
         } else if ricaviAnno > f.sogliaRicavi.valore * 0.85 {
-            out.append("Sei vicino alla soglia: mancano \(Formato.euro(f.sogliaRicavi.valore - ricaviAnno)) a \(Formato.euro(f.sogliaRicavi.valore)).")
+            out.append(String(localized: "Sei vicino alla soglia: mancano \(Formato.euro(f.sogliaRicavi.valore - ricaviAnno)) a \(Formato.euro(f.sogliaRicavi.valore))."))
         }
         if (p.redditoDipendente ?? 0) > f.limiteRedditoDipendente.valore {
-            out.append("Il reddito da dipendente supera \(Formato.euro(f.limiteRedditoDipendente.valore)): potresti non avere i requisiti per il forfettario. Verifica con un commercialista.")
+            out.append(String(localized: "Il reddito da dipendente supera \(Formato.euro(f.limiteRedditoDipendente.valore)): potresti non avere i requisiti per il forfettario. Verifica con un commercialista."))
         }
         if p.gestione == .cassa && (p.cassaAliquota ?? 0) == 0 {
             out.append("Inserisci l'aliquota della tua cassa professionale per un calcolo dei contributi corretto.")
@@ -331,10 +331,10 @@ enum Calcolo {
         guard let ultimo = ultimoAnnoStartup(p, r: r) else { return nil }
         let annoOggi = Giorno.anno(oggi)
         if ultimo == annoOggi {
-            return "Quest'anno è l'ultimo con le tasse al 5%. Dal \(ultimo + 1) passano al 15%."
+            return String(localized: "Quest'anno è l'ultimo con le tasse al 5%. Dal \(String(ultimo + 1)) passano al 15%.")
         }
         if ultimo == annoOggi + 1 {
-            return "Le tasse al 5% valgono fino al \(ultimo). Poi passano al 15%."
+            return String(localized: "Le tasse al 5% valgono fino al \(String(ultimo)). Poi passano al 15%.")
         }
         return nil
     }

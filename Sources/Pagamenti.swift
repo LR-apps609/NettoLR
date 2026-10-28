@@ -5,7 +5,8 @@ import Foundation
 
 struct Pagamento: Identifiable, Equatable {
     enum Tipo { case tasse, pensione, bollo }
-    var id: String { "\(titolo)-\(data.timeIntervalSince1970)" }
+    /// Il titolo in italiano tiene fermo l'id (pagati, ricevute) anche se cambia la lingua dell'app
+    var id: String { "\(chiave.isEmpty ? titolo : chiave)-\(data.timeIntervalSince1970)" }
     var data: Date
     var tipo: Tipo
     /// Per tutti: «Tasse: saldo e anticipo»
@@ -15,6 +16,7 @@ struct Pagamento: Identifiable, Equatable {
     var spiegazione: String
     var importo: Double
     var fonte: Fonte
+    var chiave = ""
 }
 
 enum Pagamenti {
@@ -41,16 +43,16 @@ enum Pagamenti {
         }
         if saldo + primo > 0 {
             out.append(Pagamento(
-                data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .tasse, titolo: "Tasse: il conto dell'anno scorso e un anticipo",
-                codice: "1792 saldo \(Formato.euro(saldo)) · 1790 primo acconto \(Formato.euro(primo))",
-                spiegazione: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(.dateTime.day().month(.wide).locale(Formato.it))) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più.",
-                importo: arrotonda(saldo + primo), fonte: r.fonte(v.saldoPrimoAcconto)))
+                data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .tasse, titolo: "Tasse: il conto dell'anno scorso e un anticipo".tradotto,
+                codice: String(localized: "1792 saldo \(Formato.euro(saldo)) · 1790 primo acconto \(Formato.euro(primo))"),
+                spiegazione: String(localized: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(.dateTime.day().month(.wide).locale(Formato.lingua))) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più."),
+                importo: arrotonda(saldo + primo), fonte: r.fonte(v.saldoPrimoAcconto), chiave: "Tasse: il conto dell'anno scorso e un anticipo"))
         }
         if secondo > 0 {
             out.append(Pagamento(
-                data: Giorno.da(v.secondoAcconto.valore), tipo: .tasse, titolo: "Tasse: secondo anticipo",
-                codice: "1791 secondo acconto", spiegazione: "L'anticipo sulle tasse di quest'anno.",
-                importo: secondo, fonte: r.fonte(v.secondoAcconto)))
+                data: Giorno.da(v.secondoAcconto.valore), tipo: .tasse, titolo: "Tasse: secondo anticipo".tradotto,
+                codice: "1791 secondo acconto".tradotto, spiegazione: "L'anticipo sulle tasse di quest'anno.".tradotto,
+                importo: secondo, fonte: r.fonte(v.secondoAcconto), chiave: "Tasse: secondo anticipo"))
         }
 
         switch p.gestione {
@@ -60,14 +62,14 @@ enum Pagamenti {
                 let saldoGS = arrotonda(max(0, dovuti - (prec.accontiGSVersati ?? 0)))
                 let acconto = arrotonda(dovuti * gs.accontoPercentuale.valore / 2)
                 out.append(Pagamento(
-                    data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .pensione, titolo: "Pensione: il conto dell'anno scorso e un anticipo",
-                    codice: "causale PXX · saldo \(Formato.euro(saldoGS)) + acconto \(Formato.euro(acconto))",
-                    spiegazione: "Contributi INPS della Gestione Separata.",
-                    importo: arrotonda(saldoGS + acconto), fonte: r.fonte(gs.aliquota)))
+                    data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .pensione, titolo: "Pensione: il conto dell'anno scorso e un anticipo".tradotto,
+                    codice: String(localized: "causale PXX · saldo \(Formato.euro(saldoGS)) + acconto \(Formato.euro(acconto))"),
+                    spiegazione: "Contributi INPS della Gestione Separata.".tradotto,
+                    importo: arrotonda(saldoGS + acconto), fonte: r.fonte(gs.aliquota), chiave: "Pensione: il conto dell'anno scorso e un anticipo"))
                 out.append(Pagamento(
-                    data: Giorno.da(v.secondoAcconto.valore), tipo: .pensione, titolo: "Pensione: secondo anticipo",
-                    codice: "causale PXX · acconto 40%", spiegazione: "Contributi INPS della Gestione Separata.",
-                    importo: acconto, fonte: r.fonte(gs.aliquota)))
+                    data: Giorno.da(v.secondoAcconto.valore), tipo: .pensione, titolo: "Pensione: secondo anticipo".tradotto,
+                    codice: "causale PXX · acconto 40%".tradotto, spiegazione: "Contributi INPS della Gestione Separata.".tradotto,
+                    importo: acconto, fonte: r.fonte(gs.aliquota), chiave: "Pensione: secondo anticipo"))
             }
         case .artigiani, .commercianti:
             let ac = r.artigianiCommercianti
@@ -76,10 +78,10 @@ enum Pagamenti {
             let rata = arrotonda(tab.fissoAnnuo.valore * riduzione / 4)
             for (i, data) in ac.scadenzeRateFisse.valore.enumerated() {
                 out.append(Pagamento(
-                    data: Giorno.da(data), tipo: .pensione, titolo: "Pensione: rata fissa \(i + 1) di 4",
-                    codice: "modello F24 precompilato nel Cassetto previdenziale INPS",
-                    spiegazione: "La quota fissa che si paga anche senza guadagni.",
-                    importo: rata, fonte: r.fonte(ac.scadenzeRateFisse)))
+                    data: Giorno.da(data), tipo: .pensione, titolo: String(localized: "Pensione: rata fissa \(i + 1) di 4"),
+                    codice: "modello F24 precompilato nel Cassetto previdenziale INPS".tradotto,
+                    spiegazione: "La quota fissa che si paga anche senza guadagni.".tradotto,
+                    importo: rata, fonte: r.fonte(ac.scadenzeRateFisse), chiave: "Pensione: rata fissa \(i + 1) di 4"))
             }
         case .cassa:
             break
@@ -111,10 +113,10 @@ enum Pagamenti {
                 let codici = trimestriRinviati.map { "\(2520 + $0)" }.joined(separator: " + ")
                 let quali = trimestriRinviati.map { "\($0)°" }.joined(separator: ", ")
                 out.append(Pagamento(
-                    data: Giorno.da(data), tipo: .bollo, titolo: "Bollo delle fatture (\(quali) trimestre)",
-                    codice: "codice tributo \(codici) · anno \(anno)",
-                    spiegazione: "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.",
-                    importo: arrotonda(totale), fonte: r.fonte(b.scadenze)))
+                    data: Giorno.da(data), tipo: .bollo, titolo: String(localized: "Bollo delle fatture (\(quali) trimestre)"),
+                    codice: String(localized: "codice tributo \(codici) · anno \(String(anno))"),
+                    spiegazione: "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.".tradotto,
+                    importo: arrotonda(totale), fonte: r.fonte(b.scadenze), chiave: "Bollo delle fatture (\(quali) trimestre)"))
             }
             rinviato = 0
             trimestriRinviati = []
