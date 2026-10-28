@@ -33,7 +33,8 @@ struct RootView: View {
         }
         // Il timbro e la vibrazione quando segni un incasso
         .overlay {
-            if store.ultimoIncasso > 0 {
+            if store.ultimoIncasso > 0 && timbroVisibile {
+
                 ZStack {
                     Coriandoli().ignoresSafeArea()
                     TimbroAnimato()
@@ -65,7 +66,7 @@ struct RootView: View {
         }
         // Le notifiche dei pagamenti si riprogrammano quando cambia qualcosa
         .task(id: store.chiavePromemoria) {
-            await Promemoria.aggiorna(store.pagamentiDaFare, attivi: store.profilo?.promemoria ?? false)
+            await Promemoria.aggiorna(store.pagamentiPromemoria, attivi: store.profilo?.promemoria ?? false)
         }
     }
 

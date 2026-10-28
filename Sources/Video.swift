@@ -17,7 +17,8 @@ enum Video {
               testo: "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te."),
         Scena(illustrazione: "forfettario", colore: Theme.prugna,
               testo: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno."),
-        Scena(illustrazione: "fattura", colore: Theme.pensione,
+        Scena(illustrazione: "iva", colore: Theme.pensione,
+
               testo: "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro."),
         Scena(illustrazione: "cassa", colore: Theme.lilla,
               testo: "Conta il giorno in cui ti pagano, non quello della fattura. Per questo NettoLR ti chiede: ti hanno pagato?"),
@@ -87,7 +88,7 @@ struct VideoView: View {
             .padding(20)
         }
         .task(id: "\(indice)-\(inPausa)-\(giro)") { await scena() }
-        .onDisappear { voce.ferma() }
+        .onDisappear { voce.chiudi() }
         .sensoryFeedback(.selection, trigger: indice)
     }
 
@@ -135,6 +136,8 @@ struct VideoView: View {
 final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
     private let sintetizzatore = AVSpeechSynthesizer()
     @Published var parla = false
+    /// La frase in corso: la fine di una frase interrotta non deve fermare quella nuova
+    private var corrente: ObjectIdentifier?
 
     override init() {
         super.init()
@@ -152,19 +155,29 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate {
 
         frase.rate = AVSpeechUtteranceDefaultSpeechRate * 0.95
         parla = true
+        corrente = ObjectIdentifier(frase)
         sintetizzatore.speak(frase)
     }
 
     func ferma() {
+        corrente = nil
         sintetizzatore.stopSpeaking(at: .immediate)
         parla = false
     }
 
+    /// Alla chiusura del video: la musica delle altre app torna al suo volume
+    func chiudi() {
+        ferma()
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+    }
+
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        Task { @MainActor in self.parla = false }
+        let id = ObjectIdentifier(utterance)
+        Task { @MainActor in if self.corrente == id { self.parla = false } }
     }
 
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
-        Task { @MainActor in self.parla = false }
+        let id = ObjectIdentifier(utterance)
+        Task { @MainActor in if self.corrente == id { self.parla = false } }
     }
 }

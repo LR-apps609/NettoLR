@@ -299,8 +299,7 @@ struct GraficoMesi: View {
         return String(localized: "Incassi mese per mese: \(Formato.euroTondo(totale)) in tutto, il mese migliore è \(mese) con \(Formato.euroTondo(migliore.totale)).")
     }
 
-    /// Le iniziali dei mesi nella lingua dell'app
-; le doppie hanno uno spazio in più, perché il grafico vuole nomi diversi
+    /// Le iniziali dei mesi nella lingua dell'app; le doppie hanno uno spazio in più, perché il grafico vuole nomi diversi
     static let nomi: [String] = {
         var c = Calendar(identifier: .gregorian)
         c.locale = Formato.lingua

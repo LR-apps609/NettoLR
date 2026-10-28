@@ -15,6 +15,12 @@ enum Esporta {
         return "\u{FEFF}" + (["Numero;Data fattura;Cliente;Importo;Incassata;Data incasso"] + righe).joined(separator: "\r\n")
     }
 
+    /// Solo le fatture dell'anno esportato (conta il giorno dell'incasso; per quelle in attesa la data della fattura)
+    @MainActor
+    static func fatture(_ store: Store) -> [Fattura] {
+        store.fatture.filter { Giorno.anno($0.dataIncasso ?? $0.data) == store.anno }
+    }
+
     @MainActor
     static func file(_ store: Store) -> [URL] {
         let cartella = URL.temporaryDirectory.appending(path: "NettoLR-\(store.anno)")
@@ -22,7 +28,7 @@ enum Esporta {
         var out: [URL] = []
 
         let csvURL = cartella.appending(path: "Incassi \(store.anno).csv")
-        if (try? csv(store.fatture).write(to: csvURL, atomically: true, encoding: .utf8)) != nil { out.append(csvURL) }
+        if (try? csv(fatture(store)).write(to: csvURL, atomically: true, encoding: .utf8)) != nil { out.append(csvURL) }
 
         let pdfURL = cartella.appending(path: "NettoLR riepilogo \(store.anno).pdf")
         let renderer = ImageRenderer(content: RiepilogoPDF(store: store).environment(\.colorScheme, .light))
@@ -75,7 +81,7 @@ struct RiepilogoPDF: View {
                 }
             }
             sezione("Incassi")
-            ForEach(store.fatture.sorted { $0.data < $1.data }) { f in
+            ForEach(Esporta.fatture(store).sorted { $0.data < $1.data }) { f in
                 HStack {
                     Text(Formato.dataCorta(f.dataIncasso ?? f.data)).frame(width: 70, alignment: .leading)
                     Text(f.cliente).lineLimit(1)
@@ -85,7 +91,7 @@ struct RiepilogoPDF: View {
                 }
                 .font(.system(size: 10))
             }
-            sezione("Pagamenti \(String(store.anno))")
+            sezione(String(localized: "Pagamenti \(String(store.anno))"))
             ForEach(store.pagamenti) { p in
                 HStack(alignment: .top) {
                     Text(Formato.dataCorta(p.data)).frame(width: 70, alignment: .leading)

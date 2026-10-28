@@ -75,6 +75,8 @@ struct DatiAnnoPrecedente: Codable, Equatable {
     /// Solo Gestione Separata: contributi dovuti per l'anno precedente
     var contributiGS: Double?
     var accontiGSVersati: Double?
+    /// L'anno a cui si riferiscono questi dati (es. 2025): l'anno dopo non valgono più (assente nei salvataggi vecchi)
+    var anno: Int?
 }
 
 /// Un numero normativo con la sua fonte: ogni cifra mostrata deve averne una
@@ -141,6 +143,8 @@ enum Formato {
     static func euroTondo(_ n: Double) -> String { importo(n, decimali: 0) }
 
     static func importo(_ n: Double, decimali: Int) -> String {
+        // Cifre impossibili (infinito, «nan», più di mille miliardi) non devono far chiudere l'app
+        guard n.isFinite, abs(n) < 1e12 else { return "–" }
         let fattore = decimali == 2 ? 100.0 : 1.0
         let centesimi = Int64((abs(n) * fattore).rounded())
         let intero = centesimi / Int64(fattore)
@@ -174,6 +178,12 @@ enum Formato {
 
     /// "1.234,56" → 1234.56; "1234.56" → 1234.56; "1.234" → 1234
     static func leggiEuro(_ s: String) -> Double {
+        let v = leggiEuroGrezzo(s)
+        // Oltre un miliardo è un errore di battitura: meglio zero che un numero che manda in crisi i calcoli
+        return v.isFinite && abs(v) <= 1e9 ? v : 0
+    }
+
+    private static func leggiEuroGrezzo(_ s: String) -> Double {
         let pulito = s.replacingOccurrences(of: "€", with: "").filter { !$0.isWhitespace }
         if pulito.contains(",") {
             return Double(pulito.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ".")) ?? 0

@@ -187,7 +187,7 @@ struct DomandeProfilo: View {
                     ForEach(Ateco.gruppi) { g in
                         Button {
                             imposta(Self.codiceRappresentativo[g.id] ?? "74.90.99")
-                            nomeLavoro = g.nome
+                            nomeLavoro = g.nome.tradotto
                         } label: {
                             Text(g.nome.tradotto).font(.app(15)).multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -265,6 +265,7 @@ struct DomandeProfilo: View {
         HStack(spacing: 10) {
             ForEach([true, false], id: \.self) { v in
                 Button((v ? "Sì" : "No").tradotto) { valore.wrappedValue = v }
+                    .accessibilityAddTraits(valore.wrappedValue == v ? .isSelected : [])
                     .font(.app(17, .bold))
                     .frame(maxWidth: .infinity, minHeight: 52)
                     .foregroundStyle(valore.wrappedValue == v ? Theme.suPrugna : Theme.ink)
@@ -289,9 +290,11 @@ struct DomandeProfilo: View {
             .background(gestione == g ? Theme.prugnaSoft : Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         }
         .buttonStyle(.plain)
+        .accessibilityAddTraits(gestione == g ? .isSelected : [])
     }
 
     // MARK: Logica
+
 
     private func scegli(_ t: TrovatoAteco) {
         if t.ambiguo {
@@ -373,7 +376,9 @@ struct DomandeProfilo: View {
             cassaFisso: gestione == .cassa ? Formato.leggiEuro(cassaFisso) : nil,
             redditoDipendente: haStipendio ? Formato.leggiEuro(stipendio) : nil,
             rivalsa4: iniziale?.rivalsa4 ?? false,
-            promemoria: iniziale?.promemoria ?? true))
+            promemoria: iniziale?.promemoria ?? true,
+            faceID: iniziale?.faceID,
+            altreAttivita: iniziale?.altreAttivita))
     }
 
     private func riempi() {

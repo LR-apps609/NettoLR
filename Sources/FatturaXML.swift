@@ -17,6 +17,8 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
     private struct Corpo {
         var numero: String?
         var data: String?
+        /// TD01 fattura, TD04 nota di credito…
+        var tipo: String?
         var totale: Double?
         var bollo: Double?
         var imponibili = 0.0
@@ -66,6 +68,7 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
         }
         if corpo != nil {
             switch elementName {
+            case "TipoDocumento" where neiDatiDocumento: corpo?.tipo = valore
             case "Numero" where neiDatiDocumento && corpo?.numero == nil: corpo?.numero = valore
             case "Data" where neiDatiDocumento && corpo?.data == nil: corpo?.data = valore
             case "ImportoTotaleDocumento": corpo?.totale = Double(valore)
@@ -91,6 +94,11 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
             importo = totale - (c.bollo ?? 0)
         } else if c.trovatoImponibile {
             importo = c.imponibili
+        }
+        // Una nota di credito toglie soldi invece di aggiungerli: non diventa un incasso
+        if c.tipo == "TD04" {
+            esito.errori.append(String(localized: "Nota di credito \(c.numero ?? ""): non aggiunta. Se riduce un incasso già segnato, correggilo a mano."))
+            return
         }
         guard let numero = c.numero, let data = c.data, let importo else {
             esito.errori.append(String(localized: "Fattura \(c.numero ?? "senza numero".tradotto): dati mancanti, aggiungila a mano."))

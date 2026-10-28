@@ -6,7 +6,7 @@ import Foundation
 struct Pagamento: Identifiable, Equatable {
     enum Tipo { case tasse, pensione, bollo }
     /// Il titolo in italiano tiene fermo l'id (pagati, ricevute) anche se cambia la lingua dell'app
-    var id: String { "\(chiave.isEmpty ? titolo : chiave)-\(data.timeIntervalSince1970)" }
+    var id: String { "\(chiave.isEmpty ? titolo : chiave)-\(Giorno.anno(data))" }
     var data: Date
     var tipo: Tipo
     /// Per tutti: «Tasse: saldo e anticipo»
@@ -21,7 +21,7 @@ struct Pagamento: Identifiable, Equatable {
 
 enum Pagamenti {
     /// I pagamenti dell'anno delle regole `r` (date e importi del 2025, del 2026…)
-    static func anno2026(_ p: Profilo, precedente prec: DatiAnnoPrecedente, fatture: [Fattura] = [], r: Regole = .attuali) -> [Pagamento] {
+    static func anno2026(_ p: Profilo, precedente prec: DatiAnnoPrecedente, fatture: [Fattura] = [], r: Regole = Regole.per(anno: 2026)) -> [Pagamento] {
         anno(p, precedente: prec, fatture: fatture, r: r)
     }
 
@@ -57,7 +57,7 @@ enum Pagamenti {
 
         switch p.gestione {
         case .separata:
-            if let dovuti = prec.contributiGS {
+            if let dovuti = prec.contributiGS, dovuti > 0 {
                 let gs = r.gestioneSeparata
                 let saldoGS = arrotonda(max(0, dovuti - (prec.accontiGSVersati ?? 0)))
                 let acconto = arrotonda(dovuti * gs.accontoPercentuale.valore / 2)
@@ -92,8 +92,10 @@ enum Pagamenti {
 
     /// Il bollo virtuale delle fatture: 2 € per ogni fattura sopra 77,47 €, pagato a trimestri.
     /// Se un trimestre (con quelli rinviati) resta sotto 5.000 € si paga con il successivo; il terzo e il quarto mai rinviati.
-    static func bollo(_ fatture: [Fattura], anno: Int, r: Regole = .attuali) -> [Pagamento] {
+    static func bollo(_ fatture: [Fattura], anno: Int, r regole: Regole? = nil) -> [Pagamento] {
+        let r = regole ?? Regole.per(anno: anno)
         let b = r.bollo
+
         var perTrimestre = [Double](repeating: 0, count: 4)
         for f in fatture where Giorno.anno(f.data) == anno && f.importo > b.sogliaFattura.valore {
             let mese = Giorno.calendario.component(.month, from: f.data)

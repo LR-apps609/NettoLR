@@ -14,6 +14,8 @@ final class Store: ObservableObject {
     @Published var annoPrecedente = DatiAnnoPrecedente() { didSet { salva() } }
     /// Contributi versati nell'anno in corso; nil = il calcolo usa una stima
     @Published var contributiVersati: Double? { didSet { salva() } }
+    /// L'anno dei contributi versati: l'anno dopo non valgono più
+    @Published var contributiVersatiAnno: Int? { didSet { salva() } }
     /// I pagamenti segnati come fatti, con il giorno
     @Published var pagati: [String: Date] = [:] { didSet { salva() } }
     /// Le ricevute F24 fotografate: pagamento → nome del file in Application Support/Ricevute
@@ -39,6 +41,7 @@ final class Store: ObservableObject {
         var contributiVersati: Double?
         var pagati: [String: Date]?
         var ricevute: [String: String]?
+        var contributiVersatiAnno: Int?
     }
 
     private static var file: URL {
@@ -77,10 +80,20 @@ final class Store: ObservableObject {
 
     var riepilogo: Calcolo.Riepilogo { Calcolo.riepilogo(fatture, anno: anno, r: regole) }
 
+    /// I dati dell'anno precedente, solo se sono davvero dell'anno prima di quello in corso
+    var annoPrecedenteValido: DatiAnnoPrecedente {
+        (annoPrecedente.anno ?? Regole.attuali.anno - 1) == Regole.attuali.anno - 1 ? annoPrecedente : DatiAnnoPrecedente()
+    }
+
+    /// I contributi versati, solo se inseriti per l'anno in corso
+    var contributiVersatiValidi: Double? {
+        (contributiVersatiAnno ?? Regole.attuali.anno) == Regole.attuali.anno ? contributiVersati : nil
+    }
+
     var risultato: RisultatoForfettario? {
         guard let profilo else { return nil }
         let r = riepilogo
-        return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: annoCorrente ? contributiVersati : nil,
+        return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: annoCorrente ? contributiVersatiValidi : nil,
                                    fattureConBollo: r.fattureConBollo, perAttivita: r.perAttivita.isEmpty ? nil : r.perAttivita)
     }
 
@@ -96,20 +109,37 @@ final class Store: ObservableObject {
         }
     }
 
-    var pagamenti: [Pagamento] {
+    var pagamenti: [Pagamento] { pagamenti(anno: anno) }
+
+    /// I pagamenti che cadono in un anno: quelli del suo calendario, più quelli dell'anno prima che scadono
+    /// a inizio anno (quarta rata fissa INPS, bollo del quarto trimestre)
+    func pagamenti(anno: Int) -> [Pagamento] {
         guard let profilo else { return [] }
-        return Pagamenti.anno(profilo, precedente: annoCorrente ? annoPrecedente : DatiAnnoPrecedente(), fatture: fatture, r: regole)
+        let r = Regole.per(anno: anno)
+        let corrente = anno == Regole.attuali.anno
+        var out = Pagamenti.anno(profilo, precedente: corrente ? annoPrecedenteValido : DatiAnnoPrecedente(), fatture: fatture, r: r)
+        if Regole.anniDisponibili.contains(anno - 1) {
+            out += Pagamenti.anno(profilo, precedente: DatiAnnoPrecedente(), fatture: fatture, r: Regole.per(anno: anno - 1))
+                .filter { Giorno.anno($0.data) == anno }
+        }
+        return out.sorted { $0.data < $1.data }
     }
 
-    /// I pagamenti futuri non ancora segnati come fatti
+    /// I pagamenti futuri non ancora segnati come fatti, dell'anno che si sta guardando
     var pagamentiDaFare: [Pagamento] {
         let oggi = Calendar.current.startOfDay(for: Date())
         return pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
     }
 
+    /// I promemoria valgono sempre per l'anno in corso, qualunque anno si stia guardando in Netto
+    var pagamentiPromemoria: [Pagamento] {
+        let oggi = Calendar.current.startOfDay(for: Date())
+        return pagamenti(anno: Regole.attuali.anno).filter { $0.data >= oggi && pagati[$0.id] == nil }
+    }
+
     /// Cambia quando cambiano i promemoria da programmare
     var chiavePromemoria: String {
-        "\(profilo?.promemoria ?? false)|" + pagamentiDaFare.map { "\($0.id)=\($0.importo)" }.joined(separator: ",")
+        "\(profilo?.promemoria ?? false)|" + pagamentiPromemoria.map { "\($0.id)=\($0.importo)" }.joined(separator: ",")
     }
 
     var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
@@ -129,6 +159,17 @@ final class Store: ObservableObject {
 
     func aggiungi(_ nuove: [Fattura]) {
         fatture.insert(contentsOf: nuove, at: 0)
+    }
+
+    /// Aggiunge solo le fatture che non ci sono già (stesso numero, data e cliente): importare due volte lo stesso file non raddoppia gli incassi
+    @discardableResult
+    func aggiungiNuove(_ lette: [Fattura]) -> [Fattura] {
+        var nuove: [Fattura] = []
+        for n in lette where !(fatture + nuove).contains(where: { $0.numero == n.numero && $0.data == n.data && $0.cliente == n.cliente }) {
+            nuove.append(n)
+        }
+        aggiungi(nuove)
+        return nuove
     }
 
     func segnaIncassata(_ id: Fattura.ID, il giorno: Date = Date()) {
@@ -156,8 +197,7 @@ final class Store: ObservableObject {
             return
         }
         let letto = LettoreFatturaPA.leggi(dati)
-        let nuove = letto.fatture.filter { n in !fatture.contains { $0.numero == n.numero && $0.data == n.data && $0.cliente == n.cliente } }
-        aggiungi(nuove)
+        let nuove = aggiungiNuove(letto.fatture)
         var righe = [nuove.isEmpty ? String(localized: "Nessuna fattura nuova in \(url.lastPathComponent).") : String(localized: "Aggiunte \(nuove.count) fatture da \(url.lastPathComponent). Tocca «Sì» quando te le pagano.")]
 
         righe += letto.errori
@@ -202,7 +242,7 @@ final class Store: ObservableObject {
             if let d = try? Data(contentsOf: Self.cartellaRicevute.appending(path: nome)) { foto[nome] = d }
         }
         let copia = Copia(versione: 1, creata: Date(), dati: Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente,
-                          contributiVersati: contributiVersati, pagati: pagati, ricevute: ricevute), foto: foto)
+                          contributiVersati: contributiVersati, pagati: pagati, ricevute: ricevute, contributiVersatiAnno: contributiVersatiAnno), foto: foto)
         return try JSONEncoder().encode(copia)
     }
 
@@ -217,8 +257,9 @@ final class Store: ObservableObject {
         fatture = copia.dati.fatture
         annoPrecedente = copia.dati.annoPrecedente
         contributiVersati = copia.dati.contributiVersati
-        pagati = copia.dati.pagati ?? [:]
-        ricevute = copia.dati.ricevute ?? [:]
+        contributiVersatiAnno = copia.dati.contributiVersatiAnno
+        pagati = Self.migra(copia.dati.pagati ?? [:])
+        ricevute = Self.migra(copia.dati.ricevute ?? [:])
     }
 
     struct Copia: Codable {
@@ -236,13 +277,15 @@ final class Store: ObservableObject {
         fatture = []
         annoPrecedente = DatiAnnoPrecedente()
         contributiVersati = nil
+        contributiVersatiAnno = nil
     }
 
     // MARK: - Salvataggio
 
     private func salva() {
         guard caricato, !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
-        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati, pagati: pagati, ricevute: ricevute)
+        let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati,
+                               pagati: pagati, ricevute: ricevute, contributiVersatiAnno: contributiVersatiAnno)
         do {
             try FileManager.default.createDirectory(at: URL.applicationSupportDirectory, withIntermediateDirectories: true)
             try JSONEncoder().encode(dati).write(to: Self.file, options: [.atomic, .completeFileProtection])
@@ -252,14 +295,37 @@ final class Store: ObservableObject {
     }
 
     private func carica() {
-        guard let dati = try? Data(contentsOf: Self.file),
-              let s = try? JSONDecoder().decode(Salvataggio.self, from: dati) else { return }
+        guard let dati = try? Data(contentsOf: Self.file) else { return }
+        guard let s = try? JSONDecoder().decode(Salvataggio.self, from: dati) else {
+            // Un file che non si legge non si sovrascrive: resta da parte, accanto, con la data
+            let copia = URL.applicationSupportDirectory.appending(path: "nettolr-non-letto-\(Int(Date().timeIntervalSince1970)).json")
+            try? FileManager.default.copyItem(at: Self.file, to: copia)
+            print("NettoLR: salvataggio non leggibile, copiato in \(copia.lastPathComponent)")
+            return
+        }
         profilo = s.profilo
         fatture = s.fatture
         annoPrecedente = s.annoPrecedente
+        // I dati vecchi senza anno sono quelli dell'anno appena passato
+        if annoPrecedente.anno == nil, annoPrecedente != DatiAnnoPrecedente() { annoPrecedente.anno = Regole.attuali.anno - 1 }
         contributiVersati = s.contributiVersati
-        pagati = s.pagati ?? [:]
-        ricevute = s.ricevute ?? [:]
+        contributiVersatiAnno = s.contributiVersatiAnno ?? (s.contributiVersati == nil ? nil : Regole.attuali.anno)
+        pagati = Self.migra(s.pagati ?? [:])
+        ricevute = Self.migra(s.ricevute ?? [:])
+    }
+
+    /// I pagamenti segnati con il vecchio codice («titolo-data in secondi») passano al nuovo («titolo-anno»),
+    /// che non cambia se una scadenza viene corretta di qualche giorno
+    nonisolated static func migra<V>(_ d: [String: V]) -> [String: V] {
+        var out: [String: V] = [:]
+        for (k, v) in d {
+            if let trattino = k.lastIndex(of: "-"), let secondi = Double(k[k.index(after: trattino)...]), k[trattino...].contains(".") {
+                out["\(k[..<trattino])-\(Giorno.anno(Date(timeIntervalSince1970: secondi)))"] = v
+            } else {
+                out[k] = v
+            }
+        }
+        return out
     }
 
     /// Dati di esempio per le foto automatiche (e per le prove): una web designer in Gestione Separata

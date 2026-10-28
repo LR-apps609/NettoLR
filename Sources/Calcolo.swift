@@ -83,7 +83,8 @@ enum Calcolo {
             if ricavi - assegnati > 0.005 { q.append((p.ateco, ricavi - assegnati)) }
             return q
         }()
-        let gruppo = Ateco.gruppo(ateco2007: p.ateco) ?? Ateco.gruppo("altre")
+        // Con un solo lavoro conta il suo codice (anche se non è la principale, quando tutto è assegnato a un'altra attività)
+        let gruppo = Ateco.gruppo(ateco2007: quote.count == 1 ? quote[0].codice : p.ateco) ?? Ateco.gruppo("altre")
         let redditoLordo = arrotonda(quote.reduce(0) { $0 + $1.ricavi * (Ateco.gruppo(ateco2007: $1.codice) ?? Ateco.gruppo("altre")).coefficiente })
         let coefficiente = ricavi > 0 && quote.count > 1 ? redditoLordo / ricavi : gruppo.coefficiente
         let contributi = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r).totale

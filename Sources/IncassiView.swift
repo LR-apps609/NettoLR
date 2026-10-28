@@ -139,8 +139,7 @@ struct IncassiView: View {
             defer { if accesso { url.stopAccessingSecurityScopedResource() } }
             guard let dati = try? Data(contentsOf: url) else { errori.append(String(localized: "\(url.lastPathComponent): non riesco ad aprirlo.")); continue }
             let letto = LettoreFatturaPA.leggi(dati)
-            store.aggiungi(letto.fatture)
-            n += letto.fatture.count
+            n += store.aggiungiNuove(letto.fatture).count
             errori += letto.errori.map { "\(url.lastPathComponent): \($0)" }
         }
         messaggio = ([String(localized: "Aggiunte \(n) fatture. Tocca «Sì» quando te le pagano.")] + errori).joined(separator: "\n")

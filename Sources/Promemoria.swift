@@ -12,6 +12,8 @@ enum Promemoria {
         centro.removeAllPendingNotificationRequests()
         guard attivi, !pagamenti.isEmpty else { return }
         guard (try? await centro.requestAuthorization(options: [.alert, .sound, .badge])) == true else { return }
+        // Mentre si aspettava il permesso, i pagamenti possono essere cambiati: allora vale il giro più nuovo
+        guard !Task.isCancelled else { return }
 
         let oggi = Date()
         let perGiorno = Dictionary(grouping: pagamenti) { Giorno.calendario.startOfDay(for: $0.data) }
@@ -31,6 +33,7 @@ enum Promemoria {
                 let richiesta = UNNotificationRequest(
                     identifier: "pagamento-\(Int(giorno.timeIntervalSince1970))-\(prima)", content: contenuto,
                     trigger: UNCalendarNotificationTrigger(dateMatching: quandoComponenti, repeats: false))
+                guard !Task.isCancelled else { return }
                 try? await centro.add(richiesta)
             }
         }

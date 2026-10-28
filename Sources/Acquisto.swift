@@ -14,7 +14,12 @@ final class Acquisto: ObservableObject {
 
     @Published private(set) var mensile: Product?
     @Published private(set) var annuale: Product?
-    @Published private(set) var completo = false
+    /// L'ultimo stato noto resta salvato: chi è abbonato non vede la schermata della prova mentre l'App Store risponde
+    @Published private(set) var completo = UserDefaults.standard.bool(forKey: "abbonamentoAttivo") {
+        didSet { UserDefaults.standard.set(completo, forKey: "abbonamentoAttivo") }
+    }
+    /// Diventa vero dopo il primo controllo degli abbonamenti (che funziona anche senza internet)
+    @Published private(set) var controllato = false
     /// Il piano attivo, per dirlo in «Tu»
     @Published private(set) var piano: String?
     @Published private(set) var inCorso = false
@@ -32,7 +37,11 @@ final class Acquisto: ObservableObject {
             d.set(inizioProva, forKey: "inizioProva")
         }
         // Nel giro delle foto: abbonamento attivo, oppure («-uiProva») la schermata con i piani
-        if uitest && !ProcessInfo.processInfo.arguments.contains("-uiProva") { completo = true; piano = "Annuale" }
+        if uitest {
+            let prova = ProcessInfo.processInfo.arguments.contains("-uiProva")
+            completo = !prova
+            piano = prova ? nil : "Annuale"
+        }
         // Acquisti fatti su un altro dispositivo, rinnovi, rimborsi, approvazioni dei genitori
         ascolto = Task { [weak self] in
             for await esito in StoreKit.Transaction.updates { await self?.gestisci(esito) }
@@ -42,14 +51,15 @@ final class Acquisto: ObservableObject {
     var giorniRimasti: Int {
         let passati = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: inizioProva),
                                                       to: Calendar.current.startOfDay(for: Date())).day ?? 0
-        return max(0, Self.giorniProva - passati)
+        // Un orologio spostato indietro non allunga la prova
+        return max(0, Self.giorniProva - max(0, passati))
     }
 
     var bloccato: Bool {
         #if DEBUG
         return false
         #else
-        return !completo && giorniRimasti == 0
+        return controllato && !completo && giorniRimasti == 0
         #endif
     }
 
@@ -63,23 +73,25 @@ final class Acquisto: ObservableObject {
     }
 
     func aggiorna() async {
+        if !uitest {
+            // Prima gli abbonamenti attivi (sul telefono, anche offline), poi i prezzi (dalla rete)
+            var attivo: String?
+            for await esito in StoreKit.Transaction.currentEntitlements {
+                if case .verified(let t) = esito, valida(t) { attivo = nome(t.productID) }
+            }
+            completo = attivo != nil
+            piano = attivo
+        }
+        controllato = true
         if mensile == nil || annuale == nil, let prodotti = try? await Product.products(for: [Self.idMensile, Self.idAnnuale]) {
             mensile = prodotti.first { $0.id == Self.idMensile }
             annuale = prodotti.first { $0.id == Self.idAnnuale }
         }
-        guard !uitest else { return }
-        // Le iscrizioni attive (quelle scadute o rimborsate non compaiono)
-        var attivo: String?
-        for await esito in StoreKit.Transaction.currentEntitlements {
-            if case .verified(let t) = esito, valida(t) { attivo = nome(t.productID) }
-        }
-        completo = attivo != nil
-        piano = attivo
     }
 
-    func compra(_ prodotto: Product?) async {
-        if prodotto == nil { await aggiorna() }
-        guard let prodotto else {
+    func compra(annuale scelto: Bool) async {
+        if (scelto ? annuale : mensile) == nil { await aggiorna() }
+        guard let prodotto = scelto ? annuale : mensile else {
             messaggio = "L'App Store non risponde. Controlla la connessione e riprova."
             return
         }
@@ -177,7 +189,7 @@ struct CompletoView: View {
                         pianoScheda(annuale: true)
                         pianoScheda(annuale: false)
                         Button {
-                            Task { await acquisto.compra(annualeScelto ? acquisto.annuale : acquisto.mensile) }
+                            Task { await acquisto.compra(annuale: annualeScelto) }
                         } label: {
                             HStack {
                                 if acquisto.inCorso { ProgressView().tint(Theme.notte) }

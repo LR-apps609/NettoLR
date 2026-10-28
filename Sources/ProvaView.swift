@@ -51,9 +51,9 @@ struct ProvaView: View {
                             }
                             .font(.app(14)).foregroundStyle(Theme.muted)
                             if s.superaUscitaImmediata {
-                                Avviso(testo: "Così superi 100.000 €: esci subito dal forfettario. Senti un commercialista prima.")
+                                Avviso(testo: String(localized: "Così superi \(Formato.euroTondo(store.regole.forfettario.sogliaUscitaImmediata.valore)): esci subito dal forfettario. Senti un commercialista prima."))
                             } else if s.superaSoglia {
-                                Avviso(testo: "Così superi 85.000 €: dal prossimo anno cambi regime.")
+                                Avviso(testo: String(localized: "Così superi \(Formato.euroTondo(store.regole.forfettario.sogliaRicavi.valore)): dal prossimo anno cambi regime."))
                             }
                         }
                         .scheda(padding: 22)
@@ -187,7 +187,8 @@ struct ObiettivoView: View {
                                   sotto: "contando 46 settimane di lavoro all'anno.")
                 }
                 if lordo > store.regole.forfettario.sogliaRicavi.valore {
-                    Avviso(testo: "Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario.")
+                    Avviso(testo: String(localized: "Serve più di \(Formato.euroTondo(store.regole.forfettario.sogliaRicavi.valore)) all'anno: con questo obiettivo usciresti dal forfettario."))
+
                 }
             }
         }

@@ -7,7 +7,7 @@ final class CalcoloTests: XCTestCase {
     let parrucchiera = Profilo(ateco: "96.02.01", annoApertura: 2024, requisitiStartup: true, gestione: .artigiani, riduzione35: true)
 
     func testRegoleCaricate() {
-        let r = Regole.attuali
+        let r = Regole.per(anno: 2026)
         XCTAssertEqual(r.anno, 2026)
         XCTAssertEqual(r.gestioneSeparata.aliquota.valore, 0.2607)
         XCTAssertEqual(r.fonte(r.gestioneSeparata.aliquota).verificata, true)
@@ -255,7 +255,10 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(r.anno, 2025)
         XCTAssertEqual(r.artigianiCommercianti.artigiani.fissoAnnuo.valore, 4_460.64)
         XCTAssertEqual(r.irpef.scaglioni.valore[1].aliquota, 0.35)
-        XCTAssertEqual(Regole.per(anno: 2031).anno, 2026)
+        // Un anno senza regole prende l'anno più vicino tra quelli disponibili
+        XCTAssertEqual(Regole.per(anno: 2031).anno, Regole.anniDisponibili.max())
+        XCTAssertEqual(Regole.per(anno: 2019).anno, Regole.anniDisponibili.min())
+
         // Il calcolo del 2025 usa le regole 2025 (minimale 18.555 €)
         let c25 = Calcolo.forfettario(parrucchiera, anno: 2025, ricavi: 0).contributi
         XCTAssertEqual(c25, arrotonda(4_460.64 * 0.65))
@@ -306,5 +309,30 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(LettoreFatturaFoto.importi(in: "Cliente: Rossi Srl  450.00"), [450])
         XCTAssertEqual(LettoreFatturaFoto.analizza("Cliente: Rossi & Figli Srl\nTotale 1.200,00").cliente, "Rossi & Figli Srl")
         XCTAssertTrue(LettoreFatturaFoto.analizza("niente di utile qui").vuota)
+    }
+
+    func testCorrezioniDellaRevisione() {
+        // I pagamenti segnati con il vecchio codice (data in secondi) passano al nuovo (anno)
+        let vecchio = "Tasse: secondo anticipo-\(Giorno.data(2026, 11, 30).timeIntervalSince1970)"
+        XCTAssertEqual(Store.migra([vecchio: 1]).keys.first, "Tasse: secondo anticipo-2026")
+        XCTAssertEqual(Store.migra(["Pensione: rata fissa 1 di 4-2026": 1]).keys.first, "Pensione: rata fissa 1 di 4-2026")
+        // Cifre assurde non fanno chiudere l'app
+        XCTAssertEqual(Formato.leggiEuro("99999999999999999"), 0)
+        XCTAssertEqual(Formato.leggiEuro("nan"), 0)
+        XCTAssertEqual(Formato.euro(.infinity), "–")
+        // Una nota di credito non diventa un incasso
+        let nota = """
+        <FatturaElettronica><FatturaElettronicaHeader><CessionarioCommittente><DatiAnagrafici><Anagrafica><Denominazione>Rossi</Denominazione></Anagrafica></DatiAnagrafici></CessionarioCommittente></FatturaElettronicaHeader>
+        <FatturaElettronicaBody><DatiGenerali><DatiGeneraliDocumento><TipoDocumento>TD04</TipoDocumento><Data>2026-03-01</Data><Numero>3</Numero><ImportoTotaleDocumento>100.00</ImportoTotaleDocumento></DatiGeneraliDocumento></DatiGenerali></FatturaElettronicaBody></FatturaElettronica>
+        """
+        let esito = LettoreFatturaPA.leggi(Data(nota.utf8))
+        XCTAssertTrue(esito.fatture.isEmpty)
+        XCTAssertEqual(esito.errori.count, 1)
+        // Le scadenze non cadono di domenica
+        for anno in Regole.anniDisponibili {
+            for d in Regole.per(anno: anno).bollo.scadenze.valore {
+                XCTAssertNotEqual(Calendar(identifier: .gregorian).component(.weekday, from: Giorno.da(d)), 1, d)
+            }
+        }
     }
 }

@@ -1376,6 +1376,28 @@
         }
       }
     },
+    "Così superi %@: dal prossimo anno cambi regime.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That takes you over %@: you'd change regime from next year."
+          }
+        }
+      }
+    },
+    "Così superi %@: esci subito dal forfettario. Senti un commercialista prima.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That takes you over %@: you'd leave the flat-rate scheme immediately. Talk to an accountant first."
+          }
+        }
+      }
+    },
     "Così superi 100.000 €: esci subito dal forfettario. Senti un commercialista prima.": {
       "extractionState": "manual",
       "localizations": {
@@ -1669,6 +1691,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Done"
+          }
+        }
+      }
+    },
+    "Fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice"
           }
         }
       }
@@ -3345,6 +3378,17 @@
         }
       }
     },
+    "Nota di credito %@: non aggiunta. Se riduce un incasso già segnato, correggilo a mano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Credit note %@: not added. If it reduces a payment you've already entered, correct that by hand."
+          }
+        }
+      }
+    },
     "Nuovo incasso": {
       "extractionState": "manual",
       "localizations": {
@@ -3407,6 +3451,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Payments"
+          }
+        }
+      }
+    },
+    "Pagamenti %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payments %@"
           }
         }
       }
@@ -4364,6 +4419,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Without the 35% reduction"
+          }
+        }
+      }
+    },
+    "Serve più di %@ all'anno: con questo obiettivo usciresti dal forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That needs more than %@ a year: with this goal you'd leave the flat-rate scheme."
           }
         }
       }

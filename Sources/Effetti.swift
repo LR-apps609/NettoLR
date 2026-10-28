@@ -81,6 +81,8 @@ struct Coriandoli: View {
         let x: Double, ritardo: Double, velocita: Double, oscillazione: Double, giro: Double, colore: Color, largo: Bool
     }
     @State private var inizio = Date()
+    @State private var finito = false
+    @Environment(\.accessibilityReduceMotion) private var menoMovimento
     private let pezzi: [Pezzo] = (0..<70).map { _ in
         Pezzo(x: .random(in: 0...1), ritardo: .random(in: 0...0.25), velocita: .random(in: 0.7...1.3),
               oscillazione: .random(in: 0...6.28), giro: .random(in: 2...8),
@@ -89,7 +91,8 @@ struct Coriandoli: View {
     }
 
     var body: some View {
-        TimelineView(.animation) { tempo in
+        // Dopo due secondi (o con «Riduci movimento») il disegno si ferma: niente ridisegni inutili
+        TimelineView(.animation(paused: finito || menoMovimento)) { tempo in
             Canvas { ctx, size in
                 let t = tempo.date.timeIntervalSince(inizio)
                 for p in pezzi {
@@ -106,12 +109,18 @@ struct Coriandoli: View {
                 }
             }
         }
+        .opacity(menoMovimento ? 0 : 1)
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+        .task {
+            try? await Task.sleep(for: .seconds(2))
+            finito = true
+        }
     }
 }
 
 extension Theme {
+
     /// Lo stesso cliente ha sempre lo stesso colore
     static func colori(per nome: String) -> (Color, Color) {
         let somma = nome.unicodeScalars.reduce(0) { $0 &+ Int($1.value) }

@@ -197,10 +197,10 @@ struct AnnoScorsoView: View {
         FoglioProva(titolo: "L'anno scorso") {
             Text("Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai.")
                 .font(.app(15)).foregroundStyle(Theme.muted)
-            CampoEuro(etichetta: String(localized: "Tasse dovute per il \(String(store.anno - 1))"), testo: $imposta)
-            CampoEuro(etichetta: String(localized: "Anticipi di tasse già pagati per il \(String(store.anno - 1))"), testo: $acconti)
+            CampoEuro(etichetta: String(localized: "Tasse dovute per il \(String(Regole.attuali.anno - 1))"), testo: $imposta)
+            CampoEuro(etichetta: String(localized: "Anticipi di tasse già pagati per il \(String(Regole.attuali.anno - 1))"), testo: $acconti)
             if store.profilo?.gestione == .separata {
-                CampoEuro(etichetta: String(localized: "Pensione (INPS) dovuta per il \(String(store.anno - 1))"), testo: $pensione)
+                CampoEuro(etichetta: String(localized: "Pensione (INPS) dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
 
                 CampoEuro(etichetta: "Anticipi di pensione già pagati", testo: $accontiPensione)
             }
@@ -209,19 +209,21 @@ struct AnnoScorsoView: View {
                 store.annoPrecedente = DatiAnnoPrecedente(
                     imposta: Formato.leggiEuro(imposta), accontiVersati: Formato.leggiEuro(acconti),
                     contributiGS: pensione.isEmpty ? nil : Formato.leggiEuro(pensione),
-                    accontiGSVersati: accontiPensione.isEmpty ? nil : Formato.leggiEuro(accontiPensione))
+                    accontiGSVersati: accontiPensione.isEmpty ? nil : Formato.leggiEuro(accontiPensione),
+                    anno: Regole.attuali.anno - 1)
                 store.contributiVersati = versati.isEmpty ? nil : Formato.leggiEuro(versati)
+                store.contributiVersatiAnno = Regole.attuali.anno
                 chiudi()
             }
             .buttonStyle(PulsantePieno())
         }
         .onAppear {
-            let a = store.annoPrecedente
+            let a = store.annoPrecedenteValido
             imposta = Formato.campo(a.imposta)
             acconti = Formato.campo(a.accontiVersati)
             pensione = Formato.campo(a.contributiGS)
             accontiPensione = Formato.campo(a.accontiGSVersati)
-            versati = Formato.campo(store.contributiVersati)
+            versati = Formato.campo(store.contributiVersatiValidi)
         }
     }
 }
