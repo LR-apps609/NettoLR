@@ -77,7 +77,10 @@ final class Acquisto: ObservableObject {
             // Prima gli abbonamenti attivi (sul telefono, anche offline), poi i prezzi (dalla rete)
             var attivo: String?
             for await esito in StoreKit.Transaction.currentEntitlements {
-                if case .verified(let t) = esito, valida(t) { attivo = nome(t.productID) }
+                // currentEntitlements comprende anche il periodo di tolleranza di Apple (pagamento in ritardo)
+                if case .verified(let t) = esito, [Self.idMensile, Self.idAnnuale].contains(t.productID), t.revocationDate == nil {
+                    attivo = nome(t.productID)
+                }
             }
             completo = attivo != nil
             piano = attivo

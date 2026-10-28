@@ -33,6 +33,8 @@ final class Store: ObservableObject {
     /// I dati dell'anno precedente valgono per l'anno in corso; per gli anni passati restano solo bollo e rate fisse
     private var annoCorrente: Bool { anno == Regole.attuali.anno }
     private var caricato = false
+    /// Il file c'è ma non si è potuto leggere: niente salvataggi, per non sovrascriverlo
+    private var nonSalvare = false
 
     struct Salvataggio: Codable {
         var profilo: Profilo?
@@ -58,6 +60,8 @@ final class Store: ObservableObject {
             carica()
         }
         caricato = true
+        // I dati vecchi appena timbrati con il loro anno si riscrivono subito
+        salva()
         // Al primo avvio non c'è niente di «nuovo»: le novità contano da qui in avanti
         if regoleViste.isEmpty { segnaNovitaViste() }
     }
@@ -117,7 +121,10 @@ final class Store: ObservableObject {
         guard let profilo else { return [] }
         let r = Regole.per(anno: anno)
         let corrente = anno == Regole.attuali.anno
-        var out = Pagamenti.anno(profilo, precedente: corrente ? annoPrecedenteValido : DatiAnnoPrecedente(), fatture: fatture, r: r)
+        // I dati dell'anno prima valgono per l'anno giusto (anche guardando un anno passato)
+        let giusto = annoPrecedente.anno.map { $0 == anno - 1 } ?? corrente
+        let precedente = giusto ? annoPrecedente : DatiAnnoPrecedente()
+        var out = Pagamenti.anno(profilo, precedente: precedente, fatture: fatture, r: r)
         if Regole.anniDisponibili.contains(anno - 1) {
             out += Pagamenti.anno(profilo, precedente: DatiAnnoPrecedente(), fatture: fatture, r: Regole.per(anno: anno - 1))
                 .filter { Giorno.anno($0.data) == anno }
@@ -256,8 +263,9 @@ final class Store: ObservableObject {
         profilo = copia.dati.profilo
         fatture = copia.dati.fatture
         annoPrecedente = copia.dati.annoPrecedente
+        if annoPrecedente.anno == nil, annoPrecedente != DatiAnnoPrecedente() { annoPrecedente.anno = Giorno.anno(copia.creata) - 1 }
         contributiVersati = copia.dati.contributiVersati
-        contributiVersatiAnno = copia.dati.contributiVersatiAnno
+        contributiVersatiAnno = copia.dati.contributiVersatiAnno ?? (copia.dati.contributiVersati == nil ? nil : Giorno.anno(copia.creata))
         pagati = Self.migra(copia.dati.pagati ?? [:])
         ricevute = Self.migra(copia.dati.ricevute ?? [:])
     }
@@ -283,7 +291,7 @@ final class Store: ObservableObject {
     // MARK: - Salvataggio
 
     private func salva() {
-        guard caricato, !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
+        guard caricato, !nonSalvare, !ProcessInfo.processInfo.arguments.contains(where: { $0.hasPrefix("-uitest") }) else { return }
         let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati,
                                pagati: pagati, ricevute: ricevute, contributiVersatiAnno: contributiVersatiAnno)
         do {
@@ -295,7 +303,12 @@ final class Store: ObservableObject {
     }
 
     private func carica() {
-        guard let dati = try? Data(contentsOf: Self.file) else { return }
+        guard FileManager.default.fileExists(atPath: Self.file.path) else { return }
+        guard let dati = try? Data(contentsOf: Self.file) else {
+            // Per esempio a telefono bloccato (file protetto): meglio non toccare niente
+            nonSalvare = true
+            return
+        }
         guard let s = try? JSONDecoder().decode(Salvataggio.self, from: dati) else {
             // Un file che non si legge non si sovrascrive: resta da parte, accanto, con la data
             let copia = URL.applicationSupportDirectory.appending(path: "nettolr-non-letto-\(Int(Date().timeIntervalSince1970)).json")

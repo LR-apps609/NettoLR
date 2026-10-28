@@ -5,6 +5,7 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject private var store: Store
     @EnvironmentObject private var acquisto: Acquisto
+    @Environment(\.scenePhase) private var fase
     @State private var scheda = Scheda.netto
 
     enum Scheda: Hashable { case netto, incassi, prova, pagamenti, tu }
@@ -57,6 +58,10 @@ struct RootView: View {
             }
         }
         .task { await acquisto.aggiorna() }
+        // L'abbonamento si ricontrolla ogni volta che si torna nell'app (scadenze, rinnovi)
+        .onChange(of: fase) { _, nuova in
+            if nuova == .active { Task { await acquisto.aggiorna() } }
+        }
         .blocco(store.profilo?.faceID ?? false)
         // «Apri con NettoLR» da Mail, File, WhatsApp: le fatture finiscono in Incassi
         .onOpenURL { url in

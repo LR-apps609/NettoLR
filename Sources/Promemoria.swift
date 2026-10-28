@@ -6,16 +6,20 @@ import UserNotifications
 
 enum Promemoria {
     /// Ricrea tutte le notifiche dai pagamenti ancora da fare
+    @MainActor
     static func aggiorna(_ pagamenti: [Pagamento], attivi: Bool) async {
         guard !ProcessInfo.processInfo.arguments.contains(where: { $0.hasPrefix("-uitest") }) else { return }
         let centro = UNUserNotificationCenter.current()
-        centro.removeAllPendingNotificationRequests()
-        guard attivi, !pagamenti.isEmpty else { return }
+        guard attivi, !pagamenti.isEmpty else {
+            centro.removeAllPendingNotificationRequests()
+            return
+        }
         guard (try? await centro.requestAuthorization(options: [.alert, .sound, .badge])) == true else { return }
         // Mentre si aspettava il permesso, i pagamenti possono essere cambiati: allora vale il giro più nuovo
         guard !Task.isCancelled else { return }
 
         let oggi = Date()
+        var richieste: [UNNotificationRequest] = []
         let perGiorno = Dictionary(grouping: pagamenti) { Giorno.calendario.startOfDay(for: $0.data) }
         for (giorno, voci) in perGiorno {
             let totale = arrotonda(voci.reduce(0) { $0 + $1.importo })
@@ -27,15 +31,15 @@ enum Promemoria {
                 let contenuto = UNMutableNotificationContent()
                 contenuto.title = "\(titolo.tradotto): \(Formato.euroTondo(totale))"
                 contenuto.body = prima > 0 ? String(localized: "\(cosa). Tieni da parte i soldi.") : String(localized: "\(cosa). In NettoLR trovi i dati per l'F24.")
-
                 contenuto.sound = .default
                 let quandoComponenti = Giorno.calendario.dateComponents([.year, .month, .day, .hour, .minute], from: alle9)
-                let richiesta = UNNotificationRequest(
+                richieste.append(UNNotificationRequest(
                     identifier: "pagamento-\(Int(giorno.timeIntervalSince1970))-\(prima)", content: contenuto,
-                    trigger: UNCalendarNotificationTrigger(dateMatching: quandoComponenti, repeats: false))
-                guard !Task.isCancelled else { return }
-                try? await centro.add(richiesta)
+                    trigger: UNCalendarNotificationTrigger(dateMatching: quandoComponenti, repeats: false)))
             }
         }
+        // Togliere e rimettere tutto senza pause: un giro più vecchio non può infilarsi in mezzo
+        centro.removeAllPendingNotificationRequests()
+        for r in richieste { centro.add(r, withCompletionHandler: nil) }
     }
 }

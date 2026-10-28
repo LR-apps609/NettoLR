@@ -10,12 +10,17 @@ struct Blocco: ViewModifier {
     @Environment(\.scenePhase) private var fase
     @State private var sbloccato = false
     @State private var inCorso = false
+    /// Face ID si chiede da solo solo all'apertura e al ritorno dallo sfondo; altrimenti c'è il pulsante
+    @State private var dalloSfondo = false
 
     func body(content: Content) -> some View {
         content
             .onChange(of: fase) { _, nuova in
-                if nuova == .background && attivo { sbloccato = false; aggiornaCopertura() }
-                if nuova == .active && attivo && !sbloccato { sblocca() }
+                if nuova == .background && attivo { sbloccato = false; dalloSfondo = true; aggiornaCopertura() }
+                if nuova == .active && attivo && !sbloccato && dalloSfondo {
+                    dalloSfondo = false
+                    sblocca()
+                }
             }
             // Attivato adesso da «Tu»: sei già tu, il blocco vale dalla prossima apertura
             .onChange(of: attivo) { _, nuovo in
