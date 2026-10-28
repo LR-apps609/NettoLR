@@ -51,7 +51,7 @@ def dai_sorgenti() -> set[str]:
                 prima = codice[:m.start()]
                 if re.search(r"(systemName:|accessibilityIdentifier\(|forResource:|withExtension:|subdirectory:|identifier:|forKey:|URL\(string:|hasPrefix\(|contains\(|arguments)\s*$", prima):
                     continue
-                if re.fullmatch(r"[\w.\-/]+", t) and " " not in t and not t[:1].isupper():
+                if " " not in t and re.search(r"[._/]|[a-z][A-Z]", t):
                     continue  # chiavi, nomi di file, codici
                 chiavi.add(t.replace('\\"', '"').replace("\\n", "\n"))
     return chiavi

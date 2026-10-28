@@ -4,6 +4,7 @@
   "%@ all'anno": "%@ a year",
   "%@ l'ora": "%@ an hour",
   "%@ stimato (dipende da Regione e Comune)": "%@ estimated (depends on region and town)",
+  "%@ · dal %@": "%@ · since %@",
   "%@ · ti hanno pagato?": "%@ · have you been paid?",
   "%@ × coefficiente %@ (%@)": "%@ × coefficient %@ (%@)",
   "%@, %@, pagata il %@": "%@, %@, paid on %@",

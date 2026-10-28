@@ -14,7 +14,7 @@ final class ScreenshotTests: XCTestCase {
 
     func test1Benvenuto() {
         XCUIDevice.shared.appearance = .light
-        app.launchArguments = ["-uitestVuoto"]
+        app.launchArguments = ["-uitestVuoto", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
         app.launch()
         sleep(2)
         foto("00-benvenuto")
@@ -34,7 +34,7 @@ final class ScreenshotTests: XCTestCase {
 
     func test2Giro() {
         XCUIDevice.shared.appearance = .light
-        app.launchArguments = ["-uitest"]
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
         app.launch()
         XCTAssertTrue(scheda(0).waitForExistence(timeout: 15))
         sleep(2)
@@ -107,7 +107,7 @@ final class ScreenshotTests: XCTestCase {
 
     func test3Scuro() {
         XCUIDevice.shared.appearance = .dark
-        app.launchArguments = ["-uitest", "-uiDark"]
+        app.launchArguments = ["-uitest", "-uiDark", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
         app.launch()
         XCTAssertTrue(scheda(0).waitForExistence(timeout: 15))
         sleep(2)

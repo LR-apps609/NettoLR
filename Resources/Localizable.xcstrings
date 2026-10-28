@@ -56,6 +56,17 @@
         }
       }
     },
+    "%@ · dal %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · since %@"
+          }
+        }
+      }
+    },
     "%@ · ti hanno pagato?": {
       "extractionState": "manual",
       "localizations": {
@@ -4709,6 +4720,28 @@
         }
       }
     },
+    "giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "days"
+          }
+        }
+      }
+    },
+    "giorno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "day"
+          }
+        }
+      }
+    },
     "in arrivo": {
       "extractionState": "manual",
       "localizations": {
@@ -4716,6 +4749,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "coming soon"
+          }
+        }
+      }
+    },
+    "incassata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "received"
           }
         }
       }
@@ -4743,6 +4787,17 @@
       }
     },
     "pagata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "paid"
+          }
+        }
+      }
+    },
+    "pagato": {
       "extractionState": "manual",
       "localizations": {
         "en": {
