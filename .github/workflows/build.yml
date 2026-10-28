@@ -49,6 +49,25 @@ jobs:
           grep -E "error:" build.log | grep -vE "^/.*:[0-9]+:[0-9]+: error:" | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           exit $status
 
+      # Le frasi da tradurre, estratte dal compilatore: solo se richiesto («[lingue]» nel messaggio) o a mano
+      - name: Frasi da tradurre (ramo «lingue»)
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[lingue]')
+        run: |
+          status=0
+          xcodebuild -exportLocalizations -project NettoLR.xcodeproj -localizationPath lingue -exportLanguage en \
+            -sdk iphonesimulator CODE_SIGNING_ALLOWED=NO > export.log 2>&1 || status=$?
+          tail -n 5 export.log
+          grep -E "error:" export.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          if [ "$status" = 0 ]; then
+            X=$(find lingue -name "*.xliff" | head -n 1)
+            echo "::notice::Frasi: $(grep -c '<trans-unit' "$X")"
+            mkdir -p uscita-lingue && cp "$X" uscita-lingue/en.xliff
+            cd uscita-lingue && git init -q && git checkout -q -b lingue && git add .
+            git -c user.name="NettoLR CI" -c user.email="ci@nettolr.invalid" commit -qm "Frasi da tradurre per $GITHUB_SHA"
+            git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" lingue 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3
+          fi
+          exit $status
+
       - name: Test automatici (motore di calcolo)
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')

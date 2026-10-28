@@ -19,6 +19,8 @@ targets:
     sources:
       - path: Sources
       - path: Resources/Assets.xcassets
+      # I testi in inglese (l'italiano è la lingua di partenza)
+      - path: Resources/Localizable.xcstrings
       - path: NOVITA.txt
         buildPhase: resources
       # Le regole fiscali dell'anno (aliquote, soglie, scadenze, fonti): le stesse servono al sito
@@ -61,6 +63,8 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
         SWIFT_VERSION: "5.0"
         SWIFT_STRICT_CONCURRENCY: minimal
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: ""
 
