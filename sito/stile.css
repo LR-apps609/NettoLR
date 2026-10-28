@@ -19,4 +19,6 @@ input{width:100%;font:inherit;padding:14px 16px;border-radius:16px;border:1px so
 ul.lavori{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 ul.lavori a{display:block;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink)}
 ul.lavori small{display:block;color:var(--muted)}.pillola{display:inline-block;background:var(--prugna-soft);color:var(--prugna);border-radius:99px;padding:3px 12px;font-weight:700;font-size:15px}
-footer{margin-top:40px;font-size:14px;color:var(--muted)}
+footer{margin-top:40px;font-size:14px;color:var(--muted)}footer a{color:var(--muted)}
+header .lingua{margin-left:auto;font-size:15px;font-weight:700;color:var(--prugna)}
+.testo h2{font-size:20px}.testo p,.testo li{color:var(--ink)}
