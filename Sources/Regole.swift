@@ -28,6 +28,15 @@ struct Regole: Codable {
         let aliquotaOrdinaria: Voce<Double>
         let aliquotaStartup: Voce<Double>
         let anniStartup: Voce<Int>
+        /// La percentuale di reddito per gruppo di codici ATECO 2007
+        let coefficienti: Voce<[Coefficiente]>
+    }
+
+    struct Coefficiente: Codable {
+        let id: String
+        let nome: String
+        let valore: Double
+        let divisioni2007: String
     }
 
     struct GestioneSeparata: Codable {

@@ -1,6 +1,6 @@
 import Foundation
 
-// Coefficienti di redditività del forfettario (L. 190/2014, all. 4 come sostituito da L. 145/2018).
+// Coefficienti di redditività del forfettario (L. 190/2014, all. 4 come sostituito da L. 145/2018): i valori stanno nelle regole dell'anno.
 // Per il 2026 il coefficiente si determina ancora dal codice ATECO 2007 (quadro LM, rigo LM22), anche se
 // dal 1/4/2025 è in vigore ATECO 2025: in attesa di una tabella ufficiale di raccordo l'app chiede l'ATECO 2007.
 
@@ -21,17 +21,10 @@ struct Attivita: Identifiable, Equatable {
 }
 
 enum Ateco {
-    static let gruppi: [GruppoCoefficiente] = [
-        .init(id: "alimentari", nome: "Industrie alimentari e delle bevande", coefficiente: 0.40, divisioni2007: "10-11"),
-        .init(id: "commercio", nome: "Commercio all'ingrosso e al dettaglio", coefficiente: 0.40, divisioni2007: "45, 46.2-46.9, 47.1-47.7, 47.9"),
-        .init(id: "ambulante-alimentari", nome: "Commercio ambulante di prodotti alimentari e bevande", coefficiente: 0.40, divisioni2007: "47.81"),
-        .init(id: "ambulante-altri", nome: "Commercio ambulante di altri prodotti", coefficiente: 0.54, divisioni2007: "47.82-47.89"),
-        .init(id: "costruzioni", nome: "Costruzioni e attività immobiliari", coefficiente: 0.86, divisioni2007: "41-43, 68"),
-        .init(id: "intermediari", nome: "Intermediari del commercio", coefficiente: 0.62, divisioni2007: "46.1"),
-        .init(id: "alloggio", nome: "Attività dei servizi di alloggio e di ristorazione", coefficiente: 0.40, divisioni2007: "55-56"),
-        .init(id: "professionali", nome: "Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi", coefficiente: 0.78, divisioni2007: "64-66, 69-75, 85, 86-88"),
-        .init(id: "altre", nome: "Altre attività economiche", coefficiente: 0.67, divisioni2007: "tutte le altre"),
-    ]
+    /// I gruppi con la loro percentuale, da Resources/Rules (uguali nel 2025 e nel 2026)
+    static let gruppi: [GruppoCoefficiente] = Regole.attuali.forfettario.coefficienti.valore.map {
+        GruppoCoefficiente(id: $0.id, nome: $0.nome, coefficiente: $0.valore, divisioni2007: $0.divisioni2007)
+    }
 
     static func gruppo(_ id: String) -> GruppoCoefficiente {
         gruppi.first { $0.id == id } ?? gruppi[gruppi.count - 1]

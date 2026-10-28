@@ -99,6 +99,65 @@
     "anniStartup": {
       "valore": 5,
       "fonte": "l190_2014"
+    },
+    "coefficienti": {
+      "valore": [
+        {
+          "id": "alimentari",
+          "nome": "Industrie alimentari e delle bevande",
+          "valore": 0.4,
+          "divisioni2007": "10-11"
+        },
+        {
+          "id": "commercio",
+          "nome": "Commercio all'ingrosso e al dettaglio",
+          "valore": 0.4,
+          "divisioni2007": "45, 46.2-46.9, 47.1-47.7, 47.9"
+        },
+        {
+          "id": "ambulante-alimentari",
+          "nome": "Commercio ambulante di prodotti alimentari e bevande",
+          "valore": 0.4,
+          "divisioni2007": "47.81"
+        },
+        {
+          "id": "ambulante-altri",
+          "nome": "Commercio ambulante di altri prodotti",
+          "valore": 0.54,
+          "divisioni2007": "47.82-47.89"
+        },
+        {
+          "id": "costruzioni",
+          "nome": "Costruzioni e attività immobiliari",
+          "valore": 0.86,
+          "divisioni2007": "41-43, 68"
+        },
+        {
+          "id": "intermediari",
+          "nome": "Intermediari del commercio",
+          "valore": 0.62,
+          "divisioni2007": "46.1"
+        },
+        {
+          "id": "alloggio",
+          "nome": "Attività dei servizi di alloggio e di ristorazione",
+          "valore": 0.4,
+          "divisioni2007": "55-56"
+        },
+        {
+          "id": "professionali",
+          "nome": "Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi",
+          "valore": 0.78,
+          "divisioni2007": "64-66, 69-75, 85, 86-88"
+        },
+        {
+          "id": "altre",
+          "nome": "Altre attività economiche",
+          "valore": 0.67,
+          "divisioni2007": "tutte le altre"
+        }
+      ],
+      "fonte": "l190_2014"
     }
   },
   "gestioneSeparata": {
