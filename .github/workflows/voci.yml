@@ -1,7 +1,7 @@
 name: Voci (campioni open source)
 
 # Genera campioni di voce italiana con modelli open source utilizzabili anche a pagamento:
-# Chatterbox (MIT) e Qwen3-TTS (Apache 2.0). Ogni modello pubblica nel suo ramo (voci-chatterbox, voci-qwen).
+# Chatterbox (MIT), Qwen3-TTS e VoxCPM2 (Apache 2.0). Ogni modello pubblica nel suo ramo (voci-…).
 on:
   workflow_dispatch:
   push:
@@ -12,10 +12,51 @@ permissions:
   contents: write
 
 env:
+  FRASE2: "Allora, partiamo dalle basi. Nel forfettario non devi contare le spese: lo Stato prende una parte fissa di quello che incassi, e su quella paghi pensione e tasse. Semplice, no?"
   FRASE: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno."
 
 jobs:
+  voxcpm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installa
+        run: |
+          pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install -q voxcpm soundfile
+      - name: Voci
+        run: |
+          mkdir -p uscita
+          python - <<'PY'
+          import os, soundfile as sf
+          from voxcpm import VoxCPM
+          m = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False)
+          sr = m.tts_model.sample_rate
+          voci = {
+              "donna": "(Una donna italiana di trentacinque anni, voce calda e naturale, accento italiano neutro, tono amichevole e rilassato, come se parlasse a un'amica)",
+              "uomo": "(Un uomo italiano di quarant'anni, voce profonda e cordiale, accento italiano neutro, ritmo calmo e naturale)",
+              "ragazza": "(Una ragazza italiana di venticinque anni, voce limpida e solare, parla in modo spontaneo e sorridente)",
+              "senza-descrizione": "",
+          }
+          for nome, descr in voci.items():
+              for i, frase in enumerate([os.environ["FRASE2"], os.environ["FRASE"]], 1):
+                  wav = m.generate(text=descr + frase, cfg_value=2.0, inference_timesteps=10, seed=42)
+                  sf.write(f"uscita/voxcpm-{nome}-{i}.wav", wav, sr)
+                  print(nome, i, "fatto", flush=True)
+          PY
+      - name: Pubblica
+        if: always()
+        run: |
+          cd uscita && git init -q && git checkout -q -b voci-voxcpm
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add . && git commit -qm "Campioni VoxCPM2"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voci-voxcpm
+
   chatterbox:
+    if: false   # campioni già nel ramo voci-chatterbox
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -45,6 +86,7 @@ jobs:
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voci-chatterbox
 
   qwen:
+    if: false   # campioni già nel ramo voci-qwen
     runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:
