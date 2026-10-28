@@ -70,7 +70,7 @@ struct NettoView: View {
             .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $calcolo) { ComeLoCalcoloView() }
             .fullScreenCover(isPresented: $capire) { CapireView() }
-            .sheet(isPresented: $guide) { GuideView() }
+            .sheet(isPresented: $guide) { GuideView().environmentObject(store) }
             .fullScreenCover(isPresented: $annoInBreve) { AnnoInBreveView() }
         }
     }

@@ -51,6 +51,7 @@ enum Guide {
 
 /// L'elenco delle guide, con il test in cima
 struct GuideView: View {
+    @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var chiudi
     @State private var test = false
     @State private var aperta: String? = "apri"
@@ -110,6 +111,7 @@ struct GuideView: View {
             .accessibilityAddTraits(.isHeader)
             if open {
                 VStack(alignment: .leading, spacing: 12) {
+                    Illustrazione(guida: g.id, colore: g.colore, coefficiente: store.risultato?.coefficiente)
                     ForEach(Array(g.passi.enumerated()), id: \.offset) { i, p in
                         HStack(alignment: .top, spacing: 12) {
                             if g.numerata {
