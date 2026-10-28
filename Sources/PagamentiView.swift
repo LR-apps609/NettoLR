@@ -154,8 +154,9 @@ struct DettaglioPagamentoView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .accessibilityLabel("Ricevuta F24")
                 }
+                let etichettaRicevuta = store.ricevute[pagamento.id] == nil ? "Aggiungi la ricevuta F24" : "Cambia la ricevuta"
                 PhotosPicker(selection: $fotoRicevuta, matching: .images) {
-                    Label(store.ricevute[pagamento.id] == nil ? "Aggiungi la ricevuta F24" : "Cambia la ricevuta", systemImage: "doc.text.image")
+                    Label(etichettaRicevuta, systemImage: "doc.text.image")
                 }
                 .buttonStyle(PulsanteBordo())
                 .onChange(of: fotoRicevuta) { _, voce in

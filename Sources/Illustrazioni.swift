@@ -8,6 +8,8 @@ struct Illustrazione: View {
     let colore: Color
     /// La percentuale del lavoro dell'utente (dalle regole), per l'esempio del forfettario
     var coefficiente: Double?
+    /// Il riquadro chiaro dietro la scena (nel video no: c'è già lo sfondo colorato)
+    var conFondo = true
     @Environment(\.accessibilityReduceMotion) private var menoMovimento
     @State private var fase = false
 
@@ -24,7 +26,8 @@ struct Illustrazione: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 130)
-        .background(Theme.card.opacity(0.7), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .background(Theme.card.opacity(conFondo ? 0.7 : 0), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .clipped()
         .accessibilityHidden(true)
         .task {
             guard !menoMovimento else { fase = true; return }
@@ -49,7 +52,7 @@ struct Illustrazione: View {
             RoundedRectangle(cornerRadius: 6).fill(colore)
                 .overlay(alignment: .trailing) { Circle().fill(Theme.card).frame(width: 8).padding(.trailing, 9) }
                 .frame(width: 74, height: 100)
-                .rotation3DEffect(.degrees(fase ? -72 : 0), axis: (x: 0, y: 1, z: 0), anchor: .leading, perspective: 0.6)
+                .scaleEffect(x: fase ? 0.18 : 1, anchor: .leading)
             Image(systemName: "sparkle").font(.system(size: 18, weight: .bold)).foregroundStyle(Theme.brass)
                 .offset(x: 52, y: -40)
                 .scaleEffect(fase ? 1 : 0)
