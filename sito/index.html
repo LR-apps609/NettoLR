@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NettoLR – quanto ti resta con la partita IVA forfettaria (2026)</title><meta name="description" content="Il netto della partita IVA forfettaria in parole semplici, lavoro per lavoro.">
+<link rel="stylesheet" href="stile.css"></head>
+<body><main>
+<header><svg class="marca" viewBox="0 0 60 60" aria-hidden="true"><defs><mask id="d"><rect width="60" height="60" fill="#fff"/>
+<circle cx="0" cy="0" r="3" fill="#000"/><circle cx="0" cy="60" r="3" fill="#000"/><circle cx="0" cy="0" r="3" fill="#000"/><circle cx="60" cy="0" r="3" fill="#000"/><circle cx="10" cy="0" r="3" fill="#000"/><circle cx="10" cy="60" r="3" fill="#000"/><circle cx="0" cy="10" r="3" fill="#000"/><circle cx="60" cy="10" r="3" fill="#000"/><circle cx="20" cy="0" r="3" fill="#000"/><circle cx="20" cy="60" r="3" fill="#000"/><circle cx="0" cy="20" r="3" fill="#000"/><circle cx="60" cy="20" r="3" fill="#000"/><circle cx="30" cy="0" r="3" fill="#000"/><circle cx="30" cy="60" r="3" fill="#000"/><circle cx="0" cy="30" r="3" fill="#000"/><circle cx="60" cy="30" r="3" fill="#000"/><circle cx="40" cy="0" r="3" fill="#000"/><circle cx="40" cy="60" r="3" fill="#000"/><circle cx="0" cy="40" r="3" fill="#000"/><circle cx="60" cy="40" r="3" fill="#000"/><circle cx="50" cy="0" r="3" fill="#000"/><circle cx="50" cy="60" r="3" fill="#000"/><circle cx="0" cy="50" r="3" fill="#000"/><circle cx="60" cy="50" r="3" fill="#000"/><circle cx="60" cy="0" r="3" fill="#000"/><circle cx="60" cy="60" r="3" fill="#000"/><circle cx="0" cy="60" r="3" fill="#000"/><circle cx="60" cy="60" r="3" fill="#000"/></mask></defs>
+<rect width="60" height="60" fill="var(--marca)" mask="url(#d)"/><rect x="9" y="9" width="42" height="42" rx="3" fill="none" stroke="var(--notte)" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="30" y="41" text-anchor="middle" font-size="30" font-weight="900" fill="var(--notte)" font-family="ui-rounded, system-ui">N</text></svg><a href="index.html">Netto<b>LR</b></a></header>
+<h1>Quanto ti resta davvero, con la partita IVA</h1>
+<p class="muted">Cerca il tuo lavoro: ti dico la percentuale, la pensione e quanto resta su 30.000 € incassati, con le regole del 2026.</p>
+<input id="cerca" type="search" placeholder="Il tuo lavoro: fotografo, idraulico, psicologo…" aria-label="Cerca il tuo lavoro">
+<ul class="lavori" id="lavori">
+<li data-cerca="agente di commercio agenti e rappresentanti di vari prodotti senza prevalenza di alcuno 46.19.01 agente di commercio rappresentante"><a href="lavori/agente-di-commercio.html">Agente di commercio<small>62% · 46.19.01</small></a></li>
+<li data-cerca="agente immobiliare attività di mediazione immobiliare 68.31.00 agente immobiliare mediatore"><a href="lavori/agente-immobiliare.html">Agente immobiliare<small>86% · 68.31.00</small></a></li>
+<li data-cerca="ambulante abbigliamento commercio al dettaglio ambulante di tessuti, articoli tessili per la casa, articoli di abbigliamento 47.82.01 ambulante abbigliamento bancarella"><a href="lavori/ambulante-abbigliamento.html">Ambulante abbigliamento<small>54% · 47.82.01</small></a></li>
+<li data-cerca="ambulante frutta commercio al dettaglio ambulante di prodotti ortofrutticoli 47.81.01 ambulante frutta mercato"><a href="lavori/ambulante-frutta.html">Ambulante frutta<small>40% · 47.81.01</small></a></li>
+<li data-cerca="architetto attività degli studi di architettura 71.11.00 architetto"><a href="lavori/architetto.html">Architetto<small>78% · 71.11.00</small></a></li>
+<li data-cerca="assistente virtuale altri servizi di supporto alle imprese nca 82.99.99 assistente virtuale segreteria"><a href="lavori/assistente-virtuale.html">Assistente virtuale<small>67% · 82.99.99</small></a></li>
+<li data-cerca="assistenza informatica altre attività dei servizi connessi alle tecnologie dell’informatica 62.09.09 assistenza informatica tecnico pc"><a href="lavori/assistenza-informatica.html">Assistenza informatica<small>67% · 62.09.09</small></a></li>
+<li data-cerca="avvocato attività degli studi legali 69.10.10 avvocato legale"><a href="lavori/avvocato.html">Avvocato<small>78% · 69.10.10</small></a></li>
+<li data-cerca="b&amp;b affittacamere per brevi soggiorni, case ed appartamenti per vacanze, b&amp;b, residence 55.20.51 b&amp;b bed and breakfast affittacamere casa vacanze"><a href="lavori/beb.html">B&amp;b<small>40% · 55.20.51</small></a></li>
+<li data-cerca="commercialista servizi forniti da dottori commercialisti 69.20.11 commercialista"><a href="lavori/commercialista.html">Commercialista<small>78% · 69.20.11</small></a></li>
+<li data-cerca="consulente altre attività di consulenza imprenditoriale e di gestione aziendale 70.22.09 consulente business coach consulenza aziendale"><a href="lavori/consulente.html">Consulente<small>78% · 70.22.09</small></a></li>
+<li data-cerca="consulente it consulenza nel settore delle tecnologie dell’informatica 62.02.00 consulente it informatico sistemista"><a href="lavori/consulente-it.html">Consulente it<small>67% · 62.02.00</small></a></li>
+<li data-cerca="ecommerce commercio al dettaglio di qualsiasi tipo di prodotto effettuato via internet 47.91.10 ecommerce shop online vendita online dropshipping"><a href="lavori/ecommerce.html">Ecommerce<small>40% · 47.91.10</small></a></li>
+<li data-cerca="elettricista installazione di impianti elettrici in edifici o in altre opere di costruzione 43.21.01 elettricista"><a href="lavori/elettricista.html">Elettricista<small>86% · 43.21.01</small></a></li>
+<li data-cerca="estetista servizi degli istituti di bellezza 96.02.02 estetista nail unghie"><a href="lavori/estetista.html">Estetista<small>67% · 96.02.02</small></a></li>
+<li data-cerca="fisioterapista fisioterapia 86.90.21 fisioterapista"><a href="lavori/fisioterapista.html">Fisioterapista<small>78% · 86.90.21</small></a></li>
+<li data-cerca="formatore altri servizi di istruzione nca 85.59.90 formatore docente tutor ripetizioni"><a href="lavori/formatore.html">Formatore<small>78% · 85.59.90</small></a></li>
+<li data-cerca="fotografo altre attività di riprese fotografiche 74.20.19 fotografo foto videomaker"><a href="lavori/fotografo.html">Fotografo<small>78% · 74.20.19</small></a></li>
+<li data-cerca="gelateria gelaterie e pasticcerie 56.10.30 gelateria pasticceria"><a href="lavori/gelateria.html">Gelateria<small>40% · 56.10.30</small></a></li>
+<li data-cerca="geometra servizi di progettazione di ingegneria integrata 71.12.20 geometra progettista"><a href="lavori/geometra.html">Geometra<small>78% · 71.12.20</small></a></li>
+<li data-cerca="grafico altre attività dei disegnatori grafici 74.10.29 grafico graphic designer illustratore"><a href="lavori/grafico.html">Grafico<small>78% · 74.10.29</small></a></li>
+<li data-cerca="idraulico installazione di impianti idraulici, di riscaldamento e di condizionamento dell’aria 43.22.01 idraulico termoidraulico"><a href="lavori/idraulico.html">Idraulico<small>86% · 43.22.01</small></a></li>
+<li data-cerca="imbianchino tinteggiatura e posa in opera di vetri 43.34.00 imbianchino pittore edile"><a href="lavori/imbianchino.html">Imbianchino<small>86% · 43.34.00</small></a></li>
+<li data-cerca="ingegnere attività degli studi di ingegneria 71.12.10 ingegnere"><a href="lavori/ingegnere.html">Ingegnere<small>78% · 71.12.10</small></a></li>
+<li data-cerca="insegnante di lingue scuole e corsi di lingua 85.59.30 insegnante di lingue ripetizioni inglese"><a href="lavori/insegnante-di-lingue.html">Insegnante di lingue<small>78% · 85.59.30</small></a></li>
+<li data-cerca="libero professionista altre attività professionali nca 74.90.99 libero professionista freelance"><a href="lavori/libero-professionista.html">Libero professionista<small>78% · 74.90.99</small></a></li>
+<li data-cerca="muratore attività non specializzate di lavori edili (muratori) 43.39.01 muratore edile ristrutturazioni"><a href="lavori/muratore.html">Muratore<small>86% · 43.39.01</small></a></li>
+<li data-cerca="nutrizionista altre attività paramediche indipendenti nca 86.90.29 nutrizionista osteopata infermiere"><a href="lavori/nutrizionista.html">Nutrizionista<small>78% · 86.90.29</small></a></li>
+<li data-cerca="parrucchiere servizi dei saloni di barbiere e parrucchiere 96.02.01 parrucchiere barbiere parrucchiera"><a href="lavori/parrucchiere.html">Parrucchiere<small>67% · 96.02.01</small></a></li>
+<li data-cerca="personal trainer corsi sportivi e ricreativi 85.51.00 personal trainer istruttore yoga pilates"><a href="lavori/personal-trainer.html">Personal trainer<small>78% · 85.51.00</small></a></li>
+<li data-cerca="psicologo attività svolta da psicologi 86.90.30 psicologo psicoterapeuta"><a href="lavori/psicologo.html">Psicologo<small>78% · 86.90.30</small></a></li>
+<li data-cerca="pulizie pulizia generale (non specializzata) di edifici 81.21.00 pulizie impresa di pulizie"><a href="lavori/pulizie.html">Pulizie<small>67% · 81.21.00</small></a></li>
+<li data-cerca="riparazione pc riparazione e manutenzione di computer e periferiche 95.11.00 riparazione pc tecnico computer"><a href="lavori/riparazione-pc.html">Riparazione pc<small>67% · 95.11.00</small></a></li>
+<li data-cerca="ristorante ristorazione con somministrazione 56.10.11 ristorante trattoria pizzeria"><a href="lavori/ristorante.html">Ristorante<small>40% · 56.10.11</small></a></li>
+<li data-cerca="scrittore altre creazioni artistiche e letterarie 90.03.09 scrittore copywriter artista content creator"><a href="lavori/scrittore.html">Scrittore<small>67% · 90.03.09</small></a></li>
+<li data-cerca="sito web portali web 63.12.00 sito web blog portale"><a href="lavori/sito-web.html">Sito web<small>67% · 63.12.00</small></a></li>
+<li data-cerca="social media manager conduzione di campagne di marketing e altri servizi pubblicitari 73.11.02 social media manager marketing ads pubblicità"><a href="lavori/social-media-manager.html">Social media manager<small>78% · 73.11.02</small></a></li>
+<li data-cerca="sviluppatore produzione di software non connesso all’edizione 62.01.00 sviluppatore programmatore app software developer"><a href="lavori/sviluppatore.html">Sviluppatore<small>67% · 62.01.00</small></a></li>
+<li data-cerca="tassista trasporto con taxi 49.32.10 tassista taxi ncc"><a href="lavori/tassista.html">Tassista<small>67% · 49.32.10</small></a></li>
+<li data-cerca="traduttore traduzione e interpretariato 74.30.00 traduttore interprete"><a href="lavori/traduttore.html">Traduttore<small>78% · 74.30.00</small></a></li>
+<li data-cerca="video attività di produzione cinematografica, di video e di programmi televisivi 59.11.00 video youtuber montatore"><a href="lavori/video.html">Video<small>67% · 59.11.00</small></a></li>
+<li data-cerca="web designer attività dei disegnatori grafici di pagine web 74.10.21 web designer grafico web ux ui"><a href="lavori/web-designer.html">Web designer<small>78% · 74.10.21</small></a></li>
+</ul>
+<p class="muted">Non trovi il tuo lavoro? NettoLR contiene tutti i codici ATECO dell'ISTAT.</p>
+<script>
+const c=document.getElementById('cerca'),v=[...document.querySelectorAll('#lavori li')];
+c.addEventListener('input',()=>{const q=c.value.trim().toLowerCase();v.forEach(li=>li.hidden=q&&!li.dataset.cerca.includes(q))});
+</script>
+<footer><p>È un calcolo, non una consulenza fiscale: per i casi particolari senti un commercialista.</p>
+<p>Regole 2026 aggiornate al 27 ottobre 2026. Nessun cookie, nessuna statistica, nessuna pubblicità.</p></footer>
+</main></body></html>
