@@ -54,6 +54,7 @@ struct GuideView: View {
     @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var chiudi
     @State private var test = false
+    @State private var video = false
     @State private var aperta: String? = "apri"
 
     var body: some View {
@@ -78,8 +79,27 @@ struct GuideView: View {
                     .entrata(0)
                     .accessibilityIdentifier("guide.test")
 
+                    Button { video = true } label: {
+                        HStack(spacing: 14) {
+                            Image(systemName: "play.fill").font(.system(size: 22, weight: .bold)).foregroundStyle(.white)
+                                .frame(width: 54, height: 54)
+                                .background(Theme.prugna, in: Circle())
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("La partita IVA in un minuto").font(.app(18, .bold)).foregroundStyle(Theme.ink)
+                                Text("Guarda e ascolta").font(.app(14)).foregroundStyle(Theme.muted)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right").foregroundStyle(Theme.prugna)
+                        }
+                        .padding(16)
+                        .background(Theme.prugnaSoft, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+                    }
+                    .buttonStyle(Molla())
+                    .entrata(1)
+                    .accessibilityIdentifier("guide.video")
+
                     ForEach(Array(Guide.tutte.enumerated()), id: \.element.id) { i, g in
-                        scheda(g).entrata(i + 1)
+                        scheda(g).entrata(i + 2)
                     }
                     Text("È una guida, non una consulenza: per i casi particolari senti un commercialista.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
@@ -91,6 +111,7 @@ struct GuideView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
             .fullScreenCover(isPresented: $test) { TestForfettarioView() }
+            .fullScreenCover(isPresented: $video) { VideoView() }
         }
     }
 

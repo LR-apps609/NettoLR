@@ -54,6 +54,14 @@ final class ScreenshotTests: XCTestCase {
             guide.tap()
             sleep(1)
             foto("03b-guide")
+            let video = app.buttons["guide.video"]
+            if video.waitForExistence(timeout: 3) {
+                video.tap()
+                sleep(3)
+                foto("03c-video")
+                app.buttons["Chiudi"].firstMatch.tap()
+                sleep(1)
+            }
             app.buttons["Fatto"].firstMatch.tap()
             sleep(1)
         }
