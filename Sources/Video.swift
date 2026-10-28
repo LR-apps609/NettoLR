@@ -16,7 +16,7 @@ struct Scena {
 enum Video {
     static let partitaIVA: [Scena] = [
         Scena(illustrazione: "apri", colore: Theme.menta,
-              testo: "Aprire la partita IVA è gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che la fa per te.", audio: "scena-1"),
+              testo: "La partita IVA si apre gratis: basta una richiesta online all'Agenzia delle Entrate, oppure un commercialista che lo fa per te.", audio: "scena-1"),
         Scena(illustrazione: "forfettario", colore: Theme.prugna,
               testo: "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno.", audio: "scena-2"),
         Scena(illustrazione: "iva", colore: Theme.pensione,
