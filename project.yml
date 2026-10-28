@@ -107,7 +107,7 @@ schemes:
         NettoLR: all
     run:
       config: Debug
-      # Acquisto di prova in Xcode (prezzo finto): quello vero si decide in App Store Connect
+      # Abbonamenti di prova in Xcode (2,99 €/mese, 20 €/anno): quelli veri si creano in App Store Connect
       storeKitConfiguration: Resources/NettoLR.storekit
     archive:
       config: Release

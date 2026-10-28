@@ -1,38 +1,66 @@
 {
-  "identifier" : "4E1B7C2A",
-  "nonRenewingSubscriptions" : [
-
-  ],
-  "products" : [
+  "identifier": "4E1B7C2A",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "it",
+    "_storefront": "ITA",
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [
     {
-      "displayPrice" : "9.99",
-      "familyShareable" : false,
-      "internalID" : "6740000001",
-      "localizations" : [
+      "id": "21500001",
+      "localizations": [],
+      "name": "NettoLR completo",
+      "subscriptions": [
         {
-          "description" : "Sblocca NettoLR per sempre, con un solo acquisto.",
-          "displayName" : "NettoLR completo",
-          "locale" : "it"
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "20.00",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "6740000003",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "NettoLR completo per un anno.",
+              "displayName": "NettoLR annuale",
+              "locale": "it"
+            }
+          ],
+          "productID": "it.ledion.NettoLR.annuale",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "NettoLR annuale",
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription"
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "2.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "6740000002",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "NettoLR completo, ogni mese.",
+              "displayName": "NettoLR mensile",
+              "locale": "it"
+            }
+          ],
+          "productID": "it.ledion.NettoLR.mensile",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "NettoLR mensile",
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription"
         }
-      ],
-      "productID" : "it.ledion.NettoLR.completo",
-      "referenceName" : "NettoLR completo",
-      "type" : "NonConsumable"
+      ]
     }
   ],
-  "settings" : {
-    "_failTransactionsEnabled" : false,
-    "_locale" : "it",
-    "_storefront" : "ITA",
-    "_storeKitErrors" : [
-
-    ]
-  },
-  "subscriptionGroups" : [
-
-  ],
-  "version" : {
-    "major" : 3,
-    "minor" : 0
+  "version": {
+    "major": 3,
+    "minor": 0
   }
 }

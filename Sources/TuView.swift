@@ -27,7 +27,7 @@ struct TuView: View {
                         intestazione(p)
                         Button { completo = true } label: {
                             riga("seal", Theme.brass, "NettoLR completo",
-                                 valore: acquisto.completo ? "È tuo" : "Prova: \(acquisto.giorniRimasti) giorni", freccia: true)
+                                 valore: acquisto.completo ? (acquisto.piano ?? "Attivo") : "Prova: \(acquisto.giorniRimasti) giorni", freccia: true)
                                 .foregroundStyle(Theme.ink)
                                 .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
                         }
