@@ -48,7 +48,8 @@ struct Profilo: Codable, Equatable {
 }
 
 struct Fattura: Codable, Identifiable, Equatable {
-    enum Origine: String, Codable { case manuale, xml }
+    enum Origine: String, Codable { case manuale, xml, foto }
+
 
     var id = UUID()
     var numero: String

@@ -156,12 +156,22 @@ struct NuovoIncassoView: View {
     @State private var giorno = Date()
     @State private var pagata = true
     @State private var attivita = ""
+    @State private var numeroLetto: String?
     @FocusState private var focusImporto: Bool
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
+                    LeggiFattura { p in
+                        withAnimation(.spring) {
+                            if let v = p.importo { importo = Formato.campo(v) }
+                            if let c = p.cliente { cliente = c }
+                            if let d = p.data { giorno = d }
+                            numeroLetto = p.numero
+                        }
+                        focusImporto = false
+                    }
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Quanto?").font(.app(15)).foregroundStyle(Theme.muted)
                         HStack(alignment: .firstTextBaseline) {
@@ -214,7 +224,7 @@ struct NuovoIncassoView: View {
                     DatePicker((pagata ? "Il giorno" : "Data della fattura").tradotto, selection:
  $giorno, displayedComponents: .date)
                         .font(.app(17))
-                        .environment(\.locale, Formato.it)
+                        .environment(\.locale, Formato.lingua)
                 }
                 .padding(20)
             }
@@ -237,9 +247,10 @@ struct NuovoIncassoView: View {
     private var valore: Double { Formato.leggiEuro(importo) }
 
     private func salva() {
-        let numero = String(store.fatture.count + 1)
-        store.aggiungi(Fattura(numero: numero, data: giorno, cliente: cliente.isEmpty ? "Cliente" : cliente,
-                               importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: .manuale,
+        let numero = numeroLetto ?? String(store.fatture.count + 1)
+        store.aggiungi(Fattura(numero: numero, data: giorno, cliente: cliente.isEmpty ? "Cliente".tradotto : cliente,
+                               importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: numeroLetto == nil ? .manuale : .foto,
+
                                ateco: attivita.isEmpty || attivita == store.profilo?.ateco ? nil : attivita))
         chiudi()
     }

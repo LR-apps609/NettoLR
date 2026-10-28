@@ -267,4 +267,30 @@ final class CalcoloTests: XCTestCase {
         store.fatture = prima
         store.profilo = primoProfilo
     }
+
+    func testLetturaFatturaDaFoto() {
+        let testo = """
+        Giulia Verdi - Web designer
+        P.IVA 06363391001
+        FATTURA N. 14/2026
+        Data 20/10/2026
+        Spett.le
+        Fondazione Arte Viva
+        Via Roma 1, 20100 Milano
+        Realizzazione sito web 3.800,00
+        Marca da bollo 2,00
+        Totale documento
+        € 3.802,00
+        """
+        let p = LettoreFatturaFoto.analizza(testo)
+        XCTAssertEqual(p.importo, 3802)
+        XCTAssertEqual(p.numero, "14/2026")
+        XCTAssertEqual(p.cliente, "Fondazione Arte Viva")
+        XCTAssertEqual(p.data, Giorno.data(2026, 10, 20))
+        // Anni, CAP, partite IVA e telefoni non sono importi
+        XCTAssertEqual(LettoreFatturaFoto.importi(in: "CAP 20100 · P.IVA 06363391001 · tel 3331234567 · 2026"), [])
+        XCTAssertEqual(LettoreFatturaFoto.importi(in: "Cliente: Rossi Srl  450.00"), [450])
+        XCTAssertEqual(LettoreFatturaFoto.analizza("Cliente: Rossi & Figli Srl\nTotale 1.200,00").cliente, "Rossi & Figli Srl")
+        XCTAssertTrue(LettoreFatturaFoto.analizza("niente di utile qui").vuota)
+    }
 }
