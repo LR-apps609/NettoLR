@@ -48,7 +48,7 @@ jobs:
                   print(nome, i, "fatto", flush=True)
           PY
           # Le ultime righe del registro come avvisi (i registri interi non si leggono da fuori)
-          tail -n 15 voci.log | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+          echo "::error::$(grep -v Warning voci.log | tail -n 12 | tr '\n' '|' | cut -c1-1500)"
       - name: Pubblica
         if: always()
         run: |
