@@ -4,11 +4,13 @@ import SwiftUI
 @main
 struct NettoLRApp: App {
     @StateObject private var store = Store.shared
+    @StateObject private var acquisto = Acquisto.shared
 
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(store)
+                .environmentObject(acquisto)
                 .tint(Theme.prugna)
                 // Solo per il giro automatico delle foto: forza il tema scuro
                 .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("-uiDark") ? .dark : nil)

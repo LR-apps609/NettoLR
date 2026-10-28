@@ -10,6 +10,8 @@ struct TuView: View {
     @State private var esporta = false
     @State private var attivita = false
     @State private var backup = false
+    @State private var completo = false
+    @EnvironmentObject private var acquisto: Acquisto
     @State private var piva = ""
     @State private var chiediCancella = false
     @State private var esitoPiva: Bool?
@@ -23,6 +25,14 @@ struct TuView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Titolo(testo: "Tu")
                         intestazione(p)
+                        Button { completo = true } label: {
+                            riga("seal", Theme.brass, "NettoLR completo",
+                                 valore: acquisto.completo ? "È tuo" : "Prova: \(acquisto.giorniRimasti) giorni", freccia: true)
+                                .foregroundStyle(Theme.ink)
+                                .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
+                        }
+                        .buttonStyle(Molla())
+                        .accessibilityIdentifier("tu.completo")
                         Button { documenti = true } label: { documentiCard }
                             .buttonStyle(Molla())
                             .accessibilityIdentifier("tu.documenti")
@@ -88,6 +98,7 @@ struct TuView: View {
             .sheet(isPresented: $esporta) { EsportaView() }
             .sheet(isPresented: $attivita) { AltreAttivitaView() }
             .sheet(isPresented: $backup) { BackupView() }
+            .fullScreenCover(isPresented: $completo) { CompletoView().environmentObject(acquisto) }
             .sheet(isPresented: $modifica) {
                 DomandeProfilo(iniziale: store.profilo) { nuovo in
                     store.profilo = nuovo

@@ -4,6 +4,7 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var store: Store
+    @EnvironmentObject private var acquisto: Acquisto
     @State private var scheda = Scheda.netto
 
     enum Scheda: Hashable { case netto, incassi, prova, pagamenti, tu }
@@ -48,6 +49,13 @@ struct RootView: View {
         }
         .onChange(of: store.ultimoIncasso) { _, _ in timbroVisibile = true }
         .sensoryFeedback(.success, trigger: store.ultimoIncasso)
+        // A prova finita, senza acquisto: la schermata per sbloccare (i dati restano)
+        .overlay {
+            if acquisto.bloccato && store.profilo != nil {
+                CompletoView(bloccato: true).transition(.opacity)
+            }
+        }
+        .task { await acquisto.aggiorna() }
         .blocco(store.profilo?.faceID ?? false)
         // «Apri con NettoLR» da Mail, File, WhatsApp: le fatture finiscono in Incassi
         .onOpenURL { url in

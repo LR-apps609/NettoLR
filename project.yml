@@ -107,6 +107,8 @@ schemes:
         NettoLR: all
     run:
       config: Debug
+      # Acquisto di prova in Xcode (prezzo finto): quello vero si decide in App Store Connect
+      storeKitConfiguration: Resources/NettoLR.storekit
     archive:
       config: Release
   NettoLRTests:
