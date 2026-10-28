@@ -3,7 +3,7 @@ import AVFoundation
 
 // «La partita IVA in un minuto»: scene animate con sottotitoli e una voce che legge.
 // La voce è registrata una volta sola (VoxCPM2, licenza Apache) e sta nell'app in Resources/Voce:
-// un file per scena e per lingua, con lo stesso testo dei sottotitoli. Se un file manca legge la voce dell'iPhone.
+// un file per scena e per lingua, con lo stesso testo dei sottotitoli. Mai la voce sintetica dell'iPhone.
 
 struct Scena {
     let illustrazione: String
@@ -76,7 +76,7 @@ struct VideoView: View {
                 HStack(spacing: 14) {
                     tasto(conVoce ? "speaker.wave.2.fill" : "speaker.slash.fill", conVoce ? "Togli la voce" : "Metti la voce") {
                         conVoce.toggle()
-                        if conVoce { voce.leggi(scene[indice].testo.tradotto, audio: scene[indice].audio) } else { voce.ferma() }
+                        if conVoce { voce.leggi(audio: scene[indice].audio) } else { voce.ferma() }
                     }
                     tasto("backward.fill", "Indietro") { vai(max(indice - 1, 0)) }
                     tasto(inPausa ? "play.fill" : "pause.fill", inPausa ? "Riprendi" : "Pausa", grande: true) {
@@ -118,7 +118,7 @@ struct VideoView: View {
         let testo = scene[indice].testo.tradotto
         let durata = Narratore.durata(scene[indice].audio) ?? max(4, Double(testo.count) / 14)
         avanzamento = 0
-        if conVoce { voce.leggi(testo, audio: scene[indice].audio) }
+        if conVoce { voce.leggi(audio: scene[indice].audio) }
         withAnimation(.linear(duration: durata)) { avanzamento = 1 }
         try? await Task.sleep(for: .seconds(durata))
         while conVoce && voce.parla && !Task.isCancelled { try? await Task.sleep(for: .milliseconds(200)) }
@@ -133,11 +133,11 @@ struct VideoView: View {
     }
 }
 
-/// La voce registrata della scena, o quella dell'iPhone se il file manca
+/// La voce registrata della scena. Mai la voce sintetica dell'iPhone: se il file manca, la scena resta con i soli sottotitoli
 @MainActor
-final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
-    private let sintetizzatore = AVSpeechSynthesizer()
+final class Narratore: NSObject, ObservableObject, AVAudioPlayerDelegate {
     private var lettore: AVAudioPlayer?
+    @Published var parla = false
 
     /// Il file della scena nella lingua dell'app
     static func file(_ audio: String?) -> URL? {
@@ -152,42 +152,20 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, 
         guard let url = file(audio), let p = try? AVAudioPlayer(contentsOf: url) else { return nil }
         return p.duration
     }
-    @Published var parla = false
-    /// La frase in corso: la fine di una frase interrotta non deve fermare quella nuova
-    private var corrente: ObjectIdentifier?
 
-    override init() {
-        super.init()
-        sintetizzatore.delegate = self
-    }
-
-    func leggi(_ testo: String, audio: String? = nil) {
+    func leggi(audio: String?) {
         ferma()
+        guard let url = Self.file(audio), let p = try? AVAudioPlayer(contentsOf: url) else { return }
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
-        if let url = Self.file(audio), let p = try? AVAudioPlayer(contentsOf: url) {
-            p.delegate = self
-            lettore = p
-            parla = true
-            p.play()
-            return
-        }
-        let frase = AVSpeechUtterance(string: testo)
-        let lingua = Bundle.main.preferredLocalizations.first == "en" ? "en-GB" : "it-IT"
-        frase.voice = AVSpeechSynthesisVoice.speechVoices()
-            .filter { $0.language == lingua }
-            .max { $0.quality.rawValue < $1.quality.rawValue } ?? AVSpeechSynthesisVoice(language: lingua)
-
-        frase.rate = AVSpeechUtteranceDefaultSpeechRate * 0.95
+        p.delegate = self
+        lettore = p
         parla = true
-        corrente = ObjectIdentifier(frase)
-        sintetizzatore.speak(frase)
+        p.play()
     }
 
     func ferma() {
-        corrente = nil
         lettore?.stop()
         lettore = nil
-        sintetizzatore.stopSpeaking(at: .immediate)
         parla = false
     }
 
@@ -199,16 +177,6 @@ final class Narratore: NSObject, ObservableObject, AVSpeechSynthesizerDelegate, 
 
     nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         let id = ObjectIdentifier(player)
-        Task { @MainActor in if self.lettore.map { ObjectIdentifier($0) } == id { self.parla = false } }
-    }
-
-    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        let id = ObjectIdentifier(utterance)
-        Task { @MainActor in if self.corrente == id { self.parla = false } }
-    }
-
-    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
-        let id = ObjectIdentifier(utterance)
-        Task { @MainActor in if self.corrente == id { self.parla = false } }
+        Task { @MainActor in if self.lettore.map({ ObjectIdentifier($0) }) == id { self.parla = false } }
     }
 }
