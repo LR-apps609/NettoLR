@@ -29,7 +29,7 @@ final class Acquisto: ObservableObject {
         if ProcessInfo.processInfo.arguments.contains("-uitest") { completo = true }
         // Acquisti fatti su un altro dispositivo, rimborsi, approvazioni dei genitori
         ascolto = Task { [weak self] in
-            for await esito in Transaction.updates { await self?.gestisci(esito) }
+            for await esito in StoreKit.Transaction.updates { await self?.gestisci(esito) }
         }
     }
 
@@ -49,7 +49,7 @@ final class Acquisto: ObservableObject {
 
     func aggiorna() async {
         if prodotto == nil { prodotto = try? await Product.products(for: [Self.idProdotto]).first }
-        for await esito in Transaction.currentEntitlements {
+        for await esito in StoreKit.Transaction.currentEntitlements {
             if case .verified(let t) = esito, t.productID == Self.idProdotto, t.revocationDate == nil { completo = true }
         }
     }
@@ -81,7 +81,7 @@ final class Acquisto: ObservableObject {
         messaggio = completo ? nil : "Non trovo acquisti con questo Apple ID."
     }
 
-    private func gestisci(_ esito: VerificationResult<Transaction>) async {
+    private func gestisci(_ esito: VerificationResult<StoreKit.Transaction>) async {
         guard case .verified(let t) = esito else { return }
         if t.productID == Self.idProdotto { completo = t.revocationDate == nil }
         await t.finish()
