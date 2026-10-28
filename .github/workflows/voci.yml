@@ -30,10 +30,10 @@ jobs:
       - name: Voci
         run: |
           mkdir -p uscita
-          python - <<'PY'
+          python - <<'PY' 2>&1 | tee voci.log || true
           import os, soundfile as sf
           from voxcpm import VoxCPM
-          m = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False)
+          m = VoxCPM.from_pretrained("openbmb/VoxCPM2", load_denoiser=False, device="cpu", optimize=False)
           sr = m.tts_model.sample_rate
           voci = {
               "donna": "(Una donna italiana di trentacinque anni, voce calda e naturale, accento italiano neutro, tono amichevole e rilassato, come se parlasse a un'amica)",
@@ -47,6 +47,8 @@ jobs:
                   sf.write(f"uscita/voxcpm-{nome}-{i}.wav", wav, sr)
                   print(nome, i, "fatto", flush=True)
           PY
+          # Le ultime righe del registro come avvisi (i registri interi non si leggono da fuori)
+          tail -n 15 voci.log | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
       - name: Pubblica
         if: always()
         run: |
