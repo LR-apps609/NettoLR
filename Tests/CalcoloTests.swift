@@ -133,6 +133,9 @@ final class CalcoloTests: XCTestCase {
     func testRicerca() {
         XCTAssertGreaterThan(Ateco.numeroCodici, 2_400)
         XCTAssertEqual(Ateco.cerca("parrucchiera").first?.codice, "96.02.01")
+        // Anche in inglese
+        XCTAssertEqual(Ateco.cerca("hairdresser").first?.codice, "96.02.01")
+        XCTAssertEqual(Ateco.cerca("I'm a plumber").first?.codice, "43.22.01")
         XCTAssertEqual(Ateco.cerca("62.01").first?.codice, "62.01.00")
         XCTAssertEqual(Ateco.cerca("faccio il web designer").first?.codice, "74.10.21")
         // Un codice ATECO 2025 con un solo corrispondente 2007

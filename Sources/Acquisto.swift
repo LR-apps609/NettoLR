@@ -31,7 +31,8 @@ final class Acquisto: ObservableObject {
             inizioProva = Date()
             d.set(inizioProva, forKey: "inizioProva")
         }
-        if uitest { completo = true; piano = "Annuale" }
+        // Nel giro delle foto: abbonamento attivo, oppure («-uiProva») la schermata con i piani
+        if uitest && !ProcessInfo.processInfo.arguments.contains("-uiProva") { completo = true; piano = "Annuale" }
         // Acquisti fatti su un altro dispositivo, rinnovi, rimborsi, approvazioni dei genitori
         ascolto = Task { [weak self] in
             for await esito in StoreKit.Transaction.updates { await self?.gestisci(esito) }

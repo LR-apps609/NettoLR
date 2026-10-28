@@ -164,7 +164,9 @@ enum Formato {
         d.formatted(.dateTime.day().month(.wide).year().locale(lingua))
     }
     /// La lingua dell'app per i nomi di mesi e giorni (gli importi restano sempre all'italiana)
-    static var lingua: Locale { Bundle.main.preferredLocalizations.first == "en" ? Locale(identifier: "en_GB") : it }
+    static var lingua: Locale { inglese ? Locale(identifier: "en_GB") : it }
+    /// L'app è in inglese (iPhone in inglese)
+    static var inglese: Bool { Bundle.main.preferredLocalizations.first == "en" }
     static func dataCorta(_ d: Date) -> String {
         d.formatted(.dateTime.day(.twoDigits).month(.twoDigits).year().locale(it))
     }

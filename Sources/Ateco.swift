@@ -99,6 +99,52 @@ enum Ateco {
         Attivita(ateco2007: "49.32.10", descrizione: "Trasporto con taxi", sinonimi: ["tassista", "taxi", "ncc"], gestioneTipica: .artigiani),
     ]
 
+    /// I nomi in inglese dei lavori più comuni (il primo si mostra, tutti servono alla ricerca)
+    static let inglese: [String: [String]] = [
+        "62.01.00": ["software developer", "programmer", "app developer", "coder"],
+        "62.02.00": ["IT consultant", "systems administrator"],
+        "62.09.09": ["IT support", "computer technician"],
+        "63.12.00": ["website owner", "blogger", "web portal"],
+        "73.11.02": ["social media manager", "digital marketer", "advertising"],
+        "74.10.21": ["web designer", "UX designer", "UI designer"],
+        "74.10.29": ["graphic designer", "illustrator"],
+        "74.20.19": ["photographer", "videographer"],
+        "74.30.00": ["translator", "interpreter"],
+        "70.22.09": ["business consultant", "management consultant", "business coach"],
+        "74.90.99": ["freelancer", "self-employed professional"],
+        "69.10.10": ["lawyer", "attorney"],
+        "69.20.11": ["accountant", "chartered accountant"],
+        "71.11.00": ["architect"],
+        "71.12.10": ["engineer"],
+        "71.12.20": ["surveyor", "design engineer"],
+        "86.90.30": ["psychologist", "psychotherapist", "therapist"],
+        "86.90.21": ["physiotherapist", "physical therapist"],
+        "86.90.29": ["nutritionist", "osteopath", "nurse"],
+        "85.59.30": ["language teacher", "English teacher", "language tutor"],
+        "85.59.90": ["trainer", "teacher", "tutor"],
+        "85.51.00": ["personal trainer", "fitness instructor", "yoga teacher", "pilates instructor"],
+        "90.03.09": ["writer", "copywriter", "artist", "content creator"],
+        "59.11.00": ["video producer", "YouTuber", "video editor"],
+        "82.99.99": ["virtual assistant", "admin support"],
+        "96.02.01": ["hairdresser", "barber", "hair stylist"],
+        "96.02.02": ["beautician", "nail technician", "beauty therapist"],
+        "43.21.01": ["electrician"],
+        "43.22.01": ["plumber", "heating engineer"],
+        "43.34.00": ["painter and decorator", "house painter"],
+        "43.39.01": ["builder", "bricklayer", "renovations"],
+        "81.21.00": ["cleaner", "cleaning company"],
+        "95.11.00": ["computer repair", "PC repair"],
+        "68.31.00": ["estate agent", "real estate agent"],
+        "47.91.10": ["online shop", "ecommerce", "online seller", "dropshipping"],
+        "47.81.01": ["market trader (fruit and veg)", "market stall"],
+        "47.82.01": ["market trader (clothing)", "stallholder"],
+        "46.19.01": ["sales agent", "sales representative"],
+        "56.10.11": ["restaurant", "pizzeria"],
+        "56.10.30": ["ice cream shop", "pastry shop", "bakery"],
+        "55.20.51": ["B&B", "bed and breakfast", "holiday rental", "guest house"],
+        "49.32.10": ["taxi driver", "private hire driver"],
+    ]
+
     static func normalizza(_ s: String) -> String {
         s.lowercased().folding(options: [.diacriticInsensitive], locale: Formato.it)
             .replacingOccurrences(of: "’", with: " ")
@@ -135,7 +181,7 @@ enum Ateco {
             let a = comuni[r[0]]
             let voce = TrovatoAteco(codice: r[0], titolo: r[1], versione: .v2007, codici2007: [r[0]],
                                     nomeComune: a.map(Ateco.nomeComune))
-            out.append((voce, Ateco.normalizza(([r[1]] + (a?.sinonimi ?? [])).joined(separator: " "))))
+            out.append((voce, Ateco.normalizza(([r[1]] + (a?.sinonimi ?? []) + (inglese[r[0]] ?? [])).joined(separator: " "))))
         }
         for r in file.a2025 {
             let voce = TrovatoAteco(codice: r.codice, titolo: r.titolo, versione: .v2025, codici2007: r.codici2007, nomeComune: nil)
@@ -158,7 +204,7 @@ enum Ateco {
     }
 
     static func nomeComune(_ a: Attivita) -> String {
-        guard let s = a.sinonimi.first else { return a.descrizione }
+        guard let s = (Formato.inglese ? inglese[a.ateco2007]?.first : nil) ?? a.sinonimi.first else { return a.descrizione }
         return s.prefix(1).uppercased() + s.dropFirst()
     }
 
@@ -186,7 +232,7 @@ enum Ateco {
             if colpite == parole.count { punti += 20 }
             if e.voce.nomeComune != nil { punti += 5 }
             if let comune = attivita.first(where: { $0.ateco2007 == e.voce.codice }),
-               comune.sinonimi.contains(where: { q.contains(normalizza($0)) }) { punti += 40 }
+               (comune.sinonimi + (inglese[comune.ateco2007] ?? [])).contains(where: { q.contains(normalizza($0)) }) { punti += 40 }
             if e.voce.versione == .v2007 { punti += 1 }
             return (e.voce, punti)
         }

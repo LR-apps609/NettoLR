@@ -119,22 +119,67 @@ final class ScreenshotTests: XCTestCase {
     /// La versione inglese: le stesse schermate con l'iPhone in inglese
     func test4Inglese() {
         XCUIDevice.shared.appearance = .light
-        app.launchArguments = ["-uitest", "-AppleLanguages", "(en)", "-AppleLocale", "en_GB"]
+        app.launchArguments = ["-uitest", "-uiProva", "-AppleLanguages", "(en)", "-AppleLocale", "en_GB"]
         app.launch()
         XCTAssertTrue(scheda(0).waitForExistence(timeout: 15))
         sleep(2)
         foto("12-en-netto")
-        let calcolo = app.buttons["netto.calcolo"]
-        if calcolo.waitForExistence(timeout: 3) {
-            calcolo.tap(); sleep(1)
-            foto("13-en-come-lo-calcolo")
-            (app.buttons["Done"].exists ? app.buttons["Done"] : app.buttons["Fatto"]).firstMatch.tap(); sleep(1)
-
+        if tocca("netto.calcolo") { foto("13-en-come-lo-calcolo"); chiudi() }
+        if tocca("netto.guide") {
+            foto("13b-en-guide")
+            if tocca("guide.video") { sleep(2); foto("13c-en-video"); chiudi() }
+            if tocca("guide.test") { foto("13d-en-test"); chiudi() }
+            chiudi()
         }
+        scheda(1).tap(); sleep(2)
+        foto("14-en-incassi")
+        if tocca("incassi.aggiungi") { foto("14b-en-nuovo-incasso"); chiudi() }
+        scheda(2).tap(); sleep(2)
+        foto("14c-en-prova")
+        if tocca("prova.conviene") { foto("14d-en-mi-conviene"); chiudi() }
         scheda(3).tap(); sleep(2)
-        foto("14-en-pagamenti")
+        foto("14e-en-pagamenti")
         scheda(4).tap(); sleep(1)
         foto("15-en-tu")
+        if tocca("tu.completo") { sleep(1); foto("15b-en-completo"); chiudi() }
+        app.swipeUp(); sleep(1)
+        foto("15c-en-tu-sotto")
+    }
+
+    /// Il benvenuto in inglese
+    func test5BenvenutoInglese() {
+        XCUIDevice.shared.appearance = .light
+        app.launchArguments = ["-uitestVuoto", "-AppleLanguages", "(en)", "-AppleLocale", "en_GB"]
+        app.launch()
+        sleep(2)
+        foto("16-en-benvenuto")
+        if tocca("benvenuto.inizia") {
+            let cerca = app.textFields["profilo.cerca"]
+            if cerca.waitForExistence(timeout: 3) {
+                cerca.tap()
+                cerca.typeText("hairdresser")
+                sleep(1)
+            }
+            foto("17-en-domanda-lavoro")
+        }
+    }
+
+    /// Tocca un elemento se c'è (pulsante con quell'identificativo)
+    @discardableResult
+    private func tocca(_ id: String) -> Bool {
+        let e = app.buttons[id]
+        guard e.waitForExistence(timeout: 3) else { return false }
+        e.tap()
+        sleep(1)
+        return true
+    }
+
+    /// Chiude il foglio aperto, in italiano o in inglese
+    private func chiudi() {
+        for nome in ["Done", "Fatto", "Close", "Chiudi", "Cancel", "Annulla"] {
+            let b = app.buttons[nome].firstMatch
+            if b.exists && b.isHittable { b.tap(); sleep(1); return }
+        }
     }
 
     private func foto(_ nome: String) {
