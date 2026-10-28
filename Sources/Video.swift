@@ -60,7 +60,6 @@ struct VideoView: View {
                 Illustrazione(guida: scene[indice].illustrazione, colore: scene[indice].colore, conFondo: false)
                     .padding(28)
                     .background(Theme.card.opacity(0.9), in: RoundedRectangle(cornerRadius: 32, style: .continuous))
-                    .scaleEffect(1.15)
                     .id(indice)
                     .transition(.asymmetric(insertion: .scale(scale: 0.8).combined(with: .opacity), removal: .opacity))
                 Spacer()
