@@ -281,7 +281,7 @@
   "Nel forfettario le spese non si scaricano: c'è una percentuale fissa. Nel regime normale sì. Stima semplificata, senza IVA e senza detrazioni personali.": "On the flat-rate scheme you can't deduct expenses: there's a fixed percentage instead. In the standard regime you can. Simplified estimate, without VAT or personal deductions.",
   "Nel forfettario non conti le spese: lo Stato prende una parte fissa di quello che incassi e la considera il tuo guadagno.": "On the flat-rate scheme you don't count expenses: the State takes a fixed share of what you bring in and treats it as your profit.",
   "Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (dal 40% all'86%).": "On the flat-rate scheme your actual expenses don't count: the State treats a fixed percentage of what you bring in as your income, depending on your ATECO code (from 40% to 86%).",
-  "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.": "You don't add VAT to your invoices. Above 77 euros you just add a 2-euro revenue stamp.",
+  "Nelle fatture non metti l'IVA. Sopra 77 euro aggiungi solo una marca da bollo da 2 euro.": "No VAT on your invoices. Above 77 euros you just add a 2-euro revenue stamp.",
   "Nessun pagamento in vista": "No payments coming up",
   "Nessuna": "None",
   "Nessuna fattura nuova in %@.": "No new invoices in %@.",

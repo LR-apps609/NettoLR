@@ -3109,7 +3109,7 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "You don't add VAT to your invoices. Above 77 euros you just add a 2-euro revenue stamp."
+            "value": "No VAT on your invoices. Above 77 euros you just add a 2-euro revenue stamp."
           }
         }
       }
