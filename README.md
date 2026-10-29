@@ -1,0 +1,1 @@
+Foto di 38843c11f0a46db2c8c71e8861f76715e759fdb7 dal ramo main (2026-10-29T23:37Z)
