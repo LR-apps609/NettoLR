@@ -55,22 +55,26 @@ enum Pagamenti {
                 importo: secondo, fonte: r.fonte(v.secondoAcconto), chiave: "Tasse: secondo anticipo"))
         }
 
+        /// Pensione a percentuale: saldo dell'anno scorso e due anticipi, alle stesse date delle tasse
+        func saldoEAnticipi(causale: String, percentuale: Voce<Double>, spiegazione: String) {
+            guard let dovuti = prec.contributiGS, dovuti > 0 else { return }
+            let saldo = arrotonda(max(0, dovuti - (prec.accontiGSVersati ?? 0)))
+            let acconto = arrotonda(dovuti * percentuale.valore / 2)
+            out.append(Pagamento(
+                data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .pensione, titolo: "Pensione: il conto dell'anno scorso e un anticipo".tradotto,
+                codice: String(localized: "causale \(causale) · saldo \(Formato.euro(saldo)) + acconto \(Formato.euro(acconto))"),
+                spiegazione: spiegazione,
+                importo: arrotonda(saldo + acconto), fonte: r.fonte(percentuale), chiave: "Pensione: il conto dell'anno scorso e un anticipo"))
+            out.append(Pagamento(
+                data: Giorno.da(v.secondoAcconto.valore), tipo: .pensione, titolo: "Pensione: secondo anticipo".tradotto,
+                codice: String(localized: "causale \(causale) · acconto \(Formato.pct(percentuale.valore / 2))"), spiegazione: spiegazione,
+                importo: acconto, fonte: r.fonte(percentuale), chiave: "Pensione: secondo anticipo"))
+        }
+
         switch p.gestione {
         case .separata:
-            if let dovuti = prec.contributiGS, dovuti > 0 {
-                let gs = r.gestioneSeparata
-                let saldoGS = arrotonda(max(0, dovuti - (prec.accontiGSVersati ?? 0)))
-                let acconto = arrotonda(dovuti * gs.accontoPercentuale.valore / 2)
-                out.append(Pagamento(
-                    data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .pensione, titolo: "Pensione: il conto dell'anno scorso e un anticipo".tradotto,
-                    codice: String(localized: "causale PXX · saldo \(Formato.euro(saldoGS)) + acconto \(Formato.euro(acconto))"),
-                    spiegazione: "Contributi INPS della Gestione Separata.".tradotto,
-                    importo: arrotonda(saldoGS + acconto), fonte: r.fonte(gs.aliquota), chiave: "Pensione: il conto dell'anno scorso e un anticipo"))
-                out.append(Pagamento(
-                    data: Giorno.da(v.secondoAcconto.valore), tipo: .pensione, titolo: "Pensione: secondo anticipo".tradotto,
-                    codice: "causale PXX · acconto 40%".tradotto, spiegazione: "Contributi INPS della Gestione Separata.".tradotto,
-                    importo: acconto, fonte: r.fonte(gs.aliquota), chiave: "Pensione: secondo anticipo"))
-            }
+            saldoEAnticipi(causale: "PXX", percentuale: r.gestioneSeparata.accontoPercentuale,
+                           spiegazione: "Contributi INPS della Gestione Separata.".tradotto)
         case .artigiani, .commercianti:
             let ac = r.artigianiCommercianti
             let tab = p.gestione == .artigiani ? ac.artigiani : ac.commercianti
@@ -83,6 +87,8 @@ enum Pagamenti {
                     spiegazione: "La quota fissa che si paga anche senza guadagni.".tradotto,
                     importo: rata, fonte: r.fonte(ac.scadenzeRateFisse), chiave: "Pensione: rata fissa \(i + 1) di 4"))
             }
+            saldoEAnticipi(causale: p.gestione == .artigiani ? "AP" : "CP", percentuale: ac.accontoPercentuale,
+                           spiegazione: "La pensione sulla parte di guadagno sopra il minimo, oltre alle rate fisse.".tradotto)
         case .cassa:
             break
         }

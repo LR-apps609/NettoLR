@@ -2696,6 +2696,17 @@
         }
       }
     },
+    "La pensione sulla parte di guadagno sopra il minimo, oltre alle rate fisse.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The pension on the part of your earnings above the minimum, on top of the fixed instalments."
+          }
+        }
+      }
+    },
     "La prova è finita": {
       "extractionState": "manual",
       "localizations": {
@@ -3664,6 +3675,17 @@
         }
       }
     },
+    "Pensione sopra il minimo dovuta per il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension above the minimum due for %@"
+          }
+        }
+      }
+    },
     "Pensione: %@ · aperta nel %@": {
       "extractionState": "manual",
       "localizations": {
@@ -4478,6 +4500,17 @@
         }
       }
     },
+    "Solo la parte che dipende da quanto hai guadagnato, senza le 4 rate fisse.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only the part that depends on how much you earned, without the 4 fixed instalments."
+          }
+        }
+      }
+    },
     "Solo una parte conta: su questa paghi pensione e tasse": {
       "extractionState": "manual",
       "localizations": {
@@ -4896,24 +4929,24 @@
         }
       }
     },
-    "causale PXX · acconto 40%": {
+    "causale %@ · acconto %@": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "code PXX · 40% advance"
+            "value": "code %@ · %@ advance"
           }
         }
       }
     },
-    "causale PXX · saldo %@ + acconto %@": {
+    "causale %@ · saldo %@ + acconto %@": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "code PXX · balance %@ + advance %@"
+            "value": "code %@ · balance %@ + advance %@"
           }
         }
       }

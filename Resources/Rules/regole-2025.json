@@ -61,6 +61,12 @@
       "url": "https://www1.finanze.gov.it/finanze/pagina_dichiarazioni/public/dichiarazioni.php",
       "data": "2026-10-27",
       "stato": "da-verificare"
+    },
+    "inps_ac_acconti": {
+      "titolo": "INPS – Circolare n. 38 del 07/02/2025 (Artigiani e Commercianti) – acconti sul reddito oltre il minimale (50% + 50%)",
+      "url": "https://www.inps.it/",
+      "data": "2026-11-01",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -214,6 +220,10 @@
     "riduzioneForfettari": {
       "valore": 0.35,
       "fonte": "inps_ac_2025"
+    },
+    "accontoPercentuale": {
+      "valore": 1.0,
+      "fonte": "inps_ac_acconti"
     },
     "scadenzeRateFisse": {
       "valore": [

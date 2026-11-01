@@ -69,6 +69,8 @@ struct Regole: Codable {
         let artigiani: Tabella
         let commercianti: Tabella
         let riduzioneForfettari: Voce<Double>
+        /// Acconti sui contributi oltre il minimale: 50% + 50% del dovuto dell'anno precedente
+        let accontoPercentuale: Voce<Double>
         let scadenzeRateFisse: Voce<[String]>
     }
 

@@ -73,6 +73,12 @@
       "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/l-imposta_di_bollo_sulle_fatture_elettronichegiugno2026",
       "data": "2026-06-01",
       "stato": "da-verificare"
+    },
+    "inps_ac_acconti": {
+      "titolo": "INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti) – acconti sul reddito oltre il minimale (50% + 50%)",
+      "url": "https://www.inps.it/content/dam/inps-site/it/scorporati/circolari-e-messaggi/2026/02/Circolare_15162/Allegati/16561_Circolare-numero-14-del-09-02-2026.pdf",
+      "data": "2026-11-01",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -226,6 +232,10 @@
     "riduzioneForfettari": {
       "valore": 0.35,
       "fonte": "inps_ac_2026"
+    },
+    "accontoPercentuale": {
+      "valore": 1.0,
+      "fonte": "inps_ac_acconti"
     },
     "scadenzeRateFisse": {
       "valore": [

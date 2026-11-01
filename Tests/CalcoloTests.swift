@@ -111,6 +111,19 @@ final class CalcoloTests: XCTestCase {
         let rate = Pagamenti.anno2026(parrucchiera, precedente: DatiAnnoPrecedente())
         XCTAssertEqual(rate.filter { $0.tipo == .pensione }.count, 4)
         XCTAssertEqual(rate.first?.importo, 734.72)
+
+        // Artigiani e commercianti: oltre alle rate fisse, saldo e due anticipi del 50% sulla parte sopra il minimo
+        let sopra = Pagamenti.anno2026(parrucchiera, precedente: DatiAnnoPrecedente(contributiGS: 2_000, accontiGSVersati: 1_500))
+            .filter { $0.tipo == .pensione }
+        XCTAssertEqual(sopra.count, 6)
+        let luglio = sopra.first { $0.data == Giorno.da("2026-07-20") }
+        XCTAssertEqual(luglio?.importo, 1_500)
+        XCTAssertTrue(luglio?.codice.contains("AP") ?? false)
+        XCTAssertEqual(sopra.first { $0.data == Giorno.da("2026-11-30") }?.importo, 1_000)
+        // Gestione Separata: anticipi del 40%
+        let gs = Pagamenti.anno2026(sviluppatore, precedente: DatiAnnoPrecedente(contributiGS: 5_000, accontiGSVersati: 4_000))
+        XCTAssertEqual(gs.first { $0.tipo == .pensione && $0.data == Giorno.da("2026-11-30") }?.importo, 2_000)
+        XCTAssertEqual(gs.first { $0.tipo == .pensione && $0.data == Giorno.da("2026-07-20") }?.importo, 3_000)
     }
 
     func testFatturaXML() {

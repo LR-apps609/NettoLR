@@ -199,10 +199,17 @@ struct AnnoScorsoView: View {
                 .font(.app(15)).foregroundStyle(Theme.muted)
             CampoEuro(etichetta: String(localized: "Tasse dovute per il \(String(Regole.attuali.anno - 1))"), testo: $imposta)
             CampoEuro(etichetta: String(localized: "Anticipi di tasse già pagati per il \(String(Regole.attuali.anno - 1))"), testo: $acconti)
-            if store.profilo?.gestione == .separata {
+            switch store.profilo?.gestione {
+            case .separata:
                 CampoEuro(etichetta: String(localized: "Pensione (INPS) dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
-
                 CampoEuro(etichetta: "Anticipi di pensione già pagati", testo: $accontiPensione)
+            case .artigiani, .commercianti:
+                CampoEuro(etichetta: String(localized: "Pensione sopra il minimo dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
+                Text("Solo la parte che dipende da quanto hai guadagnato, senza le 4 rate fisse.")
+                    .font(.app(13)).foregroundStyle(Theme.muted)
+                CampoEuro(etichetta: "Anticipi di pensione già pagati", testo: $accontiPensione)
+            default:
+                EmptyView()
             }
             CampoEuro(etichetta: "Pensione (INPS) pagata quest'anno", testo: $versati)
             Button("Salva") {

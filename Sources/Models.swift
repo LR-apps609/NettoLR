@@ -72,7 +72,8 @@ struct DatiAnnoPrecedente: Codable, Equatable {
     var imposta: Double = 0
     /// Acconti d'imposta già versati per l'anno precedente
     var accontiVersati: Double = 0
-    /// Solo Gestione Separata: contributi dovuti per l'anno precedente
+    /// Pensione a percentuale dovuta per l'anno precedente: Gestione Separata, o la parte sopra il minimo
+    /// per artigiani e commercianti (il nome resta per i salvataggi già fatti)
     var contributiGS: Double?
     var accontiGSVersati: Double?
     /// L'anno a cui si riferiscono questi dati (es. 2025): l'anno dopo non valgono più (assente nei salvataggi vecchi)

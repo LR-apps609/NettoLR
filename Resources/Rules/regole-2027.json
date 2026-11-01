@@ -79,6 +79,12 @@
       "url": "https://www.inps.it/",
       "data": "2026-10-28",
       "stato": "da-verificare"
+    },
+    "inps_ac_acconti": {
+      "titolo": "Valori provvisori: copiati dal 2026 in attesa delle circolari INPS 2027 e della legge di bilancio 2027 – acconti sul reddito oltre il minimale (50% + 50%)",
+      "url": "https://www.inps.it/",
+      "data": "2026-11-01",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -232,6 +238,10 @@
     "riduzioneForfettari": {
       "valore": 0.35,
       "fonte": "provvisorio_2027"
+    },
+    "accontoPercentuale": {
+      "valore": 1.0,
+      "fonte": "inps_ac_acconti"
     },
     "scadenzeRateFisse": {
       "valore": [
