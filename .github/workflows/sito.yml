@@ -1,0 +1,36 @@
+# Pubblica il sito di NettoLR (cartella sito/) con GitHub Pages a ogni modifica del ramo main.
+# Il sito si ricostruisce dalle regole dell'anno e dall'elenco dei lavori: dice le stesse cose dell'app.
+# Da attivare una volta sola: Settings → Pages → Source: «GitHub Actions».
+name: Pubblica il sito
+
+on:
+  push:
+    branches: [main]
+    paths: ["sito/**", "Tools/build_sito.py", "Resources/Rules/**", "Sources/Ateco.swift", ".github/workflows/sito.yml"]
+  workflow_dispatch:
+
+concurrency:
+  group: sito
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  pubblica:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pagine.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Ricostruisci il sito
+        run: python3 Tools/build_sito.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sito
+      - id: pagine
+        uses: actions/deploy-pages@v4
