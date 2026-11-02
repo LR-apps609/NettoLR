@@ -16,9 +16,11 @@ struct ProvaView: View {
         NavigationStack {
             ScrollView {
                 if let p = store.profilo {
-                    let s = Calcolo.seFatturoAncora(p, anno: store.anno, ricaviAttuali: store.riepilogo.ricavi, extra: extra)
-                    let dopo = Calcolo.forfettario(p, anno: store.anno, ricavi: store.riepilogo.ricavi + extra)
-                    let prima = Calcolo.forfettario(p, anno: store.anno, ricavi: store.riepilogo.ricavi)
+                    // Il totale incassato si somma una volta sola per passo del cursore, non tre
+                    let ricavi = store.riepilogo.ricavi
+                    let s = Calcolo.seFatturoAncora(p, anno: store.anno, ricaviAttuali: ricavi, extra: extra)
+                    let dopo = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi + extra)
+                    let prima = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi)
                     VStack(alignment: .leading, spacing: 18) {
                         Titolo(testo: "Prova")
                         VStack(alignment: .leading, spacing: 14) {

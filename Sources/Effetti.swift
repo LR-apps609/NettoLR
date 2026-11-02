@@ -34,7 +34,7 @@ struct Aurora: View {
 }
 
 extension View {
-    /// La scheda entra dal basso, una dopo l'altra (`ordine` = posizione nella pagina)
+    /// La scheda entra dal basso, una dopo l'altra (`ordine` = posizione nella pagina; negativo = nessuna entrata)
     func entrata(_ ordine: Int) -> some View { modifier(Entrata(ordine: ordine)) }
 }
 
@@ -45,9 +45,10 @@ struct Entrata: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .opacity(visibile || menoMovimento ? 1 : 0)
-            .offset(y: visibile || menoMovimento ? 0 : 24)
+            .opacity(visibile || menoMovimento || ordine < 0 ? 1 : 0)
+            .offset(y: visibile || menoMovimento || ordine < 0 ? 0 : 24)
             .onAppear {
+                guard ordine >= 0 else { return }
                 withAnimation(.spring(duration: 0.55, bounce: 0.25).delay(Double(ordine) * 0.07)) { visibile = true }
             }
     }

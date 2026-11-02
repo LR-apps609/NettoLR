@@ -61,6 +61,8 @@ struct RootView: View {
         // L'abbonamento si ricontrolla ogni volta che si torna nell'app (scadenze, rinnovi)
         .onChange(of: fase) { _, nuova in
             if nuova == .active { Task { await acquisto.aggiorna() } }
+            // Le modifiche appena fatte si scrivono prima che iOS sospenda l'app
+            if nuova == .background { store.salvaSubito() }
         }
         .blocco(store.profilo?.faceID ?? false)
         // «Apri con NettoLR» da Mail, File, WhatsApp: le fatture finiscono in Incassi

@@ -52,8 +52,10 @@ struct IncassiView: View {
                         }
                         .frame(maxWidth: .infinity).padding(.vertical, 30)
                     }
-                    VStack(spacing: 4) {
-                        ForEach(Array(pagate.enumerated()), id: \.element.id) { i, f in pagata(f).entrata(min(i, 8)) }
+                    // Pigra: con centinaia di incassi si costruiscono solo le righe che si vedono.
+                    // L'entrata animata solo per le prime: quelle che arrivano scorrendo compaiono subito
+                    LazyVStack(spacing: 4) {
+                        ForEach(Array(pagate.enumerated()), id: \.element.id) { i, f in pagata(f).entrata(i < 12 ? min(i, 8) : -1) }
                     }
 
                     Button("Importa dalle fatture elettroniche") { importa = true }

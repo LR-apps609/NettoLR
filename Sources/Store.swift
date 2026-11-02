@@ -171,8 +171,10 @@ final class Store: ObservableObject {
     /// Aggiunge solo le fatture che non ci sono già (stesso numero, data e cliente): importare due volte lo stesso file non raddoppia gli incassi
     @discardableResult
     func aggiungiNuove(_ lette: [Fattura]) -> [Fattura] {
+        struct Chiave: Hashable { let numero: String, data: Date, cliente: String }
+        var viste = Set(fatture.map { Chiave(numero: $0.numero, data: $0.data, cliente: $0.cliente) })
         var nuove: [Fattura] = []
-        for n in lette where !(fatture + nuove).contains(where: { $0.numero == n.numero && $0.data == n.data && $0.cliente == n.cliente }) {
+        for n in lette where viste.insert(Chiave(numero: n.numero, data: n.data, cliente: n.cliente)).inserted {
             nuove.append(n)
         }
         aggiungi(nuove)
@@ -290,7 +292,21 @@ final class Store: ObservableObject {
 
     // MARK: - Salvataggio
 
+    /// C'è un salvataggio già in programma: più modifiche nella stessa azione diventano una scrittura sola
+    private var salvataggioInProgramma = false
+
+    /// Ogni modifica chiede un salvataggio; il file si scrive una volta sola, appena finita l'azione
+    /// (un «Sì» su una fattura cambia due campi; 200 fatture XML lette sono 200 aggiunte)
     private func salva() {
+        guard caricato, !nonSalvare, !salvataggioInProgramma else { return }
+        salvataggioInProgramma = true
+        Task { @MainActor [weak self] in self?.salvaSubito() }
+    }
+
+    /// Scrive adesso le modifiche in attesa (anche quando l'app va in secondo piano)
+    func salvaSubito() {
+        guard salvataggioInProgramma else { return }
+        salvataggioInProgramma = false
         guard caricato, !nonSalvare, !ProcessInfo.processInfo.arguments.contains(where: { $0.hasPrefix("-uitest") }) else { return }
         let dati = Salvataggio(profilo: profilo, fatture: fatture, annoPrecedente: annoPrecedente, contributiVersati: contributiVersati,
                                pagati: pagati, ricevute: ricevute, contributiVersatiAnno: contributiVersatiAnno)

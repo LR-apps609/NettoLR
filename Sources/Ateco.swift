@@ -190,6 +190,16 @@ enum Ateco {
         return out
     }()
 
+    /// I sinonimi di ogni lavoro comune, italiani e inglesi, già normalizzati una volta sola:
+    /// la ricerca li confronta a ogni lettera scritta
+    private static let sinonimiPronti: [String: [String]] = {
+        var out: [String: [String]] = [:]
+        for a in attivita where out[a.ateco2007] == nil {
+            out[a.ateco2007] = (a.sinonimi + (inglese[a.ateco2007] ?? [])).map(normalizza)
+        }
+        return out
+    }()
+
     static var numeroCodici: Int { elenco.count }
 
     /// Il titolo ISTAT di un codice ATECO 2007
@@ -231,8 +241,7 @@ enum Ateco {
             var punti = colpite * 10
             if colpite == parole.count { punti += 20 }
             if e.voce.nomeComune != nil { punti += 5 }
-            if let comune = attivita.first(where: { $0.ateco2007 == e.voce.codice }),
-               (comune.sinonimi + (inglese[comune.ateco2007] ?? [])).contains(where: { q.contains(normalizza($0)) }) { punti += 40 }
+            if let sinonimi = sinonimiPronti[e.voce.codice], sinonimi.contains(where: { q.contains($0) }) { punti += 40 }
             if e.voce.versione == .v2007 { punti += 1 }
             return (e.voce, punti)
         }

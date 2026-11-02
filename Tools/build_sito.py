@@ -5,6 +5,7 @@ una pagina per ogni lavoro, la privacy e le condizioni d'uso.
 I numeri vengono dalle regole dell'anno (Resources/Rules/regole-AAAA.json), i lavori dall'elenco
 di Sources/Ateco.swift: il sito dice le stesse cose dell'app. Uso: python3 Tools/build_sito.py [anno]
 """
+import hashlib
 import html
 import json
 import re
@@ -204,6 +205,8 @@ ul.lavori small{display:block;color:var(--muted)}.pillola{display:inline-block;b
 footer{margin-top:40px;font-size:14px;color:var(--muted)}footer a{color:var(--muted)}
 header .lingua{margin-left:auto;font-size:15px;font-weight:700;color:var(--prugna)}
 .testo h2{font-size:20px}.testo p,.testo li{color:var(--ink)}"""
+# L'impronta del foglio di stile nel suo indirizzo: il browser lo tiene in memoria e lo riscarica solo quando cambia
+IMPRONTA_CSS = hashlib.sha256((CSS + "\n").encode()).hexdigest()[:10]
 
 
 def pagina(titolo: str, descrizione: str, corpo: str, lingua: str, profondita: int, altra: str) -> str:
@@ -214,7 +217,7 @@ def pagina(titolo: str, descrizione: str, corpo: str, lingua: str, profondita: i
     return f"""<!doctype html>
 <html lang="{lingua}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(titolo)}</title><meta name="description" content="{html.escape(descrizione)}">
-<link rel="stylesheet" href="{su}stile.css"></head>
+<link rel="stylesheet" href="{su}stile.css?v={IMPRONTA_CSS}"></head>
 <body><main>
 <header>{MARCA}<a href="{casa}index.html">Netto<b>LR</b></a><a class="lingua" href="{su}{altra}" hreflang="{'it' if lingua == 'en' else 'en'}">{t["altra_lingua"]}</a></header>
 {corpo}
