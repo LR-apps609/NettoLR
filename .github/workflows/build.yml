@@ -78,6 +78,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO > test.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|Executed|TEST (SUCCEEDED|FAILED)" test.log | sort -u | head -n 80 || true
           grep -E "error:" test.log | sort -u | head -n 12 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          # Le misure delle prestazioni e l'impronta dei risultati (Tests/PrestazioniTests.swift)
+          grep -oE "(MISURA|IMPRONTA) .*" test.log | sort -u | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
           exit $status
 
       # Il giro delle foto dura quanto il resto: solo se richiesto («[foto]» nel messaggio) o a mano
