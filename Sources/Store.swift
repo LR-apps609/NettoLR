@@ -10,7 +10,7 @@ final class Store: ObservableObject {
     static let shared = Store()
 
     @Published var profilo: Profilo? { didSet { salva() } }
-    @Published var fatture: [Fattura] = [] { didSet { salva() } }
+    @Published var fatture: [Fattura] = [] { didSet { riepilogoPronto = nil; salva() } }
     @Published var annoPrecedente = DatiAnnoPrecedente() { didSet { salva() } }
     /// Contributi versati nell'anno in corso; nil = il calcolo usa una stima
     @Published var contributiVersati: Double? { didSet { salva() } }
@@ -28,7 +28,7 @@ final class Store: ObservableObject {
     }
 
     /// L'anno che si sta guardando (si cambia in Netto)
-    @Published var anno = Regole.attuali.anno
+    @Published var anno = Regole.attuali.anno { didSet { riepilogoPronto = nil } }
     var regole: Regole { Regole.per(anno: anno) }
     /// I dati dell'anno precedente valgono per l'anno in corso; per gli anni passati restano solo bollo e rate fisse
     private var annoCorrente: Bool { anno == Regole.attuali.anno }
@@ -82,7 +82,16 @@ final class Store: ObservableObject {
 
     // MARK: - Calcoli pronti per le schermate
 
-    var riepilogo: Calcolo.Riepilogo { Calcolo.riepilogo(fatture, anno: anno, r: regole) }
+    /// Il riepilogo delle fatture, calcolato una volta e riusato finché non cambiano fatture o anno
+    /// (il cursore di «Prova» lo chiede a ogni passo: con 1000 fatture erano 31 ms a passo)
+    private var riepilogoPronto: Calcolo.Riepilogo?
+
+    var riepilogo: Calcolo.Riepilogo {
+        if let r = riepilogoPronto { return r }
+        let r = Calcolo.riepilogo(fatture, anno: anno, r: regole)
+        riepilogoPronto = r
+        return r
+    }
 
     /// I dati dell'anno precedente, solo se sono davvero dell'anno prima di quello in corso
     var annoPrecedenteValido: DatiAnnoPrecedente {

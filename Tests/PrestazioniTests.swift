@@ -102,6 +102,8 @@ final class PrestazioniTests: XCTestCase {
             s += "|" + e.errori.joined(separator: ";") + "\n"
         }
         print("IMPRONTA risultati: \(impronta(s)) (\(s.count) caratteri)")
+        // L'impronta misurata prima delle modifiche per la velocità (3 novembre 2026): i risultati devono restare identici
+        XCTAssertEqual(impronta(s), "220f0a89b6205a54")
     }
 
     // MARK: - Misure
@@ -150,6 +152,7 @@ final class PrestazioniTests: XCTestCase {
             var i = 0
             misura("Incassi · «Sì» su una fattura (1000 fatture)", volte: 9) {
                 store.segnaIncassata(attesa[i % attesa.count])
+                store.salvaSubito()     // anche la scrittura su disco, per un confronto onesto con prima
                 i += 1
             }
 
@@ -160,6 +163,7 @@ final class PrestazioniTests: XCTestCase {
             }
             misura("XML · 200 file letti e aggiunti a 1000 fatture", volte: 1) {
                 for d in files { store.aggiungiNuove(LettoreFatturaPA.leggi(d).fatture) }
+                store.salvaSubito()
             }
             misura("Copia di sicurezza · 1200 fatture", volte: 3) { _ = try? store.copiaDiSicurezza() }
             misura("Esportazione · CSV dell'anno", volte: 3) { _ = Esporta.csv(Esporta.fatture(store)) }
