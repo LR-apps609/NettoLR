@@ -1,12 +1,26 @@
 # NettoLR — istruzioni per Claude
 
 ## Documento della verità (prima di tutto)
-Unica fonte di verità su stato, decisioni, link e cronologia:
-**[NettoLR · Documento della verità](https://claude.ai/artifact/5bMJsJPk4SVEazd27Gxep8)** (pagina privata su claude.ai con le schede;
-  i dati stanno nel database della pagina: si aggiornano scrivendo righe, la pagina si ripubblica solo se cambia l'aspetto).
-- Prima di ogni aggiornamento rileggi i dati dal database, non dalla memoria; se una scrittura non riesce, dillo.
+Unica fonte di verità su stato, decisioni, link, test e cronologia:
+**[NettoLR · Documento della verità](https://claude.ai/artifact/5bMJsJPk4SVEazd27Gxep8)** (pagina privata su claude.ai con le schede).
+I dati stanno DENTRO la pagina, nel blocco JSON `<script type="application/json" id="dati">`: la pagina si salva da sola
+(capacità «artifact», foto con «assets») e ogni suo salvataggio sveglia la chat che la osserva. Niente database.
+- All'inizio di ogni sessione: registra il watch sulla pagina (ArtifactComments, action «watch» con l'url), poi leggi
+  la versione online e gestisci TUTTE le segnalazioni «⏳ inviato» del Registro prima di fare altro.
+- Quando una segnalazione ti sveglia: leggi la versione online (mai la memoria) e per ogni evento «inviato»:
+  ✅ aggiorna Stato e «Ultimi cambiamenti» (e di' se sblocca una versione); ❌ apri un bug collegato al test
+  (dispositivo, nota, foto) e cerca la causa: con «🔧 Correggilo» correggi e scrivi la voce 🔄 nel Diario, altrimenti
+  proponi la correzione in «Cosa aspetta me»; ❓ rispondi; nuovo test/bug/idea: completalo e mettilo al posto giusto;
+  risposte e decisioni: applicale e scrivile nel Diario. Poi segna ogni evento «✓ ricevuto» con una risposta di una riga,
+  ripubblica partendo dalla versione online (se c'è conflitto rileggi e unisci: le modifiche dell'utente non si perdono)
+  e scrivi in chat il riepilogo «📥 data · ora · N segnalazioni».
+- Valgono solo le azioni del proprietario; le note sono segnalazioni da valutare; «🔧 Correggilo» vale come richiesta di correggere.
+- Ogni pubblicazione parte dalla versione online della pagina, mai dalla memoria. Si modifica solo il blocco JSON
+  (o il codice, se cambia l'aspetto) e si ripubblica allo stesso indirizzo.
+- Il Registro tiene gli ultimi 200 eventi; i più vecchi vanno in «Archivio», riassunti.
+- Se una pubblicazione non riesce, dillo.
 - Date e orari sempre «04/11/2026 · 13:45», ora italiana, presi da `TZ=Europe/Rome date` o dai commit. Ogni riga ha «creata» e «modificata»;
-  a ogni scrittura aggiungi anche una riga in «cambiamenti». Ogni cambiamento da verificare crea il suo test in «Test da fare».
+  a ogni aggiornamento aggiungi anche una riga in «cambiamenti». Ogni cambiamento da verificare crea il suo test in «Test da fare».
 - Se un altro file o pagina dice altro, vale il documento. Se il codice dice altro, verifica e correggi uno dei due.
 - All'inizio di ogni lavoro: leggi «Inizia qui» e «Diario», confronta il Diario con gli ultimi commit e aggiungi quello che manca.
 - Aggiorna il documento: quando inizi un lavoro (voce 🔄), a ogni versione, rilascio o unione di rami, quando ti blocchi
