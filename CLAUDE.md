@@ -2,7 +2,11 @@
 
 ## Documento della verità (prima di tutto)
 Unica fonte di verità su stato, decisioni, link e cronologia:
-**[NettoLR · Documento della verità](https://claude.ai/artifact/9GegX7WW72My4D4j89pW8L)** (Claude Docs, con le schede).
+**[NettoLR · Documento della verità](https://claude.ai/artifact/5bMJsJPk4SVEazd27Gxep8)** (pagina privata su claude.ai con le schede;
+  i dati stanno nel database della pagina: si aggiornano scrivendo righe, la pagina si ripubblica solo se cambia l'aspetto).
+- Prima di ogni aggiornamento rileggi i dati dal database, non dalla memoria; se una scrittura non riesce, dillo.
+- Date e orari sempre «04/11/2026 · 13:45», ora italiana, presi da `TZ=Europe/Rome date` o dai commit. Ogni riga ha «creata» e «modificata»;
+  a ogni scrittura aggiungi anche una riga in «cambiamenti». Ogni cambiamento da verificare crea il suo test in «Test da fare».
 - Se un altro file o pagina dice altro, vale il documento. Se il codice dice altro, verifica e correggi uno dei due.
 - All'inizio di ogni lavoro: leggi «Inizia qui» e «Diario», confronta il Diario con gli ultimi commit e aggiungi quello che manca.
 - Aggiorna il documento: quando inizi un lavoro (voce 🔄), a ogni versione, rilascio o unione di rami, quando ti blocchi
