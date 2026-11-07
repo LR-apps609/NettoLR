@@ -6018,6 +6018,61 @@
           }
         }
       }
+    },
+    "Per fotografare serve il permesso della fotocamera: dallo in Impostazioni › NettoLR › Fotocamera.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To take photos NettoLR needs camera access: allow it in Settings › NettoLR › Camera."
+          }
+        }
+      }
+    },
+    "È il tuo primo anno: non ci sono anticipi. Tasse e pensione di quest'anno si pagano l'anno prossimo; in Netto vedi quanto mettere da parte.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It's your first year: there are no advance payments. This year's tax and pension are paid next year; Netto shows you how much to set aside."
+          }
+        }
+      }
+    },
+    "Prima imposta il codice dell'iPhone": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set an iPhone passcode first"
+          }
+        }
+      }
+    },
+    "Il blocco usa Face ID, Touch ID o il codice: senza un codice impostato sull'iPhone non può proteggere i tuoi numeri.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The lock uses Face ID, Touch ID or your passcode: without a passcode set on the iPhone it can't protect your numbers."
+          }
+        }
+      }
+    },
+    "Abbonandoti adesso paghi da oggi: i giorni di prova che restano non si aggiungono.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you subscribe now you pay from today: the remaining trial days aren't added on."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

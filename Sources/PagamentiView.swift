@@ -19,8 +19,14 @@ struct PagamentiView: View {
                     } else {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Nessun pagamento in vista").font(.app(20, .bold))
-                            Text("Dicci quanto hai pagato l'anno scorso: calcoliamo date e importi di quest'anno.")
-                                .font(.app(15)).foregroundStyle(Theme.muted)
+                            if (store.profilo?.annoApertura ?? 0) >= Regole.attuali.anno {
+                                // Primo anno: niente anticipi, tutto si paga l'anno dopo
+                                Text("È il tuo primo anno: non ci sono anticipi. Tasse e pensione di quest'anno si pagano l'anno prossimo; in Netto vedi quanto mettere da parte.")
+                                    .font(.app(15)).foregroundStyle(Theme.muted)
+                            } else {
+                                Text("Dicci quanto hai pagato l'anno scorso: calcoliamo date e importi di quest'anno.")
+                                    .font(.app(15)).foregroundStyle(Theme.muted)
+                            }
                         }
                         .scheda()
                     }

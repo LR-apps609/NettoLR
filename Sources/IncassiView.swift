@@ -165,6 +165,8 @@ struct NuovoIncassoView: View {
     @State private var pagata = true
     @State private var attivita = ""
     @State private var numeroLetto: String?
+    /// La data scritta sulla fattura letta: resta la data della fattura, mentre «il giorno» dell'incasso è oggi
+    @State private var dataLetta: Date?
     @FocusState private var focusImporto: Bool
 
     var body: some View {
@@ -175,7 +177,11 @@ struct NuovoIncassoView: View {
                         withAnimation(.spring) {
                             if let v = p.importo { importo = Formato.campo(v) }
                             if let c = p.cliente { cliente = c }
-                            if let d = p.data { giorno = d }
+                            if let d = p.data {
+                                dataLetta = d
+                                // Se non è ancora pagata, il giorno mostrato è quello della fattura
+                                if !pagata { giorno = d }
+                            }
                             numeroLetto = p.numero
                         }
                         focusImporto = false
@@ -256,7 +262,9 @@ struct NuovoIncassoView: View {
 
     private func salva() {
         let numero = numeroLetto ?? String(store.fatture.count + 1)
-        store.aggiungi(Fattura(numero: numero, data: giorno, cliente: cliente.isEmpty ? "Cliente".tradotto : cliente,
+        // Pagata: data della fattura (se letta) e giorno dell'incasso separati; non pagata: conta la data della fattura
+        let emissione = pagata ? min(dataLetta ?? giorno, giorno) : giorno
+        store.aggiungi(Fattura(numero: numero, data: emissione, cliente: cliente.isEmpty ? "Cliente".tradotto : cliente,
                                importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: numeroLetto == nil ? .manuale : .foto,
 
                                ateco: attivita.isEmpty || attivita == store.profilo?.ateco ? nil : attivita))

@@ -12,6 +12,7 @@ struct TuView: View {
         return c.biometryType
     }()
     @EnvironmentObject private var store: Store
+    @State private var senzaCodice = false
     @State private var modifica = false
     @State private var documenti = false
     @State private var esporta = false
@@ -82,7 +83,14 @@ struct TuView: View {
                             interruttore(Self.biometria == .touchID ? "touchid" : "faceid",
                                          Self.biometria == .touchID ? "Blocca con Touch ID" : "Blocca con Face ID", acceso: Binding(
                                 get: { store.profilo?.faceID ?? false },
-                                set: { store.profilo?.faceID = $0 }))
+                                set: { nuovo in
+                                    // Senza codice dell'iPhone il blocco non può funzionare: meglio dirlo che lasciarlo acceso finto
+                                    if nuovo && !LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+                                        senzaCodice = true
+                                    } else {
+                                        store.profilo?.faceID = nuovo
+                                    }
+                                }))
                         }
                         .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.raggio, style: .continuous))
 
@@ -102,6 +110,11 @@ struct TuView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            .alert("Prima imposta il codice dell'iPhone", isPresented: $senzaCodice) {
+                Button("Ho capito", role: .cancel) {}
+            } message: {
+                Text("Il blocco usa Face ID, Touch ID o il codice: senza un codice impostato sull'iPhone non può proteggere i tuoi numeri.")
+            }
             .sheet(isPresented: $documenti) { DocumentiView() }
             .sheet(isPresented: $esporta) { EsportaView() }
             .sheet(isPresented: $attivita) { AltreAttivitaView() }

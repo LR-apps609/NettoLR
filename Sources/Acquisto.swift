@@ -210,6 +210,10 @@ struct CompletoView: View {
                         .buttonStyle(PulsantePieno(colore: .white, testo: Theme.notte))
                         .disabled(acquisto.inCorso)
                         .accessibilityIdentifier("completo.compra")
+                        if !bloccato && acquisto.giorniRimasti > 0 {
+                            Text("Abbonandoti adesso paghi da oggi: i giorni di prova che restano non si aggiungono.")
+                                .font(.app(13, .semibold)).opacity(0.9)
+                        }
                         Text("Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo.")
                             .font(.app(13)).opacity(0.8)
                         HStack(spacing: 16) {
@@ -268,6 +272,7 @@ struct CompletoView: View {
                         Text((annuale ? "Annuale" : "Mensile").tradotto).font(.app(18, .bold))
                         if annuale, let r = acquisto.risparmioAnnuale {
                             Text("risparmi il \(r)%").font(.app(13, .heavy)).foregroundStyle(Theme.notte)
+                                .lineLimit(1).fixedSize()
                                 .padding(.horizontal, 8).padding(.vertical, 3)
                                 .background(Theme.rosaChiaro, in: Capsule())
                         }
@@ -276,6 +281,7 @@ struct CompletoView: View {
                 }
                 Spacer()
                 Text(prodotto.map { $0.displayPrice + (annuale ? "/anno" : "/mese").tradotto } ?? "…").font(.app(17, .heavy))
+                    .lineLimit(1).minimumScaleFactor(0.75).fixedSize(horizontal: true, vertical: false)
             }
             .padding(16)
             .background(Color.white.opacity(scelto ? 0.24 : 0.1), in: RoundedRectangle(cornerRadius: 18, style: .continuous))

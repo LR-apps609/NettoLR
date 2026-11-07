@@ -77,8 +77,13 @@ struct CertificatoView: View {
                     Text("Fotografa il certificato di attribuzione della partita IVA o la visura camerale: leggo io il codice ATECO.")
                         .font(.app(17))
                     if VNDocumentCameraViewController.isSupported {
-                        Button { scanner = true } label: { Label("Fotografa il documento", systemImage: "doc.viewfinder") }
+                        Button {
+                            if Fotocamera.negata { Fotocamera.apriImpostazioni() } else { scanner = true }
+                        } label: { Label("Fotografa il documento", systemImage: "doc.viewfinder") }
                             .buttonStyle(PulsantePieno())
+                        if Fotocamera.negata {
+                            Text(Fotocamera.testoNegata.tradotto).font(.app(14)).foregroundStyle(Theme.muted)
+                        }
                     }
                     PhotosPicker(selection: $fotoScelta, matching: .images) {
                         Label("Scegli una foto", systemImage: "photo")

@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 // I pezzi grafici comuni: la marca da bollo, il nome, le schede, l'anello, i numeri che contano.
 
@@ -222,5 +223,17 @@ extension UIImage {
         let formato = UIGraphicsImageRendererFormat.default()
         formato.scale = scale
         return UIGraphicsImageRenderer(size: size, format: formato).image { _ in draw(in: CGRect(origin: .zero, size: size)) }
+    }
+}
+
+/// La fotocamera: se il permesso è stato negato, lo scanner si aprirebbe nero e muto
+enum Fotocamera {
+    static var negata: Bool {
+        let stato = AVCaptureDevice.authorizationStatus(for: .video)
+        return stato == .denied || stato == .restricted
+    }
+    static let testoNegata = "Per fotografare serve il permesso della fotocamera: dallo in Impostazioni › NettoLR › Fotocamera."
+    static func apriImpostazioni() {
+        if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
     }
 }

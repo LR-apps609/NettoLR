@@ -67,7 +67,8 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
 
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         let valore = testo.trimmingCharacters(in: .whitespacesAndNewlines)
-        let nelCliente = percorso.contains("CessionarioCommittente")
+        // Il nome del cliente, non quello del suo rappresentante fiscale
+        let nelCliente = percorso.contains("CessionarioCommittente") && !percorso.contains("RappresentanteFiscale")
         if percorso.contains("CedentePrestatore") && percorso.contains("IdFiscaleIVA") && elementName == "IdCodice" {
             emittente = valore.filter(\.isNumber)
         }

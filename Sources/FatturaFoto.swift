@@ -40,7 +40,8 @@ enum LettoreFatturaFoto {
         // Importo: la riga del totale (anche quella dopo), altrimenti la cifra più alta
         let paroleTotale = ["totale documento", "totale fattura", "totale da pagare", "netto a pagare", "totale a pagare", "importo totale", "totale"]
         cerca: for parola in paroleTotale {
-            for (i, r) in minuscole.enumerated() where r.contains(parola) {
+            for (i, r) in minuscole.enumerated() where r.contains(parola)
+                && !(parola == "totale" && (r.contains("imponibile") || r.contains("subtotale") || r.contains("parziale"))) {
                 if let v = (importi(in: righe[i]) + (i + 1 < righe.count ? importi(in: righe[i + 1]) : [])).first {
                     p.importo = v
                     break cerca
@@ -59,7 +60,10 @@ enum LettoreFatturaFoto {
         for r in righe {
             if let m = numero?.firstMatch(in: r, range: NSRange(r.startIndex..., in: r)), let g = Range(m.range(at: 1), in: r) {
                 let n = String(r[g]).trimmingCharacters(in: CharacterSet(charactersIn: ".-"))
-                if n.contains(where: \.isNumber) { p.numero = n; break }
+                // «Data fattura: 01/02/2026» o «Totale fattura 1.200,00» non sono numeri di fattura
+                let sembraData = !date(in: n).isEmpty && n.filter({ $0 == "/" || $0 == "." || $0 == "-" }).count >= 2
+                let rigaDiDataOTotale = r.lowercased().contains("data") || r.lowercased().contains("totale")
+                if n.contains(where: \.isNumber) && !sembraData && !(rigaDiDataOTotale && !importi(in: n).isEmpty) { p.numero = n; break }
             }
         }
 
@@ -104,7 +108,11 @@ enum LettoreFatturaFoto {
             guard parti.count == 3, (1...31).contains(parti[0]), (1...12).contains(parti[1]) else { return nil }
             let anno = parti[2] < 100 ? 2000 + parti[2] : parti[2]
             guard (2000...2100).contains(anno) else { return nil }
-            return Giorno.data(anno, parti[1], parti[0])
+            // «31/02» non esiste: non deve diventare il 3 marzo
+            let d = Giorno.data(anno, parti[1], parti[0])
+            let c = Giorno.calendario.dateComponents([.day, .month], from: d)
+            guard c.day == parti[0], c.month == parti[1] else { return nil }
+            return d
         }
     }
 }
@@ -121,7 +129,9 @@ struct LeggiFattura: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Menu {
-                Button { scanner = true } label: { Label("Fotografa la fattura", systemImage: "doc.viewfinder") }
+                Button {
+                    if Fotocamera.negata { avviso = Fotocamera.testoNegata.tradotto; Fotocamera.apriImpostazioni() } else { scanner = true }
+                } label: { Label("Fotografa la fattura", systemImage: "doc.viewfinder") }
                 PhotosPicker(selection: $fotoScelta, matching: .images) { Label("Scegli una foto", systemImage: "photo") }
                 Button { pdf = true } label: { Label("Apri un PDF", systemImage: "doc.richtext") }
             } label: {
