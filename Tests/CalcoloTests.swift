@@ -454,7 +454,8 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Calcolo.mesiAttivi(p, anno: 2027), 12)
         let mezzo = Calcolo.contributi(p, reddito: 10_000, forfettario: true, mesi: 6, r: Regole.per(anno: 2026))
         XCTAssertEqual(mezzo.fissi, arrotonda(intero.fissi / 2), accuracy: 0.02)
-        XCTAssertEqual(Calcolo.forfettario(p, anno: 2026, ricavi: 10_000).contributi, mezzo.totale)
+        let res = Calcolo.forfettario(p, anno: 2026, ricavi: 10_000)
+        XCTAssertEqual(res.contributi, Calcolo.contributi(p, reddito: res.redditoLordo, forfettario: true, mesi: 6, r: Regole.per(anno: 2026)).totale)
         let rate = Pagamenti.anno(p, precedente: DatiAnnoPrecedente(), fatture: [], r: Regole.per(anno: 2026))
             .filter { $0.chiave.hasPrefix("Pensione: rata fissa") }
         XCTAssertEqual(rate.count, 2, "Solo le rate di luglio-settembre e ottobre-dicembre")
