@@ -133,6 +133,11 @@ final class Store: ObservableObject {
         (contributiVersatiAnno ?? Regole.attuali.anno) == Regole.attuali.anno ? contributiVersati : nil
     }
 
+    /// I contributi versati da usare nei calcoli dell'anno guardato (solo per l'anno in corso)
+    var contributiPerCalcolo: Double? { annoCorrente ? contributiVersatiValidi : nil }
+    /// Gli incassi per attività, se ce n'è più di una
+    var perAttivitaPerCalcolo: [String: Double]? { riepilogo.perAttivita.isEmpty ? nil : riepilogo.perAttivita }
+
     var risultato: RisultatoForfettario? {
         guard let profilo else { return nil }
         let r = riepilogo

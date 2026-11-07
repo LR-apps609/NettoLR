@@ -270,9 +270,11 @@ enum Calcolo {
     }
 
     /// Quanto resta di un incasso in più, al margine (differenza tra due calcoli)
-    static func seFatturoAncora(_ p: Profilo, anno: Int, ricaviAttuali: Double, extra: Double, r: Regole = .attuali) -> SeFatturo {
-        let prima = forfettario(p, anno: anno, ricavi: ricaviAttuali, r: r)
-        let dopo = forfettario(p, anno: anno, ricavi: ricaviAttuali + extra, r: r)
+    static func seFatturoAncora(_ p: Profilo, anno: Int, ricaviAttuali: Double, extra: Double, contributiVersati: Double? = nil,
+                                perAttivita: [String: Double]? = nil, r: Regole = .attuali) -> SeFatturo {
+        // L'incasso in più va all'attività principale (quel che non è assegnato va lì)
+        let prima = forfettario(p, anno: anno, ricavi: ricaviAttuali, contributiVersati: contributiVersati, perAttivita: perAttivita, r: r)
+        let dopo = forfettario(p, anno: anno, ricavi: ricaviAttuali + extra, contributiVersati: contributiVersati, perAttivita: perAttivita, r: r)
         let nettoExtra = arrotonda(dopo.netto - prima.netto)
         let soglia = r.forfettario.sogliaRicavi.valore
         return SeFatturo(nettoExtra: nettoExtra,

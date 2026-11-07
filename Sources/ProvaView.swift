@@ -18,9 +18,15 @@ struct ProvaView: View {
                 if let p = store.profilo {
                     // Il totale incassato si somma una volta sola per passo del cursore, non tre
                     let ricavi = store.riepilogo.ricavi
-                    let s = Calcolo.seFatturoAncora(p, anno: store.anno, ricaviAttuali: ricavi, extra: extra)
-                    let dopo = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi + extra)
-                    let prima = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi)
+                    // Stessi dati di Netto: contributi versati e più attività
+                    let versati = store.contributiPerCalcolo
+                    let quote = store.perAttivitaPerCalcolo
+                    let s = Calcolo.seFatturoAncora(p, anno: store.anno, ricaviAttuali: ricavi, extra: extra,
+                                                    contributiVersati: versati, perAttivita: quote, r: store.regole)
+                    let dopo = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi + extra, contributiVersati: versati,
+                                                   perAttivita: quote, r: store.regole)
+                    let prima = Calcolo.forfettario(p, anno: store.anno, ricavi: ricavi, contributiVersati: versati,
+                                                    perAttivita: quote, r: store.regole)
                     VStack(alignment: .leading, spacing: 18) {
                         Titolo(testo: "Prova")
                         VStack(alignment: .leading, spacing: 14) {
