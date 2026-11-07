@@ -124,8 +124,10 @@ enum Pagamenti {
             if totale > 0 {
                 let codici = trimestriRinviati.map { "\(2520 + $0)" }.joined(separator: " + ")
                 let quali = trimestriRinviati.map { "\($0)°" }.joined(separator: ", ")
+                // Nel titolo: «1°, 2°» in italiano, «1, 2» in inglese (la chiave resta quella di sempre)
+                let qualiTitolo = Formato.inglese ? trimestriRinviati.map(String.init).joined(separator: ", ") : quali
                 out.append(Pagamento(
-                    data: Giorno.da(data), tipo: .bollo, titolo: String(localized: "Bollo delle fatture (\(quali) trimestre)"),
+                    data: Giorno.da(data), tipo: .bollo, titolo: String(localized: "Bollo delle fatture (\(qualiTitolo) trimestre)"),
                     codice: String(localized: "codice tributo \(codici) · anno \(String(anno))"),
                     spiegazione: "{bollo} per ogni fattura sopra {sogliaBollo}. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.".tradotto.conRegole(r),
                     importo: arrotonda(totale), fonte: r.fonte(b.scadenze), chiave: "Bollo delle fatture (\(quali) trimestre)"))

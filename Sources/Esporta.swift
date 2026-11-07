@@ -39,11 +39,20 @@ enum Esporta {
         // Un PDF vecchio rimasto nella cartella non si deve condividere se il nuovo non si crea
         try? FileManager.default.removeItem(at: pdfURL)
         renderer.render { size, disegna in
-            var riquadro = CGRect(origin: .zero, size: size)
+            // Pagine A4 (595 × 842 punti): con tanti incassi il riepilogo continua nella pagina dopo e si stampa
+            let altezzaPagina: CGFloat = 842
+            var riquadro = CGRect(x: 0, y: 0, width: 595, height: altezzaPagina)
             guard let pdf = CGContext(pdfURL as CFURL, mediaBox: &riquadro, nil) else { return }
-            pdf.beginPDFPage(nil)
-            disegna(pdf)
-            pdf.endPDFPage()
+            let pagine = max(1, Int((size.height / altezzaPagina).rounded(.up)))
+            for p in 0..<pagine {
+                pdf.beginPDFPage(nil)
+                pdf.saveGState()
+                // La pagina p mostra la fetta che parte da p × 842 punti dall'alto
+                pdf.translateBy(x: 0, y: altezzaPagina * CGFloat(p + 1) - size.height)
+                disegna(pdf)
+                pdf.restoreGState()
+                pdf.endPDFPage()
+            }
             pdf.closePDF()
         }
         if FileManager.default.fileExists(atPath: pdfURL.path) { out.append(pdfURL) }
