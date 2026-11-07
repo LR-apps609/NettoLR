@@ -29,6 +29,7 @@ struct BackupView: View {
                         .font(.app(17))
                     Button {
                         if let d = try? store.copiaDiSicurezza() { documento = FileCopia(dati: d); salva = true }
+                        else { esito = (false, "Copia non salvata. Riprova.") }
                     } label: { Label("Salva una copia", systemImage: "icloud.and.arrow.up") }
                     .buttonStyle(PulsantePieno())
                     Button { apri = true } label: { Label("Ripristina da una copia", systemImage: "icloud.and.arrow.down") }
@@ -59,7 +60,11 @@ struct BackupView: View {
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
             .fileExporter(isPresented: $salva, document: documento, contentType: .json,
                           defaultFilename: "NettoLR copia \(Formato.dataCorta(Date()).replacingOccurrences(of: "/", with: "-"))") { r in
-                if case .success = r { esito = (true, "Copia salvata.") }
+                switch r {
+                case .success: esito = (true, "Copia salvata.")
+                case .failure(let e) where (e as NSError).code != NSUserCancelledError: esito = (false, "Copia non salvata. Riprova.")
+                default: break
+                }
             }
             .fileImporter(isPresented: $apri, allowedContentTypes: [.json]) { r in
                 guard case .success(let url) = r else { return }

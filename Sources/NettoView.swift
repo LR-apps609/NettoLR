@@ -260,6 +260,8 @@ struct GraficoMesi: View {
     let mesi: [(mese: Int, totale: Double)]
     @State private var cresciuto = false
     @State private var selezione: Int?
+    /// Cambia quando cambiano gli incassi o l'anno: allora il mese scelto si toglie
+    private var impronta: [Double] { mesi.map(\.totale) }
 
     var body: some View {
         let massimo = mesi.map(\.totale).max() ?? 0
@@ -303,6 +305,7 @@ struct GraficoMesi: View {
         }
         .scheda()
         .onAppear { withAnimation(.spring(duration: 0.9, bounce: 0.2).delay(0.4)) { cresciuto = true } }
+        .onChange(of: impronta) { _, _ in selezione = nil }
     }
 
     /// Per VoiceOver: il totale e il mese migliore, invece di dodici barre

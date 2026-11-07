@@ -90,7 +90,8 @@ struct DocumentiView: View {
             .sheet(isPresented: $certificato) { CertificatoView() }
             // Le novità restano evidenziate finché la schermata è aperta, poi contano come viste
             .onAppear { nuove = store.novitaNuove }
-            .onDisappear { store.segnaNovitaViste() }
+            // Contano come viste solo se si guardava l'anno in corso (le novità sono quelle delle sue regole)
+            .onDisappear { if store.anno == Regole.attuali.anno { store.segnaNovitaViste() } }
         }
     }
 

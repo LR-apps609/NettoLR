@@ -79,8 +79,11 @@ struct RootView: View {
         // «Apri con NettoLR» da Mail, File, WhatsApp: le fatture finiscono in Incassi
         .onOpenURL { url in
             guard url.isFileURL else { return }
-            store.importa(url)
-            scheda = .incassi
+            // Con l'app bloccata le fatture entrano solo dopo lo sblocco
+            FinestraBlocco.shared.dopoLoSblocco {
+                store.importa(url)
+                scheda = .incassi
+            }
         }
         // Le notifiche dei pagamenti si riprogrammano quando cambia qualcosa
         .task(id: store.chiavePromemoria) {

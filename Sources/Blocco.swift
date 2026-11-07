@@ -86,6 +86,8 @@ final class FinestraBlocco {
     private var finestra: UIWindow?
 
     func mostra(_ vista: CoperturaBlocco) {
+        // Un campo aperto sotto la copertura non deve tenere la tastiera sopra: si chiude prima
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         if let finestra {
             (finestra.rootViewController as? UIHostingController<CoperturaBlocco>)?.rootView = vista
             finestra.isHidden = false
@@ -95,13 +97,29 @@ final class FinestraBlocco {
         let w = UIWindow(windowScene: scena)
         w.windowLevel = .alert + 1
         w.rootViewController = UIHostingController(rootView: vista)
-        w.isHidden = false
+        w.makeKeyAndVisible()
         finestra = w
     }
 
+    /// Cose da fare appena l'app è sbloccata (per esempio una fattura arrivata con «Apri con NettoLR»)
+    private var inAttesa: [() -> Void] = []
+
+    /// Subito se l'app non è bloccata, altrimenti dopo lo sblocco
+    func dopoLoSblocco(_ azione: @escaping () -> Void) {
+        if let finestra, !finestra.isHidden { inAttesa.append(azione) } else { azione() }
+    }
+
     func nascondi() {
+        let eraVisibile = finestra.map { !$0.isHidden } ?? false
         finestra?.isHidden = true
         finestra = nil
+        // La finestra dell'app torna principale (tastiera e VoiceOver lì)
+        UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first?.windows.first?.makeKey()
+        if eraVisibile || !inAttesa.isEmpty {
+            let azioni = inAttesa
+            inAttesa = []
+            azioni.forEach { $0() }
+        }
     }
 }
 

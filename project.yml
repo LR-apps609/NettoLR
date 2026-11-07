@@ -21,6 +21,8 @@ targets:
       - path: Resources/Assets.xcassets
       # I testi in inglese (l'italiano è la lingua di partenza)
       - path: Resources/Localizable.xcstrings
+      # Le frasi dei permessi (Face ID, fotocamera, Foto) anche in inglese
+      - path: Resources/InfoPlist.xcstrings
       # La dichiarazione privacy per Apple (niente tracciamento, nessun dato raccolto)
       - path: Resources/PrivacyInfo.xcprivacy
         buildPhase: resources

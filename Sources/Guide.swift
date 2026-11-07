@@ -129,6 +129,7 @@ struct GuideView: View {
                 }
             }
             .buttonStyle(.plain)
+            .accessibilityValue((open ? "aperta" : "chiusa").tradotto)
             .accessibilityAddTraits(.isHeader)
             if open {
                 VStack(alignment: .leading, spacing: 12) {
@@ -210,7 +211,7 @@ struct TestForfettarioView: View {
                 Spacer()
                 HStack(spacing: 12) {
                     Button("Sì") { rispondi(true) }.buttonStyle(PulsantePieno())
-                    Button("No") { rispondi(false) }.buttonStyle(PulsantePieno(colore: Theme.notte, testo: .white))
+                    Button("No") { rispondi(false) }.buttonStyle(PulsanteBordo())
                 }
             } else {
                 esito

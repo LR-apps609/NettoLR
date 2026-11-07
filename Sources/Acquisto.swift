@@ -99,6 +99,7 @@ final class Acquisto: ObservableObject {
     }
 
     func compra(annuale scelto: Bool) async {
+        messaggio = nil
         if (scelto ? annuale : mensile) == nil { await aggiorna() }
         guard let prodotto = scelto ? annuale : mensile else {
             messaggio = "L'App Store non risponde. Controlla la connessione e riprova."
@@ -118,6 +119,7 @@ final class Acquisto: ObservableObject {
     }
 
     func ripristina() async {
+        messaggio = nil
         inCorso = true
         defer { inCorso = false }
         try? await AppStore.sync()

@@ -33,6 +33,8 @@ enum Esporta {
         let pdfURL = cartella.appending(path: "NettoLR riepilogo \(store.anno).pdf")
         let renderer = ImageRenderer(content: RiepilogoPDF(store: store).environment(\.colorScheme, .light))
         renderer.proposedSize = .init(width: 595, height: nil)
+        // Un PDF vecchio rimasto nella cartella non si deve condividere se il nuovo non si crea
+        try? FileManager.default.removeItem(at: pdfURL)
         renderer.render { size, disegna in
             var riquadro = CGRect(origin: .zero, size: size)
             guard let pdf = CGContext(pdfURL as CFURL, mediaBox: &riquadro, nil) else { return }

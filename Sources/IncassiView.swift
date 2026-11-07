@@ -149,7 +149,9 @@ struct IncassiView: View {
             n += store.aggiungiNuove(letto.fatture).count
             errori += letto.errori.map { "\(url.lastPathComponent): \($0)" }
         }
-        messaggio = ([String(localized: "Aggiunte \(n) fatture. Tocca «Sì» quando te le pagano.")] + errori).joined(separator: "\n")
+        let intestazione = n == 0 ? "Nessuna fattura nuova: erano già tutte in Incassi.".tradotto
+                                  : String(localized: "Aggiunte \(n) fatture. Tocca «Sì» quando te le pagano.")
+        messaggio = ([intestazione] + errori).joined(separator: "\n")
     }
 }
 

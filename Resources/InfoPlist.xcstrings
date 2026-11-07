@@ -1,0 +1,74 @@
+{
+  "sourceLanguage": "it",
+  "strings": {
+    "NSFaceIDUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR usa Face ID per tenere al sicuro i tuoi numeri, se lo attivi in «Tu»."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR uses Face ID to keep your numbers safe, if you turn it on in “You”."
+          }
+        }
+      }
+    },
+    "NSCameraUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR legge il codice ATECO dal certificato della partita IVA che fotografi. La foto resta sul telefono."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR reads the ATECO code from the VAT registration certificate you photograph. The photo stays on your iPhone."
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR salva nelle Foto solo l'immagine del tuo anno, se tocchi «Salva immagine»."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR only saves the picture of your year to Photos, if you tap “Save image”."
+          }
+        }
+      }
+    },
+    "CFBundleDisplayName": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

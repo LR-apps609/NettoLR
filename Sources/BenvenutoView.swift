@@ -13,6 +13,9 @@ struct BenvenutoView: View {
             DomandeProfilo(iniziale: nil) { store.profilo = $0 }
         } else {
             VStack(spacing: 0) {
+              // Con il testo molto grande (o su un iPhone piccolo) il contenuto scorre; «Iniziamo» resta in basso
+              ScrollView {
+               VStack(spacing: 0) {
                 Marca(colore: Theme.rosaChiaro, inchiostro: Theme.notte)
                     .frame(width: 132, height: 132)
                     .scaleEffect(timbro ? 1 : 1.6)
@@ -34,7 +37,10 @@ struct BenvenutoView: View {
                     promessa("Parole semplici, zero sigle")
                 }
                 .padding(.top, 40)
-                Spacer()
+               }
+               .frame(maxWidth: .infinity)
+              }
+              .scrollBounceBehavior(.basedOnSize)
                 Button("Iniziamo") { withAnimation(.easeInOut) { iniziato = true } }
                     .buttonStyle(PulsantePieno(colore: Theme.rosaChiaro, testo: Theme.notte))
                     .accessibilityIdentifier("benvenuto.inizia")
@@ -426,17 +432,9 @@ struct FlowChips: View {
     let voci: [String]
     let tocca: (String) -> Void
     var body: some View {
-        ViewThatFits(in: .horizontal) {
-            riga(voci)
-            VStack(alignment: .leading, spacing: 8) {
-                riga(Array(voci.prefix((voci.count + 1) / 2)))
-                riga(Array(voci.dropFirst((voci.count + 1) / 2)))
-            }
-        }
-    }
-    private func riga(_ v: [String]) -> some View {
-        HStack(spacing: 8) {
-            ForEach(v, id: \.self) { voce in
+        // Vanno a capo quante volte serve, con qualsiasi dimensione del testo
+        ACapo(spazio: 8) {
+            ForEach(voci, id: \.self) { voce in
                 Button(voce) { tocca(voce) }
                     .font(.app(14, .semibold))
                     .padding(.horizontal, 12).padding(.vertical, 8)
@@ -445,5 +443,47 @@ struct FlowChips: View {
                     .buttonStyle(Molla())
             }
         }
+    }
+}
+
+/// Un'impaginazione che mette le viste una dopo l'altra e va a capo quando la riga è piena
+struct ACapo: Layout {
+    var spazio: CGFloat = 8
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let righe = disponi(larghezza: proposal.width ?? .infinity, subviews: subviews)
+        let altezza = righe.last.map { $0.y + $0.altezza } ?? 0
+        let larghezza = righe.map(\.larghezza).max() ?? 0
+        return CGSize(width: proposal.width ?? larghezza, height: altezza)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        for riga in disponi(larghezza: bounds.width, subviews: subviews) {
+            for (i, x) in zip(riga.indici, riga.x) {
+                subviews[i].place(at: CGPoint(x: bounds.minX + x, y: bounds.minY + riga.y), proposal: .unspecified)
+            }
+        }
+    }
+
+    private struct Riga { var indici: [Int] = []; var x: [CGFloat] = []; var y: CGFloat = 0; var altezza: CGFloat = 0; var larghezza: CGFloat = 0 }
+
+    private func disponi(larghezza: CGFloat, subviews: Subviews) -> [Riga] {
+        var righe: [Riga] = [Riga()]
+        var y: CGFloat = 0
+        for (i, v) in subviews.enumerated() {
+            let misura = v.sizeThatFits(.unspecified)
+            let w = min(misura.width, larghezza)
+            if !righe[righe.count - 1].indici.isEmpty && righe[righe.count - 1].larghezza + spazio + w > larghezza {
+                y += righe[righe.count - 1].altezza + spazio
+                righe.append(Riga(y: y))
+            }
+            var r = righe[righe.count - 1]
+            let x = r.indici.isEmpty ? 0 : r.larghezza + spazio
+            r.indici.append(i); r.x.append(x)
+            r.larghezza = x + w
+            r.altezza = max(r.altezza, misura.height)
+            righe[righe.count - 1] = r
+        }
+        return righe
     }
 }

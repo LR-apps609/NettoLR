@@ -7,6 +7,8 @@ struct AnnoInBreveView: View {
     @EnvironmentObject private var store: Store
     @Environment(\.dismiss) private var chiudi
     @Environment(\.accessibilityReduceMotion) private var menoMovimento
+    /// Con VoiceOver le schermate non vanno avanti da sole: si va avanti con l'azione «Avanti»
+    @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
     @State private var passo = 0
     @State private var avanzamento = 0.0
     @State private var conImporti = true
@@ -51,9 +53,10 @@ struct AnnoInBreveView: View {
         }
         .contentShape(Rectangle())
         .onTapGesture { avanti() }
+        .accessibilityAction(named: "Avanti".tradotto) { avanti() }
         .task(id: passo) {
             avanzamento = 0
-            guard passo < passi - 1, !menoMovimento else { avanzamento = 1; return }
+            guard passo < passi - 1, !menoMovimento, !voiceOver else { avanzamento = 1; return }
             withAnimation(.linear(duration: durata)) { avanzamento = 1 }
             try? await Task.sleep(for: .seconds(durata))
             if !Task.isCancelled { avanti() }
