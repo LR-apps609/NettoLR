@@ -33,18 +33,18 @@ enum Guide {
             "Conserva fatture e ricevute per almeno 10 anni.",
         ], numerata: true),
         Guida(id: "forfettario", titolo: "Il forfettario in 2 minuti", icona: "sparkles", colore: Theme.prugna, fondo: Theme.prugnaSoft, passi: [
-            "Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (dal 40% all'86%).",
-            "Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il 15%, o il 5% per i primi cinque anni se è la tua prima attività.",
-            "Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di 85.000 € all'anno.",
+            "Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (da {coeffMin} a {coeffMax}).",
+            "Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il {aliquota}, o il {aliquotaStartup} per i primi cinque anni se è la tua prima attività.",
+            "Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di {soglia} all'anno.",
         ], numerata: false),
         Guida(id: "iva", titolo: "Perché non metto l'IVA in fattura", icona: "percent", colore: Theme.pensione, fondo: Theme.pensioneSoft, passi: [
             "Chi è nel forfettario non aggiunge l'IVA alle fatture e non la recupera sugli acquisti.",
             "In fattura si scrive che l'operazione è fatta «ai sensi dell'art. 1, commi 54-89, della Legge 190/2014».",
-            "Sopra 77,47 € serve la marca da bollo da 2 €: NettoLR la conta da sola e te la ricorda ogni trimestre.",
+            "Sopra {sogliaBollo} serve la marca da bollo da {bollo}: NettoLR la conta da sola e te la ricorda ogni trimestre.",
         ], numerata: false),
         Guida(id: "cassa", titolo: "Conta quando ti pagano", icona: "calendar.badge.clock", colore: Theme.lilla, fondo: Theme.lillaSoft, passi: [
             "Una fattura fatta a dicembre e pagata a gennaio conta per l'anno nuovo.",
-            "Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di 85.000 €.",
+            "Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di {soglia}.",
         ], numerata: false),
     ]
 }
@@ -140,7 +140,7 @@ struct GuideView: View {
                                     .frame(width: 26, height: 26)
                                     .background(Theme.card, in: Circle())
                             }
-                            Text(p.tradotto).font(.app(16)).fixedSize(horizontal: false, vertical: true)
+                            Text(p.tradotto.conRegole()).font(.app(16)).fixedSize(horizontal: false, vertical: true)
 
                         }
                     }
@@ -164,10 +164,10 @@ struct TestForfettarioView: View {
     }
 
     static let domande: [Domanda] = [
-        Domanda(testo: "Pensi di incassare meno di 85.000 € all'anno?", aiuto: "Conta quello che ti pagano davvero in un anno.", giusta: true,
-                problema: "Sopra 85.000 € di incassi all'anno non si può stare nel forfettario."),
-        Domanda(testo: "Hai uno stipendio o una pensione sopra 35.000 € all'anno?", aiuto: "Lordo, dell'anno scorso. Non conta se quel lavoro è già finito.", giusta: false,
-                problema: "Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario."),
+        Domanda(testo: "Pensi di incassare meno di {soglia} all'anno?", aiuto: "Conta quello che ti pagano davvero in un anno.", giusta: true,
+                problema: "Sopra {soglia} di incassi all'anno non si può stare nel forfettario."),
+        Domanda(testo: "Hai uno stipendio o una pensione sopra {limiteDipendente} all'anno?", aiuto: "Lordo, dell'anno scorso. Non conta se quel lavoro è già finito.", giusta: false,
+                problema: "Con più di {limiteDipendente} da lavoro dipendente o pensione non si può aprire il forfettario."),
         Domanda(testo: "Hai quote in una società di persone, un'associazione professionale o un'impresa familiare?", aiuto: "Per esempio una snc, una sas o uno studio associato.", giusta: false,
                 problema: "Chi ha quote in società di persone o associazioni professionali non può stare nel forfettario."),
         Domanda(testo: "Controlli una SRL che fa lo stesso lavoro che faresti tu?", aiuto: "Se la SRL fa cose diverse, rispondi no.", giusta: false,
@@ -202,8 +202,8 @@ struct TestForfettarioView: View {
                 let d = Self.domande[risposte.count]
                 VStack(alignment: .leading, spacing: 14) {
                     Text("Domanda \(risposte.count + 1) di \(Self.domande.count)").font(.app(14, .semibold)).foregroundStyle(Theme.muted)
-                    Text(d.testo.tradotto).font(.system(size: 30, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
-                    Text(d.aiuto.tradotto).font(.app(16)).foregroundStyle(Theme.muted)
+                    Text(d.testo.tradotto.conRegole()).font(.system(size: 30, weight: .heavy, design: .rounded)).fixedSize(horizontal: false, vertical: true)
+                    Text(d.aiuto.tradotto.conRegole()).font(.app(16)).foregroundStyle(Theme.muted)
                 }
                 .id(risposte.count)
                 .transition(.asymmetric(insertion: .move(edge: .trailing).combined(with: .opacity), removal: .opacity))
@@ -229,7 +229,7 @@ struct TestForfettarioView: View {
     }
 
     private var problemi: [String] {
-        zip(Self.domande, risposte).filter { $0.0.giusta != $0.1 }.map(\.0.problema)
+        zip(Self.domande, risposte).filter { $0.0.giusta != $0.1 }.map { $0.0.problema.tradotto.conRegole() }
     }
 
     @ViewBuilder
@@ -239,7 +239,7 @@ struct TestForfettarioView: View {
                 Image(systemName: "checkmark.seal.fill").font(.system(size: 56)).foregroundStyle(Theme.menta)
                     .symbolEffect(.bounce, value: risposte.count)
                 Text("Sì, da quello che mi dici puoi aprire il forfettario.").font(.system(size: 28, weight: .heavy, design: .rounded))
-                Text("Se è la tua prima attività in proprio, per cinque anni le tasse sono al 5% invece del 15%.").font(.app(17))
+                Text("Se è la tua prima attività in proprio, per cinque anni le tasse sono al {aliquotaStartup} invece del {aliquota}.".tradotto.conRegole()).font(.app(17))
             }
         } else {
             VStack(alignment: .leading, spacing: 12) {

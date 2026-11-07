@@ -180,11 +180,26 @@ enum Calcolo {
     }
 
     /// Detrazione per redditi di lavoro autonomo (art. 13 c. 5 TUIR)
-    static func detrazioneLavoroAutonomo(_ reddito: Double) -> Double {
-        if reddito <= 5_500 { return 1_265 }
-        if reddito <= 28_000 { return arrotonda(500 + 765 * (28_000 - reddito) / 22_500) }
-        if reddito <= 50_000 { return arrotonda(500 * (50_000 - reddito) / 22_000) }
+    static func detrazioneLavoroAutonomo(_ reddito: Double, r: Regole = .attuali) -> Double {
+        detrazione(reddito, tratti: r.irpef.detrazioneLavoroAutonomo.valore)
+    }
+
+    /// Una detrazione a tratti (art. 13 TUIR), con i numeri da regole-AAAA.json
+    static func detrazione(_ reddito: Double, tratti: [Regole.Tratto]) -> Double {
+        var inizio = 0.0
+        for (i, t) in tratti.enumerated() {
+            if reddito <= t.fino {
+                if i == 0 || t.variabile == 0 || t.fino <= inizio { return arrotonda(t.fisso) }
+                return arrotonda(t.fisso + t.variabile * (t.fino - reddito) / (t.fino - inizio))
+            }
+            inizio = t.fino
+        }
         return 0
+    }
+
+    /// «23% / 33% / 43%»: le aliquote IRPEF dell'anno, prese dalle regole
+    static func testoScaglioni(_ r: Regole) -> String {
+        r.irpef.scaglioni.valore.map { Formato.pct($0.aliquota) }.joined(separator: " / ")
     }
 
     struct RisultatoOrdinario {
@@ -199,7 +214,7 @@ enum Calcolo {
         let reddito = arrotonda(max(0, ricavi - costi))
         let contributi = Self.contributi(p, reddito: reddito, forfettario: false, r: r).totale
         let imponibile = arrotonda(max(0, reddito - contributi))
-        let irpef = arrotonda(max(0, irpefLorda(imponibile, r: r) - detrazioneLavoroAutonomo(imponibile)))
+        let irpef = arrotonda(max(0, irpefLorda(imponibile, r: r) - detrazioneLavoroAutonomo(imponibile, r: r)))
         let aliqAdd = addizionali ?? r.irpef.addizionaliDefault.valore
         let add = arrotonda(imponibile * aliqAdd)
         let netto = arrotonda(ricavi - costi - contributi - irpef - add)
@@ -210,7 +225,7 @@ enum Calcolo {
                 Riga(etichetta: "Incassato", formula: "IVA esclusa (in ordinario l'IVA si incassa e si versa)", importo: ricavi),
                 Riga(etichetta: "Costi reali", formula: "Spese documentate inserite da te", importo: -costi),
                 Riga(etichetta: "Contributi INPS", formula: "Senza riduzione 35%", importo: -contributi),
-                Riga(etichetta: "IRPEF netta", formula: "Scaglioni 23% / 33% / 43% meno detrazione lavoro autonomo",
+                Riga(etichetta: "IRPEF netta", formula: String(localized: "Scaglioni \(testoScaglioni(r)) meno detrazione lavoro autonomo"),
                      importo: -irpef, fonte: r.fonte(r.irpef.scaglioni)),
                 Riga(etichetta: "Addizionali", formula: String(localized: "\(Formato.pct(aliqAdd)) stimato (dipende da Regione e Comune)"),
                      importo: -add, fonte: r.fonte(r.irpef.addizionaliDefault)),
@@ -321,19 +336,16 @@ enum Calcolo {
     }
 
     /// Detrazione per lavoro dipendente (art. 13 c. 1 TUIR), anno intero
-    static func detrazioneDipendente(_ reddito: Double) -> Double {
-        if reddito <= 15_000 { return 1_955 }
-        if reddito <= 28_000 { return arrotonda(1_910 + 1_190 * (28_000 - reddito) / 13_000) }
-        if reddito <= 50_000 { return arrotonda(1_910 * (50_000 - reddito) / 22_000) }
-        return 0
+    static func detrazioneDipendente(_ reddito: Double, r: Regole = .attuali) -> Double {
+        detrazione(reddito, tratti: r.irpef.detrazioneDipendente.valore)
     }
 
-    /// Netto annuo di un dipendente con una certa RAL (stima semplificata: contributi 9,19%, IRPEF,
+    /// Netto annuo di un dipendente con una certa RAL (stima semplificata: contributi dalle regole, IRPEF,
     /// detrazione lavoro dipendente, addizionali medie; senza cuneo fiscale né trattamento integrativo)
     static func nettoDipendente(ral: Double, r: Regole = .attuali) -> Double {
-        let contributi = ral * 0.0919
+        let contributi = ral * r.irpef.contributiDipendente.valore
         let imponibile = max(0, ral - contributi)
-        let irpef = max(0, irpefLorda(imponibile, r: r) - detrazioneDipendente(imponibile))
+        let irpef = max(0, irpefLorda(imponibile, r: r) - detrazioneDipendente(imponibile, r: r))
         let addizionali = imponibile * r.irpef.addizionaliDefault.valore
         return arrotonda(ral - contributi - irpef - addizionali)
     }
@@ -353,11 +365,13 @@ enum Calcolo {
     static func avvisoFineStartup(_ p: Profilo, oggi: Date = Date(), r: Regole = .attuali) -> String? {
         guard let ultimo = ultimoAnnoStartup(p, r: r) else { return nil }
         let annoOggi = Giorno.anno(oggi)
+        let startup = Formato.pct(r.forfettario.aliquotaStartup.valore)
+        let ordinaria = Formato.pct(r.forfettario.aliquotaOrdinaria.valore)
         if ultimo == annoOggi {
-            return String(localized: "Quest'anno è l'ultimo con le tasse al 5%. Dal \(String(ultimo + 1)) passano al 15%.")
+            return String(localized: "Quest'anno è l'ultimo con le tasse al \(startup). Dal \(String(ultimo + 1)) passano al \(ordinaria).")
         }
         if ultimo == annoOggi + 1 {
-            return String(localized: "Le tasse al 5% valgono fino al \(String(ultimo)). Poi passano al 15%.")
+            return String(localized: "Le tasse al \(startup) valgono fino al \(String(ultimo)). Poi passano al \(ordinaria).")
         }
         return nil
     }

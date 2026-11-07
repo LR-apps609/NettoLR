@@ -103,9 +103,20 @@ struct Regole: Codable {
         let aliquota: Double
     }
 
+    /// Un tratto di una detrazione: fino a `fino` euro vale fisso + variabile × (fino − reddito) / (fino − inizio del tratto)
+    struct Tratto: Codable {
+        let fino: Double
+        let fisso: Double
+        let variabile: Double
+    }
+
     struct Irpef: Codable {
         let scaglioni: Voce<[Scaglione]>
         let addizionaliDefault: Voce<Double>
+        let detrazioneLavoroAutonomo: Voce<[Tratto]>
+        let detrazioneDipendente: Voce<[Tratto]>
+        /// Contributi a carico del dipendente, per il confronto «E se fossi dipendente?»
+        let contributiDipendente: Voce<Double>
     }
 
     func fonte<T: Codable>(_ voce: Voce<T>) -> Fonte { fonti[voce.fonte] ?? .sconosciuta }

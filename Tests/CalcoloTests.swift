@@ -422,4 +422,21 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(LettoreFatturaPA.leggi(Data(xml.utf8), partitaIVA: "01234567890").fatture.count, 1)
         XCTAssertEqual(LettoreFatturaPA.leggi(Data(xml.utf8)).fatture.count, 1)
     }
+
+    /// Detrazioni e testi con i numeri presi dalle regole dell'anno, non dal codice
+    func testNumeriDalleRegole() {
+        XCTAssertEqual(Calcolo.detrazioneLavoroAutonomo(5_000), 1_265)
+        XCTAssertEqual(Calcolo.detrazioneLavoroAutonomo(60_000), 0)
+        XCTAssertEqual(Calcolo.detrazioneDipendente(10_000), 1_955)
+        XCTAssertEqual(Calcolo.detrazioneDipendente(20_000), 2_642.31)
+        XCTAssertEqual(Calcolo.detrazioneDipendente(30_000), 1_736.36)
+        XCTAssertTrue(Calcolo.testoScaglioni(Regole.per(anno: 2025)).contains("35%"))
+        XCTAssertTrue(Calcolo.testoScaglioni(Regole.per(anno: 2026)).contains("33%"))
+        let r = Regole.per(anno: 2026)
+        XCTAssertEqual("Sotto {soglia} e il {aliquota}".conRegole(r), "Sotto 85.000 € e il 15%")
+        XCTAssertEqual("{bollo} sopra {sogliaBollo}".conRegole(r), "2 € sopra 77,47 €")
+        XCTAssertEqual("Senza segnaposto".conRegole(r), "Senza segnaposto")
+        // Il 2027 è tutto provvisorio: c'è l'avviso
+        XCTAssertTrue(Calcolo.avvisi(sviluppatore, ricaviAnno: 10_000, r: Regole.per(anno: 2027)).contains { $0.contains("2027") })
+    }
 }

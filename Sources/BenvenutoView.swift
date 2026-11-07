@@ -210,10 +210,12 @@ struct DomandeProfilo: View {
             .pickerStyle(.wheel)
             .frame(height: 150)
             .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-            domanda("È la prima volta che lavori in proprio?", piccola: true)
+            // La legge (L. 190/2014, c. 65) chiede due cose: nessuna attività in proprio nei 3 anni prima
+            // e non continuare lo stesso lavoro fatto prima da dipendente o da autonomo
+            domanda("Nei 3 anni prima di aprire non avevi un'altra attività in proprio?", piccola: true)
             sceltaSiNo($primaVolta)
-            Text("Se è la prima volta, per cinque anni le tasse sono al 5% invece del 15%.")
-                .font(.app(15)).foregroundStyle(Theme.muted)
+            Text("Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta). Se non sei sicuro, rispondi no e chiedi al commercialista.".tradotto.conRegole())
+                .font(.app(15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
         }
     }
 

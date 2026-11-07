@@ -91,6 +91,18 @@
       "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1996-12-23;662",
       "data": "2026-11-07",
       "stato": "da-verificare"
+    },
+    "tuir_art13": {
+      "titolo": "TUIR (DPR 917/1986), art. 13: detrazioni per lavoro dipendente e autonomo",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1986-12-22;917",
+      "data": "2026-11-07",
+      "stato": "da-verificare"
+    },
+    "inps_dipendenti": {
+      "titolo": "INPS – contributi a carico del lavoratore dipendente (FPLD 9,19%)",
+      "url": "https://www.inps.it",
+      "data": "2026-11-07",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -337,6 +349,50 @@
     "addizionaliDefault": {
       "valore": 0.02,
       "fonte": "addizionali"
+    },
+    "detrazioneLavoroAutonomo": {
+      "valore": [
+        {
+          "fino": 5500,
+          "fisso": 1265,
+          "variabile": 0
+        },
+        {
+          "fino": 28000,
+          "fisso": 500,
+          "variabile": 765
+        },
+        {
+          "fino": 50000,
+          "fisso": 0,
+          "variabile": 500
+        }
+      ],
+      "fonte": "tuir_art13"
+    },
+    "detrazioneDipendente": {
+      "valore": [
+        {
+          "fino": 15000,
+          "fisso": 1955,
+          "variabile": 0
+        },
+        {
+          "fino": 28000,
+          "fisso": 1910,
+          "variabile": 1190
+        },
+        {
+          "fino": 50000,
+          "fisso": 0,
+          "variabile": 1910
+        }
+      ],
+      "fonte": "tuir_art13"
+    },
+    "contributiDipendente": {
+      "valore": 0.0919,
+      "fonte": "inps_dipendenti"
     }
   },
   "novita": [

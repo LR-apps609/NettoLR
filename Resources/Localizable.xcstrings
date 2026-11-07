@@ -254,17 +254,6 @@
         }
       }
     },
-    "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "€2 for every invoice over €77.47. You can also find the exact amount on the Fatture e Corrispettivi portal."
-          }
-        }
-      }
-    },
     "4% INPS in fattura": {
       "extractionState": "manual",
       "localizations": {
@@ -272,17 +261,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "4% INPS on invoices"
-          }
-        }
-      }
-    },
-    "5%% fino al %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "5%% until %@"
           }
         }
       }
@@ -1101,17 +1079,6 @@
         }
       }
     },
-    "Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "With more than €35,000 from employment or a pension, you can't open the flat-rate scheme."
-          }
-        }
-      }
-    },
     "Con queste spese conviene il regime normale": {
       "extractionState": "manual",
       "localizations": {
@@ -1405,17 +1372,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "That takes you over €100,000: you'd leave the flat-rate scheme immediately. Talk to an accountant first."
-          }
-        }
-      }
-    },
-    "Così superi 85.000 €: dal prossimo anno cambi regime.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "That takes you over €85,000: you'd change regime from next year."
           }
         }
       }
@@ -1911,17 +1867,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "You've gone over %@: you leave the flat-rate scheme this year, charging VAT from the invoice that crosses the limit. Talk to an accountant right away."
-          }
-        }
-      }
-    },
-    "Hai uno stipendio o una pensione sopra 35.000 € all'anno?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Do you have a salary or pension over €35,000 a year?"
           }
         }
       }
@@ -2806,17 +2751,6 @@
         }
       }
     },
-    "Le tasse al 5%% valgono fino al %@. Poi passano al 15%%.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The 5%% tax rate lasts until %@. Then it goes up to 15%%."
-          }
-        }
-      }
-    },
     "Le tue attività": {
       "extractionState": "manual",
       "localizations": {
@@ -3257,17 +3191,6 @@
         }
       }
     },
-    "Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di 85.000 € all'anno.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No IRPEF, no local surtaxes, no VAT, as long as you bring in less than €85,000 a year."
-          }
-        }
-      }
-    },
     "Niente account, niente moduli": {
       "extractionState": "manual",
       "localizations": {
@@ -3598,17 +3521,6 @@
         }
       }
     },
-    "Pensi di incassare meno di 85.000 € all'anno?": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Do you expect to bring in less than €85,000 a year?"
-          }
-        }
-      }
-    },
     "Pensione": {
       "extractionState": "manual",
       "localizations": {
@@ -3803,17 +3715,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "For which job?"
-          }
-        }
-      }
-    },
-    "Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di 85.000 €.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "That's why NettoLR asks “Have you been paid?”: only money actually received counts towards the calculations and the €85,000 limit."
           }
         }
       }
@@ -4023,17 +3924,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "How much?"
-          }
-        }
-      }
-    },
-    "Quest'anno è l'ultimo con le tasse al 5%%. Dal %@ passano al 15%%.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This is the last year at the 5%% tax rate. From %@ it goes up to 15%%."
           }
         }
       }
@@ -4412,17 +4302,6 @@
         }
       }
     },
-    "Se è la tua prima attività in proprio, per cinque anni le tasse sono al 5% invece del 15%.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If it's your first self-employed activity, tax is 5% instead of 15% for five years."
-          }
-        }
-      }
-    },
     "Sei vicino alla soglia: mancano %@ a %@.": {
       "extractionState": "manual",
       "localizations": {
@@ -4452,17 +4331,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "That needs more than %@ a year: with this goal you'd leave the flat-rate scheme."
-          }
-        }
-      }
-    },
-    "Serve più di 85.000 € all'anno: con questo obiettivo usciresti dal forfettario.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "That needs more than €85,000 a year: with this goal you'd leave the flat-rate scheme."
           }
         }
       }
@@ -4540,28 +4408,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "With over €20,000 in staff costs you can't use the flat-rate scheme."
-          }
-        }
-      }
-    },
-    "Sopra 77,47 € serve la marca da bollo da 2 €: NettoLR la conta da sola e te la ricorda ogni trimestre.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Above €77.47 you need a €2 revenue stamp: NettoLR counts them for you and reminds you every quarter."
-          }
-        }
-      }
-    },
-    "Sopra 85.000 € di incassi all'anno non si può stare nel forfettario.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Above €85,000 of income a year you can't use the flat-rate scheme."
           }
         }
       }
@@ -5442,6 +5288,193 @@
           "stringUnit": {
             "state": "translated",
             "value": "For now, pension and taxes exceed your income by %@."
+          }
+        }
+      }
+    },
+    "Scaglioni %@ meno detrazione lavoro autonomo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ brackets minus the self-employment deduction"
+          }
+        }
+      }
+    },
+    "{bollo} per ogni fattura sopra {sogliaBollo}. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "{bollo} for every invoice over {sogliaBollo}. You can also find the exact amount on the Fatture e Corrispettivi portal."
+          }
+        }
+      }
+    },
+    "Con più di {limiteDipendente} da lavoro dipendente o pensione non si può aprire il forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With more than {limiteDipendente} from employment or a pension, you can't open the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Hai uno stipendio o una pensione sopra {limiteDipendente} all'anno?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you have a salary or pension over {limiteDipendente} a year?"
+          }
+        }
+      }
+    },
+    "Nel forfettario non si contano le spese vere: lo Stato considera tuo reddito una percentuale fissa di quello che incassi, che dipende dal codice ATECO (da {coeffMin} a {coeffMax}).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On the flat-rate scheme your actual expenses don't count: the State treats a fixed percentage of what you bring in as your income, depending on your ATECO code (from {coeffMin} to {coeffMax})."
+          }
+        }
+      }
+    },
+    "Niente IRPEF, niente addizionali, niente IVA, finché incassi meno di {soglia} all'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No IRPEF, no local surtaxes, no VAT, as long as you bring in less than {soglia} a year."
+          }
+        }
+      }
+    },
+    "Pensi di incassare meno di {soglia} all'anno?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you expect to bring in less than {soglia} a year?"
+          }
+        }
+      }
+    },
+    "Per questo NettoLR ti chiede «Ti hanno pagato?»: solo gli incassi veri entrano nei calcoli e nella soglia di {soglia}.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That's why NettoLR asks “Have you been paid?”: only money actually received counts towards the calculations and the {soglia} limit."
+          }
+        }
+      }
+    },
+    "Sopra {sogliaBollo} serve la marca da bollo da {bollo}: NettoLR la conta da sola e te la ricorda ogni trimestre.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above {sogliaBollo} you need a {bollo} revenue stamp: NettoLR counts them for you and reminds you every quarter."
+          }
+        }
+      }
+    },
+    "Sopra {soglia} di incassi all'anno non si può stare nel forfettario.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above {soglia} of income a year you can't use the flat-rate scheme."
+          }
+        }
+      }
+    },
+    "Su quel reddito paghi la pensione (INPS). Togli i contributi che hai versato nell'anno e sul resto paghi un'unica tassa: il {aliquota}, o il {aliquotaStartup} per i primi cinque anni se è la tua prima attività.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On that income you pay your pension (INPS). Subtract the contributions you paid during the year and pay a single tax on the rest: {aliquota}, or {aliquotaStartup} for the first five years if it's your first business."
+          }
+        }
+      }
+    },
+    "Quest'anno è l'ultimo con le tasse al %@. Dal %@ passano al %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is the last year at the %@ tax rate. From %@ it goes up to %@."
+          }
+        }
+      }
+    },
+    "Le tasse al %@ valgono fino al %@. Poi passano al %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The %@ tax rate lasts until %@. Then it goes up to %@."
+          }
+        }
+      }
+    },
+    "%@ fino al %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ until %2$@"
+          }
+        }
+      }
+    },
+    "Nei 3 anni prima di aprire non avevi un'altra attività in proprio?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In the 3 years before opening, did you have no other self-employed business?"
+          }
+        }
+      }
+    },
+    "Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta). Se non sei sicuro, rispondi no e chiedi al commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The {aliquotaStartup} tax rate instead of {aliquota}, for five years, applies if you had no other self-employed business in the previous 3 years and you're not simply continuing the job you did as an employee (traineeships don't count). If you're not sure, answer no and ask an accountant."
+          }
+        }
+      }
+    },
+    "Se è la tua prima attività in proprio, per cinque anni le tasse sono al {aliquotaStartup} invece del {aliquota}.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If it's your first self-employed activity, tax is {aliquotaStartup} instead of {aliquota} for five years."
           }
         }
       }

@@ -123,7 +123,7 @@ enum Pagamenti {
                 out.append(Pagamento(
                     data: Giorno.da(data), tipo: .bollo, titolo: String(localized: "Bollo delle fatture (\(quali) trimestre)"),
                     codice: String(localized: "codice tributo \(codici) · anno \(String(anno))"),
-                    spiegazione: "2 € per ogni fattura sopra 77,47 €. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.".tradotto,
+                    spiegazione: "{bollo} per ogni fattura sopra {sogliaBollo}. L'importo esatto lo trovi anche nel portale Fatture e Corrispettivi.".tradotto.conRegole(r),
                     importo: arrotonda(totale), fonte: r.fonte(b.scadenze), chiave: "Bollo delle fatture (\(quali) trimestre)"))
             }
             rinviato = 0

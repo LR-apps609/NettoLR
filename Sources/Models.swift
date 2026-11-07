@@ -130,6 +130,25 @@ enum Giorno {
 extension String {
     /// La traduzione di un testo italiano dal catalogo Localizable (versione inglese), o il testo stesso
     var tradotto: String { Bundle.main.localizedString(forKey: self, value: self, table: nil) }
+
+    /// I numeri di legge nei testi fissi (guide, domande) vengono dalle regole dell'anno, non dal codice:
+    /// «{soglia}» diventa «85.000 €», «{aliquota}» diventa «15%» e così via
+    func conRegole(_ r: Regole = .attuali) -> String {
+        guard contains("{") else { return self }
+        let f = r.forfettario
+        let coeff = f.coefficienti.valore.map(\.valore)
+        let valori: [String: String] = [
+            "{soglia}": Formato.euroTondo(f.sogliaRicavi.valore),
+            "{limiteDipendente}": Formato.euroTondo(f.limiteRedditoDipendente.valore),
+            "{sogliaBollo}": Formato.euro(r.bollo.sogliaFattura.valore),
+            "{bollo}": Formato.euroTondo(r.bollo.importo.valore),
+            "{aliquota}": Formato.pct(f.aliquotaOrdinaria.valore),
+            "{aliquotaStartup}": Formato.pct(f.aliquotaStartup.valore),
+            "{coeffMin}": Formato.pct(coeff.min() ?? 0),
+            "{coeffMax}": Formato.pct(coeff.max() ?? 0),
+        ]
+        return valori.reduce(self) { $0.replacingOccurrences(of: $1.key, with: $1.value) }
+    }
 }
 
 // MARK: - Formati italiani

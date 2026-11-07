@@ -276,8 +276,11 @@ struct TuView: View {
     }
 
     private func tasse(_ p: Profilo) -> String {
-        if let ultimo = Calcolo.ultimoAnnoStartup(p), ultimo >= store.anno { return String(localized: "5% fino al \(String(ultimo))") }
-        return "15%"
+        let f = store.regole.forfettario
+        if let ultimo = Calcolo.ultimoAnnoStartup(p), ultimo >= store.anno {
+            return String(localized: "\(Formato.pct(f.aliquotaStartup.valore)) fino al \(String(ultimo))")
+        }
+        return Formato.pct(f.aliquotaOrdinaria.valore)
     }
 }
 

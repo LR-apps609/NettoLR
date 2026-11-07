@@ -7,9 +7,10 @@ on:
     paths-ignore: ["docs/**", "**.md", "sito/**", "installa.sh"]
   workflow_dispatch:
 
+# Una prova già partita non si ferma per una modifica nuova: si mettono in fila
 concurrency:
   group: dispositivi-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   prova:
