@@ -67,6 +67,12 @@
       "url": "https://www.inps.it/",
       "data": "2026-11-01",
       "stato": "da-verificare"
+    },
+    "l662_1996": {
+      "titolo": "L. 662/1996, art. 2 c. 26 (rivalsa del 4% in fattura per la Gestione Separata)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1996-12-23;662",
+      "data": "2026-11-07",
+      "stato": "da-verificare"
     }
   },
   "forfettario": {
@@ -174,6 +180,10 @@
     "accontoPercentuale": {
       "valore": 0.8,
       "fonte": "inps_gs_2025"
+    },
+    "rivalsa": {
+      "valore": 0.04,
+      "fonte": "l662_1996"
     }
   },
   "artigianiCommercianti": {

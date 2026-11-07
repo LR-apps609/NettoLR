@@ -44,7 +44,37 @@ final class Store: ObservableObject {
         var pagati: [String: Date]?
         var ricevute: [String: String]?
         var contributiVersatiAnno: Int?
+        /// Le fatture che non si sono potute leggere (il file resta copiato da parte)
+        var fattureScartate = 0
+
+        enum CodingKeys: String, CodingKey {
+            case profilo, fatture, annoPrecedente, contributiVersati, pagati, ricevute, contributiVersatiAnno
+        }
+
+        init(profilo: Profilo?, fatture: [Fattura], annoPrecedente: DatiAnnoPrecedente, contributiVersati: Double?,
+             pagati: [String: Date]?, ricevute: [String: String]?, contributiVersatiAnno: Int?) {
+            self.profilo = profilo; self.fatture = fatture; self.annoPrecedente = annoPrecedente
+            self.contributiVersati = contributiVersati; self.pagati = pagati; self.ricevute = ricevute
+            self.contributiVersatiAnno = contributiVersatiAnno
+        }
+
+        /// Ogni parte si legge da sola: un campo nuovo o una fattura rovinata non fanno perdere il resto
+        init(from decoder: Decoder) throws {
+            let c = try decoder.container(keyedBy: CodingKeys.self)
+            profilo = try c.decodeIfPresent(Profilo.self, forKey: .profilo)
+            let elenco = (try? c.decodeIfPresent([Tollerante<Fattura>].self, forKey: .fatture)) ?? []
+            fatture = elenco.compactMap(\.valore)
+            fattureScartate = elenco.count - fatture.count
+            annoPrecedente = (try? c.decodeIfPresent(DatiAnnoPrecedente.self, forKey: .annoPrecedente)) ?? DatiAnnoPrecedente()
+            contributiVersati = try? c.decodeIfPresent(Double.self, forKey: .contributiVersati)
+            pagati = try? c.decodeIfPresent([String: Date].self, forKey: .pagati)
+            ricevute = try? c.decodeIfPresent([String: String].self, forKey: .ricevute)
+            contributiVersatiAnno = try? c.decodeIfPresent(Int.self, forKey: .contributiVersatiAnno)
+        }
     }
+
+    /// Il salvataggio non si è letto del tutto: la copia del file è da parte e l'utente lo deve sapere
+    @Published var avvisoSalvataggio: String?
 
     private static var file: URL {
         URL.applicationSupportDirectory.appending(path: "nettolr.json")
@@ -334,12 +364,20 @@ final class Store: ObservableObject {
             nonSalvare = true
             return
         }
-        guard let s = try? JSONDecoder().decode(Salvataggio.self, from: dati) else {
-            // Un file che non si legge non si sovrascrive: resta da parte, accanto, con la data
+        // Un file che non si legge (o si legge solo in parte) non si perde: resta da parte, accanto, con la data
+        func copiaDaParte() {
             let copia = URL.applicationSupportDirectory.appending(path: "nettolr-non-letto-\(Int(Date().timeIntervalSince1970)).json")
             try? FileManager.default.copyItem(at: Self.file, to: copia)
-            print("NettoLR: salvataggio non leggibile, copiato in \(copia.lastPathComponent)")
+            print("NettoLR: salvataggio non leggibile del tutto, copiato in \(copia.lastPathComponent)")
+        }
+        guard let s = try? JSONDecoder().decode(Salvataggio.self, from: dati) else {
+            copiaDaParte()
+            avvisoSalvataggio = String(localized: "Non sono riuscito a leggere i dati salvati: ne ho tenuto una copia sul telefono, non è andato perso niente. Scrivici dal sito e ti aiutiamo a recuperarli.")
             return
+        }
+        if s.fattureScartate > 0 {
+            copiaDaParte()
+            avvisoSalvataggio = String(localized: "\(s.fattureScartate) fatture salvate non si sono potute leggere. Le altre ci sono tutte; il file completo è da parte.")
         }
         profilo = s.profilo
         fatture = s.fatture

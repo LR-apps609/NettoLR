@@ -5324,6 +5324,94 @@
           }
         }
       }
+    },
+    "Privacy": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy"
+          }
+        }
+      }
+    },
+    "Privacy completa": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full privacy policy"
+          }
+        }
+      }
+    },
+    "Condizioni d'uso": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of use"
+          }
+        }
+      }
+    },
+    "Primo anno: la pensione di quest'anno si paga l'anno prossimo, quindi si toglie solo quella già versata": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First year: this year's pension is paid next year, so only what you have already paid is deducted"
+          }
+        }
+      }
+    },
+    "I tuoi dati": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data"
+          }
+        }
+      }
+    },
+    "Non sono riuscito a leggere i dati salvati: ne ho tenuto una copia sul telefono, non è andato perso niente. Scrivici dal sito e ti aiutiamo a recuperarli.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I couldn't read your saved data: I kept a copy on this iPhone, nothing is lost. Write to us from the website and we'll help you recover it."
+          }
+        }
+      }
+    },
+    "%lld fatture salvate non si sono potute leggere. Le altre ci sono tutte; il file completo è da parte.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld saved invoices couldn't be read. All the others are here; the full file has been kept aside."
+          }
+        }
+      }
+    },
+    "È un calcolo, non una consulenza fiscale.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is a calculation, not tax advice."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -40,12 +40,25 @@ enum Calcolo {
         p.requisitiStartup ? p.annoApertura + r.forfettario.anniStartup.valore - 1 : nil
     }
 
+    /// Gestione Separata: chi ha già un'altra pensione obbligatoria (dipendente o pensionato) paga l'aliquota ridotta
+    static func aliquotaSeparata(_ p: Profilo, r: Regole = .attuali) -> Double {
+        let gs = r.gestioneSeparata
+        return (p.redditoDipendente ?? 0) > 0 ? gs.aliquotaAltraCopertura.valore : gs.aliquota.valore
+    }
+
+    /// Contributi deducibili nell'anno quando l'utente non li ha inseriti.
+    /// Primo anno: in Gestione Separata (e la parte variabile delle altre) si paga tutto l'anno dopo, quindi
+    /// nell'anno si versano solo le quote fisse; negli anni dopo saldo + acconti valgono circa quanto il dovuto dell'anno.
+    static func contributiDeducibiliStimati(_ p: Profilo, anno: Int, dovuti: ContributiDovuti) -> Double {
+        anno <= p.annoApertura ? dovuti.fissi : dovuti.totale
+    }
+
     /// Contributi previdenziali dovuti su un reddito, per la gestione del profilo
     static func contributi(_ p: Profilo, reddito: Double, forfettario: Bool, r: Regole = .attuali) -> ContributiDovuti {
         switch p.gestione {
         case .separata:
             let gs = r.gestioneSeparata
-            let t = arrotonda(min(reddito, gs.massimale.valore) * gs.aliquota.valore)
+            let t = arrotonda(min(reddito, gs.massimale.valore) * aliquotaSeparata(p, r: r))
             return .init(totale: t, fissi: 0, variabili: t)
         case .cassa:
             let variabili = arrotonda(reddito * (p.cassaAliquota ?? 0))
@@ -84,12 +97,14 @@ enum Calcolo {
             return q
         }()
         // Con un solo lavoro conta il suo codice (anche se non è la principale, quando tutto è assegnato a un'altra attività)
-        let gruppo = Ateco.gruppo(ateco2007: quote.count == 1 ? quote[0].codice : p.ateco) ?? Ateco.gruppo("altre")
-        let redditoLordo = arrotonda(quote.reduce(0) { $0 + $1.ricavi * (Ateco.gruppo(ateco2007: $1.codice) ?? Ateco.gruppo("altre")).coefficiente })
+        let gruppo = Ateco.gruppo(ateco2007: quote.count == 1 ? quote[0].codice : p.ateco, r: r) ?? Ateco.gruppo("altre", r: r)
+        let redditoLordo = arrotonda(quote.reduce(0) { $0 + $1.ricavi * (Ateco.gruppo(ateco2007: $1.codice, r: r) ?? Ateco.gruppo("altre", r: r)).coefficiente })
         let coefficiente = ricavi > 0 && quote.count > 1 ? redditoLordo / ricavi : gruppo.coefficiente
-        let contributi = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r).totale
+        let dovuti = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r)
+        let contributi = dovuti.totale
         let stimati = contributiVersati == nil
-        let dedotti = arrotonda(min(redditoLordo, contributiVersati ?? contributi))
+        let primoAnno = stimati && anno <= p.annoApertura
+        let dedotti = arrotonda(min(redditoLordo, contributiVersati ?? contributiDeducibiliStimati(p, anno: anno, dovuti: dovuti)))
         let imponibile = arrotonda(max(0, redditoLordo - dedotti))
         let aliquota = aliquotaImposta(p, anno: anno, r: r)
         let imposta = arrotonda(imponibile * aliquota)
@@ -102,7 +117,7 @@ enum Calcolo {
         case .cassa: nil
         }
         let nomeGestione = switch p.gestione {
-        case .separata: String(localized: "Gestione Separata \(Formato.pct(r.gestioneSeparata.aliquota.valore))")
+        case .separata: String(localized: "Gestione Separata \(Formato.pct(aliquotaSeparata(p, r: r)))")
         case .artigiani: (p.riduzione35 ? "Artigiani, riduzione 35%" : "Artigiani").tradotto
         case .commercianti: (p.riduzione35 ? "Commercianti, riduzione 35%" : "Commercianti").tradotto
         case .cassa: String(localized: "Cassa professionale \(Formato.pct(p.cassaAliquota ?? 0)) (dato inserito da te)")
@@ -112,12 +127,13 @@ enum Calcolo {
             Riga(etichetta: "Incassato", formula: "Somma delle fatture incassate nell'anno", importo: ricavi),
             Riga(etichetta: "Reddito lordo",
                  formula: quote.count > 1
-                    ? quote.map { "\(Formato.euro($0.ricavi)) × \(Formato.pct((Ateco.gruppo(ateco2007: $0.codice) ?? Ateco.gruppo("altre")).coefficiente)) (\($0.codice))" }.joined(separator: " + ")
+                    ? quote.map { "\(Formato.euro($0.ricavi)) × \(Formato.pct((Ateco.gruppo(ateco2007: $0.codice, r: r) ?? Ateco.gruppo("altre", r: r)).coefficiente)) (\($0.codice))" }.joined(separator: " + ")
                     : String(localized: "\(Formato.euro(ricavi)) × coefficiente \(Formato.pct(coefficiente)) (\(gruppo.nome.tradotto))"),
                  importo: redditoLordo, fonte: r.fonte(r.forfettario.aliquotaOrdinaria)),
             Riga(etichetta: "Contributi INPS", formula: nomeGestione, importo: -contributi, fonte: fonteInps),
             Riga(etichetta: "Contributi dedotti",
-                 formula: stimati ? "Stima: contributi dell'anno, come se fossero versati nell'anno"
+                 formula: primoAnno ? "Primo anno: la pensione di quest'anno si paga l'anno prossimo, quindi si toglie solo quella già versata"
+                          : stimati ? "Stima: contributi dell'anno, come se fossero versati nell'anno"
                                   : "Contributi effettivamente versati nell'anno",
                  importo: dedotti),
             Riga(etichetta: "Reddito imponibile", formula: "\(Formato.euro(redditoLordo)) − \(Formato.euro(dedotti))", importo: imponibile),
@@ -290,7 +306,9 @@ enum Calcolo {
     }
 
     /// Con la rivalsa INPS del 4% il cliente paga compenso × 1,04: tutto è ricavo
-    static func conRivalsa(_ compenso: Double) -> Double { arrotonda(compenso * 1.04) }
+    static func conRivalsa(_ compenso: Double, r: Regole = .attuali) -> Double {
+        arrotonda(compenso * (1 + r.gestioneSeparata.rivalsa.valore))
+    }
 
     /// Tariffa oraria minima per avere un netto mensile, con le ore fatturabili in un anno
     static func tariffaOraria(_ p: Profilo, anno: Int, nettoMensile: Double, oreAnno: Double = 1_400, r: Regole = .attuali) -> Double {

@@ -204,8 +204,11 @@ struct CompletoView: View {
                         .accessibilityIdentifier("completo.compra")
                         Text("Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo.")
                             .font(.app(13)).opacity(0.8)
-                        Link("Condizioni d'uso (Apple)", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
-                            .font(.app(13, .semibold))
+                        HStack(spacing: 16) {
+                            Link("Condizioni d'uso (Apple)", destination: Sito.condizioniApple)
+                            Link("Privacy", destination: Sito.privacy)
+                        }
+                        .font(.app(13, .semibold))
                         HStack {
                             Button("Ripristina acquisto") { Task { await acquisto.ripristina() } }
                             Spacer()

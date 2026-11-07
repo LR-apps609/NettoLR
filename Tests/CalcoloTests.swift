@@ -348,4 +348,66 @@ final class CalcoloTests: XCTestCase {
             }
         }
     }
+
+    // MARK: - Correzioni prima del rilascio (07/11/2026)
+
+    /// Primo anno in Gestione Separata: la pensione si paga l'anno dopo, quindi non si toglie dalle tasse
+    func testPrimoAnnoGestioneSeparata() {
+        let nuova = Profilo(ateco: "62.01.00", annoApertura: 2026, requisitiStartup: false, gestione: .separata, riduzione35: false)
+        let r = Calcolo.forfettario(nuova, anno: 2026, ricavi: 30_000)
+        XCTAssertEqual(r.contributi, 5_240.07)
+        XCTAssertEqual(r.contributiDedotti, 0)
+        XCTAssertEqual(r.imponibile, 20_100)
+        XCTAssertEqual(r.imposta, 3_015)
+        XCTAssertEqual(r.netto, 21_744.93)
+        // L'anno dopo si torna alla stima di sempre
+        XCTAssertEqual(Calcolo.forfettario(nuova, anno: 2027, ricavi: 30_000).contributiDedotti,
+                       Calcolo.forfettario(nuova, anno: 2027, ricavi: 30_000).contributi)
+        // I contributi inseriti dall'utente valgono sempre
+        XCTAssertEqual(Calcolo.forfettario(nuova, anno: 2026, ricavi: 30_000, contributiVersati: 1_000).contributiDedotti, 1_000)
+    }
+
+    /// Primo anno da artigiana: si tolgono solo le quote fisse, già versate nell'anno
+    func testPrimoAnnoArtigiana() {
+        let nuova = Profilo(ateco: "96.02.01", annoApertura: 2026, requisitiStartup: true, gestione: .artigiani, riduzione35: true)
+        let r = Calcolo.forfettario(nuova, anno: 2026, ricavi: 40_000)
+        let dovuti = Calcolo.contributi(nuova, reddito: r.redditoLordo, forfettario: true, r: Regole.per(anno: 2026))
+        XCTAssertEqual(r.contributiDedotti, dovuti.fissi)
+        XCTAssertLessThan(r.contributiDedotti, r.contributi)
+    }
+
+    /// Chi ha già uno stipendio o una pensione paga la Gestione Separata ridotta (24%)
+    func testGestioneSeparataConStipendio() {
+        var p = sviluppatore
+        p.redditoDipendente = 20_000
+        let r = Calcolo.forfettario(p, anno: 2026, ricavi: 30_000)
+        XCTAssertEqual(r.contributi, 4_824)
+        XCTAssertEqual(r.imposta, 2_291.4)
+        XCTAssertEqual(r.netto, 22_884.6)
+    }
+
+    func testRivalsaDalleRegole() {
+        XCTAssertEqual(Regole.per(anno: 2026).gestioneSeparata.rivalsa.valore, 0.04)
+        XCTAssertEqual(Calcolo.conRivalsa(1_000, r: Regole.per(anno: 2026)), 1_040)
+    }
+
+    /// Un salvataggio vecchio (campi mancanti) o con una fattura rovinata si legge lo stesso
+    func testSalvataggioVecchioSiLegge() throws {
+        let json = """
+        {"profilo":{"ateco":"62.01.00","annoApertura":2022,"requisitiStartup":false,"gestione":"separata","riduzione35":false},
+         "fatture":[{"numero":"1","data":800000000,"cliente":"Rossi","importo":1200,"incassata":true},
+                    {"numero":"2","data":800000000,"cliente":"Bianchi","importo":"rovinato","incassata":true}],
+         "annoPrecedente":{}}
+        """
+        let s = try JSONDecoder().decode(Store.Salvataggio.self, from: Data(json.utf8))
+        XCTAssertEqual(s.profilo?.ateco, "62.01.00")
+        XCTAssertEqual(s.profilo?.promemoria, true)
+        XCTAssertEqual(s.profilo?.rivalsa4, false)
+        XCTAssertEqual(s.fatture.count, 1)
+        XCTAssertEqual(s.fatture.first?.origine, .manuale)
+        XCTAssertEqual(s.fattureScartate, 1)
+        // E si riscrive e rilegge uguale
+        let di = try JSONEncoder().encode(s)
+        XCTAssertEqual(try JSONDecoder().decode(Store.Salvataggio.self, from: di).fatture, s.fatture)
+    }
 }

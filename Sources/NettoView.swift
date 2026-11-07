@@ -18,7 +18,10 @@ struct NettoView: View {
                     VStack(spacing: 16) {
                         intestazione(p).entrata(0)
                         AnelloNetto(res: res, anno: store.anno).entrata(1).id(store.anno)
-                        ForEach(Array((Calcolo.avvisi(p, ricaviAnno: res.ricavi) + [Calcolo.avvisoFineStartup(p)].compactMap { $0 }).enumerated()), id: \.offset) { i, a in
+                        Text("È un calcolo, non una consulenza fiscale.")
+                            .font(.app(12)).foregroundStyle(Theme.muted)
+                            .accessibilityIdentifier("netto.avvertenza")
+                        ForEach(Array((Calcolo.avvisi(p, ricaviAnno: res.ricavi, r: store.regole) + [Calcolo.avvisoFineStartup(p)].compactMap { $0 }).enumerated()), id: \.offset) { i, a in
                             Avviso(testo: a).entrata(2 + i)
                         }
                         daMettereDaParte(res).entrata(3)

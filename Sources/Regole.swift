@@ -54,6 +54,8 @@ struct Regole: Codable {
         let minimale: Voce<Double>
         /// Acconti contributivi: 40% + 40% del dovuto dell'anno precedente
         let accontoPercentuale: Voce<Double>
+        /// Rivalsa INPS in fattura (L. 662/1996, art. 2 c. 26): il cliente paga compenso × (1 + rivalsa)
+        let rivalsa: Voce<Double>
     }
 
     struct Tabella: Codable {

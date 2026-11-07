@@ -201,6 +201,12 @@ struct TuView: View {
                 }
                 .accessibilityElement(children: .combine)
             }
+            HStack(spacing: 16) {
+                Link("Privacy completa", destination: Sito.privacy)
+                Link("Condizioni d'uso", destination: Sito.condizioni)
+            }
+            .font(.app(14, .semibold))
+            .accessibilityIdentifier("tu.privacy.link")
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)

@@ -31,7 +31,9 @@ struct RootView: View {
         .fullScreenCover(isPresented: Binding(get: { store.profilo == nil }, set: { _ in })) {
             BenvenutoView()
                 .environmentObject(store)
+                .modifier(AvvisoSalvataggio(store: store, attivo: true))
         }
+        .modifier(AvvisoSalvataggio(store: store, attivo: store.profilo != nil))
         // Il timbro e la vibrazione quando segni un incasso
         .overlay {
             if store.ultimoIncasso > 0 && timbroVisibile {
@@ -78,4 +80,19 @@ struct RootView: View {
     }
 
     @State private var timbroVisibile = true
+}
+
+/// Se il salvataggio non si è letto del tutto lo diciamo, una volta, senza nascondere niente
+private struct AvvisoSalvataggio: ViewModifier {
+    @ObservedObject var store: Store
+    let attivo: Bool
+
+    func body(content: Content) -> some View {
+        content.alert("I tuoi dati", isPresented: Binding(get: { attivo && store.avvisoSalvataggio != nil },
+                                                         set: { if !$0 { store.avvisoSalvataggio = nil } })) {
+            Button("Ho capito", role: .cancel) { store.avvisoSalvataggio = nil }
+        } message: {
+            Text(store.avvisoSalvataggio ?? "")
+        }
+    }
 }

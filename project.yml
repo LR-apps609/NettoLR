@@ -21,6 +21,9 @@ targets:
       - path: Resources/Assets.xcassets
       # I testi in inglese (l'italiano è la lingua di partenza)
       - path: Resources/Localizable.xcstrings
+      # La dichiarazione privacy per Apple (niente tracciamento, nessun dato raccolto)
+      - path: Resources/PrivacyInfo.xcprivacy
+        buildPhase: resources
       - path: NOVITA.txt
         buildPhase: resources
       # Le voci registrate del video, una per scena e per lingua
@@ -56,6 +59,7 @@ targets:
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHumanReadableCopyright: "LR apps"
         NSFaceIDUsageDescription: "NettoLR usa Face ID per tenere al sicuro i tuoi numeri, se lo attivi in «Tu»."
+        NSPhotoLibraryAddUsageDescription: "NettoLR salva nelle Foto solo l'immagine del tuo anno, se tocchi «Salva immagine»."
         NSCameraUsageDescription: "NettoLR legge il codice ATECO dal certificato della partita IVA che fotografi. La foto resta sul telefono."
     settings:
       base:

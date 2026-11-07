@@ -26,15 +26,24 @@ enum Ateco {
         GruppoCoefficiente(id: $0.id, nome: $0.nome, coefficiente: $0.valore, divisioni2007: $0.divisioni2007)
     }
 
-    static func gruppo(_ id: String) -> GruppoCoefficiente {
-        gruppi.first { $0.id == id } ?? gruppi[gruppi.count - 1]
+    /// I gruppi di un anno preciso: se un anno cambia una percentuale, il calcolo di quell'anno usa la sua
+    static func gruppiDi(_ r: Regole) -> [GruppoCoefficiente] {
+        r.anno == Regole.attuali.anno ? gruppi : r.forfettario.coefficienti.valore.map {
+            GruppoCoefficiente(id: $0.id, nome: $0.nome, coefficiente: $0.valore, divisioni2007: $0.divisioni2007)
+        }
+    }
+
+    static func gruppo(_ id: String, r: Regole? = nil) -> GruppoCoefficiente {
+        let g = r.map { gruppiDi($0) } ?? gruppi
+        return g.first { $0.id == id } ?? g[g.count - 1]
     }
 
     /// Le cifre di un codice ("62.01.00" → "620100")
     static func cifre(_ codice: String) -> String { codice.filter(\.isNumber) }
 
     /// Il gruppo dal codice ATECO 2007 ("62.01.00", "6201", "47.82"…); nil se il codice è troppo corto
-    static func gruppo(ateco2007 codice: String) -> GruppoCoefficiente? {
+    static func gruppo(ateco2007 codice: String, r: Regole? = nil) -> GruppoCoefficiente? {
+        func gruppo(_ id: String) -> GruppoCoefficiente { Ateco.gruppo(id, r: r) }
         let c = cifre(codice)
         guard c.count >= 2 else { return nil }
         func n(_ k: Int) -> Int { Int(c.prefix(k)) ?? -1 }

@@ -201,3 +201,49 @@ enum Formato {
         return n.formatted(.number.locale(it).grouping(.never).precision(.fractionLength(0...2)))
     }
 }
+
+// MARK: - Lettura tollerante dei salvataggi
+// I valori predefiniti dei campi non valgono quando un campo manca nel file salvato: senza queste letture
+// un campo nuovo farebbe perdere tutti i dati delle versioni precedenti. Qui ogni campo facoltativo ha la sua riserva.
+
+extension Profilo {
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.init(nome: try c.decodeIfPresent(String.self, forKey: .nome) ?? "",
+                  partitaIVA: try c.decodeIfPresent(String.self, forKey: .partitaIVA) ?? "",
+                  ateco: try c.decode(String.self, forKey: .ateco),
+                  annoApertura: try c.decode(Int.self, forKey: .annoApertura),
+                  requisitiStartup: try c.decodeIfPresent(Bool.self, forKey: .requisitiStartup) ?? false,
+                  gestione: try c.decode(Gestione.self, forKey: .gestione),
+                  riduzione35: try c.decodeIfPresent(Bool.self, forKey: .riduzione35) ?? false,
+                  cassaAliquota: try? c.decodeIfPresent(Double.self, forKey: .cassaAliquota),
+                  cassaFisso: try? c.decodeIfPresent(Double.self, forKey: .cassaFisso),
+                  redditoDipendente: try? c.decodeIfPresent(Double.self, forKey: .redditoDipendente),
+                  rivalsa4: (try? c.decodeIfPresent(Bool.self, forKey: .rivalsa4)) ?? false,
+                  promemoria: (try? c.decodeIfPresent(Bool.self, forKey: .promemoria)) ?? true,
+                  faceID: try? c.decodeIfPresent(Bool.self, forKey: .faceID),
+                  altreAttivita: try? c.decodeIfPresent([String].self, forKey: .altreAttivita))
+    }
+}
+
+extension Fattura {
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.init(id: (try? c.decodeIfPresent(UUID.self, forKey: .id)) ?? UUID(),
+                  numero: (try? c.decodeIfPresent(String.self, forKey: .numero)) ?? "",
+                  data: try c.decode(Date.self, forKey: .data),
+                  cliente: (try? c.decodeIfPresent(String.self, forKey: .cliente)) ?? "",
+                  importo: try c.decode(Double.self, forKey: .importo),
+                  incassata: (try? c.decodeIfPresent(Bool.self, forKey: .incassata)) ?? false,
+                  dataIncasso: try? c.decodeIfPresent(Date.self, forKey: .dataIncasso),
+                  origine: (try? c.decodeIfPresent(Origine.self, forKey: .origine)) ?? .manuale,
+                  ateco: try? c.decodeIfPresent(String.self, forKey: .ateco))
+    }
+}
+
+/// Un elemento di un elenco salvato che si legge anche se un altro non si legge: un solo dato rovinato
+/// non deve far sparire tutte le fatture
+struct Tollerante<T: Decodable>: Decodable {
+    let valore: T?
+    init(from decoder: Decoder) throws { valore = try? T(from: decoder) }
+}
