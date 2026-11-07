@@ -244,7 +244,7 @@ final class Store: ObservableObject {
             esitoImport = String(localized: "Non riesco ad aprire \(url.lastPathComponent).")
             return
         }
-        let letto = LettoreFatturaPA.leggi(dati)
+        let letto = LettoreFatturaPA.leggi(dati, partitaIVA: profilo?.partitaIVA)
         let nuove = aggiungiNuove(letto.fatture)
         var righe = [nuove.isEmpty ? String(localized: "Nessuna fattura nuova in \(url.lastPathComponent).") : String(localized: "Aggiunte \(nuove.count) fatture da \(url.lastPathComponent). Tocca «Sì» quando te le pagano.")]
 

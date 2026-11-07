@@ -410,4 +410,16 @@ final class CalcoloTests: XCTestCase {
         let di = try JSONEncoder().encode(s)
         XCTAssertEqual(try JSONDecoder().decode(Store.Salvataggio.self, from: di).fatture, s.fatture)
     }
+
+    /// Una fattura ricevuta da un fornitore (emessa da un'altra partita IVA) non diventa un incasso
+    func testFatturaDiUnFornitoreNonEUnIncasso() {
+        let xml = """
+        <FatturaElettronica><FatturaElettronicaHeader><CedentePrestatore><DatiAnagrafici><IdFiscaleIVA><IdPaese>IT</IdPaese><IdCodice>01234567890</IdCodice></IdFiscaleIVA></DatiAnagrafici></CedentePrestatore>
+        <CessionarioCommittente><DatiAnagrafici><Anagrafica><Denominazione>Io</Denominazione></Anagrafica></DatiAnagrafici></CessionarioCommittente></FatturaElettronicaHeader>
+        <FatturaElettronicaBody><DatiGenerali><DatiGeneraliDocumento><TipoDocumento>TD01</TipoDocumento><Data>2026-03-01</Data><Numero>9</Numero><ImportoTotaleDocumento>100.00</ImportoTotaleDocumento></DatiGeneraliDocumento></DatiGenerali></FatturaElettronicaBody></FatturaElettronica>
+        """
+        XCTAssertTrue(LettoreFatturaPA.leggi(Data(xml.utf8), partitaIVA: "06363391001").fatture.isEmpty)
+        XCTAssertEqual(LettoreFatturaPA.leggi(Data(xml.utf8), partitaIVA: "01234567890").fatture.count, 1)
+        XCTAssertEqual(LettoreFatturaPA.leggi(Data(xml.utf8)).fatture.count, 1)
+    }
 }

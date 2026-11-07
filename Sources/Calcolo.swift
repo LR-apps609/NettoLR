@@ -281,6 +281,10 @@ enum Calcolo {
     static func avvisi(_ p: Profilo, ricaviAnno: Double, r: Regole = .attuali) -> [String] {
         var out: [String] = []
         let f = r.forfettario
+        // Un anno con tutte le fonti ancora da confermare (per esempio il 2027 prima della legge di bilancio)
+        if !r.fonti.isEmpty && r.fonti.values.allSatisfy({ !$0.verificata }) {
+            out.append(String(localized: "I numeri del \(String(r.anno)) sono provvisori: le regole di quell'anno non sono ancora tutte uscite. Li aggiorno appena escono."))
+        }
         if ricaviAnno > f.sogliaUscitaImmediata.valore {
             out.append(String(localized: "Hai superato \(Formato.euro(f.sogliaUscitaImmediata.valore)): esci dal forfettario già da quest'anno, con l'IVA dalla fattura che supera la soglia. Senti subito un commercialista."))
         } else if ricaviAnno > f.sogliaRicavi.valore {

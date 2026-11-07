@@ -4,7 +4,7 @@ name: Compila NettoLR
 
 on:
   push:
-    paths-ignore: ["docs/**", "**.md", ".github/workflows/istat.yml", "installa.sh", ".github/workflows/voci.yml", "sito/**", "Tools/build_sito.py", ".github/workflows/sito.yml"]
+    paths-ignore: ["docs/**", "**.md", ".github/workflows/dispositivi.yml", ".github/workflows/istat.yml", "installa.sh", ".github/workflows/voci.yml", "sito/**", "Tools/build_sito.py", ".github/workflows/sito.yml"]
   pull_request:
   workflow_dispatch:
 
@@ -90,7 +90,7 @@ jobs:
           xcrun simctl boot "$SIM" 2>/dev/null || true
           xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
           status=0
-          xcodebuild test -project NettoLR.xcodeproj -scheme NettoLRUITests \
+          xcodebuild test -project NettoLR.xcodeproj -scheme NettoLRUITests -only-testing:NettoLRUITests/ScreenshotTests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
             CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true

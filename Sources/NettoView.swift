@@ -208,6 +208,11 @@ struct AnelloNetto: View {
                     .buttonStyle(Molla())
                 }
             }
+            if res.netto < 0 && res.ricavi > 0 {
+                // L'anello non può mostrare un numero sotto zero: lo diciamo a parole
+                Text("Per ora pensione e tasse superano gli incassi di \(Formato.euroTondo(-res.netto)).")
+                    .font(.app(14, .semibold)).foregroundStyle(Color(hex: 0xF2A07B)).multilineTextAlignment(.center)
+            }
             if res.ricavi == 0 {
                 Text("Aggiungi il primo incasso per vedere il tuo anno.").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
             } else {

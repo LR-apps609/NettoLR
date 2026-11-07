@@ -5412,6 +5412,39 @@
           }
         }
       }
+    },
+    "Fattura %@: l'ha emessa un'altra partita IVA, quindi è una spesa e non un incasso. Non aggiunta.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice %@: it was issued by another VAT number, so it's an expense, not income. Not added."
+          }
+        }
+      }
+    },
+    "I numeri del %@ sono provvisori: le regole di quell'anno non sono ancora tutte uscite. Li aggiorno appena escono.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The %@ figures are provisional: not all of that year's rules are out yet. I'll update them as soon as they are."
+          }
+        }
+      }
+    },
+    "Per ora pensione e tasse superano gli incassi di %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For now, pension and taxes exceed your income by %@."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

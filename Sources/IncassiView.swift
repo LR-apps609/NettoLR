@@ -140,7 +140,7 @@ struct IncassiView: View {
             let accesso = url.startAccessingSecurityScopedResource()
             defer { if accesso { url.stopAccessingSecurityScopedResource() } }
             guard let dati = try? Data(contentsOf: url) else { errori.append(String(localized: "\(url.lastPathComponent): non riesco ad aprirlo.")); continue }
-            let letto = LettoreFatturaPA.leggi(dati)
+            let letto = LettoreFatturaPA.leggi(dati, partitaIVA: store.profilo?.partitaIVA)
             n += store.aggiungiNuove(letto.fatture).count
             errori += letto.errori.map { "\(url.lastPathComponent): \($0)" }
         }
