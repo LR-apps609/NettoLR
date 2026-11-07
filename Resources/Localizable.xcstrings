@@ -6073,6 +6073,17 @@
           }
         }
       }
+    },
+    "Ripristino non riuscito: forse lo spazio sul telefono è pieno. I dati di prima sono rimasti.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore failed: your iPhone's storage may be full. Your previous data is still there."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -68,6 +68,7 @@ struct RootView: View {
         // L'abbonamento si ricontrolla ogni volta che si torna nell'app (scadenze, rinnovi)
         .onChange(of: fase) { _, nuova in
             if nuova == .active {
+                store.controllaGiorno()
                 Task { await acquisto.aggiorna() }
                 // Il permesso delle notifiche può essere stato dato dalle Impostazioni nel frattempo
                 Task { await Promemoria.aggiorna(store.pagamentiPromemoria, attivi: store.profilo?.promemoria ?? false) }

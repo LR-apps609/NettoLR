@@ -27,6 +27,20 @@ final class Store: ObservableObject {
         didSet { UserDefaults.standard.set(regoleViste, forKey: "regoleViste") }
     }
 
+    /// L'ultimo giorno in cui l'app ha guardato il calendario: quando cambia, si ridisegnano scadenze e anno
+    private var giornoVisto = Giorno.calendario.startOfDay(for: Date())
+
+    /// Il giorno è cambiato con l'app aperta (mezzanotte, Capodanno): conto alla rovescia, scadenze e anno si aggiornano
+    func controllaGiorno() {
+        let oggi = Giorno.calendario.startOfDay(for: Date())
+        guard oggi != giornoVisto else { return }
+        let annoPrima = Giorno.anno(giornoVisto)
+        giornoVisto = oggi
+        if anno == annoPrima, Regole.anniDisponibili.contains(Giorno.anno(oggi)) { anno = Giorno.anno(oggi) }
+        riepilogoPronto = nil
+        objectWillChange.send()
+    }
+
     /// L'anno che si sta guardando (si cambia in Netto)
     @Published var anno = Regole.attuali.anno { didSet { riepilogoPronto = nil } }
     var regole: Regole { Regole.per(anno: anno) }
@@ -92,6 +106,12 @@ final class Store: ObservableObject {
         caricato = true
         // I dati vecchi appena timbrati con il loro anno si riscrivono subito
         salva()
+        NotificationCenter.default.addObserver(forName: UIApplication.protectedDataDidBecomeAvailableNotification, object: nil, queue: .main) { _ in
+            Task { @MainActor in Store.shared.riprovaLettura() }
+        }
+        NotificationCenter.default.addObserver(forName: .NSCalendarDayChanged, object: nil, queue: .main) { _ in
+            Task { @MainActor in Store.shared.controllaGiorno() }
+        }
         // Al primo avvio non c'è niente di «nuovo»: le novità contano da qui in avanti
         if regoleViste.isEmpty { segnaNovitaViste() }
     }
@@ -310,10 +330,24 @@ final class Store: ObservableObject {
     /// Rimette i dati da una copia: sostituisce quelli attuali
     func ripristina(_ dati: Data) throws {
         let copia = try JSONDecoder().decode(Copia.self, from: dati)
-        try FileManager.default.createDirectory(at: Self.cartellaRicevute, withIntermediateDirectories: true)
-        for (nome, d) in copia.foto where !nome.contains("/") {
-            try d.write(to: Self.cartellaRicevute.appending(path: nome), options: [.atomic, .completeFileProtection])
+        // Le foto prima in una cartella a parte: se una non si scrive (spazio pieno) non resta niente a metà
+        let fm = FileManager.default
+        let provvisoria = URL.applicationSupportDirectory.appending(path: "Ricevute-ripristino")
+        try? fm.removeItem(at: provvisoria)
+        try fm.createDirectory(at: provvisoria, withIntermediateDirectories: true)
+        do {
+            for (nome, d) in copia.foto where !nome.contains("/") {
+                try d.write(to: provvisoria.appending(path: nome), options: [.atomic, .completeFileProtection])
+            }
+        } catch {
+            try? fm.removeItem(at: provvisoria)
+            throw error
         }
+        // Le ricevute di prima che non sono nella copia non servono più: la cartella diventa quella della copia
+        try? fm.removeItem(at: Self.cartellaRicevute)
+        try fm.moveItem(at: provvisoria, to: Self.cartellaRicevute)
+        // Un ripristino scelto dall'utente vale anche se all'avvio il file non si era potuto leggere
+        nonSalvare = false
         profilo = copia.dati.profilo
         fatture = copia.dati.fatture
         annoPrecedente = copia.dati.annoPrecedente
@@ -369,6 +403,15 @@ final class Store: ObservableObject {
         } catch {
             print("NettoLR: salvataggio non riuscito: \(error)")
         }
+    }
+
+    /// Il file non si era potuto leggere (telefono bloccato all'avvio): si riprova appena i dati protetti sono disponibili
+    func riprovaLettura() {
+        guard nonSalvare else { return }
+        nonSalvare = false
+        caricato = false
+        carica()
+        caricato = true
     }
 
     private func carica() {

@@ -80,8 +80,10 @@ struct BackupView: View {
         do {
             try store.ripristina(d)
             esito = (true, "Dati ripristinati.")
-        } catch {
+        } catch is DecodingError {
             esito = (false, "Questo file non è una copia di NettoLR.")
+        } catch {
+            esito = (false, "Ripristino non riuscito: forse lo spazio sul telefono è pieno. I dati di prima sono rimasti.")
         }
         conferma = nil
     }

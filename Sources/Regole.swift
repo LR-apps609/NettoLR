@@ -136,11 +136,12 @@ struct Regole: Codable {
 
     /// Le regole dell'anno in corso: l'anno di oggi se c'è il suo file, altrimenti il più recente prima di oggi.
     /// Così, quando arriva regole-2027.json, dal 1° gennaio 2027 l'app passa da sola al nuovo anno.
-    static let attuali: Regole = {
+    /// Si ricalcola a ogni lettura (le regole sono già caricate): a Capodanno, con l'app aperta, si passa all'anno nuovo
+    static var attuali: Regole {
         let oggi = Giorno.anno(Date())
         let anno = anniDisponibili.filter { $0 <= oggi }.max() ?? anniDisponibili.min() ?? 2026
-        return carica(anno: anno)
-    }()
+        return tutte[anno] ?? carica(anno: anno)
+    }
 
     private static let tutte: [Int: Regole] = Dictionary(uniqueKeysWithValues: anniDisponibili.map { ($0, carica(anno: $0)) })
 
