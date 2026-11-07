@@ -78,7 +78,7 @@ struct DocumentiView: View {
                     }
                     .entrata(3)
 
-                    Text("NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» saranno controllate da un commercialista prima del lancio.")
+                    Text("NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» non sono ancora state confermate sulla fonte ufficiale: chiedi conferma al tuo commercialista.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
                 }
                 .padding(20)

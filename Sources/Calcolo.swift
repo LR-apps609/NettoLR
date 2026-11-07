@@ -53,8 +53,18 @@ enum Calcolo {
         anno <= p.annoApertura ? dovuti.fissi : dovuti.totale
     }
 
-    /// Contributi previdenziali dovuti su un reddito, per la gestione del profilo
-    static func contributi(_ p: Profilo, reddito: Double, forfettario: Bool, r: Regole = .attuali) -> ContributiDovuti {
+    /// I mesi di attività in un anno: 12, meno i mesi prima dell'apertura nell'anno di apertura, 0 prima di aprire
+    static func mesiAttivi(_ p: Profilo, anno: Int) -> Int {
+        if anno < p.annoApertura { return 0 }
+        if anno > p.annoApertura { return 12 }
+        return 13 - min(12, max(1, p.meseApertura ?? 1))
+    }
+
+    /// Contributi previdenziali dovuti su un reddito, per la gestione del profilo.
+    /// - Parameter mesi: mesi di attività nell'anno; le quote fisse e il minimale si riducono in proporzione
+    static func contributi(_ p: Profilo, reddito: Double, forfettario: Bool, mesi: Int = 12, r: Regole = .attuali) -> ContributiDovuti {
+        let quota = Double(min(12, max(0, mesi))) / 12
+        guard quota > 0 else { return .init(totale: 0, fissi: 0, variabili: 0) }
         switch p.gestione {
         case .separata:
             let gs = r.gestioneSeparata
@@ -62,18 +72,18 @@ enum Calcolo {
             return .init(totale: t, fissi: 0, variabili: t)
         case .cassa:
             let variabili = arrotonda(reddito * (p.cassaAliquota ?? 0))
-            let fissi = p.cassaFisso ?? 0
+            let fissi = arrotonda((p.cassaFisso ?? 0) * quota)
             return .init(totale: arrotonda(max(variabili, fissi)), fissi: fissi, variabili: variabili)
         case .artigiani, .commercianti:
             let ac = r.artigianiCommercianti
             let tab = p.gestione == .artigiani ? ac.artigiani : ac.commercianti
             let riduzione = forfettario && p.riduzione35 ? 1 - ac.riduzioneForfettari.valore : 1
             let base = min(reddito, ac.massimale.valore)
-            let minimale = ac.minimale.valore
+            let minimale = ac.minimale.valore * quota
             let soglia = ac.sogliaAliquotaMaggiorata.valore
             let eccedenza = max(0, min(base, soglia) - minimale) * tab.aliquota.valore
                 + max(0, base - soglia) * tab.aliquotaMaggiorata.valore
-            let fissi = arrotonda(tab.fissoAnnuo.valore * riduzione)
+            let fissi = arrotonda(tab.fissoAnnuo.valore * riduzione * quota)
             let variabili = arrotonda(eccedenza * riduzione)
             return .init(totale: arrotonda(fissi + variabili), fissi: fissi, variabili: variabili)
         }
@@ -100,7 +110,7 @@ enum Calcolo {
         let gruppo = Ateco.gruppo(ateco2007: quote.count == 1 ? quote[0].codice : p.ateco, r: r) ?? Ateco.gruppo("altre", r: r)
         let redditoLordo = arrotonda(quote.reduce(0) { $0 + $1.ricavi * (Ateco.gruppo(ateco2007: $1.codice, r: r) ?? Ateco.gruppo("altre", r: r)).coefficiente })
         let coefficiente = ricavi > 0 && quote.count > 1 ? redditoLordo / ricavi : gruppo.coefficiente
-        let dovuti = Self.contributi(p, reddito: redditoLordo, forfettario: true, r: r)
+        let dovuti = Self.contributi(p, reddito: redditoLordo, forfettario: true, mesi: mesiAttivi(p, anno: anno), r: r)
         let contributi = dovuti.totale
         let stimati = contributiVersati == nil
         let primoAnno = stimati && anno <= p.annoApertura
@@ -157,9 +167,10 @@ enum Calcolo {
     /// «Su 100 € incassati: X allo Stato, Y all'INPS, Z a te»
     static func doveVannoISoldi(_ res: RisultatoForfettario) -> (stato: Double, inps: Double, te: Double) {
         guard res.ricavi > 0 else { return (0, 0, 100) }
-        let stato = arrotonda((res.imposta + res.bolli) / res.ricavi * 100)
-        let inps = arrotonda(res.contributi / res.ricavi * 100)
-        return (stato, inps, arrotonda(100 - stato - inps))
+        // Ogni parte resta tra 0 e 100: con la pensione fissa sopra gli incassi «a te» va a 0, non sotto
+        let inps = min(100, arrotonda(res.contributi / res.ricavi * 100))
+        let stato = min(100 - inps, arrotonda((res.imposta + res.bolli) / res.ricavi * 100))
+        return (stato, inps, max(0, arrotonda(100 - stato - inps)))
     }
 
     // MARK: - Regime ordinario (stima semplificata, solo per il confronto)

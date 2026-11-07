@@ -1,9 +1,16 @@
 import SwiftUI
+import LocalAuthentication
 import UIKit
 
 // «Tu»: chi sei, la partita IVA, il lavoro, la pensione, le preferenze. Tutto resta su questo iPhone.
 
 struct TuView: View {
+    /// Face ID o Touch ID, secondo l'iPhone (l'SE ha Touch ID)
+    static let biometria: LABiometryType = {
+        let c = LAContext()
+        _ = c.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+        return c.biometryType
+    }()
     @EnvironmentObject private var store: Store
     @State private var modifica = false
     @State private var documenti = false
@@ -52,7 +59,7 @@ struct TuView: View {
                             riga("percent", Theme.tasseTesto, "Tasse", valore: tasse(p))
                             if p.gestione == .separata {
                                 Divider().padding(.leading, 66)
-                                interruttore("plus.forwardslash.minus", "4% INPS in fattura", acceso: Binding(
+                                interruttore("plus.forwardslash.minus", "4% di pensione in fattura", acceso: Binding(
                                     get: { store.profilo?.rivalsa4 ?? false },
                                     set: { store.profilo?.rivalsa4 = $0 }))
                             }
@@ -72,7 +79,8 @@ struct TuView: View {
                             }
                             .buttonStyle(.plain)
                             Divider().padding(.leading, 66)
-                            interruttore("faceid", "Blocca con Face ID", acceso: Binding(
+                            interruttore(Self.biometria == .touchID ? "touchid" : "faceid",
+                                         Self.biometria == .touchID ? "Blocca con Touch ID" : "Blocca con Face ID", acceso: Binding(
                                 get: { store.profilo?.faceID ?? false },
                                 set: { store.profilo?.faceID = $0 }))
                         }
@@ -133,6 +141,7 @@ struct TuView: View {
                         .foregroundStyle(.white)
                         .focused($focusPiva)
                         .accessibilityIdentifier("tu.piva")
+                        .accessibilityLabel("Partita IVA")
                         .onChange(of: piva) { _, nuova in
                             let cifre = String(nuova.filter(\.isNumber).prefix(11))
                             if cifre != nuova { piva = cifre }
@@ -175,6 +184,7 @@ struct TuView: View {
         focusPiva = false
         let ok = PartitaIVA.valida(piva)
         withAnimation(.spring(duration: 0.4, bounce: 0.4)) { esitoPiva = ok }
+        AccessibilityNotification.Announcement((ok ? "Il codice P.IVA è corretto" : "Il codice P.IVA è sbagliato: controlla le cifre").tradotto).post()
         if ok {
             store.profilo?.partitaIVA = piva
             UINotificationFeedbackGenerator().notificationOccurred(.success)
@@ -268,9 +278,9 @@ struct TuView: View {
 
     private func nomePensione(_ p: Profilo) -> String {
         switch p.gestione {
-        case .separata: "INPS"
-        case .artigiani: "INPS artigiani"
-        case .commercianti: "INPS commercianti"
+        case .separata: "Liberi professionisti"
+        case .artigiani: "Artigiani"
+        case .commercianti: "Commercianti"
         case .cassa: "La tua cassa"
         }
     }
@@ -389,7 +399,17 @@ struct AltreAttivitaView: View {
         ricerca = ""
     }
 
+    /// Togliendo un'attività i suoi incassi passano alla principale: non devono restare con la vecchia percentuale
     private func togli(_ codice: String) {
-        withAnimation(.spring) { store.profilo?.altreAttivita?.removeAll { $0 == codice } }
+        withAnimation(.spring) {
+            store.profilo?.altreAttivita?.removeAll { $0 == codice }
+            if store.fatture.contains(where: { $0.ateco == codice }) {
+                store.fatture = store.fatture.map { f in
+                    var f = f
+                    if f.ateco == codice { f.ateco = nil }
+                    return f
+                }
+            }
+        }
     }
 }

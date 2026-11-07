@@ -42,6 +42,8 @@ struct Profilo: Codable, Equatable {
     var faceID: Bool?
     /// Altre attività (codici ATECO 2007) oltre a quella principale, ognuna con la sua percentuale
     var altreAttivita: [String]?
+    /// Mese di apertura (1 = gennaio), facoltativo: serve per l'anno di apertura (quote fisse in proporzione ai mesi)
+    var meseApertura: Int?
 
     /// Tutte le attività: la principale per prima
     var attivita: [String] { [ateco] + (altreAttivita ?? []).filter { $0 != ateco } }
@@ -113,7 +115,8 @@ enum Giorno {
 
     /// "2026-07-20" → data (mezzogiorno, per non cambiare giorno con il fuso)
     static func da(_ testo: String) -> Date {
-        let p = testo.split(separator: "-").compactMap { Int($0) }
+        // Solo «AAAA-MM-GG»: le date XML possono avere il fuso orario attaccato («2026-07-20+02:00»)
+        let p = testo.trimmingCharacters(in: .whitespaces).prefix(10).split(separator: "-").compactMap { Int($0) }
         guard p.count == 3 else { return .distantPast }
         return calendario.date(from: DateComponents(year: p[0], month: p[1], day: p[2], hour: 12)) ?? .distantPast
     }
@@ -241,7 +244,8 @@ extension Profilo {
                   rivalsa4: (try? c.decodeIfPresent(Bool.self, forKey: .rivalsa4)) ?? false,
                   promemoria: (try? c.decodeIfPresent(Bool.self, forKey: .promemoria)) ?? true,
                   faceID: try? c.decodeIfPresent(Bool.self, forKey: .faceID),
-                  altreAttivita: try? c.decodeIfPresent([String].self, forKey: .altreAttivita))
+                  altreAttivita: try? c.decodeIfPresent([String].self, forKey: .altreAttivita),
+                  meseApertura: try? c.decodeIfPresent(Int.self, forKey: .meseApertura))
     }
 }
 

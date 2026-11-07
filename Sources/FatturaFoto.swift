@@ -165,7 +165,7 @@ struct LeggiFattura: View {
             guard let voce else { return }
             Task {
                 leggendo = true
-                if let dati = try? await voce.loadTransferable(type: Data.self), let ui = UIImage(data: dati), let cg = ui.cgImage {
+                if let dati = try? await voce.loadTransferable(type: Data.self), let ui = UIImage(data: dati), let cg = ui.dritta.cgImage {
                     fine(await LettoreCertificato.testo([cg]))
                 } else {
                     leggendo = false

@@ -136,13 +136,21 @@ final class Store: ObservableObject {
     /// I contributi versati da usare nei calcoli dell'anno guardato (solo per l'anno in corso)
     var contributiPerCalcolo: Double? { annoCorrente ? contributiVersatiValidi : nil }
     /// Gli incassi per attività, se ce n'è più di una
-    var perAttivitaPerCalcolo: [String: Double]? { riepilogo.perAttivita.isEmpty ? nil : riepilogo.perAttivita }
+    var perAttivitaPerCalcolo: [String: Double]? { Self.soloAttive(riepilogo.perAttivita, profilo) }
+
+    /// Gli incassi per attività contano solo per le attività che ci sono ancora nel profilo; gli altri vanno alla principale
+    static func soloAttive(_ quote: [String: Double], _ p: Profilo?) -> [String: Double]? {
+        guard let p, !quote.isEmpty else { return nil }
+        let attive = Set(p.attivita)
+        let tenute = quote.filter { attive.contains($0.key) }
+        return tenute.isEmpty ? nil : tenute
+    }
 
     var risultato: RisultatoForfettario? {
         guard let profilo else { return nil }
         let r = riepilogo
         return Calcolo.forfettario(profilo, anno: anno, ricavi: r.ricavi, contributiVersati: annoCorrente ? contributiVersatiValidi : nil,
-                                   fattureConBollo: r.fattureConBollo, perAttivita: r.perAttivita.isEmpty ? nil : r.perAttivita)
+                                   fattureConBollo: r.fattureConBollo, perAttivita: Self.soloAttive(r.perAttivita, profilo))
     }
 
     /// Incassato in ogni mese dell'anno (1…12)
@@ -169,7 +177,7 @@ final class Store: ObservableObject {
         let giusto = annoPrecedente.anno.map { $0 == anno - 1 } ?? corrente
         let precedente = giusto ? annoPrecedente : DatiAnnoPrecedente()
         var out = Pagamenti.anno(profilo, precedente: precedente, fatture: fatture, r: r)
-        if Regole.anniDisponibili.contains(anno - 1) {
+        if Regole.anniDisponibili.contains(anno - 1), anno - 1 >= profilo.annoApertura {
             out += Pagamenti.anno(profilo, precedente: DatiAnnoPrecedente(), fatture: fatture, r: Regole.per(anno: anno - 1))
                 .filter { Giorno.anno($0.data) == anno }
         }
@@ -332,6 +340,7 @@ final class Store: ObservableObject {
         annoPrecedente = DatiAnnoPrecedente()
         contributiVersati = nil
         contributiVersatiAnno = nil
+        anno = Regole.attuali.anno
     }
 
     // MARK: - Salvataggio

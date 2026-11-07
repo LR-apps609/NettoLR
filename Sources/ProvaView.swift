@@ -35,6 +35,8 @@ struct ProvaView: View {
                             Slider(value: $extra, in: 0...20_000, step: 100)
                                 .tint(Theme.prugna)
                                 .accessibilityIdentifier("prova.cursore")
+                                .accessibilityLabel("E se incassassi altri…")
+                                .accessibilityValue(Formato.euroTondo(extra))
                                 .sensoryFeedback(.selection, trigger: Int(extra / 1_000))
                             Divider()
                             Text("te ne restano").font(.app(16)).foregroundStyle(Theme.muted)
@@ -155,7 +157,11 @@ struct ConvieneView: View {
                 let diff = forf - ord.netto
                 CampoEuro(etichetta: "Quanto incassi in un anno", testo: $incasso, segnaposto: Formato.campo(ricavi))
                 CampoEuro(etichetta: "Quanto spendi per lavorare (computer, affitto, auto…)", testo: $spese)
-                if abs(diff) < 50 {
+                let f = store.regole.forfettario
+                if ricavi > f.sogliaRicavi.valore {
+                    // Oltre la soglia il forfettario non si può scegliere: niente «conviene»
+                    Avviso(testo: String(localized: "Oltre \(Formato.euroTondo(f.sogliaRicavi.valore)) all'anno il forfettario non si può usare: vale il regime normale. Senti un commercialista."))
+                } else if abs(diff) < 50 {
                     RispostaSecca(sopra: "È uguale", grande: "± \(Formato.euroTondo(abs(diff)))", sotto: "I due regimi si equivalgono.")
                 } else if diff > 0 {
                     RispostaSecca(sopra: "Sì, per te conviene", grande: String(localized: "+\(Formato.euroTondo(diff)) all'anno"), sotto: "rispetto al regime normale, con queste spese.")
@@ -182,6 +188,10 @@ struct ObiettivoView: View {
                 let lordo = Calcolo.incassoPerNetto(p, anno: store.anno, netto: netto * 12)
                 let oreAnno = Formato.leggiEuro(ore) * 46          // 46 settimane di lavoro
                 CampoEuro(etichetta: "Quanto vuoi che ti resti al mese", testo: $mensile)
+                if netto <= 0 {
+                    // Campo vuoto o zero: niente risposte senza senso come «1 € in un anno»
+                    Text("Scrivi quanto vuoi che ti resti ogni mese.").font(.app(15)).foregroundStyle(Theme.muted)
+                } else {
                 RispostaSecca(sopra: "Devi incassare", grande: String(localized: "\(Formato.euroTondo(lordo / 12)) al mese"),
                               sotto: String(localized: "cioè \(Formato.euroTondo(lordo)) in un anno."))
                 VStack(alignment: .leading, spacing: 6) {
@@ -198,6 +208,7 @@ struct ObiettivoView: View {
                     Avviso(testo: String(localized: "Serve più di \(Formato.euroTondo(store.regole.forfettario.sogliaRicavi.valore)) all'anno: con questo obiettivo usciresti dal forfettario."))
 
                 }
+                }
             }
         }
     }
@@ -209,7 +220,9 @@ struct DipendenteView: View {
 
     var body: some View {
         FoglioProva(titolo: "E se fossi dipendente?") {
-            if let res = store.risultato {
+            if let res = store.risultato, res.netto <= 0 {
+                Avviso(testo: "Per ora pensione e tasse superano gli incassi: il confronto con uno stipendio ha senso quando la partita IVA ti lascia qualcosa.")
+            } else if let res = store.risultato {
                 let ral = Calcolo.ralEquivalente(netto: res.netto)
                 Text("Con la partita IVA quest'anno ti restano \(Formato.euroTondo(res.netto)).").font(.app(17))
                 RispostaSecca(sopra: "Da dipendente ti servirebbe uno stipendio lordo di", grande: String(localized: "\(Formato.euroTondo(ral)) all'anno"),

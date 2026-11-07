@@ -152,6 +152,8 @@ struct TimbroAnimato: View {
             .shadow(color: .black.opacity(0.25), radius: 12, y: 6)
             .onAppear { withAnimation(.spring(duration: 0.45, bounce: 0.35)) { stampato = true } }
             .allowsHitTesting(false)
+            // È solo una festa per gli occhi: VoiceOver sente l'annuncio «Incasso segnato»
+            .accessibilityHidden(true)
     }
 }
 
@@ -204,10 +206,21 @@ struct CampoEuro: View {
 
             HStack {
                 TextField(segnaposto, text: $testo).keyboardType(.decimalPad).font(.app(20, .semibold))
+                    .accessibilityLabel(etichetta.tradotto)
                 Text("€").font(.app(20, .semibold)).foregroundStyle(Theme.muted)
             }
             .padding(.horizontal, 14).frame(height: 50)
             .background(Theme.raised, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
+    }
+}
+
+extension UIImage {
+    /// La foto girata per il verso giusto: Vision legge il disegno com'è, senza guardare l'orientamento della foto
+    var dritta: UIImage {
+        guard imageOrientation != .up else { return self }
+        let formato = UIGraphicsImageRendererFormat.default()
+        formato.scale = scale
+        return UIGraphicsImageRenderer(size: size, format: formato).image { _ in draw(in: CGRect(origin: .zero, size: size)) }
     }
 }

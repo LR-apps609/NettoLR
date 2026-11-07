@@ -5478,6 +5478,292 @@
           }
         }
       }
+    },
+    "per tasse e pensione del %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "for tax and pension for %@"
+          }
+        }
+      }
+    },
+    "Prossimo pagamento: %@ entro il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next payment: %1$@ by %2$@"
+          }
+        }
+      }
+    },
+    "In che mese?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Which month?"
+          }
+        }
+      }
+    },
+    "Pensione dei liberi professionisti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Freelancers' pension"
+          }
+        }
+      }
+    },
+    "Pensione degli artigiani": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artisans' pension"
+          }
+        }
+      }
+    },
+    "Pensione dei commercianti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shopkeepers' and traders' pension"
+          }
+        }
+      }
+    },
+    "4% di pensione in fattura": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "4% pension on invoices"
+          }
+        }
+      }
+    },
+    "Liberi professionisti": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Freelancers"
+          }
+        }
+      }
+    },
+    "Pensione pagata quest'anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension paid this year"
+          }
+        }
+      }
+    },
+    "Pensione dovuta per il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pension due for %@"
+          }
+        }
+      }
+    },
+    "Con il 4% di pensione in fattura il cliente paga %@: inserisci quella cifra se è già compresa.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With the 4% pension on invoices the client pays %@: enter that amount if it's already included."
+          }
+        }
+      }
+    },
+    "Tocca per vedere la parte dopo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to see the next part"
+          }
+        }
+      }
+    },
+    "Incasso segnato": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment recorded"
+          }
+        }
+      }
+    },
+    ", scaduto": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", overdue"
+          }
+        }
+      }
+    },
+    "Apri per i dati da copiare": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open for the details to copy"
+          }
+        }
+      }
+    },
+    "Fattura %@: è in %@. Aggiungila a mano con l'importo in euro che hai ricevuto.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invoice %1$@ is in %2$@. Add it by hand with the amount in euros you received."
+          }
+        }
+      }
+    },
+    "Il file è rovinato: alcune fatture potrebbero mancare. Controlla l'elenco.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The file is damaged: some invoices may be missing. Check the list."
+          }
+        }
+      }
+    },
+    "Nessun incasso nel %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No payments received in %@."
+          }
+        }
+      }
+    },
+    "Scegli un altro codice": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose another code"
+          }
+        }
+      }
+    },
+    "NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti. È un calcolo, non una consulenza fiscale: controlla gli importi prima di pagare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR prepares the amounts and codes to copy into the F24 in your online banking. It doesn't make payments. This is a calculation, not tax advice: check the amounts before paying."
+          }
+        }
+      }
+    },
+    "Oltre %@ all'anno il forfettario non si può usare: vale il regime normale. Senti un commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Above %@ a year you can't use the flat-rate scheme: the standard regime applies. Talk to an accountant."
+          }
+        }
+      }
+    },
+    "Blocca con Touch ID": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock with Touch ID"
+          }
+        }
+      }
+    },
+    "Per ora pensione e tasse superano gli incassi: il confronto con uno stipendio ha senso quando la partita IVA ti lascia qualcosa.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For now, pension and taxes exceed your income: comparing with a salary makes sense once your business leaves you something."
+          }
+        }
+      }
+    },
+    "Scrivi quanto vuoi che ti resti ogni mese.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter how much you want left each month."
+          }
+        }
+      }
+    },
+    "Nessun incasso in quest'anno.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No payments received this year."
+          }
+        }
+      }
+    },
+    "NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» non sono ancora state confermate sulla fonte ufficiale: chiedi conferma al tuo commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NettoLR does a calculation, it isn't tax advice. Items marked “to be checked” haven't yet been confirmed against the official source: ask your accountant to confirm them."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -42,11 +42,10 @@ enum LettoreCertificato {
             let c = parti.joined(separator: ".")
             guard !visti.contains(c) else { continue }
             visti.insert(c)
-            // Solo i codici che esistono davvero; se lo stesso numero è sia 2007 sia 2025, prima il 2025 (certificati recenti)
+            // Solo i codici che esistono davvero. Se lo stesso numero esiste sia nel 2007 sia nel 2025 (con significati
+            // diversi) li mostriamo tutti e due, il 2007 per primo: sceglie l'utente guardando il titolo
             let esatti = Ateco.cerca(c, max: 4).filter { $0.codice == c }
-            if let migliore = esatti.first(where: { $0.versione == .v2025 }) ?? esatti.first {
-                trovato.codici.append(migliore)
-            }
+            trovato.codici.append(contentsOf: esatti)
         }
         let piva = try? NSRegularExpression(pattern: #"(?<!\d)(\d{11})(?!\d)"#)
         for m in piva?.matches(in: testo, range: intervallo) ?? [] {
@@ -112,7 +111,7 @@ struct CertificatoView: View {
                 guard let voce else { return }
                 Task {
                     if let dati = try? await voce.loadTransferable(type: Data.self),
-                       let ui = UIImage(data: dati), let cg = ui.cgImage {
+                       let ui = UIImage(data: dati), let cg = ui.dritta.cgImage {
                         await leggi([cg])
                     }
                 }
@@ -122,7 +121,7 @@ struct CertificatoView: View {
 
     private func leggi(_ immagini: [CGImage]) async {
         guard !immagini.isEmpty else { return }
-        withAnimation { leggendo = true; trovato = nil }
+        withAnimation { leggendo = true; trovato = nil; daScegliere = nil }
         let testo = await LettoreCertificato.testo(immagini)
         let esito = LettoreCertificato.cerca(in: testo)
         withAnimation(.spring) { leggendo = false; trovato = esito }
@@ -143,6 +142,7 @@ struct CertificatoView: View {
         if let amb = daScegliere {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Il codice \(amb.codice) del 2025 corrisponde a più attività di prima. Quale fai?").font(.app(16, .bold))
+                Button("Scegli un altro codice") { withAnimation { daScegliere = nil } }.font(.app(15, .semibold))
                 ForEach(amb.codici2007, id: \.self) { c in
                     Button { applica(c, piva: t.partitaIVA) } label: {
                         HStack {

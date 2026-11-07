@@ -14,6 +14,8 @@ enum Promemoria {
             centro.removeAllPendingNotificationRequests()
             return
         }
+        // La coda deve sempre corrispondere ai pagamenti di adesso: niente «Oggi si paga» per un pagamento già fatto
+        centro.removeAllPendingNotificationRequests()
         guard (try? await centro.requestAuthorization(options: [.alert, .sound, .badge])) == true else { return }
         // Mentre si aspettava il permesso, i pagamenti possono essere cambiati: allora vale il giro più nuovo
         guard !Task.isCancelled else { return }

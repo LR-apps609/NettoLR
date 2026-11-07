@@ -28,6 +28,8 @@ struct RootView: View {
                 .tabItem { Label("Tu", systemImage: "person.crop.circle") }
                 .tag(Scheda.tu)
         }
+        // A prova finita le schede sotto la schermata di blocco non si raggiungono, nemmeno con VoiceOver
+        .accessibilityHidden(acquisto.bloccato && store.profilo != nil)
         .fullScreenCover(isPresented: Binding(get: { store.profilo == nil }, set: { _ in })) {
             BenvenutoView()
                 .environmentObject(store)
@@ -51,7 +53,10 @@ struct RootView: View {
                     .opacity(timbroVisibile ? 1 : 0)
             }
         }
-        .onChange(of: store.ultimoIncasso) { _, _ in timbroVisibile = true }
+        .onChange(of: store.ultimoIncasso) { _, _ in
+            timbroVisibile = true
+            AccessibilityNotification.Announcement("Incasso segnato".tradotto).post()
+        }
         .sensoryFeedback(.success, trigger: store.ultimoIncasso)
         // A prova finita, senza acquisto: la schermata per sbloccare (i dati restano)
         .overlay {
@@ -62,7 +67,11 @@ struct RootView: View {
         .task { await acquisto.aggiorna() }
         // L'abbonamento si ricontrolla ogni volta che si torna nell'app (scadenze, rinnovi)
         .onChange(of: fase) { _, nuova in
-            if nuova == .active { Task { await acquisto.aggiorna() } }
+            if nuova == .active {
+                Task { await acquisto.aggiorna() }
+                // Il permesso delle notifiche può essere stato dato dalle Impostazioni nel frattempo
+                Task { await Promemoria.aggiorna(store.pagamentiPromemoria, attivi: store.profilo?.promemoria ?? false) }
+            }
             // Le modifiche appena fatte si scrivono prima che iOS sospenda l'app
             if nuova == .background { store.salvaSubito() }
         }

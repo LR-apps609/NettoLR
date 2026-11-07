@@ -29,13 +29,12 @@ final class Acquisto: ObservableObject {
     private let uitest = ProcessInfo.processInfo.arguments.contains("-uitest")
 
     init() {
+        // L'inizio della prova sta anche nel portachiavi: reinstallare l'app non fa ripartire i 14 giorni
         let d = UserDefaults.standard
-        if let inizio = d.object(forKey: "inizioProva") as? Date {
-            inizioProva = inizio
-        } else {
-            inizioProva = Date()
-            d.set(inizioProva, forKey: "inizioProva")
-        }
+        let candidati = [d.object(forKey: "inizioProva") as? Date, Portachiavi.data("inizioProva")].compactMap { $0 }
+        inizioProva = candidati.min() ?? Date()
+        d.set(inizioProva, forKey: "inizioProva")
+        Portachiavi.salva(inizioProva, "inizioProva")
         // Nel giro delle foto: abbonamento attivo, oppure («-uiProva») la schermata con i piani
         if uitest {
             let prova = ProcessInfo.processInfo.arguments.contains("-uiProva")
@@ -49,9 +48,16 @@ final class Acquisto: ObservableObject {
     }
 
     var giorniRimasti: Int {
-        let passati = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: inizioProva),
-                                                      to: Calendar.current.startOfDay(for: Date())).day ?? 0
-        // Un orologio spostato indietro non allunga la prova
+        // Un orologio spostato indietro non allunga la prova: conta il giorno più avanti mai visto
+        let visto = Portachiavi.data("ultimoGiornoVisto") ?? (UserDefaults.standard.object(forKey: "ultimoGiornoVisto") as? Date)
+        let cal = Giorno.calendario
+        let oggi = max(Date(), visto ?? .distantPast)
+        // Si scrive una volta al giorno, non a ogni disegno della schermata
+        if visto.map({ cal.startOfDay(for: oggi) > cal.startOfDay(for: $0) }) ?? true {
+            UserDefaults.standard.set(oggi, forKey: "ultimoGiornoVisto")
+            Portachiavi.salva(oggi, "ultimoGiornoVisto")
+        }
+        let passati = cal.dateComponents([.day], from: cal.startOfDay(for: inizioProva), to: cal.startOfDay(for: oggi)).day ?? 0
         return max(0, Self.giorniProva - max(0, passati))
     }
 

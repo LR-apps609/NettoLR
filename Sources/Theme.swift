@@ -32,6 +32,8 @@ enum Theme {
     /// «Pagato», «giusto»
     static let menta = Color(light: 0x23866A, dark: 0x7CD3B0)
     static let mentaSoft = Color(light: 0xDDF1EA, dark: 0x16302A)
+    /// Il testo sopra la menta piena: bianco in chiaro, verde notte in scuro (la menta scura è chiara)
+    static let suMenta = Color(light: 0xFFFFFF, dark: 0x0F2A21)
     static let lilla = Color(light: 0x7A5BA6, dark: 0xB9A0E0)
     static let lillaSoft = Color(light: 0xEDE6F6, dark: 0x2A2238)
     /// I colori delle iniziali dei clienti, a rotazione

@@ -81,6 +81,9 @@ struct RiepilogoPDF: View {
                 }
             }
             sezione("Incassi")
+            if Esporta.fatture(store).isEmpty {
+                Text("Nessun incasso in quest'anno.").font(.system(size: 11)).foregroundStyle(.secondary)
+            }
             ForEach(Esporta.fatture(store).sorted { $0.data < $1.data }) { f in
                 HStack {
                     Text(Formato.dataCorta(f.dataIncasso ?? f.data)).frame(width: 70, alignment: .leading)
@@ -106,7 +109,7 @@ struct RiepilogoPDF: View {
                 }
                 .font(.system(size: 10))
             }
-            Text("Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al \(Formato.dataCorta(Giorno.da(Regole.attuali.aggiornatoAl))).")
+            Text("Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al \(Formato.dataCorta(Giorno.da(store.regole.aggiornatoAl))).")
                 .font(.system(size: 9)).foregroundStyle(.secondary)
                 .padding(.top, 8)
         }

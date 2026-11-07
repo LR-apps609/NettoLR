@@ -87,7 +87,10 @@ struct NettoView: View {
                     .font(.system(size: 30, weight: .heavy, design: .rounded))
                 Menu {
                     Picker("Anno", selection: $store.anno) {
-                        ForEach(Regole.anniDisponibili.reversed(), id: \.self) { Text("Il \(String($0))").tag($0) }
+                        // Gli anni prima dell'apertura non hanno niente da mostrare
+                        ForEach(Regole.anniDisponibili.reversed().filter { $0 >= p.annoApertura || $0 == store.anno }, id: \.self) {
+                            Text("Il \(String($0))").tag($0)
+                        }
                     }
                 } label: {
                     HStack(spacing: 4) {
@@ -118,13 +121,13 @@ struct NettoView: View {
                     .frame(width: 58, height: 58)
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Metti da parte").font(.app(14, .bold)).foregroundStyle(Theme.tasseTesto)
+                    // La cifra dell'anno resta sempre in vista: nel primo anno il prossimo pagamento può essere
+                    // un bollo di pochi euro, mentre tasse e pensione si pagano tutte l'anno dopo
+                    Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
+                    Text("per tasse e pensione del \(String(store.anno))").font(.app(14)).foregroundStyle(Theme.muted)
                     if let prossimo = store.prossimoPagamento {
-                        Text(Formato.euroTondo(prossimo.importo)).font(.cifra(28)).foregroundStyle(Theme.ink)
-                        Text("entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
-                            .font(.app(14)).foregroundStyle(Theme.muted)
-                    } else {
-                        Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
-                        Text("per tasse e pensione di quest'anno").font(.app(14)).foregroundStyle(Theme.muted)
+                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
+                            .font(.app(13, .semibold)).foregroundStyle(Theme.tasseTesto).fixedSize(horizontal: false, vertical: true)
                     }
                 }
                 Spacer()
@@ -190,7 +193,11 @@ struct AnelloNetto: View {
             }
             .buttonStyle(Molla())
             .sensoryFeedback(.selection, trigger: scelta)
-            .accessibilityLabel("\(scelto.0.tradotto): \(Formato.euroTondo(scelto.1)). Tocca per cambiare.")
+            .accessibilityLabel("\(scelto.0.tradotto): \(Formato.euroTondo(scelto.1))")
+            .accessibilityHint("Tocca per vedere la parte dopo")
+            .accessibilityAdjustableAction { d in
+                withAnimation { scelta = d == .increment ? (scelta + 1) % parti.count : (scelta + parti.count - 1) % parti.count }
+            }
 
             HStack(spacing: 8) {
                 ForEach(Array(parti.enumerated()), id: \.offset) { i, p in
@@ -206,6 +213,7 @@ struct AnelloNetto: View {
                         .background(i == scelta ? p.2 : Color.white.opacity(0.1), in: Capsule())
                     }
                     .buttonStyle(Molla())
+                    .accessibilityAddTraits(i == scelta ? .isSelected : [])
                 }
             }
             if res.netto < 0 && res.ricavi > 0 {

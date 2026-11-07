@@ -68,6 +68,7 @@ struct DomandeProfilo: View {
     @State private var ateco = ""
     @State private var nomeLavoro = ""
     @State private var annoApertura = Regole.attuali.anno
+    @State private var meseApertura = 1
     @State private var primaVolta = true
     @State private var gestione = Gestione.separata
     @State private var riduzione35 = false
@@ -210,6 +211,17 @@ struct DomandeProfilo: View {
             .pickerStyle(.wheel)
             .frame(height: 150)
             .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+            // Nell'anno di apertura la pensione fissa si paga solo per i mesi di attività
+            if annoApertura >= Regole.attuali.anno - 1 {
+                Picker("In che mese?", selection: $meseApertura) {
+                    ForEach(1...12, id: \.self) { m in
+                        Text(Giorno.data(2026, m, 1).formatted(.dateTime.month(.wide).locale(Formato.lingua)).capitalized).tag(m)
+                    }
+                }
+                .pickerStyle(.menu)
+                .font(.app(16, .semibold))
+                .accessibilityIdentifier("profilo.mese")
+            }
             // La legge (L. 190/2014, c. 65) chiede due cose: nessuna attività in proprio nei 3 anni prima
             // e non continuare lo stesso lavoro fatto prima da dipendente o da autonomo
             domanda("Nei 3 anni prima di aprire non avevi un'altra attività in proprio?", piccola: true)
@@ -222,9 +234,9 @@ struct DomandeProfilo: View {
     private var pensione: some View {
         VStack(alignment: .leading, spacing: 14) {
             domanda("Dove versi la pensione?")
-            opzione(.separata, "INPS, Gestione Separata", "La strada della maggior parte dei liberi professionisti")
-            opzione(.artigiani, "INPS, Artigiani", "Parrucchieri, idraulici, elettricisti…")
-            opzione(.commercianti, "INPS, Commercianti", "Negozi, vendita online, agenti…")
+            opzione(.separata, "Pensione dei liberi professionisti", "La strada della maggior parte dei liberi professionisti")
+            opzione(.artigiani, "Pensione degli artigiani", "Parrucchieri, idraulici, elettricisti…")
+            opzione(.commercianti, "Pensione dei commercianti", "Negozi, vendita online, agenti…")
             opzione(.cassa, "Una cassa del mio ordine", "Avvocati, ingegneri, psicologi…")
             if gestione == .artigiani || gestione == .commercianti {
                 domanda("Hai chiesto lo sconto del 35% sui contributi?", piccola: true)
@@ -380,7 +392,8 @@ struct DomandeProfilo: View {
             rivalsa4: iniziale?.rivalsa4 ?? false,
             promemoria: iniziale?.promemoria ?? true,
             faceID: iniziale?.faceID,
-            altreAttivita: iniziale?.altreAttivita))
+            altreAttivita: iniziale?.altreAttivita,
+            meseApertura: annoApertura >= Regole.attuali.anno - 1 ? meseApertura : iniziale?.meseApertura))
     }
 
     private func riempi() {
@@ -388,6 +401,7 @@ struct DomandeProfilo: View {
         ateco = p.ateco
         nomeLavoro = Ateco.nomeLavoro(p.ateco)
         annoApertura = p.annoApertura
+        meseApertura = p.meseApertura ?? 1
         primaVolta = p.requisitiStartup
         gestione = p.gestione
         riduzione35 = p.riduzione35

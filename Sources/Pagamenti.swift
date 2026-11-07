@@ -79,8 +79,12 @@ enum Pagamenti {
             let ac = r.artigianiCommercianti
             let tab = p.gestione == .artigiani ? ac.artigiani : ac.commercianti
             let riduzione = p.riduzione35 ? 1 - ac.riduzioneForfettari.valore : 1
-            let rata = arrotonda(tab.fissoAnnuo.valore * riduzione / 4)
+            // Ogni rata copre un trimestre: nell'anno di apertura si pagano solo i mesi di attività
+            let primoMese = r.anno == p.annoApertura ? min(12, max(1, p.meseApertura ?? 1)) : (r.anno < p.annoApertura ? 13 : 1)
             for (i, data) in ac.scadenzeRateFisse.valore.enumerated() {
+                let mesi = (3 * i + 1...3 * i + 3).filter { $0 >= primoMese }.count
+                guard mesi > 0 else { continue }
+                let rata = arrotonda(tab.fissoAnnuo.valore * riduzione * Double(mesi) / 12)
                 out.append(Pagamento(
                     data: Giorno.da(data), tipo: .pensione, titolo: String(localized: "Pensione: rata fissa \(i + 1) di 4"),
                     codice: "modello F24 precompilato nel Cassetto previdenziale INPS".tradotto,

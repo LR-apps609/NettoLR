@@ -34,7 +34,7 @@ struct PagamentiView: View {
                     Button("I dati dell'anno scorso") { datiAnnoScorso = true }
                         .buttonStyle(PulsanteBordo())
                         .accessibilityIdentifier("pagamenti.annoScorso")
-                    Text("NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti.")
+                    Text("NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti. È un calcolo, non una consulenza fiscale: controlla gli importi prima di pagare.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
                 }
                 .padding(.horizontal, 20).padding(.vertical, 12)
@@ -95,7 +95,8 @@ struct PagamentiView: View {
         .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : "")")
+        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : (passato ? ", scaduto".tradotto : ""))")
+        .accessibilityHint("Apri per i dati da copiare")
     }
 }
 
@@ -145,7 +146,7 @@ struct DettaglioPagamentoView: View {
                     Label(fatto == nil ? "Ho pagato".tradotto : String(localized: "Pagato il \(fatto!.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))"),
                           systemImage: fatto == nil ? "checkmark.circle" : "checkmark.circle.fill")
                 }
-                .buttonStyle(PulsantePieno(colore: Theme.menta, testo: .white))
+                .buttonStyle(PulsantePieno(colore: Theme.menta, testo: Theme.suMenta))
                 .sensoryFeedback(.success, trigger: fatto)
                 .accessibilityIdentifier("pagamento.fatto")
                 if let foto = store.immagineRicevuta(pagamento.id) {
@@ -201,7 +202,7 @@ struct AnnoScorsoView: View {
             CampoEuro(etichetta: String(localized: "Anticipi di tasse già pagati per il \(String(Regole.attuali.anno - 1))"), testo: $acconti)
             switch store.profilo?.gestione {
             case .separata:
-                CampoEuro(etichetta: String(localized: "Pensione (INPS) dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
+                CampoEuro(etichetta: String(localized: "Pensione dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
                 CampoEuro(etichetta: "Anticipi di pensione già pagati", testo: $accontiPensione)
             case .artigiani, .commercianti:
                 CampoEuro(etichetta: String(localized: "Pensione sopra il minimo dovuta per il \(String(Regole.attuali.anno - 1))"), testo: $pensione)
@@ -211,7 +212,7 @@ struct AnnoScorsoView: View {
             default:
                 EmptyView()
             }
-            CampoEuro(etichetta: "Pensione (INPS) pagata quest'anno", testo: $versati)
+            CampoEuro(etichetta: "Pensione pagata quest'anno", testo: $versati)
             Button("Salva") {
                 store.annoPrecedente = DatiAnnoPrecedente(
                     imposta: Formato.leggiEuro(imposta), accontiVersati: Formato.leggiEuro(acconti),

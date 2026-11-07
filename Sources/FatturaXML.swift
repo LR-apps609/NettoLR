@@ -25,6 +25,8 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
         var tipo: String?
         var totale: Double?
         var bollo: Double?
+        /// EUR, USD…: solo le fatture in euro entrano da sole
+        var divisa: String?
         var imponibili = 0.0
         var trovatoImponibile = false
     }
@@ -37,8 +39,13 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
         let parser = XMLParser(data: dati)
         parser.shouldProcessNamespaces = true
         parser.delegate = lettore
-        if !parser.parse() && lettore.esito.fatture.isEmpty {
+        let letto = parser.parse()
+        if !letto && lettore.esito.fatture.isEmpty {
             return Esito(errori: ["Il file non sembra una fattura elettronica XML.".tradotto])
+        }
+        if !letto {
+            // File rovinato a metà: le fatture lette entrano, ma l'utente deve sapere che potrebbero mancarne
+            lettore.esito.errori.append("Il file è rovinato: alcune fatture potrebbero mancare. Controlla l'elenco.".tradotto)
         }
         if lettore.esito.fatture.isEmpty && lettore.esito.errori.isEmpty {
             lettore.esito.errori.append("Il file non sembra una fattura elettronica XML.".tradotto)
@@ -77,6 +84,7 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
         if corpo != nil {
             switch elementName {
             case "TipoDocumento" where neiDatiDocumento: corpo?.tipo = valore
+            case "Divisa" where neiDatiDocumento: corpo?.divisa = valore.uppercased()
             case "Numero" where neiDatiDocumento && corpo?.numero == nil: corpo?.numero = valore
             case "Data" where neiDatiDocumento && corpo?.data == nil: corpo?.data = valore
             case "ImportoTotaleDocumento": corpo?.totale = Double(valore)
@@ -108,6 +116,11 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
             esito.errori.append(String(localized: "Fattura \(c.numero ?? ""): l'ha emessa un'altra partita IVA, quindi è una spesa e non un incasso. Non aggiunta."))
             return
         }
+        // Una fattura in un'altra valuta non si somma agli euro: l'importo in euro lo sa solo chi l'ha incassata
+        if let divisa = c.divisa, !divisa.isEmpty, divisa != "EUR" {
+            esito.errori.append(String(localized: "Fattura \(c.numero ?? ""): è in \(divisa). Aggiungila a mano con l'importo in euro che hai ricevuto."))
+            return
+        }
         // Una nota di credito toglie soldi invece di aggiungerli: non diventa un incasso
         if c.tipo == "TD04" {
             esito.errori.append(String(localized: "Nota di credito \(c.numero ?? ""): non aggiunta. Se riduce un incasso già segnato, correggilo a mano."))
@@ -119,7 +132,7 @@ final class LettoreFatturaPA: NSObject, XMLParserDelegate {
             return
         }
         let chi = !cliente.isEmpty ? cliente : [nome, cognome].filter { !$0.isEmpty }.joined(separator: " ")
-        esito.fatture.append(Fattura(numero: numero, data: Giorno.da(data), cliente: chi.isEmpty ? "Cliente" : chi,
+        esito.fatture.append(Fattura(numero: numero, data: Giorno.da(data), cliente: chi.isEmpty ? "Cliente".tradotto : chi,
                                      importo: arrotonda(importo), incassata: false, origine: .xml))
     }
 }

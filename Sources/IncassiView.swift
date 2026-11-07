@@ -42,7 +42,12 @@ struct IncassiView: View {
                         inAttesa(f).transition(.asymmetric(insertion: .scale.combined(with: .opacity), removal: .move(edge: .trailing).combined(with: .opacity)))
                     }
 
-                    let pagate = store.fatture.filter(\.incassata)
+                    // Gli incassi dell'anno guardato in Netto, come il totale in alto
+                    let pagate = store.fatture.filter { $0.incassata && Giorno.anno($0.dataIncasso ?? $0.data) == store.anno }
+                    if pagate.isEmpty && !store.fatture.isEmpty {
+                        Text("Nessun incasso nel \(String(store.anno)).").font(.app(15)).foregroundStyle(Theme.muted)
+                            .frame(maxWidth: .infinity).padding(.vertical, 20)
+                    }
                     if pagate.isEmpty && store.fatture.isEmpty {
                         VStack(spacing: 10) {
                             Image(systemName: "tray").font(.system(size: 40)).foregroundStyle(Theme.prugna)
@@ -200,7 +205,7 @@ struct NuovoIncassoView: View {
                         .scheda(padding: 16)
                         .animation(.easeOut, value: valore)
                         if p.rivalsa4 && p.gestione == .separata {
-                            Text("Con il 4% INPS in fattura il cliente paga \(Formato.euro(Calcolo.conRivalsa(valore))): inserisci quella cifra se è già compresa.")
+                            Text("Con il 4% di pensione in fattura il cliente paga \(Formato.euro(Calcolo.conRivalsa(valore))): inserisci quella cifra se è già compresa.")
                                 .font(.app(14)).foregroundStyle(Theme.muted)
                         }
                     }

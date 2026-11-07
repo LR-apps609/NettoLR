@@ -439,4 +439,21 @@ final class CalcoloTests: XCTestCase {
         // Il 2027 è tutto provvisorio: c'è l'avviso
         XCTAssertTrue(Calcolo.avvisi(sviluppatore, ricaviAnno: 10_000, r: Regole.per(anno: 2027)).contains { $0.contains("2027") })
     }
+
+    /// Aperta a luglio: quote fisse e rate solo per i mesi di attività; niente anni prima dell'apertura
+    func testAperturaAMetaAnno() {
+        var p = Profilo(ateco: "96.02.01", annoApertura: 2026, requisitiStartup: true, gestione: .artigiani, riduzione35: false)
+        let intero = Calcolo.contributi(p, reddito: 10_000, forfettario: true, r: Regole.per(anno: 2026))
+        p.meseApertura = 7
+        XCTAssertEqual(Calcolo.mesiAttivi(p, anno: 2026), 6)
+        XCTAssertEqual(Calcolo.mesiAttivi(p, anno: 2025), 0)
+        XCTAssertEqual(Calcolo.mesiAttivi(p, anno: 2027), 12)
+        let mezzo = Calcolo.contributi(p, reddito: 10_000, forfettario: true, mesi: 6, r: Regole.per(anno: 2026))
+        XCTAssertEqual(mezzo.fissi, arrotonda(intero.fissi / 2), accuracy: 0.02)
+        XCTAssertEqual(Calcolo.forfettario(p, anno: 2026, ricavi: 10_000).contributi, mezzo.totale)
+        let rate = Pagamenti.anno(p, precedente: DatiAnnoPrecedente(), fatture: [], r: Regole.per(anno: 2026))
+            .filter { $0.chiave.hasPrefix("Pensione: rata fissa") }
+        XCTAssertEqual(rate.count, 2, "Solo le rate di luglio-settembre e ottobre-dicembre")
+        XCTAssertEqual(rate.reduce(0) { $0 + $1.importo }, mezzo.fissi, accuracy: 0.05)
+    }
 }
