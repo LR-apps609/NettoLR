@@ -10,7 +10,10 @@ enum Esporta {
             let incasso = f.dataIncasso.map(Formato.dataCorta) ?? ""
             let importo = String(format: "%.2f", f.importo).replacingOccurrences(of: ".", with: ",")
             let cliente = "\"" + f.cliente.replacingOccurrences(of: "\"", with: "\"\"") + "\""
-            return [f.numero, Formato.dataCorta(f.data), cliente, importo, f.incassata ? "sì" : "no", incasso].joined(separator: ";")
+            // «3/2026» o «001» Excel li cambierebbe in una data o in 1: si scrivono come testo (="…")
+            let soloCifre = !f.numero.isEmpty && f.numero.allSatisfy(\.isNumber) && !f.numero.hasPrefix("0")
+            let numero = soloCifre ? f.numero : "\"=\"\"" + f.numero.replacingOccurrences(of: "\"", with: "\"\"\"\"") + "\"\"\""
+            return [numero, Formato.dataCorta(f.data), cliente, importo, f.incassata ? "sì" : "no", incasso].joined(separator: ";")
         }
         return "\u{FEFF}" + (["Numero;Data fattura;Cliente;Importo;Incassata;Data incasso"] + righe).joined(separator: "\r\n")
     }

@@ -230,6 +230,10 @@ final class CalcoloTests: XCTestCase {
         let csv = Esporta.csv([f])
         XCTAssertTrue(csv.hasPrefix("\u{FEFF}Numero;Data fattura"))
         XCTAssertTrue(csv.contains("3;05/03/2026;\"Rossi \"\"Il Bello\"\"\";1234,50;sì;20/03/2026"))
+        // Numeri con «/» o con lo zero davanti restano testo in Excel
+        var g = f
+        g.numero = "3/2026"
+        XCTAssertTrue(Esporta.csv([g]).contains("\"=\"\"3/2026\"\"\";05/03/2026"))
     }
 
     func testPiuAttivita() {
