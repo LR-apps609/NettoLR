@@ -218,6 +218,11 @@ enum Ateco {
 
     /// Il nome che usa la gente («Web designer») se c'è, altrimenti il titolo ISTAT
     static func nomeLavoro(_ codice2007: String) -> String {
+        // Chi ha scelto un gruppo («Professioni…») invece di un lavoro vede il gruppo, non un lavoro a caso del gruppo
+        if let id = DomandeProfilo.codiceRappresentativo.first(where: { $0.value == codice2007 })?.key,
+           !attivita.contains(where: { $0.ateco2007 == codice2007 && DomandeProfilo.popolari.contains(codice2007) }) {
+            return gruppo(id).nome.tradotto
+        }
         if let a = attivita.first(where: { $0.ateco2007 == codice2007 }) { return nomeComune(a) }
         return titolo2007(codice2007) ?? codice2007
     }

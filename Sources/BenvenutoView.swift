@@ -199,7 +199,7 @@ struct DomandeProfilo: View {
                             Text(g.nome.tradotto).font(.app(15)).multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(14)
-                                .background(nomeLavoro == g.nome ? Theme.prugnaSoft : Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                                .background(ateco == Self.codiceRappresentativo[g.id] && nomeLavoro == g.nome.tradotto ? Theme.prugnaSoft : Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         }
                         .buttonStyle(.plain)
                     }

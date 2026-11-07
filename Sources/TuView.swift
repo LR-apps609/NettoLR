@@ -1,4 +1,5 @@
 import SwiftUI
+import UserNotifications
 import LocalAuthentication
 import UIKit
 
@@ -13,6 +14,8 @@ struct TuView: View {
     }()
     @EnvironmentObject private var store: Store
     @State private var senzaCodice = false
+    @State private var notificheNegate = false
+    @Environment(\.scenePhase) private var fase
     @State private var modifica = false
     @State private var documenti = false
     @State private var esporta = false
@@ -68,6 +71,15 @@ struct TuView: View {
                             interruttore("bell", "Promemoria", acceso: Binding(
                                 get: { store.profilo?.promemoria ?? true },
                                 set: { store.profilo?.promemoria = $0 }))
+                            if notificheNegate && (store.profilo?.promemoria ?? true) {
+                                // Acceso qui ma negato in Impostazioni: i promemoria non arriverebbero
+                                Button { Fotocamera.apriImpostazioni() } label: {
+                                    Text("Le notifiche sono spente nelle Impostazioni: i promemoria non arrivano. Tocca per accenderle.")
+                                        .font(.app(13, .semibold)).foregroundStyle(Theme.avviso).multilineTextAlignment(.leading)
+                                        .padding(.horizontal, 16).padding(.bottom, 10)
+                                }
+                                .buttonStyle(.plain)
+                            }
                             Divider().padding(.leading, 66)
                             Button { esporta = true } label: {
                                 riga("square.and.arrow.up", Theme.menta, "Manda al commercialista", valore: "PDF ed Excel", freccia: true)
@@ -130,6 +142,9 @@ struct TuView: View {
                 Button("Cancella tutto", role: .destructive) { store.cancellaTutto() }
             }
             .onAppear { piva = store.profilo?.partitaIVA ?? "" }
+            .task(id: fase) {
+                notificheNegate = await UNUserNotificationCenter.current().notificationSettings().authorizationStatus == .denied
+            }
         }
     }
 

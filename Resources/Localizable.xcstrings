@@ -6084,6 +6084,17 @@
           }
         }
       }
+    },
+    "Le notifiche sono spente nelle Impostazioni: i promemoria non arrivano. Tocca per accenderle.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifications are off in Settings: reminders won't arrive. Tap to turn them on."
+          }
+        }
+      }
     }
   },
   "version": "1.0"
