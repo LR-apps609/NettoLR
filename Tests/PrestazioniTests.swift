@@ -103,7 +103,8 @@ final class PrestazioniTests: XCTestCase {
         }
         print("IMPRONTA risultati: \(impronta(s)) (\(s.count) caratteri)")
         // L'impronta misurata prima delle modifiche per la velocità (3 novembre 2026): i risultati devono restare identici
-        XCTAssertEqual(impronta(s), "220f0a89b6205a54")
+        // 08/11/2026: i codici F24 hanno l'anno di riferimento e il bollo gli importi per trimestre (numeri invariati)
+        XCTAssertEqual(impronta(s), "ca26e8c287263a3a")
     }
 
     // MARK: - Misure
