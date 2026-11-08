@@ -6183,6 +6183,17 @@
           }
         }
       }
+    },
+    "Ho letto la partita IVA %@, ma l'ultima cifra non torna: forse la foto non è nitida. Controllala e scrivila tu in «Tu».": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I read the VAT number %@, but the last digit doesn't check out: the photo may be blurry. Check it and type it yourself in “You”."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

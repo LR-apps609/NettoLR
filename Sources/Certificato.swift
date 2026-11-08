@@ -10,6 +10,8 @@ enum LettoreCertificato {
     struct Trovato: Equatable {
         var codici: [TrovatoAteco] = []
         var partitaIVA: String?
+        /// 11 cifre lette ma con la cifra di controllo sbagliata (forse letta male): si dice, non si salva
+        var partitaIVADubbia: String?
     }
 
     /// Legge il testo di una o più immagini
@@ -49,9 +51,13 @@ enum LettoreCertificato {
         }
         let piva = try? NSRegularExpression(pattern: #"(?<!\d)(\d{11})(?!\d)"#)
         for m in piva?.matches(in: testo, range: intervallo) ?? [] {
-            if let r = Range(m.range(at: 1), in: testo), PartitaIVA.valida(String(testo[r])) {
+            guard let r = Range(m.range(at: 1), in: testo) else { continue }
+            if PartitaIVA.valida(String(testo[r])) {
                 trovato.partitaIVA = String(testo[r])
+                trovato.partitaIVADubbia = nil
                 break
+            } else if trovato.partitaIVADubbia == nil {
+                trovato.partitaIVADubbia = String(testo[r])
             }
         }
         return trovato
@@ -136,6 +142,9 @@ struct CertificatoView: View {
     private func risultato(_ t: LettoreCertificato.Trovato) -> some View {
         if t.codici.isEmpty && t.partitaIVA == nil {
             Avviso(testo: "Non ho trovato codici ATECO. Prova con una foto più dritta e ben illuminata, oppure cerca il tuo lavoro a mano.")
+        }
+        if t.partitaIVA == nil, let d = t.partitaIVADubbia {
+            Avviso(testo: String(localized: "Ho letto la partita IVA \(d), ma l'ultima cifra non torna: forse la foto non è nitida. Controllala e scrivila tu in «Tu»."))
         }
         if let p = t.partitaIVA {
             HStack(spacing: 10) {
