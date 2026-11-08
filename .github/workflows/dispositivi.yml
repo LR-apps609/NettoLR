@@ -40,7 +40,8 @@ jobs:
           echo "iPhone disponibili:"; echo "$ELENCO"
           case "${{ matrix.taglia }}" in
             piccolo) SIM=$(echo "$ELENCO" | grep -E "SE|mini|16e" | head -n 1) ;;
-            grande)  SIM=$(echo "$ELENCO" | grep -E "Pro Max|Plus|Air" | sort -V | tail -n 1) ;;
+            grande)  SIM=$(echo "$ELENCO" | grep -E "Pro Max" | sort -V | tail -n 1)
+                     [ -z "$SIM" ] && SIM=$(echo "$ELENCO" | grep -E "Plus|Air" | sort -V | tail -n 1) ;;
             *)       SIM=$(echo "$ELENCO" | grep -E "^iPhone [0-9]+$" | sort -V | tail -n 1) ;;
           esac
           [ -z "$SIM" ] && SIM=$(echo "$ELENCO" | head -n 1)
