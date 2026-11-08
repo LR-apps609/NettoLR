@@ -6095,6 +6095,50 @@
           }
         }
       }
+    },
+    "1792 saldo %@ (anno %@) · 1790 primo acconto %@ (anno %@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1792 balance %1$@ (year %2$@) · 1790 first advance %3$@ (year %4$@)"
+          }
+        }
+      }
+    },
+    "1791 secondo acconto (anno %@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1791 second advance (year %@)"
+          }
+        }
+      }
+    },
+    "causale %@ · saldo %@ (periodo %@) + acconto %@ (periodo %@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "code %1$@ · balance %2$@ (period %3$@) + advance %4$@ (period %5$@)"
+          }
+        }
+      }
+    },
+    "causale %@ · acconto %@ (periodo %@)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "code %1$@ · %2$@ advance (period %3$@)"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

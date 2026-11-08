@@ -198,7 +198,9 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(b.first?.importo, 10)
         XCTAssertEqual(b.first?.data, Giorno.da("2026-11-30"))
         XCTAssertEqual(b.last?.importo, 2)
-        XCTAssertTrue(b.first?.codice.contains("2521 + 2522 + 2523") ?? false)
+        // Il 2° trimestre non ha bollo: nei dati F24 ci sono solo 2521 e 2523, ognuno con il suo importo
+        XCTAssertTrue(b.first?.codice.contains("2521 · 6,00 € + 2523 · 4,00 €") ?? false, b.first?.codice ?? "")
+        XCTAssertFalse(b.first?.codice.contains("2522") ?? true)
     }
 
     func testFormatoEuro() {

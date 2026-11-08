@@ -44,14 +44,14 @@ enum Pagamenti {
         if saldo + primo > 0 {
             out.append(Pagamento(
                 data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .tasse, titolo: "Tasse: il conto dell'anno scorso e un anticipo".tradotto,
-                codice: String(localized: "1792 saldo \(Formato.euro(saldo)) · 1790 primo acconto \(Formato.euro(primo))"),
+                codice: String(localized: "1792 saldo \(Formato.euro(saldo)) (anno \(String(r.anno - 1))) · 1790 primo acconto \(Formato.euro(primo)) (anno \(String(r.anno)))"),
                 spiegazione: String(localized: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(.dateTime.day().month(.wide).locale(Formato.lingua))) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più."),
                 importo: arrotonda(saldo + primo), fonte: r.fonte(v.saldoPrimoAcconto), chiave: "Tasse: il conto dell'anno scorso e un anticipo"))
         }
         if secondo > 0 {
             out.append(Pagamento(
                 data: Giorno.da(v.secondoAcconto.valore), tipo: .tasse, titolo: "Tasse: secondo anticipo".tradotto,
-                codice: "1791 secondo acconto".tradotto, spiegazione: "L'anticipo sulle tasse di quest'anno.".tradotto,
+                codice: String(localized: "1791 secondo acconto (anno \(String(r.anno)))"), spiegazione: "L'anticipo sulle tasse di quest'anno.".tradotto,
                 importo: secondo, fonte: r.fonte(v.secondoAcconto), chiave: "Tasse: secondo anticipo"))
         }
 
@@ -62,12 +62,12 @@ enum Pagamenti {
             let acconto = arrotonda(dovuti * percentuale.valore / 2)
             out.append(Pagamento(
                 data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .pensione, titolo: "Pensione: il conto dell'anno scorso e un anticipo".tradotto,
-                codice: String(localized: "causale \(causale) · saldo \(Formato.euro(saldo)) + acconto \(Formato.euro(acconto))"),
+                codice: String(localized: "causale \(causale) · saldo \(Formato.euro(saldo)) (periodo \(String(r.anno - 1))) + acconto \(Formato.euro(acconto)) (periodo \(String(r.anno)))"),
                 spiegazione: spiegazione,
                 importo: arrotonda(saldo + acconto), fonte: r.fonte(percentuale), chiave: "Pensione: il conto dell'anno scorso e un anticipo"))
             out.append(Pagamento(
                 data: Giorno.da(v.secondoAcconto.valore), tipo: .pensione, titolo: "Pensione: secondo anticipo".tradotto,
-                codice: String(localized: "causale \(causale) · acconto \(Formato.pct(percentuale.valore / 2))"), spiegazione: spiegazione,
+                codice: String(localized: "causale \(causale) · acconto \(Formato.pct(percentuale.valore / 2)) (periodo \(String(r.anno)))"), spiegazione: spiegazione,
                 importo: acconto, fonte: r.fonte(percentuale), chiave: "Pensione: secondo anticipo"))
         }
 
@@ -122,7 +122,9 @@ enum Pagamenti {
                 continue
             }
             if totale > 0 {
-                let codici = trimestriRinviati.map { "\(2520 + $0)" }.joined(separator: " + ")
+                // Per l'F24 ogni trimestre ha il suo codice e il suo importo; i trimestri senza bollo non si scrivono
+                let codici = trimestriRinviati.filter { perTrimestre[$0 - 1] > 0 }
+                    .map { "\(2520 + $0) · \(Formato.euro(perTrimestre[$0 - 1]))" }.joined(separator: " + ")
                 let quali = trimestriRinviati.map { "\($0)°" }.joined(separator: ", ")
                 // Nel titolo: «1°, 2°» in italiano, «1, 2» in inglese (la chiave resta quella di sempre)
                 let qualiTitolo = Formato.inglese ? trimestriRinviati.map(String.init).joined(separator: ", ") : quali
