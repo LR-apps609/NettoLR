@@ -35,8 +35,9 @@ struct VideoView: View {
     @StateObject private var voce = Narratore()
     @State private var indice = 0
     @State private var avanzamento = 0.0
-    @State private var conVoce = true
-    @State private var inPausa = false
+    // Con VoiceOver il video parte fermo e senza voce registrata: la voce si sovrapporrebbe a quella di VoiceOver
+    @State private var conVoce = !UIAccessibility.isVoiceOverRunning
+    @State private var inPausa = UIAccessibility.isVoiceOverRunning
     @State private var giro = 0
 
     var body: some View {
@@ -72,7 +73,7 @@ struct VideoView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .id("t\(indice)")
                     .transition(.opacity)
-                    .accessibilityAddTraits(.updatesFrequently)
+                    .accessibilityAddTraits(UIAccessibility.isVoiceOverRunning ? [] : .updatesFrequently)
                 HStack(spacing: 14) {
                     tasto(conVoce ? "speaker.wave.2.fill" : "speaker.slash.fill", conVoce ? "Togli la voce" : "Metti la voce") {
                         conVoce.toggle()

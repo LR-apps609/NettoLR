@@ -128,8 +128,8 @@ enum Calcolo {
         }
         let nomeGestione = switch p.gestione {
         case .separata: String(localized: "Gestione Separata \(Formato.pct(aliquotaSeparata(p, r: r)))")
-        case .artigiani: (p.riduzione35 ? "Artigiani, riduzione 35%" : "Artigiani").tradotto
-        case .commercianti: (p.riduzione35 ? "Commercianti, riduzione 35%" : "Commercianti").tradotto
+        case .artigiani: p.riduzione35 ? String(localized: "Artigiani, riduzione \(Formato.pct(r.artigianiCommercianti.riduzioneForfettari.valore))") : "Artigiani".tradotto
+        case .commercianti: p.riduzione35 ? String(localized: "Commercianti, riduzione \(Formato.pct(r.artigianiCommercianti.riduzioneForfettari.valore))") : "Commercianti".tradotto
         case .cassa: String(localized: "Cassa professionale \(Formato.pct(p.cassaAliquota ?? 0)) (dato inserito da te)")
         }
 
@@ -235,7 +235,7 @@ enum Calcolo {
             righe: [
                 Riga(etichetta: "Incassato", formula: "IVA esclusa (in ordinario l'IVA si incassa e si versa)", importo: ricavi),
                 Riga(etichetta: "Costi reali", formula: "Spese documentate inserite da te", importo: -costi),
-                Riga(etichetta: "Contributi INPS", formula: "Senza riduzione 35%", importo: -contributi),
+                Riga(etichetta: "Contributi INPS", formula: String(localized: "Senza riduzione \(Formato.pct(r.artigianiCommercianti.riduzioneForfettari.valore))"), importo: -contributi),
                 Riga(etichetta: "IRPEF netta", formula: String(localized: "Scaglioni \(testoScaglioni(r)) meno detrazione lavoro autonomo"),
                      importo: -irpef, fonte: r.fonte(r.irpef.scaglioni)),
                 Riga(etichetta: "Addizionali", formula: String(localized: "\(Formato.pct(aliqAdd)) stimato (dipende da Regione e Comune)"),

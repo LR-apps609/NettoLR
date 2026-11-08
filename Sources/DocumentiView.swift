@@ -27,7 +27,7 @@ struct DocumentiView: View {
                                         .font(.app(16, .bold)).foregroundStyle(nuova ? Theme.tasseTesto : Theme.muted)
                                         .frame(width: 24)
                                     VStack(alignment: .leading, spacing: 2) {
-                                        Text(Giorno.da(n.data).formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua)))
+                                        Text(Giorno.da(n.data).formatted(Formato.giornoAnno))
                                             .font(.app(12, .bold)).foregroundStyle(nuova ? Theme.tasseTesto : Theme.muted)
                                         Text(n.testo.tradotto).font(.app(15)).fixedSize(horizontal: false, vertical: true)
                                     }
@@ -155,7 +155,7 @@ struct DocumentiView: View {
             .frame(width: 66, height: 66)
             VStack(alignment: .leading, spacing: 4) {
                 Text("Regole \(String(regole.anno))").font(.app(20, .bold))
-                Text("\(verificate) fonti verificate, \(totale - verificate) da verificare · aggiornate al \(Giorno.da(regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
+                Text("\(verificate) fonti verificate, \(totale - verificate) da verificare · aggiornate al \(Giorno.da(regole.aggiornatoAl).formatted(Formato.giorno))")
                     .font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.85))
             }
         }

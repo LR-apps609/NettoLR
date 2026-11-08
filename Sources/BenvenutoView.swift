@@ -245,7 +245,7 @@ struct DomandeProfilo: View {
             opzione(.commercianti, "Pensione dei commercianti", "Negozi, vendita online, agenti…")
             opzione(.cassa, "Una cassa del mio ordine", "Avvocati, ingegneri, psicologi…")
             if gestione == .artigiani || gestione == .commercianti {
-                domanda("Hai chiesto lo sconto del 35% sui contributi?", piccola: true)
+                domanda("Hai chiesto lo sconto del {riduzione} sui contributi?".tradotto.conRegole(), piccola: true)
                 sceltaSiNo($riduzione35)
             }
             if gestione == .cassa {
@@ -278,6 +278,8 @@ struct DomandeProfilo: View {
         Text(testo.tradotto)
             .font(.system(size: piccola ? 22 : 30, weight: .heavy, design: .rounded))
             .fixedSize(horizontal: false, vertical: true)
+            // VoiceOver la legge come titolo: si salta da una domanda all'altra con il rotore
+            .accessibilityAddTraits(.isHeader)
             .padding(.top, piccola ? 8 : 0)
     }
 

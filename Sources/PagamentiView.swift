@@ -53,7 +53,7 @@ struct PagamentiView: View {
     }
 
     private func contoAllaRovescia(_ data: Date, _ importo: Double) -> some View {
-        let giorni = max(0, Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: Date()), to: Calendar.current.startOfDay(for: data)).day ?? 0)
+        let giorni = max(0, Giorno.calendario.dateComponents([.day], from: Giorno.calendario.startOfDay(for: Date()), to: Giorno.calendario.startOfDay(for: data)).day ?? 0)
         return VStack(spacing: 14) {
             ZStack {
                 Circle().stroke(Theme.notteRialzo, lineWidth: 12)
@@ -65,7 +65,7 @@ struct PagamentiView: View {
             }
             .frame(width: 160, height: 160)
             Text(Formato.euroTondo(importo)).font(.cifra(34))
-            Text("da pagare entro il \(data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
+            Text("da pagare entro il \(data.formatted(Formato.giorno))")
                 .font(.app(17)).foregroundStyle(Theme.suNotte)
         }
         .frame(maxWidth: .infinity)
@@ -78,7 +78,7 @@ struct PagamentiView: View {
 
     private func riga(_ p: Pagamento) -> some View {
         let fatto = store.pagati[p.id] != nil
-        let passato = fatto || p.data < Calendar.current.startOfDay(for: Date())
+        let passato = fatto || p.data < Giorno.calendario.startOfDay(for: Date())
         return HStack(spacing: 14) {
             if fatto {
                 Image(systemName: "checkmark.circle.fill").font(.app(18)).foregroundStyle(Theme.menta)
@@ -91,7 +91,7 @@ struct PagamentiView: View {
                     .frame(width: 18)
             }
             VStack(alignment: .leading, spacing: 2) {
-                Text(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))).font(.app(16, .semibold))
+                Text(p.data.formatted(Formato.giorno)).font(.app(16, .semibold))
                 Text(p.titolo).font(.app(14)).foregroundStyle(Theme.muted)
             }
             Spacer()
@@ -101,7 +101,7 @@ struct PagamentiView: View {
         .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(p.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua))), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : (passato ? ", scaduto".tradotto : ""))")
+        .accessibilityLabel("\(p.data.formatted(Formato.giorno)), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : (passato ? ", scaduto".tradotto : ""))")
         .accessibilityHint("Apri per i dati da copiare")
     }
 }
@@ -149,7 +149,7 @@ struct DettaglioPagamentoView: View {
                 Button {
                     withAnimation(.spring) { store.segnaPagato(pagamento, fatto == nil) }
                 } label: {
-                    Label(fatto == nil ? "Ho pagato".tradotto : String(localized: "Pagato il \(fatto!.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))"),
+                    Label(fatto == nil ? "Ho pagato".tradotto : String(localized: "Pagato il \(fatto!.formatted(Formato.giorno))"),
                           systemImage: fatto == nil ? "checkmark.circle" : "checkmark.circle.fill")
                 }
                 .buttonStyle(PulsantePieno(colore: Theme.menta, testo: Theme.suMenta))
@@ -182,7 +182,7 @@ struct DettaglioPagamentoView: View {
             .padding(20)
             }
             .background(Theme.ground)
-            .navigationTitle(pagamento.data.formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua)))
+            .navigationTitle(pagamento.data.formatted(Formato.giornoAnno))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fatto") { chiudi() } } }
         }

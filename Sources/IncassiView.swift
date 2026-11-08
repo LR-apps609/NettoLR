@@ -109,7 +109,7 @@ struct IncassiView: View {
             iniziale(f.cliente, piena: false)
             VStack(alignment: .leading, spacing: 2) {
                 Text(f.cliente).font(.app(16, .semibold)).lineLimit(1)
-                Text((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))
+                Text((f.dataIncasso ?? f.data).formatted(Formato.giorno))
                     .font(.app(14)).foregroundStyle(Theme.muted)
             }
             Spacer()
@@ -121,7 +121,7 @@ struct IncassiView: View {
         .padding(.vertical, 10).padding(.horizontal, 4)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(f.cliente), \(Formato.euroTondo(f.importo)), pagata il \((f.dataIncasso ?? f.data).formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
+        .accessibilityLabel("\(f.cliente), \(Formato.euroTondo(f.importo)), pagata il \((f.dataIncasso ?? f.data).formatted(Formato.giorno))")
         .contextMenu {
             Button("Non ancora pagata", systemImage: "arrow.uturn.backward") { store.annullaIncasso(f.id) }
             Button("Elimina", systemImage: "trash", role: .destructive) { store.elimina(f.id) }

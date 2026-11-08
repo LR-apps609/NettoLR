@@ -126,7 +126,7 @@ struct NettoView: View {
                     Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
                     Text("per tasse e pensione del \(String(store.anno))").font(.app(14)).foregroundStyle(Theme.muted)
                     if let prossimo = store.prossimoPagamento {
-                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))")
+                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(Formato.giorno))")
                             .font(.app(13, .semibold)).foregroundStyle(Theme.tasseTesto).fixedSize(horizontal: false, vertical: true)
                     }
                 }
@@ -142,7 +142,7 @@ struct NettoView: View {
     /// Quanto manca al prossimo pagamento: il salvadanaio si riempie man mano che la data si avvicina
     private var riempimento: Double {
         guard let prossimo = store.prossimoPagamento else { return 0.5 }
-        let giorni = Calendar.current.dateComponents([.day], from: Date(), to: prossimo.data).day ?? 0
+        let giorni = Giorno.calendario.dateComponents([.day], from: Date(), to: prossimo.data).day ?? 0
         return max(0.1, min(1, 1 - Double(giorni) / 120))
     }
 
@@ -368,7 +368,7 @@ struct ComeLoCalcoloView: View {
                                 .font(.app(14)).foregroundStyle(Theme.muted)
                         }
                     }
-                    Text("Regole \(String(store.anno)) aggiornate al \(Giorno.da(store.regole.aggiornatoAl).formatted(.dateTime.day().month(.wide).year().locale(Formato.lingua))). È un calcolo, non una consulenza fiscale.")
+                    Text("Regole \(String(store.anno)) aggiornate al \(Giorno.da(store.regole.aggiornatoAl).formatted(Formato.giornoAnno)). È un calcolo, non una consulenza fiscale.")
                         .font(.app(13)).foregroundStyle(Theme.muted)
                 }
                 .padding(20)

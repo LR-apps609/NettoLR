@@ -6139,6 +6139,50 @@
           }
         }
       }
+    },
+    "Hai chiesto lo sconto del {riduzione} sui contributi?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Did you apply for the {riduzione} discount on contributions?"
+          }
+        }
+      }
+    },
+    "Artigiani, riduzione %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artisans, %@ reduction"
+          }
+        }
+      }
+    },
+    "Commercianti, riduzione %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shopkeepers and traders, %@ reduction"
+          }
+        }
+      }
+    },
+    "Senza riduzione %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Without the %@ reduction"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -206,13 +206,13 @@ final class Store: ObservableObject {
 
     /// I pagamenti futuri non ancora segnati come fatti, dell'anno che si sta guardando
     var pagamentiDaFare: [Pagamento] {
-        let oggi = Calendar.current.startOfDay(for: Date())
+        let oggi = Giorno.calendario.startOfDay(for: Date())
         return pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
     }
 
     /// I promemoria valgono sempre per l'anno in corso, qualunque anno si stia guardando in Netto
     var pagamentiPromemoria: [Pagamento] {
-        let oggi = Calendar.current.startOfDay(for: Date())
+        let oggi = Giorno.calendario.startOfDay(for: Date())
         return pagamenti(anno: Regole.attuali.anno).filter { $0.data >= oggi && pagati[$0.id] == nil }
     }
 
@@ -222,10 +222,10 @@ final class Store: ObservableObject {
     }
 
     var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
-        let oggi = Calendar.current.startOfDay(for: Date())
+        let oggi = Giorno.calendario.startOfDay(for: Date())
         let futuri = pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
         guard let primo = futuri.first?.data else { return nil }
-        let stessoGiorno = futuri.filter { Calendar.current.isDate($0.data, inSameDayAs: primo) }
+        let stessoGiorno = futuri.filter { Giorno.calendario.isDate($0.data, inSameDayAs: primo) }
         return (primo, arrotonda(stessoGiorno.reduce(0) { $0 + $1.importo }), stessoGiorno)
     }
 

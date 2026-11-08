@@ -56,7 +56,7 @@ struct CapireView: View {
                             (Text("Netto").foregroundStyle(Theme.rosaChiaro) + Text("LR").foregroundStyle(Theme.rosaChiaro).fontWeight(.heavy) + Text(" ti avvisa prima").foregroundStyle(Theme.rosaChiaro))
                                 .font(.app(16, .semibold))
                             if let prossimo = store.prossimoPagamento {
-                                Text("«Metti da parte \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(.dateTime.day().month(.wide).locale(Formato.lingua)))»")
+                                Text("«Metti da parte \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(Formato.giorno))»")
                                     .font(.system(size: 28, weight: .heavy, design: .rounded))
                             } else {
                                 Text("«Tra un mese tocca pagare: tieni pronti i soldi»")

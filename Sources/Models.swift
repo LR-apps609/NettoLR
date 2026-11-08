@@ -149,6 +149,7 @@ extension String {
             "{aliquotaStartup}": Formato.pct(f.aliquotaStartup.valore),
             "{coeffMin}": Formato.pct(coeff.min() ?? 0),
             "{coeffMax}": Formato.pct(coeff.max() ?? 0),
+            "{riduzione}": Formato.pct(r.artigianiCommercianti.riduzioneForfettari.valore),
         ]
         return valori.reduce(self) { $0.replacingOccurrences(of: $1.key, with: $1.value) }
     }
@@ -190,6 +191,18 @@ enum Formato {
     }
     static func data(_ d: Date) -> String {
         d.formatted(.dateTime.day().month(.wide).year().locale(lingua))
+    }
+    /// «20 luglio»: sempre il giorno italiano delle scadenze, anche con l'iPhone in un altro fuso orario
+    static var giorno: Date.FormatStyle {
+        var s = Date.FormatStyle.dateTime.day().month(.wide).locale(lingua)
+        s.timeZone = Giorno.calendario.timeZone
+        return s
+    }
+    /// «20 luglio 2026», come sopra
+    static var giornoAnno: Date.FormatStyle {
+        var s = Date.FormatStyle.dateTime.day().month(.wide).year().locale(lingua)
+        s.timeZone = Giorno.calendario.timeZone
+        return s
     }
     /// La lingua dell'app per i nomi di mesi e giorni (gli importi restano sempre all'italiana)
     static var lingua: Locale { inglese ? Locale(identifier: "en_GB") : it }

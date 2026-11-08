@@ -45,7 +45,7 @@ enum Pagamenti {
             out.append(Pagamento(
                 data: Giorno.da(v.saldoPrimoAcconto.valore), tipo: .tasse, titolo: "Tasse: il conto dell'anno scorso e un anticipo".tradotto,
                 codice: String(localized: "1792 saldo \(Formato.euro(saldo)) (anno \(String(r.anno - 1))) · 1790 primo acconto \(Formato.euro(primo)) (anno \(String(r.anno)))"),
-                spiegazione: String(localized: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(.dateTime.day().month(.wide).locale(Formato.lingua))) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più."),
+                spiegazione: String(localized: "Si può pagare fino al \(Giorno.da(v.saldoPrimoAccontoMaggiorato.valore).formatted(Formato.giorno)) con lo \(Formato.pct(v.maggiorazioneDifferito.valore)) in più."),
                 importo: arrotonda(saldo + primo), fonte: r.fonte(v.saldoPrimoAcconto), chiave: "Tasse: il conto dell'anno scorso e un anticipo"))
         }
         if secondo > 0 {
