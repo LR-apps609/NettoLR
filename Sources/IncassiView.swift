@@ -167,6 +167,8 @@ struct NuovoIncassoView: View {
     @State private var numeroLetto: String?
     /// La data scritta sulla fattura letta: resta la data della fattura, mentre «il giorno» dell'incasso è oggi
     @State private var dataLetta: Date?
+    /// Con il 4% in fattura: l'importo scritto è il compenso (il cliente paga il 4% in più)
+    @State private var compensoSenza4 = true
     @FocusState private var focusImporto: Bool
 
     var body: some View {
@@ -194,15 +196,16 @@ struct NuovoIncassoView: View {
                                 .font(.cifra(48))
                                 .focused($focusImporto)
                                 .accessibilityIdentifier("nuovo.importo")
+                                .accessibilityLabel("Quanto?")
                             Text("€").font(.cifra(36)).foregroundStyle(Theme.muted)
                         }
                     }
                     if let p = store.profilo, valore > 0 {
-                        let messo = Calcolo.daMettereDaParte(p, anno: store.anno, ricaviAttuali: store.riepilogo.ricavi, incasso: valore)
+                        let messo = Calcolo.daMettereDaParte(p, anno: store.anno, ricaviAttuali: store.riepilogo.ricavi, incasso: incassato)
                         HStack(spacing: 12) {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Tuoi").font(.app(13, .semibold)).foregroundStyle(Theme.prugna)
-                                Text(Formato.euroTondo(valore - messo)).font(.cifra(24))
+                                Text(Formato.euroTondo(incassato - messo)).font(.cifra(24))
                             }
                             Spacer()
                             VStack(alignment: .trailing, spacing: 2) {
@@ -212,8 +215,12 @@ struct NuovoIncassoView: View {
                         }
                         .scheda(padding: 16)
                         .animation(.easeOut, value: valore)
-                        if p.rivalsa4 && p.gestione == .separata {
-                            Text("Con il 4% di pensione in fattura il cliente paga \(Formato.euro(Calcolo.conRivalsa(valore))): inserisci quella cifra se è già compresa.")
+                        if conQuattro {
+                            // Il 4% chiesto al cliente è un incasso: conta nelle tasse e nella soglia
+                            Toggle("È il mio compenso, senza il 4%", isOn: $compensoSenza4).font(.app(15, .semibold)).tint(Theme.prugna)
+                            Text(compensoSenza4
+                                 ? String(localized: "Il cliente paga \(Formato.euro(Calcolo.conRivalsa(valore))): salvo questa cifra.")
+                                 : "Hai scritto quello che paga il cliente, 4% compreso: salvo la cifra così com'è.".tradotto)
                                 .font(.app(14)).foregroundStyle(Theme.muted)
                         }
                     }
@@ -259,13 +266,17 @@ struct NuovoIncassoView: View {
     }
 
     private var valore: Double { Formato.leggiEuro(importo) }
+    /// Il 4% di pensione in fattura vale solo in Gestione Separata e se l'hai acceso in «Tu»
+    private var conQuattro: Bool { store.profilo.map { $0.rivalsa4 && $0.gestione == .separata } ?? false }
+    /// Quello che entra davvero: con il 4% e il compenso scritto senza, il cliente paga il 4% in più
+    private var incassato: Double { conQuattro && compensoSenza4 ? Calcolo.conRivalsa(valore) : valore }
 
     private func salva() {
         let numero = numeroLetto ?? String(store.fatture.count + 1)
         // Pagata: data della fattura (se letta) e giorno dell'incasso separati; non pagata: conta la data della fattura
         let emissione = pagata ? min(dataLetta ?? giorno, giorno) : giorno
         store.aggiungi(Fattura(numero: numero, data: emissione, cliente: cliente.isEmpty ? "Cliente".tradotto : cliente,
-                               importo: valore, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: numeroLetto == nil ? .manuale : .foto,
+                               importo: incassato, incassata: pagata, dataIncasso: pagata ? giorno : nil, origine: numeroLetto == nil ? .manuale : .foto,
 
                                ateco: attivita.isEmpty || attivita == store.profilo?.ateco ? nil : attivita))
         chiudi()

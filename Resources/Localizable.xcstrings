@@ -6194,6 +6194,39 @@
           }
         }
       }
+    },
+    "È il mio compenso, senza il 4%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is my fee, without the 4%"
+          }
+        }
+      }
+    },
+    "Il cliente paga %@: salvo questa cifra.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The client pays %@: I'll save that amount."
+          }
+        }
+      }
+    },
+    "Hai scritto quello che paga il cliente, 4% compreso: salvo la cifra così com'è.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You entered what the client pays, 4% included: I'll save it as it is."
+          }
+        }
+      }
     }
   },
   "version": "1.0"
