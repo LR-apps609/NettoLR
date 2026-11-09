@@ -3,6 +3,8 @@
 name: Foto delle versioni nel ramo
 
 on:
+  push:                 # solo per farlo conoscere a GitHub: il lavoro parte a mano
+    paths: [".github/workflows/foto-ramo.yml"]
   workflow_dispatch:
     inputs:
       giro:
@@ -15,6 +17,7 @@ permissions:
 
 jobs:
   copia:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
