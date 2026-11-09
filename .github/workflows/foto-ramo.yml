@@ -1,0 +1,32 @@
+# Copia le foto di un giro «Foto delle versioni» nel ramo «foto-versioni» (una cartella per commit),
+# così si leggono anche da dove gli allegati di GitHub non si scaricano. Si avvia a mano.
+name: Foto delle versioni nel ramo
+
+on:
+  workflow_dispatch:
+    inputs:
+      giro:
+        description: "Numero del giro «Foto delle versioni»"
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  copia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.giro }}
+          github-token: ${{ github.token }}
+          pattern: foto-*
+          path: arrivate
+      - name: Nel ramo «foto-versioni»
+        run: |
+          git clone -q --depth 1 --branch foto-versioni "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ramo 2>/dev/null \
+            || { mkdir ramo && cd ramo && git init -q && git checkout -q -b foto-versioni && cd ..; }
+          for d in arrivate/foto-*; do c=${d#arrivate/foto-}; mkdir -p "ramo/${c:0:7}"; cp "$d"/*.png "ramo/${c:0:7}/"; echo "${c:0:7}: $(ls "$d" | wc -l) foto"; done
+          cd ramo && git add . && git -c user.name="NettoLR CI" -c user.email="ci@nettolr.invalid" commit -qm "Foto del giro ${{ inputs.giro }}" \
+            && git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" foto-versioni 2>&1 | sed 's/x-access-token:[^@]*@/***@/'
