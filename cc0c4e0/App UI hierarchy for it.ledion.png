@@ -1,0 +1,149 @@
+Application, 0x10f150850, pid: 23899, label: 'NettoLR' <App element pid: 23899>
+  Window (Main), 0x10f14ba80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4348471552.3>
+    Other, 0x10f150ba0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346424832.4>
+      Other, 0x10f165dc0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4348475728.5>
+        Other, 0x10f12a040, {{-402.0, -874.0}, {1206.0, 2622.0}} <AX element pid: 23899, elementOrHash.elementID: 4346802960.331>
+        Other, 0x10f128bd0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4349509760.6>
+          Other, 0x10f14e670, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346413088.7>
+            Other, 0x10f1428a0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4345382256.8>
+              Other, 0x10f150490, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4348710976.9>
+                Other, 0x10f14f9f0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4348891328.11>
+                  Other, 0x10f160770, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4345391216.267>
+                    Other, 0x10f158d40, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346676176.268>
+                      Other, 0x10f167cc0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346758864.269>
+                        Other, 0x10f168df0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4350362928.270>
+                          Other, 0x10f15c550, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4350376608.271>
+                            Other, 0x10f168a80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4349296080.273>
+                              Other, 0x10f15be60, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4345773456.275>
+                                Other, 0x10f14fd80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4348850384.276>
+                                  ScrollView, 0x10f148420, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4397618176.277>
+                                    Other, 0x10f127aa0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346806672.278>
+                                      Other, 0x10f12b860, {{0.0, 726.2}, {402.0, 147.8}} <AX element pid: 23899, elementOrHash.elementID: 4346757344.282>
+                                    Other, 0x10f12b520, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4346806256.279>
+                                    Other, 0x10f15f620, {{0.0, 62.0}, {402.0, 652.7}} <AX element pid: 23899, elementOrHash.elementID: 4346805792.280>
+                                      StaticText, 0x10f15ef30, {{20.0, 74.0}, {117.3, 40.7}}, label: 'Incassi' <AX element pid: 23899, elementOrHash.elementID: 4346391888.283>
+                                      StaticText, 0x10f150110, {{20.0, 132.7}, {201.0, 52.7}}, label: '28.400 €' <AX element pid: 23899, elementOrHash.elementID: 4346826752.284>
+                                      StaticText, 0x10f15f290, {{20.0, 187.3}, {119.3, 19.3}}, label: 'ricevuti nel 2026' <AX element pid: 23899, elementOrHash.elementID: 4346804016.285>
+                                      Button, 0x10f153dd0, {{20.0, 224.7}, {362.0, 58.0}}, identifier: 'incassi.aggiungi', label: 'Aggiungi un incasso' <AX element pid: 23899, elementOrHash.elementID: 4346808272.286>
+                                        Image, 0x10f15a210, {{102.0, 244.3}, {18.7, 18.7}}, identifier: 'plus.circle.fill', label: 'Aggiungi' <AX element pid: 23899, elementOrHash.elementID: 4346542096.294>
+                                        StaticText, 0x10f156730, {{102.0, 243.0}, {199.8, 21.7}}, label: 'Aggiungi un incasso' <AX element pid: 23899, elementOrHash.elementID: 4346436736.295>
+                                      StaticText, 0x10f156060, {{52.7, 327.8}, {10.7, 21.7}}, label: 'F' <AX element pid: 23899, elementOrHash.elementID: 4346964848.287>
+                                      StaticText, 0x10f155cd0, {{94.0, 319.5}, {161.7, 19.3}}, label: 'Fondazione Arte Viva' <AX element pid: 23899, elementOrHash.elementID: 4346908832.288>
+                                      StaticText, 0x10f155970, {{94.0, 340.8}, {169.7, 17.0}}, label: '3.800 € · ti hanno pagato?' <AX element pid: 23899, elementOrHash.elementID: 4346874016.289>
+                                      Button, 0x10f158680, {{316.0, 318.7}, {50.0, 40.0}}, label: 'Sì, Fondazione Arte Viva mi ha pagato' <AX element pid: 23899, elementOrHash.elementID: 4347000736.290>
+                                      Other, 0x10f1527c0, {{20.0, 394.7}, {362.0, 268.0}} <AX element pid: 23899, elementOrHash.elementID: 4348860256.291>
+                                        Other, 0x10f154860, {{20.0, 394.7}, {362.0, 64.0}}, label: 'Studio Bianchi, 2.500 €, pagata il 12 ottobre' <AX element pid: 23899, elementOrHash.elementID: 4346794672.296>
+                                          StaticText, 0x10f159e80, {{39.8, 415.8}, {12.3, 21.7}}, label: 'S' <AX element pid: 23899, elementOrHash.elementID: 4346849168.300>
+                                          StaticText, 0x10f1544f0, {{82.0, 407.5}, {107.3, 19.3}}, label: 'Studio Bianchi' <AX element pid: 23899, elementOrHash.elementID: 4346971760.301>
+                                          StaticText, 0x10f1578c0, {{82.0, 428.8}, {64.0, 17.0}}, label: '12 ottobre' <AX element pid: 23899, elementOrHash.elementID: 4346842624.302>
+                                          StaticText, 0x10f1563d0, {{312.0, 408.8}, {66.0, 20.3}}, label: '2.500 €' <AX element pid: 23899, elementOrHash.elementID: 4346966688.303>
+                                          Image, 0x10f147d80, {{320.3, 432.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected <AX element pid: 23899, elementOrHash.elementID: 4346453632.304>
+                                          StaticText, 0x10f15bb10, {{320.3, 431.2}, {57.7, 13.3}}, label: 'pagata' <AX element pid: 23899, elementOrHash.elementID: 4346794240.305>
+                                        Other, 0x10f15afd0, {{20.0, 462.7}, {362.0, 64.0}}, label: 'Rossi & Figli, 1.200 €, pagata il 3 ottobre' <AX element pid: 23899, elementOrHash.elementID: 4347003952.297>
+                                          StaticText, 0x10f15c1e0, {{39.8, 483.8}, {12.3, 21.7}}, label: 'R' <AX element pid: 23899, elementOrHash.elementID: 4346988768.306>
+                                          StaticText, 0x10f15ac40, {{82.0, 475.5}, {90.0, 19.3}}, label: 'Rossi & Figli' <AX element pid: 23899, elementOrHash.elementID: 4346985760.307>
+                                          StaticText, 0x10f147a00, {{82.0, 496.8}, {57.7, 17.0}}, label: '3 ottobre' <AX element pid: 23899, elementOrHash.elementID: 4346986544.308>
+                                          StaticText, 0x10f146f10, {{312.0, 476.8}, {66.0, 20.3}}, label: '1.200 €' <AX element pid: 23899, elementOrHash.elementID: 4346959008.309>
+                                          Image, 0x10f1480d0, {{320.3, 500.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected <AX element pid: 23899, elementOrHash.elementID: 4347002064.310>
+                                          StaticText, 0x10f144ff0, {{320.3, 499.2}, {57.7, 13.3}}, label: 'pagata' <AX element pid: 23899, elementOrHash.elementID: 4347003520.311>
+                                        Other, 0x10f146bb0, {{20.0, 530.7}, {362.0, 64.0}}, label: 'Caffè Duomo, 450 €, pagata il 28 settembre' <AX element pid: 23899, elementOrHash.elementID: 4346546064.298>
+                                          StaticText, 0x10f1456e0, {{39.2, 551.8}, {13.7, 21.7}}, label: 'C' <AX element pid: 23899, elementOrHash.elementID: 4346788496.312>
+                                          StaticText, 0x10f146830, {{82.0, 543.5}, {98.0, 19.3}}, label: 'Caffè Duomo' <AX element pid: 23899, elementOrHash.elementID: 4346788928.313>
+                                          StaticText, 0x10f145a50, {{82.0, 564.8}, {84.3, 17.0}}, label: '28 settembre' <AX element pid: 23899, elementOrHash.elementID: 4346920032.314>
+                                          StaticText, 0x10f146490, {{328.7, 544.8}, {49.3, 20.3}}, label: '450 €' <AX element pid: 23899, elementOrHash.elementID: 4346992048.315>
+                                          Image, 0x10f1491d0, {{320.3, 568.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected <AX element pid: 23899, elementOrHash.elementID: 4346799888.316>
+                                          StaticText, 0x10f144c50, {{320.3, 567.2}, {57.7, 13.3}}, label: 'pagata' <AX element pid: 23899, elementOrHash.elementID: 4346801344.317>
+                                        Other, 0x10f1448c0, {{20.0, 598.7}, {362.0, 64.0}}, label: 'Incassi gennaio–settembre, 24.250 €, pagata il 1 settembre' <AX element pid: 23899, elementOrHash.elementID: 4347078640.299>
+                                          StaticText, 0x10f157fa0, {{43.2, 619.8}, {5.7, 21.7}}, label: 'I' <AX element pid: 23899, elementOrHash.elementID: 4346906240.318>
+                                          StaticText, 0x10f152440, {{82.0, 611.5}, {175.0, 19.3}}, label: 'Incassi gennaio–settembre' <AX element pid: 23899, elementOrHash.elementID: 4346801776.319>
+                                          StaticText, 0x10f15e1b0, {{82.0, 632.8}, {73.7, 17.0}}, label: '1 settembre' <AX element pid: 23899, elementOrHash.elementID: 4346912000.320>
+                                          StaticText, 0x10f161550, {{300.7, 612.8}, {77.3, 20.3}}, label: '24.250 €' <AX element pid: 23899, elementOrHash.elementID: 4346912784.321>
+                                          Image, 0x10f161c20, {{320.3, 636.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected <AX element pid: 23899, elementOrHash.elementID: 4347076080.322>
+                                          StaticText, 0x10f1571e0, {{320.3, 635.2}, {57.7, 13.3}}, label: 'pagata' <AX element pid: 23899, elementOrHash.elementID: 4347077536.323>
+                                      Button, 0x10f160e70, {{86.0, 684.7}, {230.3, 18.0}}, label: 'Importa dalle fatture elettroniche' <AX element pid: 23899, elementOrHash.elementID: 4348736640.292>
+                                    Other, 0x10f1555e0, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0% <AX element pid: 23899, elementOrHash.elementID: 4346110176.281>
+                                      Other, 0x10f1618d0, {{396.0, 141.3}, {3.0, 646.7}} <AX element pid: 23899, elementOrHash.elementID: 4345461136.293>
+                                    Other, 0x10f163090, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0% <AX element pid: 23899, elementOrHash.elementID: 4346110176.281>
+                                      Other, 0x10f161f80, {{396.0, 141.3}, {3.0, 646.7}} <AX element pid: 23899, elementOrHash.elementID: 4345461136.293>
+                          Other, 0x10f151d40, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4350361808.272>
+                            Other, 0x10f152ee0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4350342592.274>
+              Other, 0x10f1520c0, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4345383216.10>
+                Other, 0x10f152b50, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4345381744.12>
+                  TabBar, 0x10f155280, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Barra pannelli' <AX element pid: 23899, elementOrHash.elementID: 4345388560.15>
+                    Other, 0x10f162650, {{21.0, 791.0}, {360.0, 62.0}} <AX element pid: 23899, elementOrHash.elementID: 4345390384.18>
+                      Other, 0x10f1622e0, {{21.0, 791.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4349957776.21>
+                      Other, 0x10f154f20, {{21.0, 791.0}, {360.0, 62.0}} <AX element pid: 23899, elementOrHash.elementID: 4345390800.22>
+                        Button, 0x10f1589f0, {{25.0, 795.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto' <AX element pid: 23899, elementOrHash.elementID: 4370936832.27>
+                          Image, 0x10f150f20, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill' <AX element pid: 23899, elementOrHash.elementID: 4345400464.37>
+                        Button, 0x10f166bb0, {{91.9, 795.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi', Selected <AX element pid: 23899, elementOrHash.elementID: 4379623936.28>
+                          Image, 0x10f144540, {{115.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill' <AX element pid: 23899, elementOrHash.elementID: 4348766400.38>
+                        Button, 0x10f167950, {{158.8, 795.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova' <AX element pid: 23899, elementOrHash.elementID: 4379675648.29>
+                          Image, 0x10f165390, {{180.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica' <AX element pid: 23899, elementOrHash.elementID: 4348799600.39>
+                        Button, 0x10f156e50, {{225.7, 795.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti' <AX element pid: 23899, elementOrHash.elementID: 4379703296.30>
+                          Image, 0x10f1519c0, {{253.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario' <AX element pid: 23899, elementOrHash.elementID: 4348834624.40>
+                        Button, 0x10f156ac0, {{303.0, 795.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu' <AX element pid: 23899, elementOrHash.elementID: 4379724288.31>
+                          Image, 0x10f14b700, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account' <AX element pid: 23899, elementOrHash.elementID: 4348861104.41>
+                      Other, 0x10f1498d0, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4349954720.23>
+                        Other, 0x10f14b370, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346481152.32>
+                          Other, 0x10f128f40, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4345392544.42>
+                          Other, 0x10f129960, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346481568.43>
+                            Other, 0x10f148b00, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346485040.47>
+                              Other, 0x10f148e70, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346485968.50>
+                                Other, 0x10f128190, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346485456.53>
+                              Other, 0x10f149c30, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346482032.51>
+                            Other, 0x10f1292b0, {{91.9, 795.0}, {74.0, 54.0}} <AX element pid: 23899, elementOrHash.elementID: 4346484624.48>
+                Other, 0x10f149f80, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4345384144.13>
+                  Other, 0x10f14ed70, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4349963824.16>
+                    Other, 0x10f14dbd0, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4349953632.19>
+                      Other, 0x10f14b020, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4349962080.24>
+                        Other, 0x10f14c500, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4349965712.33>
+                          Other, 0x10f14df60, {{0.0, 791.0}, {402.0, 83.0}} <AX element pid: 23899, elementOrHash.elementID: 4349966192.44>
+    Other, 0x10f14e9e0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4347073888.326>
+      Other, 0x10f14d040, {{-402.0, -874.0}, {1206.0, 2622.0}} <AX element pid: 23899, elementOrHash.elementID: 4350317424.328>
+      Other, 0x10f14e2e0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4346705312.329>
+        Other, 0x10f15a580, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4346821216.332>
+          Other, 0x10f166130, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4346821632.333>
+            Other, 0x10f1664b0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4346078272.334>
+              Other, 0x10d749cf0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4738628608.335>
+                Other, 0x10d776570, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347114192.336>
+                  NavigationBar, 0x10d73f590, {{0.0, 78.0}, {402.0, 54.0}}, identifier: 'Nuovo incasso' <AX element pid: 23899, elementOrHash.elementID: 4347083296.337>
+                    Other, 0x10d77b7f0, {{20.0, 82.0}, {80.3, 36.0}}, label: 'Annulla' <AX element pid: 23899, elementOrHash.elementID: 4406773248.340>
+                      Other, 0x10d796a30, {{20.0, 82.0}, {80.3, 36.0}} <AX element pid: 23899, elementOrHash.elementID: 4733507808.345>
+                        Button, 0x10d796b50, {{20.0, 82.0}, {80.3, 36.0}}, label: 'Annulla' <AX element pid: 23899, elementOrHash.elementID: 4733504144.348>
+                    StaticText, 0x10d796c70, {{143.0, 89.7}, {115.7, 20.7}}, label: 'Nuovo incasso' <AX element pid: 23899, elementOrHash.elementID: 4346014768.341>
+                    Other, 0x10d796d90, {{315.0, 82.0}, {67.0, 36.0}}, label: 'Salva' <AX element pid: 23899, elementOrHash.elementID: 4406409728.342>
+                      Other, 0x10d796eb0, {{315.0, 82.0}, {67.0, 36.0}} <AX element pid: 23899, elementOrHash.elementID: 4733487344.346>
+                        Button, 0x10d796fd0, {{315.0, 82.0}, {67.0, 36.0}}, label: 'Salva', Disabled <AX element pid: 23899, elementOrHash.elementID: 4733484432.349>
+                  Other, 0x10d7970f0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347115344.338>
+                    Other, 0x10d797210, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4733417936.343>
+                      Other, 0x10d797330, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4350475456.347>
+                        Other, 0x10d797450, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4733492448.350>
+                          ScrollView, 0x10d797570, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4397921280.351>
+                            Other, 0x10d797690, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347102288.352>
+                              Other, 0x10d7977b0, {{0.0, 62.0}, {402.0, 124.8}} <AX element pid: 23899, elementOrHash.elementID: 4349473472.356>
+                            Other, 0x10d7978d0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347101568.353>
+                            Other, 0x10d7979f0, {{0.0, 132.0}, {402.0, 381.3}} <AX element pid: 23899, elementOrHash.elementID: 4347101104.354>
+                              Button, 0x10d797c20, {{20.0, 152.0}, {362.0, 48.0}}, identifier: 'nuovo.leggi', label: 'Leggi da una foto o un PDF' <AX element pid: 23899, elementOrHash.elementID: 4347225808.357>
+                                Button, 0x10d797d40, {{20.0, 152.0}, {362.0, 48.0}} <AX element pid: 23899, elementOrHash.elementID: 4346019888.366>
+                                  Image, 0x10d797e60, {{89.3, 168.3}, {15.7, 15.7}}, identifier: 'text.viewfinder', label: 'text.viewfinder' <AX element pid: 23899, elementOrHash.elementID: 4347059456.370>
+                                  StaticText, 0x10d797f80, {{117.0, 166.3}, {197.7, 19.3}}, label: 'Leggi da una foto o un PDF' <AX element pid: 23899, elementOrHash.elementID: 4347349152.371>
+                              StaticText, 0x10d7980a0, {{20.0, 218.0}, {57.0, 18.0}}, label: 'Quanto?' <AX element pid: 23899, elementOrHash.elementID: 4346751552.358>
+                              TextField, 0x10d7981c0, {{20.0, 242.0}, {329.3, 59.0}}, identifier: 'nuovo.importo', placeholderValue: '0' <AX element pid: 23899, elementOrHash.elementID: 4406196736.324>
+                              StaticText, 0x10d7982e0, {{357.3, 254.3}, {24.7, 43.0}}, label: '€' <AX element pid: 23899, elementOrHash.elementID: 4347249072.359>
+                              StaticText, 0x10d798400, {{20.0, 319.0}, {79.3, 18.0}}, label: 'Chi ti paga?' <AX element pid: 23899, elementOrHash.elementID: 4346468848.360>
+                              TextField, 0x10d798520, {{34.0, 358.0}, {334.0, 22.0}}, placeholderValue: 'Nome del cliente' <AX element pid: 23899, elementOrHash.elementID: 4396986368.361>
+                              Switch, 0x10d798640, {{20.0, 413.0}, {362.0, 28.0}}, label: 'Mi hanno già pagato', value: 1 <AX element pid: 23899, elementOrHash.elementID: 4733543680.362>
+                                StaticText, 0x10d798760, {{20.0, 416.8}, {158.3, 20.3}}, label: 'Mi hanno già pagato' <AX element pid: 23899, elementOrHash.elementID: 4346649088.367>
+                                Switch, 0x10d798880, {{321.0, 413.0}, {63.0, 28.0}}, value: 1 <AX element pid: 23899, elementOrHash.elementID: 4350533824.368>
+                              StaticText, 0x10d7989a0, {{20.0, 466.0}, {59.3, 20.3}}, label: 'Il giorno' <AX element pid: 23899, elementOrHash.elementID: 4733519056.363>
+                              DatePicker, 0x10d798ac0, {{271.0, 459.0}, {111.0, 34.3}} <AX element pid: 23899, elementOrHash.elementID: 4345806608.364>
+                                Button, 0x10d798be0, {{271.0, 459.0}, {111.0, 34.3}}, label: 'Selezione data', value: 9 nov 2026 <AX element pid: 23899, elementOrHash.elementID: 4350522768.369>
+                            Other, 0x10d798d00, {{369.0, 132.0}, {30.0, 680.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0% <AX element pid: 23899, elementOrHash.elementID: 4733515232.355>
+                              Other, 0x10d798e20, {{396.0, 461.7}, {3.0, 347.3}} <AX element pid: 23899, elementOrHash.elementID: 4733515696.365>
+                            Other, 0x10d798f40, {{369.0, 132.0}, {30.0, 680.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0% <AX element pid: 23899, elementOrHash.elementID: 4733515232.355>
+                              Other, 0x10d799060, {{396.0, 461.7}, {3.0, 347.3}} <AX element pid: 23899, elementOrHash.elementID: 4733515696.365>
+                  Other, 0x10d799180, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347119568.339>
+                    Other, 0x10d7992a0, {{0.0, 62.0}, {402.0, 812.0}} <AX element pid: 23899, elementOrHash.elementID: 4347121840.344>
+  Window, 0x10d7993c0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4372584448.325>
+    Other, 0x10d7994e0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4349405008.327>
+      Other, 0x10d799600, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 23899, elementOrHash.elementID: 4349459472.330>
