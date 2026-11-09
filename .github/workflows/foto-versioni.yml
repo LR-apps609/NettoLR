@@ -9,13 +9,17 @@ on:
       commit:
         description: 'Elenco JSON dei commit, es. ["abc1234","def5678"]'
         required: true
+      mac:
+        description: "Mac di GitHub (se gli arm64 sono pieni: macos-15-intel o macos-14)"
+        default: macos-15
+        required: false
 
 permissions:
   contents: read
 
 jobs:
   foto:
-    runs-on: macos-15
+    runs-on: ${{ inputs.mac || 'macos-15' }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
