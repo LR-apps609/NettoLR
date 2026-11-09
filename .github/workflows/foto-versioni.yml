@@ -60,6 +60,7 @@ jobs:
               for test in json.loads((src / "manifest.json").read_text()):
                   for a in test.get("attachments", []):
                       name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                      if not name[:1].isdigit(): continue   # solo le foto numerate, non i registri
                       shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
           except Exception as e:
               print("allegati non letti:", e)
