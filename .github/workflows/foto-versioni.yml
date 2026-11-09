@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        description: "Commit separati da virgola"
+        description: 'Elenco JSON dei commit, es. ["abc1234","def5678"]'
         required: true
 
 permissions:
@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        commit: ${{ fromJSON(format('["{0}"]', join(split(inputs.commit, ','), '","'))) }}
+        commit: ${{ fromJSON(inputs.commit) }}
     steps:
       - uses: actions/checkout@v5
         with:
