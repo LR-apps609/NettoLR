@@ -1,0 +1,20 @@
+[00] avvio riuscito in 53.3 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T01-01-benvenuto
+[01] toccato «benvenuto.inizia»
+[02] foto T01-02-domanda-lavoro-vuota
+[02] Avanti senza lavoro scelto: disattivato
+[02] scritto «grafica» · nel campo ora c'è «grafica»
+[03] foto T01-03-ricerca-grafica
+[03] toccato «Video, ATECO 2007 59.11.00 · Attività di produzione cinematografica, di video e di programmi televisivi, 67%»
+[04] foto T01-04-lavoro-scelto
+[04] fine del benvenuto: schede visibili
+[05] foto T01-05-dopo-benvenuto
+[05] scheda 0 («Netto»)
+[06] foto T01-06-netto-vuoto
+[06] scheda 1 («Incassi»)
+[07] foto T01-07-incassi-vuoto
+[07] pulsante «incassi.aggiungi» NON TROVATO
+[08] foto T01-08-incassi-dopo-primo
+[08] scheda 0 («Netto»)
+[09] foto T01-09-netto-dopo-primo
+[09] fine · errori registrati da XCTest: 0

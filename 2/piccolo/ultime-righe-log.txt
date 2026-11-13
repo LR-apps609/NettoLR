@@ -1,0 +1,60 @@
+    t =    75.32s             Capturing element debug description
+    t =    75.33s         Checking existence of `Switch (First Match)`
+    t =    76.04s     Collecting debug information to assist test failure triage
+    t =    76.04s         Requesting snapshot of accessibility hierarchy for app with pid 33679
+    t =    76.23s     Waiting 4.0s for "tu.piva" TextField to exist
+    t =    77.26s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =    77.26s             Checking existence of `"tu.piva" TextField`
+    t =    77.69s             Capturing element debug description
+    t =    78.30s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =    78.30s             Checking existence of `"tu.piva" TextField`
+    t =    78.79s             Capturing element debug description
+    t =    79.31s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =    79.31s             Checking existence of `"tu.piva" TextField`
+    t =    79.71s             Capturing element debug description
+    t =    80.23s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =    80.23s             Checking existence of `"tu.piva" TextField`
+    t =    80.53s             Capturing element debug description
+    t =    80.53s         Checking existence of `"tu.piva" TextField`
+    t =    80.99s     Collecting debug information to assist test failure triage
+    t =    80.99s         Requesting snapshot of accessibility hierarchy for app with pid 33679
+    t =    81.16s     Waiting 4.0s for "tu.conferma" Button to exist
+    t =    82.17s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =    82.17s             Checking existence of `"tu.conferma" Button`
+    t =    82.62s             Capturing element debug description
+    t =    83.20s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =    83.20s             Checking existence of `"tu.conferma" Button`
+    t =    83.99s             Capturing element debug description
+    t =    84.17s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =    84.17s             Checking existence of `"tu.conferma" Button`
+    t =    84.69s             Capturing element debug description
+    t =    85.17s         Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =    85.18s             Checking existence of `"tu.conferma" Button`
+    t =    85.47s             Capturing element debug description
+    t =    85.48s         Checking existence of `"tu.conferma" Button`
+    t =    86.19s     Collecting debug information to assist test failure triage
+    t =    86.19s         Requesting snapshot of accessibility hierarchy for app with pid 33679
+    t =    87.73s Added attachment named 'T20-06-piva-cifra-sbagliata'
+    t =    87.73s Tear Down
+    t =    87.73s     Added attachment named 'T20-diario'
+    t =    87.74s         Setting device orientation to Portrait
+    t =    87.75s             Wait for it.ledion.NettoLR to idle
+    t =    87.76s         Setting appearance mode to Light
+    t =    87.78s             Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' passed (88.914 seconds).
+Test Suite 'TesterTests' failed at 2026-11-13 17:29:10.222.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.712) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-13 17:29:10.225.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.715) seconds
+Test Suite 'Selected tests' failed at 2026-11-13 17:29:10.226.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.717) seconds
+2026-11-13 17:32:20.258 xcodebuild[3250:16332] [MT] IDETestOperationsObserverDebug: 1118.507 elapsed -- Testing started completed.
+2026-11-13 17:32:20.260 xcodebuild[3250:16332] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-13 17:32:20.260 xcodebuild[3250:16332] [MT] IDETestOperationsObserverDebug: 1118.507 sec, +1118.507 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started

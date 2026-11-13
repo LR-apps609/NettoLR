@@ -1,0 +1,9 @@
+[00] avvio riuscito in 12.5 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T08-01-benvenuto
+[02] foto T08-02-dopo-gesti-sul-benvenuto
+[02] toccato «benvenuto.inizia»
+[02] scritto «boh» · nel campo ora c'è «boh»
+[03] foto T08-03-ricerca-boh
+[03] scritto «xyzxyz» · nel campo ora c'è «xyzxyz»
+[04] foto T08-04-ricerca-senza-risultati
+[04] fine · errori registrati da XCTest: 1

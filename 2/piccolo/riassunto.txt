@@ -1,0 +1,12 @@
+Durata: 1622 s
+Dispositivo: iPhone 16e
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.712) seconds
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.715) seconds
+	 Executed 6 tests, with 1 failure (0 unexpected) in 868.702 (868.717) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:118: error: -[NettoLRUITests.TesterTests test08_Paolo] : Failed to get matching snapshot: No matches found for first query match sequence: `Descendants matching type Button` -> `Elements matching predicate 'label CONTAINS[c] "Non trovo"'`, given input App element pid: 20164
+Test Case '-[NettoLRUITests.TesterTests test01_Giulia]' passed (132.972 seconds).
+Test Case '-[NettoLRUITests.TesterTests test08_Paolo]' failed (64.417 seconds).
+Test Case '-[NettoLRUITests.TesterTests test09_Chiara]' passed (189.997 seconds).
+Test Case '-[NettoLRUITests.TesterTests test16_Giorgio]' passed (254.290 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (138.111 seconds).
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' passed (88.914 seconds).

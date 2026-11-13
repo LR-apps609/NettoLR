@@ -1,0 +1,19 @@
+[00] avvio riuscito in 14.9 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[00] toccato «benvenuto.inizia»
+[00] scritto «consulente» · nel campo ora c'è «consulente»
+[00] toccato «Consulente, ATECO 2007 70.22.09 · Altre attività di consulenza imprenditoriale e altra consulenza amministrativo-gestionale e pianificazione aziendale, 78%»
+[00] toccato «profilo.avanti»
+[01] foto T20-01-domanda-apertura
+[02] foto T20-02-menu-mesi
+[02] chiuso trascinando (nessun pulsante)
+[03] foto T20-03-luglio-scelto
+[03] scheda 3 («Pagamenti»)
+[04] foto T20-04-pagamenti-meta-anno
+[04] scheda 0 («Netto»)
+[05] foto T20-05-netto-meta-anno
+[05] scheda 4 («Tu»)
+[05] interruttore Promemoria NON TROVATO
+[05] campo NON TROVATO
+[05] pulsante «tu.conferma» NON TROVATO
+[06] foto T20-06-piva-cifra-sbagliata
+[06] fine · errori registrati da XCTest: 0
