@@ -3212,6 +3212,17 @@
         }
       }
     },
+    "Nessun lavoro con queste parole. Prova con un'altra parola, oppure tocca «Non trovo il mio lavoro» qui sotto.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No job with these words. Try another word, or tap «I can't find my job» below."
+          }
+        }
+      }
+    },
     "Nessun pagamento in vista": {
       "extractionState": "manual",
       "localizations": {

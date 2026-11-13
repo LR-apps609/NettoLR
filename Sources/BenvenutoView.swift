@@ -164,11 +164,16 @@ struct DomandeProfilo: View {
             if let scelto = daScegliere {
                 sceltaCodice2007(scelto)
             } else {
+                let trovati = Ateco.cerca(ricerca)
                 VStack(spacing: 8) {
-                    ForEach(Ateco.cerca(ricerca)) { t in
+                    ForEach(trovati) { t in
                         Button { scegli(t) } label: { voceTrovata(t) }
                             .buttonStyle(Molla())
                     }
+                }
+                if trovati.isEmpty && ricerca.trimmingCharacters(in: .whitespaces).count >= 3 {
+                    Text("Nessun lavoro con queste parole. Prova con un'altra parola, oppure tocca «Non trovo il mio lavoro» qui sotto.")
+                        .font(.app(15)).foregroundStyle(Theme.muted)
                 }
             }
             if !ateco.isEmpty, let g = Ateco.gruppo(ateco2007: ateco) {
@@ -191,7 +196,10 @@ struct DomandeProfilo: View {
             .accessibilityIdentifier("profilo.certificato")
             Text("Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.")
                 .font(.app(13)).foregroundStyle(Theme.muted)
-            Button { withAnimation { mostraGruppi.toggle() } } label: {
+            Button {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                withAnimation { mostraGruppi.toggle() }
+            } label: {
                 Text((mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro").tradotto)
                     .font(.app(16, .semibold))
                     .frame(minHeight: 44)
