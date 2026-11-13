@@ -78,6 +78,8 @@ struct ProvaView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
+            .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .sheet(item: $domanda) { d in
                 switch d {
                 case .conviene: ConvieneView()

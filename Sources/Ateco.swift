@@ -232,9 +232,54 @@ enum Ateco {
         return s.prefix(1).uppercased() + s.dropFirst()
     }
 
-    /// Cerca tra tutti i codici ATECO 2007 e 2025: per codice («62.01», «6201») o per parole («faccio siti web»)
+    /// Le parole di ogni voce dell'elenco, divise una volta sola
+    private static let paroleElenco: [[String]] = elenco.map { parole($0.testo) }
+
+    private static func parole(_ testo: String) -> [String] {
+        testo.split(whereSeparator: { !$0.isLetter && !$0.isNumber }).map(String.init)
+    }
+
+    /// Quanto una parola scritta somiglia a una parola dell'elenco: 3 uguale, 2 stessa radice
+    /// («grafica» e «grafico», «idraul» e «idraulico»), 1 un errore di battitura («parucchiera»), 0 niente.
+    /// Una parola dentro un'altra non conta più: «grafica» non trova «cinematografica».
+    static func somiglianza(_ scritta: String, _ voce: String) -> Int {
+        if scritta == voce { return 3 }
+        if scritta.count >= 3, voce.hasPrefix(scritta) { return 2 }
+        if scritta.count >= 5 {
+            let radice = String(scritta.prefix(scritta.count - (scritta.count >= 7 ? 2 : 1)))
+            if voce.hasPrefix(radice) { return 2 }
+            let soglia = scritta.count >= 8 ? 2 : 1
+            if abs(voce.count - scritta.count) <= soglia, distanza(scritta, voce, max: soglia) <= soglia { return 1 }
+        }
+        return 0
+    }
+
+    /// Distanza di modifica (lettere da cambiare, togliere o aggiungere), fermata appena supera `max`
+    static func distanza(_ a: String, _ b: String, max limite: Int) -> Int {
+        let x = Array(a), y = Array(b)
+        if x.isEmpty || y.isEmpty { return Swift.max(x.count, y.count) }
+        var prima = Array(0...y.count)
+        for i in 1...x.count {
+            var riga = [i] + Array(repeating: 0, count: y.count)
+            var minimo = riga[0]
+            for j in 1...y.count {
+                riga[j] = Swift.min(prima[j] + 1, riga[j - 1] + 1, prima[j - 1] + (x[i - 1] == y[j - 1] ? 0 : 1))
+                minimo = Swift.min(minimo, riga[j])
+            }
+            if minimo > limite { return limite + 1 }
+            prima = riga
+        }
+        return prima[y.count]
+    }
+
+    /// Cerca tra tutti i codici ATECO 2007 e 2025: per codice («62.01», «6201», «ATECO 74.10») o per parole («faccio siti web»)
     static func cerca(_ testo: String, max: Int = 12) -> [TrovatoAteco] {
-        let q = normalizza(testo.trimmingCharacters(in: .whitespaces))
+        var q = normalizza(testo.trimmingCharacters(in: .whitespaces))
+        // «ATECO 74.10», «codice 62.01»: la parola davanti non serve
+        for davanti in ["ateco 2007", "ateco 2025", "ateco", "codice"] where q.hasPrefix(davanti + " ") {
+            q = String(q.dropFirst(davanti.count + 1)).trimmingCharacters(in: .whitespaces)
+            break
+        }
         guard !q.isEmpty else { return [] }
         let numeri = cifre(q)
         if numeri.count >= 2, q.allSatisfy({ $0.isNumber || $0 == "." || $0 == " " }) {
@@ -247,17 +292,27 @@ enum Ateco {
                 return a.codice < b.codice
             }.prefix(max))
         }
-        let parole = q.split(separator: " ").map(String.init).filter { $0.count > 2 }
-        guard !parole.isEmpty else { return [] }
-        let punteggi: [(TrovatoAteco, Int)] = elenco.compactMap { e in
-            let colpite = parole.filter { e.testo.contains($0) }.count
-            guard colpite > 0 else { return nil }
-            var punti = colpite * 10
-            if colpite == parole.count { punti += 20 }
+        let scritte = parole(q).filter { $0.count > 2 }
+        guard !scritte.isEmpty else { return [] }
+        var punteggi: [(TrovatoAteco, Int)] = []
+        for (i, e) in elenco.enumerated() {
+            let voce = paroleElenco[i]
+            var colpite = 0, qualita = 0
+            for w in scritte {
+                let migliore = voce.reduce(0) { Swift.max($0, somiglianza(w, $1)) }
+                if migliore > 0 { colpite += 1; qualita += migliore }
+            }
+            guard colpite > 0 else { continue }
+            var punti = colpite * 10 + qualita * 3
+            if colpite == scritte.count { punti += 20 }
             if e.voce.nomeComune != nil { punti += 5 }
-            if let sinonimi = sinonimiPronti[e.voce.codice], sinonimi.contains(where: { q.contains($0) }) { punti += 40 }
+            // Un sinonimo del lavoro comune (tutte le sue parole somigliano a parole scritte) vale molto
+            if let sinonimi = sinonimiPronti[e.voce.codice], sinonimi.contains(where: { sin in
+                let ps = parole(sin)
+                return !ps.isEmpty && ps.allSatisfy { p in scritte.contains { somiglianza($0, p) >= 2 || somiglianza(p, $0) >= 2 } }
+            }) { punti += 40 }
             if e.voce.versione == .v2007 { punti += 1 }
-            return (e.voce, punti)
+            punteggi.append((e.voce, punti))
         }
         return Array(punteggi.sorted { $0.1 > $1.1 }.prefix(max).map(\.0))
     }

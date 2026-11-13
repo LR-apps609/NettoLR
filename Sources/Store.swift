@@ -367,6 +367,10 @@ final class Store: ObservableObject {
 
     func cancellaTutto() {
         try? FileManager.default.removeItem(at: Self.cartellaRicevute)
+        // I PDF e i CSV esportati restano nella cartella temporanea: via anche loro (tester T19)
+        if let cartelle = try? FileManager.default.contentsOfDirectory(at: URL.temporaryDirectory, includingPropertiesForKeys: nil) {
+            for c in cartelle where c.lastPathComponent.hasPrefix("NettoLR-") { try? FileManager.default.removeItem(at: c) }
+        }
         ricevute = [:]
         pagati = [:]
         profilo = nil

@@ -122,6 +122,8 @@ struct TuView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
+            .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .alert("Prima imposta il codice dell'iPhone", isPresented: $senzaCodice) {
                 Button("Ho capito", role: .cancel) {}
             } message: {
@@ -157,11 +159,11 @@ struct TuView: View {
                     .background(Theme.rosaChiaro, in: Circle())
                 VStack(alignment: .leading, spacing: 2) {
                     Text(p.nome.isEmpty ? "Ciao".tradotto : p.nome).font(.app(20, .bold))
-                    Text("\(lavoro(p)) · dal \(String(p.annoApertura))").font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                    Text("\(lavoro(p)) · dal \(String(p.annoApertura))").font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.95))
                 }
             }
             VStack(alignment: .leading, spacing: 10) {
-                Text("Partita IVA").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                Text("Partita IVA").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.95))
                 HStack(spacing: 10) {
                     TextField("", text: $piva, prompt: Text("11 cifre").foregroundStyle(Theme.suNotte.opacity(0.4)))
                         .keyboardType(.numberPad)
@@ -198,7 +200,7 @@ struct TuView: View {
                     .transition(.move(edge: .top).combined(with: .opacity))
                     if ok {
                         Text("Controllo la cifra finale: non vuol dire che la partita IVA sia attiva.")
-                            .font(.app(12)).foregroundStyle(Theme.suNotte.opacity(0.6))
+                            .font(.app(12)).foregroundStyle(Theme.suNotte.opacity(0.95))
                     }
                 }
             }
@@ -327,6 +329,8 @@ enum PartitaIVA {
     static func valida(_ s: String) -> Bool {
         let c = s.compactMap(\.wholeNumberValue)
         guard c.count == 11 else { return false }
+        // Le prime 7 cifre sono il numero del contribuente: tutte zero non esiste (tester T04)
+        guard c.prefix(7).contains(where: { $0 != 0 }) else { return false }
         var somma = 0
         for i in 0..<10 {
             if i % 2 == 0 {

@@ -65,13 +65,15 @@ struct IncassiView: View {
 
                     Button("Importa dalle fatture elettroniche") { importa = true }
                         .font(.app(15, .semibold))
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, minHeight: 44)
                         .padding(.top, 4)
                 }
                 .padding(.horizontal, 20).padding(.vertical, 12)
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
+            .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .sheet(isPresented: $nuovo) { NuovoIncassoView() }
             .fileImporter(isPresented: $importa, allowedContentTypes: [.xml], allowsMultipleSelection: true) { esito in
                 leggi(esito)
@@ -114,7 +116,7 @@ struct IncassiView: View {
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 2) {
-                Text(Formato.euroTondo(f.importo)).font(.app(17, .bold)).monospacedDigit()
+                Text(f.importo.rounded() == f.importo ? Formato.euroTondo(f.importo) : Formato.euro(f.importo)).font(.app(17, .bold)).monospacedDigit()
                 Label("pagata", systemImage: "checkmark").font(.app(11, .bold)).foregroundStyle(Theme.menta)
             }
         }

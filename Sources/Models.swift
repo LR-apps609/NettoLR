@@ -220,14 +220,32 @@ enum Formato {
     }
 
     private static func leggiEuroGrezzo(_ s: String) -> Double {
-        let pulito = s.replacingOccurrences(of: "€", with: "").filter { !$0.isWhitespace }
-        if pulito.contains(",") {
-            return Double(pulito.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: ".")) ?? 0
+        let pulito = s.replacingOccurrences(of: "€", with: "").filter { !$0.isWhitespace && $0 != "'" }
+        // Solo cifre, punti, virgole e il meno davanti: «1e5», «abc», «12a» non sono importi
+        guard pulito.range(of: #"^-?[0-9.,]*[0-9][0-9.,]*$"#, options: .regularExpression) != nil else { return 0 }
+        let virgole = pulito.filter { $0 == "," }.count, punti = pulito.filter { $0 == "." }.count
+        func numero(_ t: String) -> Double { Double(t) ?? 0 }
+        if virgole > 0 && punti > 0 {
+            // Il separatore che viene per ultimo sono i decimali: «1.234,56» e «1,234.56» valgono 1234,56
+            let ultimaVirgola = pulito.lastIndex(of: ",")!, ultimoPunto = pulito.lastIndex(of: ".")!
+            let decimali: Character = ultimaVirgola > ultimoPunto ? "," : "."
+            let migliaia: Character = decimali == "," ? "." : ","
+            guard pulito.filter({ $0 == decimali }).count == 1 else { return 0 }
+            return numero(pulito.replacingOccurrences(of: String(migliaia), with: "").replacingOccurrences(of: ",", with: "."))
         }
-        if pulito.range(of: #"^\d+\.\d{1,2}$"#, options: .regularExpression) != nil {
-            return Double(pulito) ?? 0
+        let migliaia = #"^-?\d{1,3}([.,]\d{3})+$"#
+        if virgole > 0 {
+            if virgole == 1 { return numero(pulito.replacingOccurrences(of: ",", with: ".")) }
+            // «1,234,567» sono migliaia; «12,,5» non è un importo
+            return pulito.range(of: migliaia, options: .regularExpression) != nil ? numero(pulito.replacingOccurrences(of: ",", with: "")) : 0
         }
-        return Double(pulito.replacingOccurrences(of: ".", with: "")) ?? 0
+        if punti == 1, pulito.range(of: #"^-?\d+\.\d{1,2}$"#, options: .regularExpression) != nil {
+            return numero(pulito)
+        }
+        if punti > 0 {
+            return pulito.range(of: migliaia, options: .regularExpression) != nil ? numero(pulito.replacingOccurrences(of: ".", with: "")) : 0
+        }
+        return numero(pulito)
     }
 
     /// 1234.5 → "1234,5" per i campi da modificare

@@ -73,6 +73,8 @@ struct DomandeProfilo: View {
     @State private var ricerca = ""
     @State private var ateco = ""
     @State private var nomeLavoro = ""
+    /// La riga toccata nei risultati: più righe possono avere lo stesso codice 2007 (tester T03)
+    @State private var scelta: String?
     @State private var annoApertura = Regole.attuali.anno
     @State private var meseApertura = 1
     @State private var primaVolta = true
@@ -189,6 +191,7 @@ struct DomandeProfilo: View {
                 .font(.app(13)).foregroundStyle(Theme.muted)
             Button((mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro").tradotto) { withAnimation { mostraGruppi.toggle() } }
                 .font(.app(16, .semibold))
+                .frame(minHeight: 44)
             if mostraGruppi {
                 VStack(spacing: 8) {
                     ForEach(Ateco.gruppi) { g in
@@ -208,6 +211,11 @@ struct DomandeProfilo: View {
         }
     }
 
+    /// Nell'anno in corso non si può aver aperto in un mese che deve ancora venire
+    private var ultimoMese: Int {
+        annoApertura == Giorno.anno(Date()) ? Giorno.calendario.component(.month, from: Date()) : 12
+    }
+
     private var apertura: some View {
         VStack(alignment: .leading, spacing: 16) {
             domanda("Da quando hai la partita IVA?")
@@ -220,13 +228,14 @@ struct DomandeProfilo: View {
             // Nell'anno di apertura la pensione fissa si paga solo per i mesi di attività
             if annoApertura >= Regole.attuali.anno - 1 {
                 Picker("In che mese?", selection: $meseApertura) {
-                    ForEach(1...12, id: \.self) { m in
+                    ForEach(1...ultimoMese, id: \.self) { m in
                         Text(Giorno.data(2026, m, 1).formatted(.dateTime.month(.wide).locale(Formato.lingua)).capitalized).tag(m)
                     }
                 }
                 .pickerStyle(.menu)
                 .font(.app(16, .semibold))
                 .accessibilityIdentifier("profilo.mese")
+                .onChange(of: annoApertura) { meseApertura = min(meseApertura, ultimoMese) }
             }
             // La legge (L. 190/2014, c. 65) chiede due cose: nessuna attività in proprio nei 3 anni prima
             // e non continuare lo stesso lavoro fatto prima da dipendente o da autonomo
@@ -323,13 +332,21 @@ struct DomandeProfilo: View {
             withAnimation(.spring) { daScegliere = t }
             return
         }
-        if let c = t.codici2007.first { imposta(c) }
+        if let c = t.codici2007.first {
+            imposta(c)
+            // Il nome della riga toccata, non quello di un altro lavoro con lo stesso codice
+            nomeLavoro = t.nomeComune ?? t.titolo
+            scelta = t.id
+        }
+        // La tastiera copriva la conferma sotto i risultati (tester T01, T05)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
     private func imposta(_ codice2007: String) {
         withAnimation(.spring(duration: 0.4, bounce: 0.3)) {
             ateco = codice2007
             nomeLavoro = Ateco.nomeLavoro(codice2007)
+            scelta = nil
             daScegliere = nil
         }
         if let a = Ateco.attivita.first(where: { $0.ateco2007 == codice2007 }) { gestione = a.gestioneTipica }
@@ -351,7 +368,7 @@ struct DomandeProfilo: View {
                 .background(t.ambiguo ? Theme.tasseSoft : Theme.prugnaSoft, in: Capsule())
         }
         .padding(14)
-        .background(t.codici2007.first == ateco && !t.ambiguo ? Theme.prugnaSoft : Theme.card,
+        .background((scelta.map { $0 == t.id } ?? (t.codici2007.first == ateco)) && !t.ambiguo ? Theme.prugnaSoft : Theme.card,
                     in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
@@ -440,6 +457,7 @@ struct FlowChips: View {
                 Button(voce) { tocca(voce) }
                     .font(.app(14, .semibold))
                     .padding(.horizontal, 12).padding(.vertical, 8)
+                    .frame(minHeight: 44)
                     .foregroundStyle(Theme.prugna)
                     .background(Theme.prugnaSoft, in: Capsule())
                     .buttonStyle(Molla())

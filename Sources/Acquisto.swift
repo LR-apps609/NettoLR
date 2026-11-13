@@ -213,6 +213,16 @@ struct CompletoView: View {
                         .buttonStyle(PulsantePieno(colore: .white, testo: Theme.notte))
                         .disabled(acquisto.inCorso)
                         .accessibilityIdentifier("completo.compra")
+                        // Il messaggio sta sotto il pulsante che l'ha causato, non in fondo alla pagina (tester T11 e T16)
+                        if let m = acquisto.messaggio {
+                            Text(m.tradotto).font(.app(15, .semibold)).padding(12)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.white.opacity(0.16), in: RoundedRectangle(cornerRadius: 14))
+                                .accessibilityAddTraits(.updatesFrequently)
+                        } else if acquisto.controllato && (acquisto.mensile == nil || acquisto.annuale == nil) {
+                            Text("Prezzi non disponibili: l'App Store non risponde. Controlla la connessione.".tradotto)
+                                .font(.app(14, .semibold)).opacity(0.9)
+                        }
                         if !bloccato && acquisto.giorniRimasti > 0 {
                             Text("Abbonandoti adesso paghi da oggi: i giorni di prova che restano non si aggiungono.")
                                 .font(.app(13, .semibold)).opacity(0.9)
@@ -230,11 +240,6 @@ struct CompletoView: View {
                             Button("Ho un codice regalo") { codice = true }
                         }
                         .font(.app(15, .semibold))
-                        if let m = acquisto.messaggio {
-                            Text(m.tradotto).font(.app(15, .semibold)).padding(12)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(Color.white.opacity(0.16), in: RoundedRectangle(cornerRadius: 14))
-                        }
                         if bloccato {
                             Button { backup = true } label: {
                                 Label("Fai una copia dei tuoi dati", systemImage: "icloud.and.arrow.up")

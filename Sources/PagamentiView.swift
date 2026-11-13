@@ -47,6 +47,8 @@ struct PagamentiView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
+            .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .sheet(isPresented: $datiAnnoScorso) { AnnoScorsoView() }
             .sheet(item: $dettaglio) { DettaglioPagamentoView(pagamento: $0) }
         }
@@ -60,7 +62,7 @@ struct PagamentiView: View {
                 ArcoGiorni(frazione: 1 - min(Double(giorni), 120) / 120)
                 VStack(spacing: 0) {
                     Text("\(giorni)").font(.cifra(56))
-                    Text((giorni == 1 ? "giorno" : "giorni").tradotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                    Text((giorni == 1 ? "giorno" : "giorni").tradotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.95))
                 }
             }
             .frame(width: 160, height: 160)
@@ -86,19 +88,23 @@ struct PagamentiView: View {
             } else {
                 Circle()
                     .fill(passato ? Color.clear : (p.tipo == .tasse ? Theme.tasse : p.tipo == .bollo ? Theme.lilla : Theme.pensione))
-                    .overlay(Circle().stroke(passato ? Theme.muted : .clear, lineWidth: 2))
+                    .overlay(Circle().stroke(passato ? Theme.avviso : .clear, lineWidth: 2))
                     .frame(width: 14, height: 14)
                     .frame(width: 18)
             }
             VStack(alignment: .leading, spacing: 2) {
                 Text(p.data.formatted(Formato.giorno)).font(.app(16, .semibold))
                 Text(p.titolo).font(.app(14)).foregroundStyle(Theme.muted)
+                // Prima un pagamento scaduto e non segnato era solo sbiadito: chi guarda non capiva (tester T10)
+                if passato && !fatto {
+                    Text("Scaduto: l'hai pagato? Tocca per segnarlo".tradotto)
+                        .font(.app(13, .semibold)).foregroundStyle(Theme.avviso)
+                }
             }
             Spacer()
             Text(Formato.euroTondo(p.importo)).font(.app(16, .bold)).monospacedDigit()
         }
         .padding(.vertical, 10).padding(.horizontal, 4)
-        .opacity(passato && !fatto ? 0.5 : 1)
         .contentShape(Rectangle())
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(p.data.formatted(Formato.giorno)), \(p.titolo), \(Formato.euroTondo(p.importo))\(fatto ? ", pagato".tradotto : (passato ? ", scaduto".tradotto : ""))")

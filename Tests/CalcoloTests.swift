@@ -151,6 +151,13 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Ateco.cerca("I'm a plumber").first?.codice, "43.22.01")
         XCTAssertEqual(Ateco.cerca("62.01").first?.codice, "62.01.00")
         XCTAssertEqual(Ateco.cerca("faccio il web designer").first?.codice, "74.10.21")
+        // Tester T01 e T14: «grafica» non deve trovare «cinematografica»; errori di battitura; «ATECO» davanti al codice
+        XCTAssertEqual(Ateco.cerca("grafica").first.map { $0.codice.hasPrefix("74.10") }, true)
+        XCTAssertFalse(Ateco.cerca("grafica").prefix(3).contains { $0.codice.hasPrefix("59.") })
+        XCTAssertEqual(Ateco.cerca("parucchiera").first?.codice, "96.02.01")
+        XCTAssertEqual(Ateco.cerca("idraulco").first?.codice, "43.22.01")
+        XCTAssertEqual(Ateco.cerca("ATECO 74.10").first.map { $0.codice.hasPrefix("74.10") }, true)
+        XCTAssertEqual(Ateco.distanza("parucchiera", "parrucchiera", max: 2), 1)
         // Un codice ATECO 2025 con un solo corrispondente 2007
         let grafica = Ateco.cerca("74.12.01").first
         XCTAssertEqual(grafica?.versione, .v2025)
@@ -176,6 +183,16 @@ final class CalcoloTests: XCTestCase {
         XCTAssertEqual(Formato.leggiEuro("1234.56"), 1_234.56)
         XCTAssertEqual(Formato.leggiEuro("1.234"), 1_234)
         XCTAssertEqual(Formato.leggiEuro("2.000 €"), 2_000)
+        // Tester T04: punti e virgole all'inglese, notazione scientifica, doppie virgole
+        XCTAssertEqual(Formato.leggiEuro("1,234.56"), 1_234.56)
+        XCTAssertEqual(Formato.leggiEuro("1.234.567,8"), 1_234_567.8)
+        XCTAssertEqual(Formato.leggiEuro("1,234,567"), 1_234_567)
+        XCTAssertEqual(Formato.leggiEuro("12,5"), 12.5)
+        XCTAssertEqual(Formato.leggiEuro("1e5"), 0)
+        XCTAssertEqual(Formato.leggiEuro("12,,5"), 0)
+        XCTAssertEqual(Formato.leggiEuro("abc"), 0)
+        XCTAssertEqual(Formato.leggiEuro("  300 "), 300)
+        XCTAssertEqual(Formato.leggiEuro("-500"), -500)
     }
 
     func testGiorniInAttesa() {

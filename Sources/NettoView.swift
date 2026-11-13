@@ -56,7 +56,7 @@ struct NettoView: View {
                                     Image(systemName: "play.circle.fill").font(.system(size: 30)).foregroundStyle(Theme.rosaChiaro)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text("Il tuo \(String(store.anno)) in 30 secondi").font(.app(17, .bold))
-                                        Text("Da guardare e da condividere").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                                        Text("Da guardare e da condividere").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.95))
                                     }
                                     Spacer()
                                 }
@@ -71,6 +71,8 @@ struct NettoView: View {
             }
             .background(Theme.ground)
             .toolbar(.hidden, for: .navigationBar)
+            // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
+            .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .sheet(isPresented: $calcolo) { ComeLoCalcoloView() }
             .fullScreenCover(isPresented: $capire) { CapireView() }
             .sheet(isPresented: $guide) { GuideView().environmentObject(store) }
@@ -185,7 +187,7 @@ struct AnelloNetto: View {
                         Text(scelto.0.tradotto).font(.app(15, .semibold)).foregroundStyle(scelto.2)
                             .contentTransition(.opacity)
                         NumeroCheConta(valore: scelto.1, dimensione: 36, colore: .white)
-                        Text("nel \(String(anno))").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.7))
+                        Text("nel \(String(anno))").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.95))
                     }
                     .padding(.horizontal, 40)
                 }
@@ -222,9 +224,9 @@ struct AnelloNetto: View {
                     .font(.app(14, .semibold)).foregroundStyle(Color(hex: 0xF2A07B)).multilineTextAlignment(.center)
             }
             if res.ricavi == 0 {
-                Text("Aggiungi il primo incasso per vedere il tuo anno.").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                Text("Aggiungi il primo incasso per vedere il tuo anno.").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.95))
             } else {
-                Text("su \(Formato.euroTondo(res.ricavi)) incassati · tocca l'anello").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.7))
+                Text("su \(Formato.euroTondo(res.ricavi)) incassati · tocca l'anello").font(.app(13)).foregroundStyle(Theme.suNotte.opacity(0.95))
             }
         }
         .padding(.vertical, 22)

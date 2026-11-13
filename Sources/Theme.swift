@@ -46,9 +46,11 @@ enum Theme {
 }
 
 extension Font {
-    /// Testo arrotondato dell'app, che segue «Testo più grande» dell'iPhone fino a +30%
+    /// Testo arrotondato dell'app, che segue «Testo più grande» dell'iPhone: le scritte piccole fino al doppio,
+    /// i titoli fino a +40% (prima tutto si fermava a +30% e le note restavano minuscole)
     static func app(_ size: CGFloat, _ weight: Font.Weight = .regular) -> Font {
-        .system(size: min(size * 1.3, UIFontMetrics.default.scaledValue(for: size)), weight: weight, design: .rounded)
+        let tetto: CGFloat = size <= 17 ? 2.0 : 1.4
+        return .system(size: min(size * tetto, UIFontMetrics.default.scaledValue(for: size)), weight: weight, design: .rounded)
     }
     /// Numeri grandi: arrotondati, cifre della stessa larghezza
     static func cifra(_ size: CGFloat) -> Font {

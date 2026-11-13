@@ -68,7 +68,7 @@ struct GuideView: View {
                                 .background(Theme.rosaChiaro, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Posso aprire il forfettario?").font(.app(18, .bold))
-                                Text("7 domande, un minuto").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.8))
+                                Text("7 domande, un minuto").font(.app(14)).foregroundStyle(Theme.suNotte.opacity(0.95))
                             }
                             Spacer()
                             Image(systemName: "chevron.right")
