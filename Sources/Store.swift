@@ -221,9 +221,23 @@ final class Store: ObservableObject {
         "\(profilo?.promemoria ?? false)|" + pagamentiPromemoria.map { "\($0.id)=\($0.importo)" }.joined(separator: ",")
     }
 
-    var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? {
+    /// Le scadenze passate non ancora segnate come pagate: restano da pagare (tester T06)
+    var scadutiNonPagati: [Pagamento] {
         let oggi = Giorno.calendario.startOfDay(for: Date())
-        let futuri = pagamenti.filter { $0.data >= oggi && pagati[$0.id] == nil }
+        return pagamenti.filter { $0.data < oggi && pagati[$0.id] == nil }
+    }
+
+    /// Il prossimo pagamento di tasse o pensione, senza il bollo: in «Metti da parte» un bollo da 2 € sembrava
+    /// tutto quello che c'era da pagare (tester T01)
+    var prossimoTassePensione: (data: Date, importo: Double, voci: [Pagamento])? {
+        prossimo(pagamenti.filter { $0.tipo != .bollo })
+    }
+
+    var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? { prossimo(pagamenti) }
+
+    private func prossimo(_ elenco: [Pagamento]) -> (data: Date, importo: Double, voci: [Pagamento])? {
+        let oggi = Giorno.calendario.startOfDay(for: Date())
+        let futuri = elenco.filter { $0.data >= oggi && pagati[$0.id] == nil }
         guard let primo = futuri.first?.data else { return nil }
         let stessoGiorno = futuri.filter { Giorno.calendario.isDate($0.data, inSameDayAs: primo) }
         return (primo, arrotonda(stessoGiorno.reduce(0) { $0 + $1.importo }), stessoGiorno)

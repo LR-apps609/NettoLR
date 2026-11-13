@@ -14,6 +14,9 @@ struct PagamentiView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     Titolo(testo: "Pagamenti")
+                    if !store.scadutiNonPagati.isEmpty {
+                        Avviso(testo: String(localized: "Scadenze passate non segnate: \(Formato.euroTondo(store.scadutiNonPagati.reduce(0) { $0 + $1.importo })). Se le hai pagate toccale e segnale; se no, chiedi al commercialista come rimediare."))
+                    }
                     if let prossimo = store.prossimoPagamento {
                         contoAllaRovescia(prossimo.data, prossimo.importo)
                     } else {

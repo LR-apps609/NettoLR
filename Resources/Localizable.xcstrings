@@ -814,6 +814,17 @@
         }
       }
     },
+    "Calcolo al {aliquota} finché non lo chiedi al commercialista": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I calculate at {aliquota} until you ask your accountant"
+          }
+        }
+      }
+    },
     "Calcolo fatto con NettoLR, non una consulenza fiscale. Regole aggiornate al %@.": {
       "extractionState": "manual",
       "localizations": {
@@ -2882,6 +2893,17 @@
         }
       }
     },
+    "Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono solo se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta).": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes at {aliquotaStartup} instead of {aliquota}, for five years, only apply if you had no other business of your own in the previous 3 years and you don't carry on the same work you did as an employee (traineeship doesn't count)."
+          }
+        }
+      }
+    },
     "Le tue attività": {
       "extractionState": "manual",
       "localizations": {
@@ -3344,6 +3366,17 @@
         }
       }
     },
+    "No, è la prima": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No, this is my first"
+          }
+        }
+      }
+    },
     "Nome del cliente": {
       "extractionState": "manual",
       "localizations": {
@@ -3373,6 +3406,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "I couldn't find any ATECO codes. Try a straighter, well-lit photo, or search for your job by hand."
+          }
+        }
+      }
+    },
+    "Non lo so": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I don't know"
           }
         }
       }
@@ -3439,6 +3483,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "I can't find my job"
+          }
+        }
+      }
+    },
+    "Non sei sicuro? Lo trovi nel cassetto previdenziale, sul sito della pensione, o chiedilo al commercialista.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not sure? You'll find it in your pension account on the pension website, or ask your accountant."
           }
         }
       }
@@ -4738,6 +4793,28 @@
         }
       }
     },
+    "Tasse al {aliquotaStartup} per 5 anni": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes at {aliquotaStartup} for 5 years"
+          }
+        }
+      }
+    },
+    "Tasse al {aliquota}": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Taxes at {aliquota}"
+          }
+        }
+      }
+    },
     "Tasse dovute per il %@": {
       "extractionState": "manual",
       "localizations": {
@@ -5535,6 +5612,39 @@
         }
       }
     },
+    "Scadenze passate non segnate: %@. Se le hai pagate toccale e segnale; se no, chiedi al commercialista come rimediare.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Past deadlines not marked: %@. If you paid them, tap and mark them; if not, ask your accountant how to fix it."
+          }
+        }
+      }
+    },
+    "Scaduti e non segnati: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue and not marked: %@"
+          }
+        }
+      }
+    },
+    "Scaduto: l'hai pagato? Tocca per segnarlo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue: have you paid it? Tap to mark it"
+          }
+        }
+      }
+    },
     "Scaglioni %@ meno detrazione lavoro autonomo": {
       "extractionState": "manual",
       "localizations": {
@@ -5685,6 +5795,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ until %2$@"
+          }
+        }
+      }
+    },
+    "Nei 3 anni prima di aprire hai già avuto un'attività in proprio?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In the 3 years before opening, did you already have your own business?"
           }
         }
       }
@@ -6070,6 +6191,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "It's your first year: there are no advance payments. This year's tax and pension are paid next year; Netto shows you how much to set aside."
+          }
+        }
+      }
+    },
+    "Prezzi non disponibili: l'App Store non risponde. Controlla la connessione.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prices not available: the App Store isn't responding. Check your connection."
           }
         }
       }

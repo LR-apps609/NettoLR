@@ -65,9 +65,12 @@ struct IncassiView: View {
                         ForEach(Array(pagate.enumerated()), id: \.element.id) { i, f in pagata(f).entrata(i < 12 ? min(i, 8) : -1) }
                     }
 
-                    Button("Importa dalle fatture elettroniche") { importa = true }
-                        .font(.app(15, .semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
+                    Button { importa = true } label: {
+                        Text("Importa dalle fatture elettroniche")
+                            .font(.app(15, .semibold))
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                            .contentShape(Rectangle())
+                    }
                         .padding(.top, 4)
                 }
                 .padding(.horizontal, 20).padding(.vertical, 12)

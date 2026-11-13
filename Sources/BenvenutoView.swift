@@ -191,9 +191,12 @@ struct DomandeProfilo: View {
             .accessibilityIdentifier("profilo.certificato")
             Text("Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.")
                 .font(.app(13)).foregroundStyle(Theme.muted)
-            Button((mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro").tradotto) { withAnimation { mostraGruppi.toggle() } }
-                .font(.app(16, .semibold))
-                .frame(minHeight: 44)
+            Button { withAnimation { mostraGruppi.toggle() } } label: {
+                Text((mostraGruppi ? "Nascondi" : "Non trovo il mio lavoro").tradotto)
+                    .font(.app(16, .semibold))
+                    .frame(minHeight: 44)
+                    .contentShape(Rectangle())
+            }
             if mostraGruppi {
                 VStack(spacing: 8) {
                     ForEach(Ateco.gruppi) { g in
@@ -267,7 +270,7 @@ struct DomandeProfilo: View {
                 CampoEuro(etichetta: "Percentuale della tua cassa (es. 14,5)", testo: $cassaAliquota)
                 CampoEuro(etichetta: "Contributo minimo all'anno", testo: $cassaFisso)
             }
-            Text("Non sei sicuro? Lo trovi nel cassetto previdenziale INPS o chiedilo al commercialista.")
+            Text("Non sei sicuro? Lo trovi nel cassetto previdenziale, sul sito della pensione, o chiedilo al commercialista.")
                 .font(.app(14)).foregroundStyle(Theme.muted)
         }
     }
@@ -482,13 +485,16 @@ struct FlowChips: View {
         // Vanno a capo quante volte serve, con qualsiasi dimensione del testo
         ACapo(spazio: 8) {
             ForEach(voci, id: \.self) { voce in
-                Button(voce) { tocca(voce) }
-                    .font(.app(14, .semibold))
-                    .padding(.horizontal, 12).padding(.vertical, 8)
-                    .frame(minHeight: 44)
-                    .foregroundStyle(Theme.prugna)
-                    .background(Theme.prugnaSoft, in: Capsule())
-                    .buttonStyle(Molla())
+                Button { tocca(voce) } label: {
+                    Text(voce)
+                        .font(.app(14, .semibold))
+                        .padding(.horizontal, 12).padding(.vertical, 8)
+                        .frame(minHeight: 44)
+                        .foregroundStyle(Theme.prugna)
+                        .background(Theme.prugnaSoft, in: Capsule())
+                        .contentShape(Capsule())
+                }
+                .buttonStyle(Molla())
             }
         }
     }

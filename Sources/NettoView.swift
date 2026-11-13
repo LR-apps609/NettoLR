@@ -127,7 +127,11 @@ struct NettoView: View {
                     // un bollo di pochi euro, mentre tasse e pensione si pagano tutte l'anno dopo
                     Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
                     Text("per tasse e pensione del \(String(store.anno))").font(.app(14)).foregroundStyle(Theme.muted)
-                    if let prossimo = store.prossimoPagamento {
+                    if !store.scadutiNonPagati.isEmpty {
+                        Text("Scaduti e non segnati: \(Formato.euroTondo(store.scadutiNonPagati.reduce(0) { $0 + $1.importo }).replacingOccurrences(of: " €", with: "\u{00A0}€"))")
+                            .font(.app(13, .bold)).foregroundStyle(Theme.avviso).fixedSize(horizontal: false, vertical: true)
+                    }
+                    if let prossimo = store.prossimoTassePensione {
                         Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo).replacingOccurrences(of: " €", with: "\u{00A0}€")) entro il \(prossimo.data.formatted(Formato.giorno))")
                             .font(.app(13, .semibold)).foregroundStyle(Theme.tasseTesto).fixedSize(horizontal: false, vertical: true)
                     }
