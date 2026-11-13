@@ -236,16 +236,18 @@ final class Store: ObservableObject {
     /// Le scadenze passate non ancora segnate come pagate: restano da pagare (tester T06)
     var scadutiNonPagati: [Pagamento] {
         let oggi = Giorno.calendario.startOfDay(for: Date())
-        return pagamenti.filter { $0.data < oggi && pagati[$0.id] == nil }
+        return pagamenti(anno: Regole.attuali.anno).filter { $0.data < oggi && pagati[$0.id] == nil }
     }
 
     /// Il prossimo pagamento di tasse o pensione, senza il bollo: in «Metti da parte» un bollo da 2 € sembrava
     /// tutto quello che c'era da pagare (tester T01)
     var prossimoTassePensione: (data: Date, importo: Double, voci: [Pagamento])? {
-        prossimo(pagamenti.filter { $0.tipo != .bollo })
+        prossimo(pagamenti(anno: Regole.attuali.anno).filter { $0.tipo != .bollo })
     }
 
-    var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? { prossimo(pagamenti) }
+    /// Il prossimo pagamento è sempre quello dell'anno in corso, anche se in Netto si guarda un anno passato:
+    /// scegliendo il 2025 Pagamenti diceva «Nessun pagamento in vista» e nascondeva quello del 30 novembre (tester T12)
+    var prossimoPagamento: (data: Date, importo: Double, voci: [Pagamento])? { prossimo(pagamenti(anno: Regole.attuali.anno)) }
 
     private func prossimo(_ elenco: [Pagamento]) -> (data: Date, importo: Double, voci: [Pagamento])? {
         let oggi = Giorno.calendario.startOfDay(for: Date())

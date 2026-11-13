@@ -132,7 +132,7 @@ struct NettoView: View {
                             .font(.app(13, .bold)).foregroundStyle(Theme.avviso).fixedSize(horizontal: false, vertical: true)
                     }
                     if let prossimo = store.prossimoTassePensione {
-                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo).replacingOccurrences(of: " €", with: "\u{00A0}€")) entro il \(prossimo.data.formatted(Formato.giorno))")
+                        Text("Prossimo pagamento di tasse e pensione: \(Formato.euroTondo(prossimo.importo).replacingOccurrences(of: " €", with: "\u{00A0}€")) entro il \(prossimo.data.formatted(Formato.giorno))")
                             .font(.app(13, .semibold)).foregroundStyle(Theme.tasseTesto).fixedSize(horizontal: false, vertical: true)
                     }
                 }

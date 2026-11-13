@@ -2739,6 +2739,17 @@
         }
       }
     },
+    "L'elenco qui sotto è del %@: l'anno si cambia in Netto. Il conto alla rovescia è sempre quello di oggi.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The list below is for %@: change the year in Net. The countdown always shows today's."
+          }
+        }
+      }
+    },
     "La copia contiene i tuoi dati: tienila in un posto sicuro. iCloud Drive la protegge con il tuo Apple ID.": {
       "extractionState": "manual",
       "localizations": {
@@ -5861,6 +5872,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "for tax and pension for %@"
+          }
+        }
+      }
+    },
+    "Prossimo pagamento di tasse e pensione: %@ entro il %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next tax and pension payment: %1$@ by %2$@"
           }
         }
       }
