@@ -9,9 +9,9 @@ import UIKit
 final class Store: ObservableObject {
     static let shared = Store()
 
-    @Published var profilo: Profilo? { didSet { salva() } }
-    @Published var fatture: [Fattura] = [] { didSet { riepilogoPronto = nil; salva() } }
-    @Published var annoPrecedente = DatiAnnoPrecedente() { didSet { salva() } }
+    @Published var profilo: Profilo? { didSet { pagamentiPronti = [:]; salva() } }
+    @Published var fatture: [Fattura] = [] { didSet { riepilogoPronto = nil; pagamentiPronti = [:]; salva() } }
+    @Published var annoPrecedente = DatiAnnoPrecedente() { didSet { pagamentiPronti = [:]; salva() } }
     /// Contributi versati nell'anno in corso; nil = il calcolo usa una stima
     @Published var contributiVersati: Double? { didSet { salva() } }
     /// L'anno dei contributi versati: l'anno dopo non valgono più
@@ -38,6 +38,7 @@ final class Store: ObservableObject {
         giornoVisto = oggi
         if anno == annoPrima, Regole.anniDisponibili.contains(Giorno.anno(oggi)) { anno = Giorno.anno(oggi) }
         riepilogoPronto = nil
+        pagamentiPronti = [:]
         objectWillChange.send()
     }
 
@@ -189,7 +190,18 @@ final class Store: ObservableObject {
 
     /// I pagamenti che cadono in un anno: quelli del suo calendario, più quelli dell'anno prima che scadono
     /// a inizio anno (quarta rata fissa INPS, bollo del quarto trimestre)
+    /// I pagamenti già calcolati per anno: Netto e Pagamenti li chiedono più volte a ogni disegno
+    /// (scadenze passate, prossimo pagamento, salvadanaio). Si rifanno quando cambiano profilo, fatture o anno scorso.
+    private var pagamentiPronti: [Int: [Pagamento]] = [:]
+
     func pagamenti(anno: Int) -> [Pagamento] {
+        if let pronti = pagamentiPronti[anno] { return pronti }
+        let calcolati = calcolaPagamenti(anno: anno)
+        pagamentiPronti[anno] = calcolati
+        return calcolati
+    }
+
+    private func calcolaPagamenti(anno: Int) -> [Pagamento] {
         guard let profilo else { return [] }
         let r = Regole.per(anno: anno)
         let corrente = anno == Regole.attuali.anno
