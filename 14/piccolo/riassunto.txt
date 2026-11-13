@@ -1,0 +1,10 @@
+Durata: 1398 s
+Dispositivo: iPhone 16e
+	 Executed 2 tests, with 3 failures (0 unexpected) in 668.800 (668.808) seconds
+	 Executed 2 tests, with 3 failures (0 unexpected) in 668.800 (668.810) seconds
+	 Executed 2 tests, with 3 failures (0 unexpected) in 668.800 (668.814) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:29: error: -[NettoLRUITests.TesterTests test17_Ilaria] : Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:53: error: -[NettoLRUITests.TesterTests test09_Chiara] : Failed to get screenshot: Timed out while requesting screenshot.
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:53: error: -[NettoLRUITests.TesterTests test17_Ilaria] : Failed to get screenshot: Timed out while requesting screenshot.
+Test Case '-[NettoLRUITests.TesterTests test09_Chiara]' failed (536.302 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' failed (132.498 seconds).

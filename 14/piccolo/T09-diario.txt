@@ -1,0 +1,18 @@
+[00] avvio riuscito in 35.2 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT -uiDark
+[00] scheda 0 («Netto»)
+[00] scheda 4 («Tu»)
+[00] scheda 1 («Incassi»)
+[00] scheda 3 («Pagamenti»)
+[00] scheda 2 («Prova»)
+[00] scheda 0 («Netto»)
+[00] scheda 1 («Incassi»)
+[00] scheda 4 («Tu»)
+[00] scheda 2 («Prova»)
+[00] scheda 3 («Pagamenti»)
+[00] scheda 0 («Netto»)
+[00] scheda 2 («Prova»)
+[00] scheda 4 («Tu»)
+[00] scheda 1 («Incassi»)
+[00] scheda 0 («Netto»)
+[00] 15 cambi di scheda: 83.21 s
+[01] fine · errori registrati da XCTest: 1
