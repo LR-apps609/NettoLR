@@ -1,0 +1,8 @@
+[00] avvio riuscito in 104.7 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 0 («Netto»)
+[01] foto T17-01-orizzontale-scheda-0
+[01] scheda 1 («Incassi»)
+[02] foto T17-02-orizzontale-scheda-1
+[02] scheda 2 («Prova»)
+[03] foto T17-03-orizzontale-scheda-2
+[03] fine · errori registrati da XCTest: 1

@@ -1,0 +1,4 @@
+[00] avvio riuscito in 21.1 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT -uiDark
+[00] scheda 0 («Netto»)
+[00] scheda 4 («Tu»)
+[00] fine · errori registrati da XCTest: 1

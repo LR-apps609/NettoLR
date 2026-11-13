@@ -1,0 +1,60 @@
+    t =   147.01s                 Wait for it.ledion.NettoLR to idle
+    t =   147.03s                 Find the Target Application 'it.ledion.NettoLR'
+    t =   147.28s                 Check for interrupting elements affecting "NettoLR" Application
+    t =   147.54s                 Synthesize event
+    t =   148.00s                 Wait for it.ledion.NettoLR to idle
+    t =   149.58s             Find the "tu.piva" TextField
+    t =   150.37s             Find the "tu.piva" TextField
+    t =   150.74s             Waiting 4.0s for "tu.piva" TextField to exist
+    t =   151.76s                 Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =   151.76s                     Checking existence of `"tu.piva" TextField`
+    t =   152.06s             Find the "tu.piva" TextField
+    t =   152.35s             Tap "tu.piva" TextField
+    t =   152.35s                 Wait for it.ledion.NettoLR to idle
+    t =   152.35s                 Find the "tu.piva" TextField
+    t =   152.60s                 Check for interrupting elements affecting "tu.piva" TextField
+    t =   152.82s                 Synthesize event
+    t =   153.23s                 Wait for it.ledion.NettoLR to idle
+    t =   154.29s             Find the "tu.piva" TextField
+    t =   155.70s             Type '12345678901' into "tu.piva" TextField
+    t =   155.70s                 Wait for it.ledion.NettoLR to idle
+    t =   155.71s                 Find the "tu.piva" TextField
+    t =   156.15s                 Check for interrupting elements affecting "tu.piva" TextField
+    t =   156.42s                 Synthesize event
+    t =   156.82s                 Wait for it.ledion.NettoLR to idle
+    t =   160.03s             Find the "tu.piva" TextField
+    t =   160.37s             Waiting 4.0s for "tu.conferma" Button to exist
+    t =   161.41s                 Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =   161.41s                     Checking existence of `"tu.conferma" Button`
+    t =   161.83s             Find the "tu.conferma" Button
+    t =   162.21s             Find the "tu.conferma" Button
+    t =   162.54s             Tap "tu.conferma" Button
+    t =   162.54s                 Wait for it.ledion.NettoLR to idle
+    t =   162.55s                 Find the "tu.conferma" Button
+    t =   163.10s                 Check for interrupting elements affecting "tu.conferma" Button
+    t =   163.36s                 Synthesize event
+    t =   163.84s                 Wait for it.ledion.NettoLR to idle
+    t =   171.82s Added attachment named 'T20-07-piva-cifra-sbagliata'
+    t =   171.83s Tear Down
+    t =   171.83s     Added attachment named 'T20-diario'
+    t =   171.83s                 Setting device orientation to Portrait
+    t =   171.85s                     Wait for it.ledion.NettoLR to idle
+    t =   171.86s                 Setting appearance mode to Light
+    t =   171.87s                     Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' passed (172.649 seconds).
+Test Suite 'TesterTests' failed at 2026-11-13 21:49:14.029.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 3166.091 (3166.117) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-13 21:49:14.036.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 3166.091 (3166.126) seconds
+Test Suite 'Selected tests' failed at 2026-11-13 21:49:14.037.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 3166.091 (3166.129) seconds
+2026-11-13 21:51:32.638 xcodebuild[7035:25394] [MT] IDETestOperationsObserverDebug: 3399.412 elapsed -- Testing started completed.
+2026-11-13 21:51:32.641 xcodebuild[7035:25394] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-13 21:51:32.641 xcodebuild[7035:25394] [MT] IDETestOperationsObserverDebug: 3399.412 sec, +3399.412 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started

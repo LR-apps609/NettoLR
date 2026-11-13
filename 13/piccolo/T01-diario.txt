@@ -1,0 +1,27 @@
+[00] avvio riuscito in 36.3 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T01-01-benvenuto
+[01] toccato «benvenuto.inizia»
+[02] foto T01-02-domanda-lavoro-vuota
+[02] Avanti senza lavoro scelto: disattivato
+[02] scritto «grafica» · nel campo ora c'è «grafica»
+[03] foto T01-03-ricerca-grafica
+[03] toccato «Grafico, ATECO 2007 74.10.29 · Altre attività dei disegnatori grafici, 78%»
+[04] foto T01-04-lavoro-scelto
+[05] foto T01-05-domanda-2
+[05] toccato «profilo.avanti»
+[06] foto T01-06-domanda-3
+[06] Avanti disattivato alla domanda 3: rispondo «No» se c'è
+[06] risposto «No, è la prima»
+[06] toccato «profilo.avanti»
+[07] foto T01-07-domanda-4
+[07] toccato «profilo.avanti»
+[08] foto T01-08-domanda-5
+[08] toccato «profilo.avanti»
+[08] fine del benvenuto: schede visibili
+[09] foto T01-09-dopo-benvenuto
+[09] scheda 0 («Netto»)
+[10] foto T01-10-netto-vuoto
+[10] scheda 1 («Incassi»)
+[11] foto T01-11-incassi-vuoto
+[11] toccato «incassi.aggiungi»
+[11] fine · errori registrati da XCTest: 1

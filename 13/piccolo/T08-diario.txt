@@ -1,0 +1,24 @@
+[00] avvio riuscito in 34.5 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T08-01-benvenuto
+[02] foto T08-02-dopo-gesti-sul-benvenuto
+[02] toccato «benvenuto.inizia»
+[02] scritto «boh» · nel campo ora c'è «boh»
+[03] foto T08-03-ricerca-boh
+[03] scritto «xyzxyz» · nel campo ora c'è «xyzxyz»
+[04] foto T08-04-ricerca-senza-risultati
+[04] toccato «Non trovo il mio lavoro»
+[05] foto T08-05-gruppi
+[05] gruppi con percentuale: 0
+[05] pulsante «profilo.avanti» DISATTIVATO
+[06] foto T08-06-bloccato-0
+[06] scheda 0 («Netto»)
+[07] foto T08-07-vuoto-scheda-0
+[07] scheda 1 («Incassi»)
+[08] foto T08-08-vuoto-scheda-1
+[08] scheda 2 («Prova»)
+[09] foto T08-09-vuoto-scheda-2
+[09] scheda 3 («Pagamenti»)
+[10] foto T08-10-vuoto-scheda-3
+[10] scheda 4 («Tu»)
+[11] foto T08-11-vuoto-scheda-4
+[11] fine · errori registrati da XCTest: 0
