@@ -1,0 +1,115 @@
+Attributes: Application, 0x10c5744f0, pid: 27624, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10c5744f0, pid: 27624, label: 'NettoLR'
+    Window (Main), 0x10c586450, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x10c564d10, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x10c565070, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x10c536ef0, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x10c5364b0, {{0.0, 0.0}, {402.0, 874.0}}
+              Other, 0x10c563c40, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x10c52c220, {{0.0, 0.0}, {402.0, 874.0}}
+                  Other, 0x10c563f90, {{0.0, 0.0}, {402.0, 874.0}}
+                    Other, 0x10c564310, {{0.0, 0.0}, {402.0, 874.0}}
+                      Other, 0x10c55a4a0, {{0.0, 0.0}, {402.0, 874.0}}
+                        Other, 0x10c55a800, {{0.0, 0.0}, {402.0, 874.0}}
+                          Other, 0x10c55ab70, {{0.0, 0.0}, {402.0, 874.0}}
+                            Other, 0x10c55af10, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x10c561660, {{0.0, 0.0}, {402.0, 874.0}}
+                                Other, 0x10c5638d0, {{0.0, 0.0}, {402.0, 874.0}}
+                                  Other, 0x10c563560, {{0.0, 0.0}, {402.0, 874.0}}
+                                    ScrollView, 0x10c5631d0, {{0.0, 0.0}, {402.0, 874.0}}
+                                      Other, 0x10c562e30, {{0.0, 0.0}, {402.0, 874.0}}
+                                        Other, 0x10c562ad0, {{0.0, 726.2}, {402.0, 147.8}}
+                                      Other, 0x10c562750, {{0.0, 0.0}, {402.0, 874.0}}
+                                        Other, 0x10c562400, {{0.0, 726.2}, {402.0, 147.8}}
+                                          Image, 0x10c5620a0, {{-120.0, 731.0}, {642.0, 286.0}}, identifier: 'AdditionalDimmingOverlay'
+                                          Other, 0x10c561d30, {{0.0, 726.2}, {402.0, 147.8}}
+                                            Other, 0x10c5619c0, {{0.0, 726.2}, {402.0, 147.8}}
+                                          Other, 0x10c5612f0, {{0.0, 726.2}, {402.0, 147.8}}
+                                            Other, 0x10c560f80, {{0.0, 726.2}, {402.0, 147.8}}
+                                            Other, 0x10c560c00, {{0.0, 726.2}, {402.0, 147.8}}
+                                      Other, 0x10c560890, {{0.0, 62.0}, {402.0, 993.3}}
+                                        StaticText, 0x10c560520, {{20.0, 74.0}, {132.3, 17.0}}, label: 'Friday 13 November'
+                                        StaticText, 0x10c5601a0, {{20.0, 93.0}, {41.7, 36.0}}, label: 'Hi!'
+                                        Button, 0x10c55fe30, {{330.0, 90.0}, {52.0, 52.0}}, label: 'Your profile'
+                                        Button, 0x10c55fa90, {{20.0, 131.0}, {107.7, 27.0}}, identifier: 'netto.anno', label: 'Your 2026'
+                                          Button, 0x10c55f730, {{20.0, 131.0}, {107.7, 27.0}}
+                                            StaticText, 0x10c55f3c0, {{30.0, 136.0}, {71.0, 17.0}}, label: 'Your 2026'
+                                            Image, 0x10c55f060, {{106.3, 141.7}, {10.0, 6.0}}, identifier: 'chevron.down', label: 'Go Down'
+                                        Button, 0x10c55ecf0, {{81.0, 196.0}, {240.0, 240.0}}, label: 'are yours: 0 €'
+                                          StaticText, 0x10c55e9a0, {{168.5, 275.0}, {65.0, 18.0}}, label: 'are yours'
+                                          StaticText, 0x10c55e630, {{172.7, 295.0}, {56.7, 43.0}}, label: '0 €'
+                                          StaticText, 0x10c55e2d0, {{176.3, 340.0}, {49.3, 17.0}}, label: 'in 2026'
+                                        Button, 0x10c55df50, {{70.3, 450.0}, {76.7, 33.0}}, label: 'Yours', Selected
+                                        Button, 0x10c55dbe0, {{155.0, 450.0}, {91.7, 33.0}}, label: 'Pension'
+                                        Button, 0x10c55d880, {{254.7, 450.0}, {77.0, 33.0}}, label: 'Taxes'
+                                        StaticText, 0x10c55d530, {{76.5, 497.0}, {249.0, 17.0}}, label: 'Add your first payment to see your year.'
+                                        StaticText, 0x10c55d1d0, {{103.5, 552.0}, {195.0, 14.3}}, identifier: 'netto.avvertenza', label: 'This is a calculation, not tax advice.'
+                                        Button, 0x10c55ce50, {{20.0, 582.3}, {362.0, 107.7}}, label: 'Set aside, 0 €, for tax and pension for 2026'
+                                          Image, 0x10c55caf0, {{38.0, 607.3}, {58.0, 58.0}}, identifier: 'eurosign', label: 'eurosign'
+                                          StaticText, 0x10c55c7a0, {{112.0, 600.3}, {63.0, 17.0}}, label: 'Set aside'
+                                          StaticText, 0x10c55c420, {{112.0, 619.3}, {44.0, 33.7}}, label: '0 €'
+                                          StaticText, 0x10c55c0d0, {{112.0, 655.0}, {178.0, 17.0}}, label: 'for tax and pension for 2026'
+                                          Image, 0x10c55bd50, {{354.7, 629.0}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Forward'
+                                        StaticText, 0x10c55b270, {{38.0, 724.0}, {76.0, 20.3}}, label: 'Your year'
+                                        StaticText, 0x10c5596d0, {{38.0, 756.3}, {284.0, 17.0}}, label: 'You'll see your income here, month by month.'
+                                        Button, 0x10c559dd0, {{20.0, 807.3}, {175.0, 136.0}}, label: 'Understand it in 1 minute'
+                                          Image, 0x10c55a130, {{38.3, 825.3}, {21.0, 25.3}}, identifier: 'sparkles', label: 'Sparkle'
+                                          StaticText, 0x10c537250, {{36.0, 870.7}, {125.3, 38.3}}, label: 'Understand it in 1 minute'
+                                        Button, 0x10c52d490, {{207.0, 807.3}, {175.0, 136.0}}, identifier: 'netto.calcolo', label: 'How do I work it out?'
+                                          Image, 0x10c52cdd0, {{225.7, 825.3}, {34.0, 16.7}}, identifier: 'function', label: 'Function'
+                                          StaticText, 0x10c551b50, {{223.0, 862.0}, {111.0, 38.3}}, label: 'How do I work it out?'
+                                        Button, 0x10c52ca70, {{20.0, 959.3}, {362.0, 84.0}}, identifier: 'netto.guide', label: 'Guides, Opening, closing and understanding your VAT number'
+                                          Image, 0x10c558c40, {{45.7, 987.3}, {23.0, 28.3}}, identifier: 'book.pages.fill', label: 'book.pages.fill'
+                                          StaticText, 0x10c557e90, {{96.0, 973.3}, {57.0, 20.3}}, label: 'Guides'
+                                          StaticText, 0x10c559a50, {{96.0, 995.7}, {201.7, 33.7}}, label: 'Opening, closing and understanding your VAT number'
+                                          Image, 0x10c558fd0, {{358.7, 994.0}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Forward'
+                                      Other, 0x10c559370, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                                        Other, 0x10c53a6c0, {{396.0, 781.0}, {3.0, 7.0}}
+                                      Other, 0x10c53aa40, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                                        Other, 0x10c536820, {{396.0, 781.0}, {3.0, 7.0}}
+                            Other, 0x10c5330d0, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x10c536b90, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x10c539c30, {{0.0, 791.0}, {402.0, 83.0}}
+                  Other, 0x10c535de0, {{0.0, 0.0}, {402.0, 874.0}}
+                    TabBar, 0x10c535a60, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Tab Bar'
+                      Other, 0x10c53ccc0, {{21.0, 791.0}, {360.0, 62.0}}
+                        Other, 0x10c53bf50, {{21.0, 791.0}, {74.0, 54.0}}
+                        Other, 0x10c5353b0, {{21.0, 791.0}, {360.0, 62.0}}
+                          Button, 0x10c52e230, {{25.0, 795.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto', Selected
+                            Image, 0x10c534cc0, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10c534950, {{92.9, 795.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Income'
+                            Image, 0x10c5345c0, {{116.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10c535040, {{160.8, 795.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Try it'
+                            Image, 0x10c53c2c0, {{182.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'edit'
+                          Button, 0x10c533b80, {{228.7, 795.0}, {80.3, 54.0}}, identifier: 'calendar', label: 'Payments'
+                            Image, 0x10c533ee0, {{254.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendar'
+                          Button, 0x10c5337f0, {{303.0, 795.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'You'
+                            Image, 0x10c534250, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10c53ada0, {{25.0, 795.0}, {74.0, 54.0}}
+                          Other, 0x10c53bc00, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x10c533470, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x10c52d7e0, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x10c532d80, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x10c53d030, {{25.0, 795.0}, {74.0, 54.0}}
+                                  Other, 0x10c53c950, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x10c53b0f0, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x10c52db70, {{25.0, 795.0}, {74.0, 54.0}}
+                  Other, 0x10c542340, {{0.0, 791.0}, {402.0, 83.0}}
+                    Other, 0x10c553dc0, {{0.0, 791.0}, {402.0, 83.0}}
+                      Other, 0x10c53c600, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x10c5300c0, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x10c538a90, {{0.0, 791.0}, {402.0, 83.0}}
+                            Other, 0x10c5570c0, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x10c52f690, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x10c531c00, {{0.0, 791.0}, {402.0, 83.0}}
+    Window, 0x10c531540, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x10c52b480, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x10c532300, {{0.0, 0.0}, {402.0, 874.0}}
+Path to element:
+ →Application, 0x10c5744f0, pid: 27624, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10c7498d0, pid: 27624, label: 'NettoLR'
+  }

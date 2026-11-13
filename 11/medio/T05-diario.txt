@@ -1,0 +1,42 @@
+[00] avvio riuscito in 18.3 s · argomenti -uitestVuoto -AppleLanguages (en) -AppleLocale en_GB
+[01] foto T05-01-benvenuto
+[01] toccato «benvenuto.inizia»
+[02] foto T05-02-domanda-lavoro-vuota
+[02] Avanti senza lavoro scelto: disattivato
+[02] scritto «photographer» · nel campo ora c'è «photographer»
+[03] foto T05-03-ricerca-photographer
+[03] toccato «Photographer, ATECO 2007 74.20.19 · Altre attività di riprese fotografiche, 78%»
+[04] foto T05-04-lavoro-scelto
+[05] foto T05-05-domanda-2
+[05] toccato «profilo.avanti»
+[06] foto T05-06-domanda-3
+[06] Avanti disattivato alla domanda 3: rispondo «No» se c'è
+[06] risposto «No, è la prima»
+[06] toccato «profilo.avanti»
+[07] foto T05-07-domanda-4
+[07] toccato «profilo.avanti»
+[08] foto T05-08-domanda-5
+[08] toccato «profilo.avanti»
+[09] foto T05-09-domanda-6
+[09] pulsante «profilo.avanti» NON TROVATO
+[09] fine del benvenuto: schede visibili
+[10] foto T05-10-dopo-benvenuto
+[10] scheda 0 («Netto»)
+[11] foto T05-11-en-scheda-0
+[11] scheda 1 («Income»)
+[12] foto T05-12-en-scheda-1
+[12] scheda 2 («Try it»)
+[13] foto T05-13-en-scheda-2
+[13] scheda 3 («Payments»)
+[14] foto T05-14-en-scheda-3
+[14] scheda 4 («You»)
+[15] foto T05-15-en-scheda-4
+[15] scheda 1 («Income»)
+[15] toccato «incassi.aggiungi»
+[16] foto T05-16-en-nuovo-incasso
+[16] chiuso con «Cancel»
+[16] scheda 4 («You»)
+[16] toccato «tu.completo»
+[17] foto T05-17-en-completo
+[17] chiuso con «Close»
+[17] fine · errori registrati da XCTest: 0

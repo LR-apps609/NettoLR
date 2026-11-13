@@ -1,0 +1,52 @@
+[00] avvio riuscito in 12.4 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 1 («Incassi»)
+[00] toccato «incassi.aggiungi»
+[00] scritto «-500» · nel campo ora c'è «-500»
+[00] → Salva disattivato
+[01] foto T04-01-importo--500
+[01] scritto «abc» · nel campo ora c'è «abc»
+[01] → Salva disattivato
+[02] foto T04-02-importo-abc
+[02] scritto «0» · nel campo ora c'è «0»
+[02] → Salva disattivato
+[03] foto T04-03-importo-0
+[03] scritto «0,00» · nel campo ora c'è «0,00»
+[03] → Salva disattivato
+[04] foto T04-04-importo-0,00
+[04] scritto «99999999999» · nel campo ora c'è «99999999999»
+[04] → Salva disattivato
+[05] foto T04-05-importo-99999999999
+[05] scritto «1.234,56» · nel campo ora c'è «1.234,56»
+[05] → Salva ATTIVO
+[06] foto T04-06-importo-1.234,56
+[06] scritto «1,234.56» · nel campo ora c'è «1,234.56»
+[06] → Salva ATTIVO
+[07] foto T04-07-importo-1,234.56
+[07] scritto «12,,5» · nel campo ora c'è «12,,5»
+[07] → Salva disattivato
+[08] foto T04-08-importo-12,,5
+[08] scritto «1e5» · nel campo ora c'è «1e5»
+[08] → Salva disattivato
+[09] foto T04-09-importo-1e5
+[09] scritto «  300 » · nel campo ora c'è «  300 »
+[09] → Salva ATTIVO
+[10] foto T04-10-importo-__300_
+[10] scritto «1.234,56» · nel campo ora c'è «1.234,56»
+[10] salvato 1.234,56
+[11] foto T04-11-incassi-dopo-1234
+[11] scheda 2 («Prova»)
+[11] pulsante con «ore» NON TROVATO
+[11] scheda 4 («Tu»)
+[11] scritto «123» · nel campo ora c'è «123»
+[11] toccato «tu.conferma»
+[12] foto T04-12-piva-123
+[12] scritto «00000000000» · nel campo ora c'è «00000000000»
+[12] toccato «tu.conferma»
+[13] foto T04-13-piva-00000000000
+[13] scritto «abcdefghijk» · nel campo ora c'è «»
+[13] pulsante «tu.conferma» DISATTIVATO
+[14] foto T04-14-piva-abcdefghijk
+[14] scritto «123456789012» · nel campo ora c'è «12345678901»
+[14] toccato «tu.conferma»
+[15] foto T04-15-piva-123456789012
+[15] fine · errori registrati da XCTest: 0

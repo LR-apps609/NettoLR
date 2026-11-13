@@ -1,0 +1,47 @@
+[00] avvio riuscito in 12.7 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[00] toccato «benvenuto.inizia»
+[00] scritto «parucchiera» · nel campo ora c'è «parucchiera»
+[00] ricerca «parucchiera»: 5.73 s
+[01] foto T14-01-ricerca-parucchiera
+[01] scritto «idraulco» · nel campo ora c'è «idraulco»
+[01] ricerca «idraulco»: 6.31 s
+[02] foto T14-02-ricerca-idraulco
+[02] scritto «sviluppatore software» · nel campo ora c'è «sviluppatore software»
+[02] ricerca «sviluppatore software»: 6.77 s
+[03] foto T14-03-ricerca-sviluppatore_software
+[03] scritto «62.01.00» · nel campo ora c'è «62.01.00»
+[03] ricerca «62.01.00»: 11.78 s
+[04] foto T14-04-ricerca-62.01.00
+[04] scritto «62.01» · nel campo ora c'è «62.01»
+[04] ricerca «62.01»: 4.88 s
+[05] foto T14-05-ricerca-62.01
+[05] scritto «ATECO 74.10» · nel campo ora c'è «ATECO 74.10»
+[05] ricerca «ATECO 74.10»: 5.92 s
+[06] foto T14-06-ricerca-ATECO_74.10
+[06] scritto «Avvocato» · nel campo ora c'è «Avvocat»
+[06] ricerca «Avvocato»: 5.33 s
+[07] foto T14-07-ricerca-Avvocato
+[07] scritto «ingegnere» · nel campo ora c'è «ingegnere»
+[07] ricerca «ingegnere»: 6.16 s
+[08] foto T14-08-ricerca-ingegnere
+[08] scritto «sviluppatore software» · nel campo ora c'è «sviluppatore software»
+[08] toccato «Sviluppatore, ATECO 2007 62.01.00 · Produzione di software non connesso all'edizione, 67%»
+[08] toccato «profilo.avanti»
+[08] risposto «No, è la prima»
+[08] toccato «profilo.avanti»
+[08] toccato «profilo.avanti»
+[08] toccato «profilo.avanti»
+[08] pulsante «profilo.avanti» NON TROVATO
+[08] scheda 4 («Tu»)
+[08] toccato «Altre attività, Nessuna»
+[09] foto T14-09-altre-attivita
+[09] scritto «fotografo» · nel campo ora c'è «fotografo»
+[10] foto T14-10-aggiungi-fotografo
+[10] toccato «Fotografo, ATECO 2007 74.20.19»
+[11] foto T14-11-dopo-aggiunta
+[11] chiuso con «Fatto»
+[11] scheda 1 («Incassi»)
+[11] toccato «incassi.aggiungi»
+[12] foto T14-12-nuovo-con-due-lavori
+[12] chiuso con «Annulla»
+[12] fine · errori registrati da XCTest: 0

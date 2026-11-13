@@ -1,0 +1,209 @@
+Attributes: Application, 0x10c444580, pid: 45967, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10c444580, pid: 45967, label: 'NettoLR'
+    Window (Main), 0x10c4b3430, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x10c4543a0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x10c4544c0, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x10c4b02b0, {{-402.0, -874.0}, {1206.0, 2622.0}}
+          Other, 0x10c444160, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x10c4545e0, {{0.0, 0.0}, {402.0, 874.0}}
+              Other, 0x10c454700, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x10c454820, {{0.0, 0.0}, {402.0, 874.0}}
+                  Other, 0x10c454940, {{0.0, 0.0}, {402.0, 874.0}}
+                    Other, 0x10c454a60, {{0.0, 0.0}, {402.0, 874.0}}
+                      Other, 0x10c698f80, {{0.0, 0.0}, {402.0, 874.0}}
+                        Other, 0x10c698ba0, {{0.0, 0.0}, {402.0, 874.0}}
+                          Other, 0x10c454b80, {{0.0, 0.0}, {402.0, 874.0}}
+                            Other, 0x10c454ca0, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x10c454dc0, {{0.0, 0.0}, {402.0, 874.0}}
+                                Other, 0x10c454ee0, {{0.0, 0.0}, {402.0, 874.0}}
+                                  Other, 0x10c455000, {{0.0, 0.0}, {402.0, 874.0}}
+                                    ScrollView, 0x10c455120, {{0.0, 0.0}, {402.0, 874.0}}
+                                      Other, 0x10c57bdc0, {{0.0, -434.7}, {402.0, 1225.7}}
+                                        StaticText, 0x10c556a00, {{20.0, -422.7}, {139.0, 17.0}}, label: 'Venerdì 13 novembre'
+                                        StaticText, 0x10c562400, {{20.0, -403.7}, {166.0, 36.0}}, label: 'Ciao Giulia!'
+                                        Button, 0x10c5807f0, {{330.0, -406.7}, {52.0, 52.0}}, label: 'Il tuo profilo'
+                                        Button, 0x10c56a5a0, {{20.0, -365.7}, {110.7, 27.0}}, identifier: 'netto.anno', label: 'Il tuo 2026'
+                                          Button, 0x10c589d10, {{20.0, -365.7}, {110.7, 27.0}}
+                                            StaticText, 0x10c581210, {{30.0, -360.7}, {74.0, 17.0}}, label: 'Il tuo 2026'
+                                            Image, 0x10c669740, {{109.3, -355.0}, {10.0, 6.0}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                        Button, 0x10c669860, {{81.0, -300.7}, {240.0, 240.0}}, label: 'sono tuoi: 21.796 €'
+                                          StaticText, 0x10c655cc0, {{168.5, -220.8}, {65.0, 18.0}}, label: 'sono tuoi'
+                                          StaticText, 0x10c655de0, {{121.8, -200.8}, {158.3, 41.3}}, label: '21.796 €'
+                                          StaticText, 0x10c655f00, {{172.5, -157.5}, {57.0, 17.0}}, label: 'nel 2026'
+                                        Button, 0x10c656020, {{71.3, -46.7}, {66.7, 33.0}}, label: 'Tuoi', Selected
+                                        Button, 0x10c455240, {{146.0, -46.7}, {100.0, 33.0}}, label: 'Pensione'
+                                        Button, 0x10c455360, {{254.0, -46.7}, {77.0, 33.0}}, label: 'Tasse'
+                                        StaticText, 0x10c455480, {{91.5, 0.3}, {219.0, 15.7}}, label: 'su 28.400 € incassati · tocca l'anello'
+                                        StaticText, 0x10c4555a0, {{88.8, 54.0}, {224.3, 14.3}}, identifier: 'netto.avvertenza', label: 'È un calcolo, non una consulenza fiscale.'
+                                        Button, 0x10c4556c0, {{20.0, 84.3}, {362.0, 141.0}}, label: 'Metti da parte, 6.594 €, per tasse e pensione del 2026, Prossimo pagamento: 2.544 € entro il 30 novembre'
+                                          Image, 0x10c4557e0, {{38.0, 125.7}, {58.0, 58.3}}, identifier: 'eurosign', label: 'eurosign'
+                                          StaticText, 0x10c455900, {{112.0, 102.3}, {95.3, 17.0}}, label: 'Metti da parte'
+                                          StaticText, 0x10c455a20, {{112.0, 121.3}, {110.0, 33.7}}, label: '6.594 €'
+                                          StaticText, 0x10c450180, {{112.0, 157.0}, {190.0, 17.0}}, label: 'per tasse e pensione del 2026'
+                                          StaticText, 0x10c4502a0, {{112.0, 176.0}, {192.7, 31.3}}, label: 'Prossimo pagamento: 2.544 € entro il 30 novembre'
+                                          Image, 0x10c4503c0, {{354.7, 147.3}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                        StaticText, 0x10c4504e0, {{38.0, 259.3}, {83.7, 20.3}}, label: 'Il tuo anno'
+                                        Other, 0x10c450600, {{38.0, 291.7}, {326.0, 130.0}}, label: 'Incassi mese per mese: 28.400 € in tutto, il mese migliore è settembre con 24.700 €.'
+                                          Other, 0x10c450720, {{38.0, 291.7}, {326.0, 130.0}}
+                                            Other, 0x10c450840, {{38.0, 291.7}, {27.2, 114.0}}, label: 'G', value: 0
+                                            Other, 0x10c450960, {{65.2, 291.7}, {27.2, 114.0}}, label: 'F', value: 0
+                                            Other, 0x10c450a80, {{92.3, 291.7}, {27.2, 114.0}}, label: 'M', value: 0
+                                            Other, 0x10c450ba0, {{119.5, 291.7}, {27.2, 114.0}}, label: 'A', value: 0
+                                            Other, 0x10c450cc0, {{146.7, 291.7}, {27.2, 114.0}}, label: 'M ', value: 0
+                                            Other, 0x10c450de0, {{173.8, 291.7}, {27.2, 114.0}}, label: 'G ', value: 0
+                                            Other, 0x10c450f00, {{201.0, 291.7}, {27.2, 114.0}}, label: 'L', value: 0
+                                            Other, 0x10c451020, {{228.2, 291.7}, {27.2, 114.0}}, label: 'A ', value: 0
+                                            Other, 0x10c451140, {{255.3, 291.7}, {27.2, 114.0}}, label: 'S', value: 24.700
+                                            Other, 0x10c451260, {{282.5, 291.7}, {27.2, 114.0}}, label: 'O', value: 3700
+                                            Other, 0x10c451380, {{309.7, 291.7}, {27.2, 114.0}}, label: 'N', value: 0
+                                            Other, 0x10c4514a0, {{336.8, 291.7}, {27.2, 114.0}}, label: 'D', value: 0
+                                        Button, 0x10c4515c0, {{20.0, 455.7}, {175.0, 136.0}}, label: 'Capire in 1 minuto'
+                                          Image, 0x10c4516e0, {{38.3, 473.7}, {21.0, 25.3}}, identifier: 'sparkles', label: 'Scintilla'
+                                          StaticText, 0x10c451800, {{36.0, 519.0}, {136.3, 19.3}}, label: 'Capire in 1 minuto'
+                                        Button, 0x10c451920, {{207.0, 455.7}, {175.0, 136.0}}, identifier: 'netto.calcolo', label: 'Come lo calcolo?'
+                                          Image, 0x10c451a40, {{225.7, 473.7}, {34.0, 16.7}}, identifier: 'function', label: 'Funzione'
+                                          StaticText, 0x10c451b60, {{223.0, 510.3}, {130.0, 19.3}}, label: 'Come lo calcolo?'
+                                        Button, 0x10c451c80, {{20.0, 607.7}, {362.0, 84.0}}, identifier: 'netto.guide', label: 'Guide, Aprire, chiudere, capire la partita IVA'
+                                          Image, 0x10c451da0, {{45.7, 635.7}, {23.0, 28.3}}, identifier: 'book.pages.fill', label: 'book.pages.fill'
+                                          StaticText, 0x10c451ec0, {{96.0, 621.7}, {47.7, 20.3}}, label: 'Guide'
+                                          StaticText, 0x10c451fe0, {{96.0, 644.0}, {162.0, 33.7}}, label: 'Aprire, chiudere, capire la partita IVA'
+                                          Image, 0x10c452100, {{358.7, 642.3}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x10c452220, {{20.0, 707.7}, {362.0, 71.3}}, label: 'Il tuo 2026 in 30 secondi, Da guardare e da condividere'
+                                          Image, 0x10c452340, {{38.7, 728.3}, {30.0, 30.0}}, identifier: 'play.circle.fill', label: 'Riproduci'
+                                          StaticText, 0x10c452460, {{85.3, 723.7}, {199.7, 20.3}}, label: 'Il tuo 2026 in 30 secondi'
+                                          StaticText, 0x10c452580, {{85.3, 746.0}, {183.7, 17.0}}, label: 'Da guardare e da condividere'
+                                      Other, 0x10c4526a0, {{0.0, 0.0}, {402.0, 874.0}}
+                                        Other, 0x10c4527c0, {{0.0, 726.2}, {402.0, 147.8}}
+                                      Other, 0x10c4528e0, {{0.0, 0.0}, {402.0, 874.0}}
+                                      Other, 0x10c452a00, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 100%
+                                        Other, 0x10c452b20, {{396.0, 327.0}, {3.0, 461.0}}
+                                      Other, 0x10c452c40, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 100%
+                                        Other, 0x10c452d60, {{396.0, 327.0}, {3.0, 461.0}}
+                            Other, 0x10c452e80, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x10c452fa0, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x10c4530c0, {{0.0, 791.0}, {402.0, 83.0}}
+                  Other, 0x10c4531e0, {{0.0, 0.0}, {402.0, 874.0}}
+                    TabBar, 0x10c453300, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x10c453420, {{21.0, 791.0}, {360.0, 62.0}}
+                        Other, 0x10c453540, {{21.0, 791.0}, {74.0, 54.0}}
+                        Other, 0x10c453660, {{21.0, 791.0}, {360.0, 62.0}}
+                          Button, 0x10c453780, {{25.0, 795.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto', Selected
+                            Image, 0x10c4538a0, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10c4539c0, {{91.9, 795.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x10c453ae0, {{115.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10c45eb20, {{158.8, 795.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x10c45ec40, {{180.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x10c45ed60, {{225.7, 795.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x10c45ee80, {{253.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x10c45efa0, {{303.0, 795.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x10c52fd40, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10c7da510, {{25.0, 795.0}, {74.0, 54.0}}
+                          Other, 0x10c56fe80, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x10c532670, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x10c56ac80, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x10c538e30, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x10c5708d0, {{25.0, 795.0}, {74.0, 54.0}}
+                                  Other, 0x10c58ab30, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x10c55f3c0, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x10c58d650, {{25.0, 795.0}, {74.0, 54.0}}
+                  Other, 0x10c5750f0, {{0.0, 791.0}, {402.0, 83.0}}
+                    Other, 0x10c570c30, {{0.0, 791.0}, {402.0, 83.0}}
+                      Other, 0x10c581570, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x10c55df50, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x10c5844f0, {{0.0, 791.0}, {402.0, 83.0}}
+                            Other, 0x10c55d1d0, {{0.0, 791.0}, {402.0, 83.0}}
+      Other, 0x10c5620a0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x10c55ecf0, {{-402.0, -874.0}, {1206.0, 2622.0}}
+        Other, 0x10c58cf60, {{0.0, 62.0}, {402.0, 812.0}}
+          Other, 0x10c530460, {{0.0, 62.0}, {402.0, 812.0}}
+            Other, 0x10c7deb50, {{0.0, 62.0}, {402.0, 812.0}}
+              Other, 0x10c7de510, {{0.0, 62.0}, {402.0, 812.0}}
+                Other, 0x10c7de0f0, {{0.0, 62.0}, {402.0, 812.0}}
+                  Other, 0x10c7ddcd0, {{0.0, 62.0}, {402.0, 812.0}}
+                    NavigationBar, 0x10c7dd8b0, {{0.0, 78.0}, {402.0, 54.0}}, identifier: 'Guide'
+                      StaticText, 0x10c7dd490, {{177.7, 89.7}, {46.7, 20.7}}, label: 'Guide'
+                      Other, 0x10c7dca50, {{317.0, 82.0}, {65.0, 36.0}}, label: 'Fatto'
+                        Other, 0x10c7dc630, {{317.0, 82.0}, {65.0, 36.0}}
+                          Button, 0x10c7dc210, {{317.0, 82.0}, {65.0, 36.0}}, label: 'Fatto'
+                    Other, 0x10c7dbdf0, {{0.0, 62.0}, {402.0, 812.0}}
+                      Other, 0x10c7d8770, {{0.0, 62.0}, {402.0, 812.0}}
+                        Other, 0x10c7d78b0, {{0.0, 62.0}, {402.0, 812.0}}
+                          Other, 0x10c7dce70, {{0.0, 62.0}, {402.0, 812.0}}
+                            ScrollView, 0x10c7dcf90, {{0.0, 62.0}, {402.3, 812.0}}
+                              Other, 0x10c7dd0b0, {{0.0, 62.0}, {402.3, 812.0}}
+                                Other, 0x10c7def70, {{0.0, 62.0}, {402.3, 124.8}}
+                              Other, 0x10c7df090, {{0.0, 62.0}, {402.3, 812.0}}
+                              Other, 0x10c7df1b0, {{0.0, 132.0}, {402.2, 1411.7}}
+                                Button, 0x10c7df2d0, {{20.2, 152.0}, {362.3, 102.0}}, identifier: 'guide.test', label: 'Posso aprire il forfettario?, 7 domande, un minuto'
+                                  Image, 0x10c7df3f0, {{52.2, 190.0}, {30.3, 26.3}}, identifier: 'checklist', label: 'checklist'
+                                  StaticText, 0x10c7df510, {{108.2, 172.0}, {123.0, 43.0}}, label: 'Posso aprire il forfettario?'
+                                  StaticText, 0x10c7df630, {{108.2, 217.0}, {139.7, 17.0}}, label: '7 domande, un minuto'
+                                  Image, 0x10c7df750, {{353.2, 195.7}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                Button, 0x10c7df870, {{20.2, 268.0}, {362.3, 94.0}}, identifier: 'guide.video', label: 'La partita IVA in un minuto, Guarda e ascolta'
+                                  Image, 0x10c7df990, {{55.5, 305.0}, {17.7, 20.0}}, identifier: 'play.fill', label: 'Riproduci'
+                                  StaticText, 0x10c7dfab0, {{104.2, 284.0}, {137.3, 43.0}}, label: 'La partita IVA in un minuto'
+                                  StaticText, 0x10c7dfbd0, {{104.2, 329.0}, {105.7, 17.0}}, label: 'Guarda e ascolta'
+                                  Image, 0x10c7dfcf0, {{357.2, 307.7}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                Button, 0x10c7dfe10, {{36.2, 392.0}, {328.3, 40.7}}, label: 'Aprire la partita IVA in 7 passi', value: aperta
+                                  Image, 0x10c7dff30, {{48.5, 402.7}, {15.0, 19.3}}, identifier: 'door.left.hand.open', label: 'door.left.hand.open'
+                                  StaticText, 0x10c7e0050, {{88.0, 392.0}, {178.3, 40.7}}, label: 'Aprire la partita IVA in 7 passi'
+                                  Image, 0x10c7e0170, {{349.8, 408.3}, {14.7, 8.3}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                StaticText, 0x10c7e0290, {{45.2, 591.2}, {7.7, 17.0}}, label: '1'
+                                StaticText, 0x10c7e03b0, {{74.0, 586.7}, {270.0, 57.3}}, label: 'Trova il tuo codice ATECO: cerca il tuo lavoro in NettoLR, ti mostra anche la percentuale.'
+                                StaticText, 0x10c7e04d0, {{44.3, 660.5}, {9.3, 17.0}}, label: '2'
+                                StaticText, 0x10c7e05f0, {{74.0, 656.0}, {269.3, 38.3}}, label: 'Fai il test «Posso aprire il forfettario?» qui sotto.'
+                                StaticText, 0x10c7e0710, {{44.2, 710.8}, {9.7, 17.0}}, label: '3'
+                                StaticText, 0x10c7e0830, {{74.0, 706.3}, {292.3, 95.7}}, label: 'Compila la richiesta di apertura (modello AA9/12) sul sito dell'Agenzia delle Entrate con SPID o CIE, oppure falla fare a un commercialista o a un CAF. Scegli il regime forfettario.'
+                                StaticText, 0x10c7e0950, {{44.0, 818.5}, {10.0, 17.0}}, label: '4'
+                                StaticText, 0x10c7e0a70, {{74.0, 814.0}, {292.3, 95.7}}, label: 'Pensione: se sei un libero professionista ti iscrivi alla Gestione Separata INPS online. Se sei artigiano o commerciante passi dalla Camera di Commercio (ComUnica) e, se serve, dal Comune.'
+                                StaticText, 0x10c7e0b90, {{44.2, 926.2}, {9.7, 17.0}}, label: '5'
+                                StaticText, 0x10c7e0cb0, {{74.0, 921.7}, {278.3, 57.3}}, label: 'Attiva la PEC, la posta certificata: per le imprese e gli iscritti a un albo è obbligatoria.'
+                                StaticText, 0x10c7e0dd0, {{44.0, 995.5}, {10.0, 17.0}}, label: '6'
+                                StaticText, 0x10c7e0ef0, {{74.0, 991.0}, {278.3, 57.3}}, label: 'Scegli come fare le fatture elettroniche: va bene anche il programma gratuito dell'Agenzia delle Entrate.'
+                                StaticText, 0x10c45f0c0, {{44.5, 1064.8}, {9.0, 17.0}}, label: '7'
+                                StaticText, 0x10c45f1e0, {{74.0, 1060.3}, {292.3, 57.3}}, label: 'Apri un conto dedicato al lavoro: non è obbligatorio, ma ti aiuta a tenere separati i soldi delle tasse.'
+                                Button, 0x10c45f300, {{36.2, 1163.7}, {328.3, 40.0}}, label: 'Chiudere la partita IVA', value: chiusa
+                                  Image, 0x10c45f420, {{48.5, 1174.0}, {15.0, 19.3}}, identifier: 'door.right.hand.closed', label: 'door.right.hand.closed'
+                                  StaticText, 0x10c45f540, {{88.0, 1173.5}, {180.3, 20.3}}, label: 'Chiudere la partita IVA'
+                                  Image, 0x10c45f660, {{349.8, 1179.3}, {14.7, 8.3}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                Button, 0x10c45f780, {{36.2, 1249.7}, {328.3, 40.0}}, label: 'Il forfettario in 2 minuti', value: chiusa
+                                  Image, 0x10c45f8a0, {{47.5, 1259.3}, {17.0, 20.7}}, identifier: 'sparkles', label: 'Scintilla'
+                                  StaticText, 0x10c45f9c0, {{88.0, 1259.5}, {182.7, 20.3}}, label: 'Il forfettario in 2 minuti'
+                                  Image, 0x10c45fae0, {{349.8, 1265.3}, {14.7, 8.3}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                Button, 0x10c4b1b50, {{36.2, 1335.7}, {328.3, 40.7}}, label: 'Perché non metto l'IVA in fattura', value: chiusa
+                                  Image, 0x10c4b1c70, {{46.8, 1347.3}, {18.7, 17.3}}, identifier: 'percent', label: 'percent'
+                                  StaticText, 0x10c4b1d90, {{88.0, 1335.7}, {186.0, 40.7}}, label: 'Perché non metto l'IVA in fattura'
+                                  Image, 0x10c4b1eb0, {{349.8, 1352.0}, {14.7, 8.3}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                Button, 0x10c4b1fd0, {{36.2, 1422.3}, {328.3, 40.0}}, label: 'Conta quando ti pagano', value: chiusa
+                                  Image, 0x10c4222d0, {{46.8, 1432.7}, {23.3, 19.7}}, identifier: 'calendar.badge.clock', label: 'Data E Ora'
+                                  StaticText, 0x10c4223f0, {{88.0, 1432.2}, {192.7, 20.3}}, label: 'Conta quando ti pagano'
+                                  Image, 0x10c422510, {{349.8, 1438.3}, {14.7, 8.3}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                StaticText, 0x10c422630, {{20.0, 1492.3}, {349.3, 31.3}}, label: 'È una guida, non una consulenza: per i casi particolari senti un commercialista.'
+                              Other, 0x10c58c070, {{369.0, 132.0}, {30.0, 680.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                Other, 0x10c554b40, {{396.0, 135.0}, {3.0, 364.3}}
+                              Other, 0x10c422750, {{369.0, 132.0}, {30.0, 680.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                Other, 0x10c422870, {{396.0, 135.0}, {3.0, 364.3}}
+                    Other, 0x10c422990, {{0.0, 62.0}, {402.0, 812.0}}
+                      Other, 0x10c422ab0, {{0.0, 62.0}, {402.0, 812.0}}
+      Other, 0x10c422bd0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x10c422cf0, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x10c422e10, {{0.0, 0.0}, {402.0, 874.0}}
+            Button, 0x10c422f30, {{338.0, 82.0}, {44.0, 44.0}}, identifier: 'xmark', label: 'Chiudi'
+            Image, 0x10c4ad360, {{25.3, 151.7}, {53.3, 48.3}}, identifier: 'exclamationmark.triangle.fill', label: 'Avviso'
+            StaticText, 0x10c4ad480, {{20.0, 215.7}, {324.0, 67.0}}, label: 'Probabilmente il forfettario non fa per te.'
+            Image, 0x10c4ad5a0, {{35.3, 309.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+            StaticText, 0x10c4ad6c0, {{63.7, 308.7}, {296.3, 36.0}}, label: 'Con più di 35.000 € da lavoro dipendente o pensione non si può aprire il forfettario.'
+            Image, 0x10c4ad7e0, {{35.3, 385.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+            StaticText, 0x10c4ad900, {{63.7, 384.7}, {289.7, 36.0}}, label: 'Chi controlla una SRL con attività simili non può stare nel forfettario.'
+            Image, 0x10c4ada20, {{35.3, 461.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+            StaticText, 0x10c4adb40, {{63.7, 460.7}, {284.3, 54.0}}, label: 'Se fatturi soprattutto all'ex datore di lavoro degli ultimi due anni il forfettario non è ammesso.'
+            StaticText, 0x10c4adc60, {{20.0, 540.7}, {291.3, 36.0}}, label: 'Parlane con un commercialista: ci sono casi particolari.'
+            Button, 0x10c4add80, {{20.0, 762.0}, {362.0, 58.0}}, label: 'Ho capito'
+Path to element:
+ →Application, 0x10c444580, pid: 45967, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10c576230, pid: 45967, label: 'NettoLR'
+  }
