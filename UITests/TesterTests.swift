@@ -59,7 +59,14 @@ final class TesterTests: XCTestCase {
             try? FileManager.default.createDirectory(at: c, withIntermediateDirectories: true)
             try? immagine.pngRepresentation.write(to: c.appendingPathComponent(nome + ".png"))
         }
-        if albero { scrivi(nome + ".txt", app.debugDescription) }
+        if albero {
+            let testo = app.debugDescription
+            scrivi(nome + ".txt", testo)
+            let t = XCTAttachment(string: testo)
+            t.name = nome + "-albero"
+            t.lifetime = .keepAlways
+            add(t)
+        }
         nota("foto \(nome)" + (app.state == .runningForeground ? "" : " · APP NON IN PRIMO PIANO (\(app.state.rawValue))"))
     }
 

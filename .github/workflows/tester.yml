@@ -91,15 +91,18 @@ jobs:
           if ! ls esiti/*.png >/dev/null 2>&1 && [ -d risultato.xcresult ]; then
             xcrun xcresulttool export attachments --path risultato.xcresult --output-path allegati || true
             python3 - <<'PY'
-          import json, shutil, pathlib
+          import json, shutil, pathlib, re
           src = pathlib.Path("allegati"); out = pathlib.Path("esiti")
           try:
               for test in json.loads((src / "manifest.json").read_text()):
                   for a in test.get("attachments", []):
-                      nome = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
-                      if not nome.startswith("T"): continue
+                      nome = a.get("suggestedHumanReadableName", a["exportedFileName"])
                       est = pathlib.Path(a["exportedFileName"]).suffix
+                      if nome.endswith(est): nome = nome[: -len(est)]
+                      nome = re.sub(r"_\d+_[0-9A-Fa-f-]{36}$", "", nome)
+                      if not nome.startswith("T"): continue
                       shutil.copy(src / a["exportedFileName"], out / (nome + est))
+              print("manifest, primo nome:", json.loads((src / "manifest.json").read_text())[0]["attachments"][0])
           except Exception as e:
               print("allegati non letti:", e)
           PY
