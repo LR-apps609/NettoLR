@@ -36,9 +36,8 @@ jobs:
           - taglia: medio
             tester: "test03_Anna,test04_Luca,test05_Sara,test10_Roberto,test11_Francesca,test13_Martina,test14_Stefano,test18_Simone,test19_Laura"
           - taglia: grande
-            tester: "test02_Marco,test07_Elena,test12_Andrea,test15_Valentina,test17_Ilaria"
-          - taglia: ipad
-            tester: "test06_Davide"
+            tester: "test02_Marco,test06_Davide,test07_Elena,test12_Andrea,test15_Valentina,test17_Ilaria"
+          # L'iPad non c'è: l'app è solo per iPhone e xcodebuild non accetta un iPad come destinazione
     steps:
       - uses: actions/checkout@v5
 

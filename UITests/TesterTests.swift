@@ -113,9 +113,10 @@ final class TesterTests: XCTestCase {
         }
         guard e.exists else { nota("pulsante con «\(testo)» NON TROVATO"); return false }
         if !e.isHittable { app.swipeUp() }
-        guard e.isHittable else { nota("pulsante con «\(testo)» FUORI SCHERMO"); return false }
+        guard e.exists, e.isHittable else { nota("pulsante con «\(testo)» FUORI SCHERMO o sparito"); return false }
+        let etichetta = e.label
         e.tap()
-        nota("toccato «\(e.label)»")
+        nota("toccato «\(etichetta)»")
         return true
     }
 
@@ -221,7 +222,10 @@ final class TesterTests: XCTestCase {
     /// T02 · Marco, 41, sviluppatore esperto · torna con un anno di dati · esplora tutto · iPhone grande
     func test02_Marco() {
         avvia("T02")
-        for i in 0..<5 { scheda(i); sleep(1); foto("scheda-\(i)", albero: true) }
+        for i in 0..<5 {
+            misura("apertura scheda \(i)") { scheda(i) }
+            sleep(1); foto("scheda-\(i)", albero: i == 0)
+        }
         scheda(0)
         if tocca("netto.calcolo") {
             sleep(1); foto("come-lo-calcolo", albero: true)
@@ -436,10 +440,11 @@ final class TesterTests: XCTestCase {
         foto("netto-anno-corrente", albero: true)
         if tocca("netto.anno") {
             sleep(1); foto("menu-anno", albero: true)
-            let anni = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Il "))
-            nota("anni nel menu: \(anni.count)")
-            if anni.count > 1 { anni.element(boundBy: anni.count - 1).tap(); sleep(1); foto("netto-altro-anno", albero: true) }
-            else { chiudi() }
+            let anni = app.buttons.matching(NSPredicate(format: "label MATCHES %@", "Il [0-9]{4}"))
+            nota("anni nel menu: \(anni.count) · \(anni.allElementsBoundByIndex.map(\.label).joined(separator: ", "))")
+            let ultimo = anni.allElementsBoundByIndex.last { $0.isHittable }
+            if anni.count > 1, let ultimo { ultimo.tap(); sleep(1); foto("netto-altro-anno", albero: true) }
+            else { app.tap(); sleep(1) }
         }
         scheda(1); foto("incassi-altro-anno")
         scheda(3); foto("pagamenti-altro-anno", albero: true)
