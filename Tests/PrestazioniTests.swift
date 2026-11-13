@@ -104,7 +104,9 @@ final class PrestazioniTests: XCTestCase {
         print("IMPRONTA risultati: \(impronta(s)) (\(s.count) caratteri)")
         // L'impronta misurata prima delle modifiche per la velocità (3 novembre 2026): i risultati devono restare identici
         // 08/11/2026: i codici F24 hanno l'anno di riferimento e il bollo gli importi per trimestre (numeri invariati)
-        XCTAssertEqual(impronta(s), "ca26e8c287263a3a")
+        // 13/11/2026: cambia solo la ricerca ATECO (parole intere e radici, errori di battitura, tester T01 e T14);
+        // Calcolo, Pagamenti, FatturaXML e regole sono identici al commit 39af9c1
+        XCTAssertEqual(impronta(s), "5ff7b260f92599a5")
     }
 
     // MARK: - Misure
