@@ -86,6 +86,13 @@ final class TesterTests: XCTestCase {
         if !pronto { XCTFail("\(codice): l'app non si è aperta") }
     }
 
+    /// Fuori dal benvenuto: la barra delle schede c'è anche sotto il benvenuto (che la copre), quindi
+    /// conta che il pulsante «Avanti» del benvenuto non ci sia più e che la scheda si possa toccare
+    private var nelleSchede: Bool {
+        !app.buttons["profilo.avanti"].exists && !app.buttons["benvenuto.inizia"].exists
+            && app.tabBars.buttons.element(boundBy: 0).isHittable
+    }
+
     private func scheda(_ i: Int) {
         let b = app.tabBars.buttons.element(boundBy: i)
         if b.waitForExistence(timeout: 5) {
@@ -183,7 +190,7 @@ final class TesterTests: XCTestCase {
         sleep(1)
         if fotoOgniPasso { foto("lavoro-scelto") }
         for i in 0..<6 {
-            if app.tabBars.buttons.element(boundBy: 0).exists { break }
+            if nelleSchede { break }
             if !fretta { sleep(1) }
             if fotoOgniPasso { foto("domanda-\(i + 2)") }
             let b = app.buttons["profilo.avanti"].firstMatch
@@ -193,7 +200,8 @@ final class TesterTests: XCTestCase {
             }
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
-        let dentro = app.tabBars.buttons.element(boundBy: 0).waitForExistence(timeout: 6)
+        var dentro = nelleSchede
+        for _ in 0..<6 where !dentro { sleep(1); dentro = nelleSchede }
         nota("fine del benvenuto: \(dentro ? "schede visibili" : "SCHEDE NON VISIBILI")")
         foto("dopo-benvenuto", albero: true)
     }
@@ -356,7 +364,7 @@ final class TesterTests: XCTestCase {
         nota("gruppi con percentuale: \(gruppi.count)")
         if gruppi.count > 0 { gruppi.element(boundBy: 0).tap(); sleep(1); foto("gruppo-scelto") }
         for i in 0..<6 {
-            if app.tabBars.buttons.element(boundBy: 0).exists { break }
+            if nelleSchede { break }
             if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
             if !tocca("profilo.avanti", attesa: 3) { foto("bloccato-\(i)", albero: true); break }
         }
@@ -491,7 +499,7 @@ final class TesterTests: XCTestCase {
         sleep(1)
         _ = toccaTesto("software") || toccaTesto("informatic")
         for _ in 0..<6 {
-            if app.tabBars.buttons.element(boundBy: 0).exists { break }
+            if nelleSchede { break }
             if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
@@ -642,7 +650,7 @@ final class TesterTests: XCTestCase {
             foto("luglio-scelto")
         } else { nota("scelta del mese «profilo.mese» NON TROVATA (forse serve prima l'anno)") }
         for _ in 0..<5 {
-            if app.tabBars.buttons.element(boundBy: 0).exists { break }
+            if nelleSchede { break }
             if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
