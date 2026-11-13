@@ -76,6 +76,7 @@ final class TesterTests: XCTestCase {
         var argomenti = [vuoto ? "-uitestVuoto" : "-uitest", "-AppleLanguages", "(\(lingua))",
                          "-AppleLocale", lingua == "it" ? "it_IT" : "en_GB"]
         if scuro { argomenti.append("-uiDark") }
+        if ProcessInfo.processInfo.environment["AURORA_FERMA"] == "1" { argomenti.append("-uiAuroraFerma") }
         app.launchArguments = argomenti + extra
         let t0 = Date()
         app.launch()

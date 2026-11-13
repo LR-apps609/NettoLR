@@ -7,9 +7,11 @@ import SwiftUI
 struct Aurora: View {
     var colori: [Color] = [Theme.rosaChiaro, Color(hex: 0xF2A07B), Color(hex: 0x7EA4DD)]
     @Environment(\.accessibilityReduceMotion) private var menoMovimento
+    /// Solo per le prove: lo sfondo fermo, per capire se i blocchi nel simulatore vengono da lui
+    private static let fermaNelleProve = ProcessInfo.processInfo.arguments.contains("-uiAuroraFerma")
 
     var body: some View {
-        TimelineView(.animation(minimumInterval: 1 / 30, paused: menoMovimento)) { tempo in
+        TimelineView(.animation(minimumInterval: 1 / 30, paused: menoMovimento || Self.fermaNelleProve)) { tempo in
             let t = menoMovimento ? 0 : tempo.date.timeIntervalSinceReferenceDate
             GeometryReader { geo in
                 let w = geo.size.width, h = geo.size.height
