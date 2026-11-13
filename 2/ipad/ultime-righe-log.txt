@@ -1,0 +1,60 @@
+		{ platform:iOS Simulator, arch:x86_64, id:3AA87488-8C0D-4E80-8E1A-8CFC258A48D4, OS:26.1, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:8F1DDE1E-DCEE-4DB1-847D-3D6F6551D28F, OS:26.2, name:iPad Pro 11-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:1DF77EF7-8C1B-485D-A0A2-41CDC3397F27, OS:26.0.1, name:iPad Pro 11-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:55D335CC-EF9C-48C7-AECE-967ABAF69556, OS:26.1, name:iPad Pro 11-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:752096BD-3350-4F49-9D5D-EBF66635534C, OS:26.2, name:iPad Pro 11-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:65F64034-10A7-4358-9889-E891F3C32E86, OS:18.5, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:A9D11F86-C07B-4B0D-AB5B-F2E2B1F61ADC, OS:18.6, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:3DC49160-2104-43F0-B551-3044A9BEF127, OS:26.0.1, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:26BCB920-017C-48FC-847E-9F83F4F8979C, OS:26.1, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:07BF4F70-04B0-484B-ADBB-10FFF68E8440, OS:26.2, name:iPad Pro 13-inch (M4) }
+		{ platform:iOS Simulator, arch:x86_64, id:5757172E-5A43-434D-90C9-8C5AAC763F72, OS:26.0.1, name:iPad Pro 13-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:48873EC5-F0A3-47DA-A46E-FCEAD9607CA7, OS:26.1, name:iPad Pro 13-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:CAAA601F-5038-46D8-BBF8-CA5E3BE47EC1, OS:26.2, name:iPad Pro 13-inch (M5) }
+		{ platform:iOS Simulator, arch:x86_64, id:4A73F223-27F8-4CFA-9910-64780196E76D, OS:18.5, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, arch:x86_64, id:97EF782D-9317-4024-908C-4F9E8417C2D2, OS:18.6, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, arch:x86_64, id:E023D872-1996-4B56-B99D-B6FD2A8C96BF, OS:26.0.1, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, arch:x86_64, id:31B14B30-F765-4D25-997F-AEDD162C3754, OS:26.1, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, arch:x86_64, id:6D7EE587-0352-482F-A086-B7683360F0AF, OS:26.2, name:iPad mini (A17 Pro) }
+		{ platform:iOS Simulator, arch:x86_64, id:565DED02-59D6-4021-88CA-21B8BEF5F415, OS:18.5, name:iPhone 16 }
+		{ platform:iOS Simulator, arch:x86_64, id:9495FFE4-4C27-490B-8E1B-5462EE31206C, OS:18.6, name:iPhone 16 }
+		{ platform:iOS Simulator, arch:x86_64, id:A106A14F-12C7-47F3-98BA-09B2BAFF1A5C, OS:26.0.1, name:iPhone 16 }
+		{ platform:iOS Simulator, arch:x86_64, id:C597C0AA-DE04-4E8F-8CA3-F6B83951C0E3, OS:26.1, name:iPhone 16 }
+		{ platform:iOS Simulator, arch:x86_64, id:841E0288-2704-4A18-A304-BF477CA384A8, OS:26.2, name:iPhone 16 }
+		{ platform:iOS Simulator, arch:x86_64, id:00F70A9D-D274-4444-99B1-0330827C4E85, OS:18.5, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, arch:x86_64, id:7FEA7C53-03DF-432C-8907-88270D2AFBC7, OS:18.6, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, arch:x86_64, id:5DF92C68-462F-4F04-8B68-7994A9A06827, OS:26.0.1, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, arch:x86_64, id:2DA6665D-D96E-4CF2-8CDC-5C180C1AB619, OS:26.1, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, arch:x86_64, id:08F7C3A1-760F-4BEF-AD83-D3BB2F7A65F0, OS:26.2, name:iPhone 16 Plus }
+		{ platform:iOS Simulator, arch:x86_64, id:08AEF2F6-6BFD-48DC-9538-9B3FB7DE50B9, OS:18.5, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:BEB0C3A5-7D46-4D50-B4C6-777F0A79718D, OS:18.6, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:495599D0-CA8D-49FA-A715-4D75DA93227A, OS:26.0.1, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:816BBCE5-560B-4554-8720-67A5753FFDAB, OS:26.1, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:E3312CA2-0242-435C-AF8C-49E295DEC90A, OS:26.2, name:iPhone 16 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:50AD214F-BB73-4804-9ABB-848A63DCB66E, OS:18.5, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:26EAD7F4-0ACD-48C9-90A5-0663F1EBA3B6, OS:18.6, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:AC2F5892-85EC-42D6-8BB6-0881611DFB55, OS:26.0.1, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:637FB448-649C-4358-8803-10066CBC73FA, OS:26.1, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:95BA7042-C493-49FF-A71D-8A11DA63CB0F, OS:26.2, name:iPhone 16 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:F09E2169-F90B-4749-B10B-36887FC7F35F, OS:18.5, name:iPhone 16e }
+		{ platform:iOS Simulator, arch:x86_64, id:58813017-B42B-4853-AE56-1BC520166842, OS:18.6, name:iPhone 16e }
+		{ platform:iOS Simulator, arch:x86_64, id:DA371F0D-099D-4545-BA30-75E7BDD3AD6D, OS:26.0.1, name:iPhone 16e }
+		{ platform:iOS Simulator, arch:x86_64, id:75761E56-08D3-4FFB-99F8-9228AD39C5D9, OS:26.1, name:iPhone 16e }
+		{ platform:iOS Simulator, arch:x86_64, id:5C69C73B-33DE-46E9-879A-3CEBB638EC04, OS:26.2, name:iPhone 16e }
+		{ platform:iOS Simulator, arch:x86_64, id:9777F468-6523-4054-8A7A-F4AADBCA5BAC, OS:26.0.1, name:iPhone 17 }
+		{ platform:iOS Simulator, arch:x86_64, id:A5B1D0E8-151E-4AF6-B8B2-A3CB02C8BD52, OS:26.1, name:iPhone 17 }
+		{ platform:iOS Simulator, arch:x86_64, id:ED7F54AD-B60E-4DAC-B084-69A7345B5345, OS:26.2, name:iPhone 17 }
+		{ platform:iOS Simulator, arch:x86_64, id:034A8464-BB8B-426E-AEC2-881C7E19BEC4, OS:26.0.1, name:iPhone 17 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:2794E105-DE19-4B94-82FC-47F48FDCE59D, OS:26.1, name:iPhone 17 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:C15FAC2A-CB46-4F16-B882-3970BD44CFAD, OS:26.2, name:iPhone 17 Pro }
+		{ platform:iOS Simulator, arch:x86_64, id:3F32EB85-77C0-4905-85FD-B6C455B5F636, OS:26.0.1, name:iPhone 17 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:C9AEB1DD-939A-4E4C-B9D9-4F6463C4DD09, OS:26.1, name:iPhone 17 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:8F28AB82-E741-43D2-8CA2-7E1A1C0FD514, OS:26.2, name:iPhone 17 Pro Max }
+		{ platform:iOS Simulator, arch:x86_64, id:6DC3129B-B173-4C99-91BD-FDEE81308D68, OS:26.0.1, name:iPhone Air }
+		{ platform:iOS Simulator, arch:x86_64, id:D3BA4122-00F1-4CBB-8F43-8DBB01658A7E, OS:26.1, name:iPhone Air }
+		{ platform:iOS Simulator, arch:x86_64, id:6FE167B2-ADE5-432F-9734-2B111C4B6835, OS:26.2, name:iPhone Air }
+		{ platform:iOS Simulator, arch:x86_64, id:8D5449CF-92D0-4211-A0C8-55CFF17BD35E, OS:18.5, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, arch:x86_64, id:4E62D48E-A75F-4AF3-BDC2-1C74916B5810, OS:18.6, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, arch:x86_64, id:8F3D80FD-EFA6-4BD4-BA72-4D349979A41E, OS:26.0.1, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, arch:x86_64, id:316D7C91-D5BF-4D72-AD4F-6D0196D99467, OS:26.1, name:iPhone SE (3rd generation) }
+		{ platform:iOS Simulator, arch:x86_64, id:B0784041-4057-4B9E-85B9-5C63C5C0D0B2, OS:26.2, name:iPhone SE (3rd generation) }

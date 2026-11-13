@@ -1,0 +1,3 @@
+Durata: 67 s
+Dispositivo: iPad Air 13-inch
+xcodebuild: error: Unable to find a device matching the provided destination specifier:
