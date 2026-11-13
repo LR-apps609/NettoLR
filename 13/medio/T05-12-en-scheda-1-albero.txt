@@ -1,0 +1,84 @@
+Attributes: Application, 0x110042760, pid: 44239, label: 'NettoLR'
+Element subtree:
+ →Application, 0x110042760, pid: 44239, label: 'NettoLR'
+    Window (Main), 0x11002dbe0, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x11006bf30, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x11006bb10, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x110072730, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x11006cad0, {{0.0, 0.0}, {402.0, 874.0}}
+              Other, 0x11006b6f0, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x11006b2d0, {{0.0, 0.0}, {402.0, 874.0}}
+                  Other, 0x11006aeb0, {{0.0, 0.0}, {402.0, 874.0}}
+                    Other, 0x1100549e0, {{0.0, 0.0}, {402.0, 874.0}}
+                      Other, 0x110035ee0, {{0.0, 0.0}, {402.0, 874.0}}
+                        Other, 0x110062350, {{0.0, 0.0}, {402.0, 874.0}}
+                          Other, 0x110030310, {{0.0, 0.0}, {402.0, 874.0}}
+                            Other, 0x110037080, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x110060f60, {{0.0, 0.0}, {402.0, 874.0}}
+                                Other, 0x110038fc0, {{0.0, 0.0}, {402.0, 874.0}}
+                                  Other, 0x11006cef0, {{0.0, 0.0}, {402.0, 874.0}}
+                                    ScrollView, 0x11006d010, {{0.0, 0.0}, {402.0, 874.0}}
+                                      Other, 0x11006d130, {{0.0, 0.0}, {402.0, 874.0}}
+                                        Other, 0x11006d250, {{0.0, 726.2}, {402.0, 147.8}}
+                                      Other, 0x11006d370, {{0.0, 0.0}, {402.0, 874.0}}
+                                      Other, 0x11006d490, {{0.0, 62.0}, {402.0, 511.3}}
+                                        StaticText, 0x11006d5b0, {{20.0, 74.0}, {122.3, 40.7}}, label: 'Income'
+                                        StaticText, 0x11006d6d0, {{20.0, 132.7}, {68.7, 52.7}}, label: '0 €'
+                                        StaticText, 0x11006d7f0, {{20.0, 187.3}, {119.0, 19.3}}, label: 'received in 2026'
+                                        Button, 0x11006d910, {{20.0, 224.7}, {362.0, 58.0}}, identifier: 'incassi.aggiungi', label: 'Add a payment received'
+                                          Image, 0x11006da30, {{85.3, 244.3}, {18.7, 18.7}}, identifier: 'plus.circle.fill', label: 'Add'
+                                          StaticText, 0x11006db50, {{85.3, 243.0}, {233.2, 21.7}}, label: 'Add a payment received'
+                                        Image, 0x11006dc70, {{178.0, 333.3}, {46.3, 33.7}}, identifier: 'tray', label: 'Inbox'
+                                        StaticText, 0x11006dd90, {{140.3, 379.7}, {121.3, 21.7}}, label: 'No income yet'
+                                        StaticText, 0x11006deb0, {{21.3, 411.3}, {359.3, 36.0}}, label: 'Every time you get paid, add it here: we'll tell you right away how much is yours.'
+                                        Button, 0x11006dfd0, {{20.0, 517.3}, {362.0, 44.0}}, label: 'Import from e-invoices'
+                                        Other, 0x11006e0f0, {{0.0, 0.0}, {0.0, 0.0}}
+                                      Other, 0x11006e210, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x11006e330, {{396.0, 282.7}, {3.0, 505.3}}
+                                      Other, 0x11006e450, {{369.0, 62.0}, {30.0, 729.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x11006e570, {{396.0, 282.7}, {3.0, 505.3}}
+                            Other, 0x11006e690, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x11006e7b0, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x11006e8d0, {{0.0, 791.0}, {402.0, 83.0}}
+                  Other, 0x11006e9f0, {{0.0, 0.0}, {402.0, 874.0}}
+                    TabBar, 0x11006eb10, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Tab Bar'
+                      Other, 0x11006ec30, {{21.0, 791.0}, {360.0, 62.0}}
+                        Other, 0x11006ed50, {{21.0, 791.0}, {74.0, 54.0}}
+                        Other, 0x11006ee70, {{21.0, 791.0}, {360.0, 62.0}}
+                          Button, 0x11006ef90, {{25.0, 795.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x11006f0b0, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x11006f1d0, {{92.9, 795.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Income', Selected
+                            Image, 0x11006f2f0, {{116.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x11006f410, {{160.8, 795.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Try it'
+                            Image, 0x11006f530, {{182.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'edit'
+                          Button, 0x11006f650, {{228.7, 795.0}, {80.3, 54.0}}, identifier: 'calendar', label: 'Payments'
+                            Image, 0x11006f770, {{254.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendar'
+                          Button, 0x11006f890, {{303.0, 795.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'You'
+                            Image, 0x11006f9b0, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x11006fad0, {{92.9, 795.0}, {74.0, 54.0}}
+                          Other, 0x11006fbf0, {{92.9, 795.0}, {74.0, 54.0}}
+                            Other, 0x11006fd10, {{92.9, 795.0}, {74.0, 54.0}}
+                            Other, 0x11006fe30, {{92.9, 795.0}, {74.0, 54.0}}
+                              Other, 0x11006ff50, {{92.9, 795.0}, {74.0, 54.0}}
+                                Other, 0x110070070, {{92.9, 795.0}, {74.0, 54.0}}
+                                  Other, 0x110070190, {{92.9, 795.0}, {74.0, 54.0}}
+                                Other, 0x1100702b0, {{92.9, 795.0}, {74.0, 54.0}}
+                              Other, 0x110038320, {{92.9, 795.0}, {74.0, 54.0}}
+                  Other, 0x110038440, {{0.0, 791.0}, {402.0, 83.0}}
+                    Other, 0x110038560, {{0.0, 791.0}, {402.0, 83.0}}
+                      Other, 0x110038680, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x1100387a0, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x1100388c0, {{0.0, 791.0}, {402.0, 83.0}}
+                            Other, 0x1100389e0, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x110031350, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x110031470, {{0.0, 791.0}, {402.0, 83.0}}
+    Window, 0x110031590, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x1100316b0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x1100317d0, {{0.0, 0.0}, {402.0, 874.0}}
+Path to element:
+ →Application, 0x110042760, pid: 44239, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x110373670, pid: 44239, label: 'NettoLR'
+  }

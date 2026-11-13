@@ -1,0 +1,15 @@
+Durata: 3650 s
+Dispositivo: iPhone 17
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.558) seconds
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.569) seconds
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.580) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:152: error: -[NettoLRUITests.TesterTests test11_Francesca] : Failed to get matching snapshots: Timed out while evaluating UI query.
+Test Case '-[NettoLRUITests.TesterTests test03_Anna]' passed (313.188 seconds).
+Test Case '-[NettoLRUITests.TesterTests test04_Luca]' passed (508.912 seconds).
+Test Case '-[NettoLRUITests.TesterTests test05_Sara]' passed (215.826 seconds).
+Test Case '-[NettoLRUITests.TesterTests test10_Roberto]' passed (366.898 seconds).
+Test Case '-[NettoLRUITests.TesterTests test11_Francesca]' failed (282.642 seconds).
+Test Case '-[NettoLRUITests.TesterTests test13_Martina]' passed (268.790 seconds).
+Test Case '-[NettoLRUITests.TesterTests test14_Stefano]' passed (359.498 seconds).
+Test Case '-[NettoLRUITests.TesterTests test18_Simone]' passed (373.486 seconds).
+Test Case '-[NettoLRUITests.TesterTests test19_Laura]' passed (152.291 seconds).

@@ -1,0 +1,60 @@
+    t =   105.81s     Synthesize event
+    t =   106.25s     Wait for it.ledion.NettoLR to idle
+    t =   108.09s Waiting 4.0s for Button (First Match) to exist
+    t =   109.12s     Checking `Expect predicate `existsNoRetry == 1` for object Button (First Match)`
+    t =   109.13s         Checking existence of `Button (First Match)`
+    t =   109.49s Checking existence of `Button (First Match)`
+    t =   109.96s Find the Button (First Match)
+    t =   110.63s Swipe up Target Application 'it.ledion.NettoLR'
+    t =   110.63s     Wait for it.ledion.NettoLR to idle
+    t =   110.67s     Find the Target Application 'it.ledion.NettoLR'
+    t =   110.85s     Check for interrupting elements affecting "NettoLR" Application
+    t =   111.14s     Synthesize event
+    t =   111.61s     Wait for it.ledion.NettoLR to idle
+    t =   112.52s Checking existence of `"Cancella tutti i dati" Button`
+    t =   113.17s Find the "Cancella tutti i dati" Button
+    t =   114.36s Find the "Cancella tutti i dati" Button
+    t =   114.83s Tap "Cancella tutti i dati" Button
+    t =   114.83s     Wait for it.ledion.NettoLR to idle
+    t =   114.83s     Find the "Cancella tutti i dati" Button
+    t =   115.27s     Check for interrupting elements affecting "Cancella tutti i dati" Button
+    t =   115.51s     Synthesize event
+    t =   115.88s     Wait for it.ledion.NettoLR to idle
+    t =   121.22s Added attachment named 'T19-06-conferma-cancella'
+    t =   121.23s Requesting snapshot of accessibility hierarchy for app with pid 82657
+    t =   123.50s Requesting snapshot of accessibility hierarchy for app with pid 82657
+    t =   124.01s Added attachment named 'T19-06-conferma-cancella-albero'
+    t =   124.02s Checking existence of `"Cancella tutto" Button`
+    t =   124.37s Tap "Cancella tutto" Button
+    t =   124.37s     Wait for it.ledion.NettoLR to idle
+    t =   124.39s     Find the "Cancella tutto" Button
+    t =   124.69s     Check for interrupting elements affecting "Cancella tutto" Button
+    t =   124.96s     Synthesize event
+    t =   125.37s     Wait for it.ledion.NettoLR to idle
+    t =   130.63s Added attachment named 'T19-07-dopo-cancella'
+    t =   130.65s Requesting snapshot of accessibility hierarchy for app with pid 82657
+    t =   138.00s Requesting snapshot of accessibility hierarchy for app with pid 82657
+    t =   138.99s Added attachment named 'T19-07-dopo-cancella-albero'
+    t =   138.99s Tear Down
+    t =   138.99s     Added attachment named 'T19-diario'
+    t =   139.00s     Setting device orientation to Portrait
+    t =   139.01s         Wait for it.ledion.NettoLR to idle
+    t =   139.02s     Setting appearance mode to Light
+    t =   139.04s         Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test19_Laura]' passed (152.291 seconds).
+Test Suite 'TesterTests' failed at 2026-11-13 21:45:51.704.
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.558) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-13 21:45:51.714.
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.569) seconds
+Test Suite 'Selected tests' failed at 2026-11-13 21:45:51.723.
+	 Executed 9 tests, with 1 failure (0 unexpected) in 2841.531 (2841.580) seconds
+2026-11-13 21:47:57.762 xcodebuild[5672:22755] [MT] IDETestOperationsObserverDebug: 3044.112 elapsed -- Testing started completed.
+2026-11-13 21:47:57.763 xcodebuild[5672:22755] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-13 21:47:57.763 xcodebuild[5672:22755] [MT] IDETestOperationsObserverDebug: 3044.112 sec, +3044.112 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started

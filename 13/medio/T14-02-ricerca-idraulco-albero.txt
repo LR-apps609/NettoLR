@@ -1,0 +1,196 @@
+Attributes: Application, 0x11008b050, pid: 64915, label: 'NettoLR'
+Element subtree:
+ →Application, 0x11008b050, pid: 64915, label: 'NettoLR'
+    Window (Main), 0x110089990, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x11008b870, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x11008aa10, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x11008bc90, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x11008c0b0, {{0.0, 0.0}, {402.0, 874.0}}
+              Other, 0x11008b450, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x11008a5f0, {{0.0, 0.0}, {402.0, 874.0}}
+                  Other, 0x110089db0, {{0.0, 0.0}, {402.0, 874.0}}
+                    Other, 0x11008a1d0, {{0.0, 0.0}, {402.0, 874.0}}
+                      Other, 0x1100435c0, {{0.0, 0.0}, {402.0, 874.0}}
+                        Other, 0x11008cb30, {{0.0, 0.0}, {402.0, 874.0}}
+                          Other, 0x11008cc50, {{0.0, 0.0}, {402.0, 874.0}}
+                            Other, 0x11008cd70, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x11008ce90, {{0.0, 0.0}, {402.0, 874.0}}
+                                Other, 0x11008cfb0, {{0.0, 0.0}, {402.0, 874.0}}
+                                  Other, 0x11008d0d0, {{0.0, 0.0}, {402.0, 874.0}}
+                                    ScrollView, 0x11008d1f0, {{201.0, 0.0}, {0.0, 874.0}}
+                                      Other, 0x11008d310, {{201.0, 62.0}, {0.0, 0.0}}
+                                      Other, 0x11008d430, {{198.0, 62.0}, {0.0, 477.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x1103744a0, {{195.0, 529.0}, {3.0, 7.0}}
+                                      Other, 0x11037c640, {{198.0, 62.0}, {0.0, 477.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x110395460, {{195.0, 529.0}, {3.0, 7.0}}
+                            Other, 0x110395b60, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x110348350, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x1103957e0, {{0.0, 791.0}, {402.0, 83.0}}
+                  Other, 0x110395ef0, {{0.0, 0.0}, {402.0, 874.0}}
+                    TabBar, 0x1103950e0, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x110396280, {{21.0, 791.0}, {360.0, 62.0}}
+                        Other, 0x110397890, {{21.0, 791.0}, {74.0, 54.0}}
+                        Other, 0x110348db0, {{21.0, 791.0}, {360.0, 62.0}}
+                          Button, 0x110344ff0, {{25.0, 795.0}, {74.0, 54.0}}, label: 'Netto', Selected
+                            Image, 0x11037cd00, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x11037c990, {{91.9, 795.0}, {74.0, 54.0}}, label: 'Incassi'
+                            Image, 0x11034ad00, {{115.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x110347ff0, {{158.8, 795.0}, {74.0, 54.0}}, label: 'Prova'
+                            Image, 0x1103433e0, {{180.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x110397170, {{225.7, 795.0}, {84.3, 54.0}}, label: 'Pagamenti'
+                            Image, 0x110397510, {{253.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x110397c00, {{303.0, 795.0}, {74.0, 54.0}}, label: 'Tu'
+                            Image, 0x110396620, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x110397f50, {{25.0, 795.0}, {74.0, 54.0}}
+                          Other, 0x1103982c0, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x110398620, {{25.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x110398980, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x110398d10, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x110399070, {{25.0, 795.0}, {74.0, 54.0}}
+                                  Other, 0x110399400, {{25.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x110399770, {{25.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x110399ad0, {{25.0, 795.0}, {74.0, 54.0}}
+                  Other, 0x110399e60, {{0.0, 791.0}, {402.0, 83.0}}
+                    Other, 0x11039a1f0, {{0.0, 791.0}, {402.0, 83.0}}
+                      Other, 0x11039a580, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x11039a8f0, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x11039ac60, {{0.0, 791.0}, {402.0, 83.0}}
+                            Other, 0x11039afd0, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x11039b340, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x11039b690, {{0.0, 791.0}, {402.0, 83.0}}
+      Other, 0x11039ba20, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x11039bd90, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x11039c0e0, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x11039c470, {{20.0, 74.0}, {362.0, 5.0}}, label: 'Domanda 1 di 4'
+            ScrollView, 0x11039c800, {{20.0, 99.0}, {362.0, 350.0}}
+              Other, 0x11039cb70, {{20.0, 99.0}, {362.0, 1010.0}}
+                StaticText, 0x11039ced0, {{20.0, 99.0}, {215.0, 36.0}}, label: 'Che lavoro fai?'
+                Image, 0x11039d220, {{36.0, 168.7}, {16.3, 16.7}}, identifier: 'magnifyingglass', label: 'Cerca'
+                TextField, 0x11039d5b0, {{64.3, 166.0}, {303.7, 22.0}}, identifier: 'profilo.cerca', placeholderValue: 'Scrivilo come lo diresti a un amico', value: idraulco, Keyboard Focused
+                Button, 0x11039d920, {{20.0, 219.0}, {362.0, 80.0}}, label: 'Idraulico, ATECO 2007 43.22.01 · Installazione di impianti idraulici, di riscaldamento e di condizionamento dell'aria (inclusa manutenzione e riparazione) in edifici o in altre opere di costruzione, 86%'
+                  StaticText, 0x11039dc80, {{34.0, 233.0}, {64.7, 19.3}}, label: 'Idraulico'
+                  StaticText, 0x11039dfe0, {{34.0, 256.3}, {250.0, 28.7}}, label: 'ATECO 2007 43.22.01 · Installazione di impianti idraulici, di riscaldamento e di condizionamento dell'aria (inclusa manutenzione e riparazione) in edifici o in altre opere di costruzione'
+                  StaticText, 0x11039eeb0, {{324.3, 239.0}, {33.7, 17.0}}, label: '86%'
+                Button, 0x11039f200, {{20.0, 307.0}, {362.0, 123.0}}, label: 'Fabbricazione di organi di trasmissione (esclusi quelli idraulici e quelli per autoveicoli, aeromobili e motocicli), ATECO 2007 28.15.10, 67%'
+                  StaticText, 0x11039f580, {{34.0, 321.0}, {235.3, 76.7}}, label: 'Fabbricazione di organi di trasmissione (esclusi quelli idraulici e quelli per autoveicoli, aeromobili e motocicli)'
+                  StaticText, 0x11039f8f0, {{34.0, 401.7}, {123.3, 14.3}}, label: 'ATECO 2007 28.15.10'
+                  StaticText, 0x11039fc50, {{325.7, 327.0}, {32.3, 17.0}}, label: '67%'
+                Button, 0x11039ffb0, {{20.0, 438.0}, {362.0, 65.7}}, label: 'Costruzione di opere idrauliche, ATECO 2007 42.91.00, 86%'
+                  StaticText, 0x1103a0b10, {{34.0, 452.0}, {231.0, 19.3}}, label: 'Costruzione di opere idrauliche'
+                  StaticText, 0x1103a0ea0, {{34.0, 475.3}, {127.0, 14.3}}, label: 'ATECO 2007 42.91.00'
+                  StaticText, 0x1103a11f0, {{324.3, 458.0}, {33.7, 17.0}}, label: '86%'
+                Button, 0x1103a1550, {{20.0, 511.7}, {362.0, 142.0}}, label: 'Commercio all'ingrosso di apparecchi e accessori per impianti idraulici, di riscaldamento e di condizionamento, ATECO 2007 46.74.20, 40%'
+                  StaticText, 0x1103a18b0, {{34.0, 525.7}, {203.0, 95.7}}, label: 'Commercio all'ingrosso di apparecchi e accessori per impianti idraulici, di riscaldamento e di condizionamento'
+                  StaticText, 0x1103a1c10, {{34.0, 625.3}, {127.3, 14.3}}, label: 'ATECO 2007 46.74.20'
+                  StaticText, 0x1103a1f80, {{324.3, 531.7}, {33.7, 17.0}}, label: '40%'
+                Button, 0x1103a22d0, {{20.0, 661.7}, {362.0, 65.7}}, label: 'Costruzione di opere idrauliche, ATECO 2025 42.91.00, 86%'
+                  StaticText, 0x1103a2630, {{34.0, 675.7}, {231.0, 19.3}}, label: 'Costruzione di opere idrauliche'
+                  StaticText, 0x1103a29c0, {{34.0, 699.0}, {127.0, 14.3}}, label: 'ATECO 2025 42.91.00'
+                  StaticText, 0x1103a2d20, {{324.3, 681.7}, {33.7, 17.0}}, label: '86%'
+                Button, 0x1103a30b0, {{20.0, 735.3}, {362.0, 84.7}}, label: 'Installazione di altri impianti termo-idraulici, ATECO 2025 43.22.05, 86%'
+                  StaticText, 0x1103a3410, {{34.0, 749.3}, {210.3, 38.3}}, label: 'Installazione di altri impianti termo-idraulici'
+                  StaticText, 0x1103a3790, {{34.0, 791.7}, {128.3, 14.3}}, label: 'ATECO 2025 43.22.05'
+                  StaticText, 0x1103a3b10, {{324.3, 755.3}, {33.7, 17.0}}, label: '86%'
+                Button, 0x1103a3e70, {{20.0, 828.0}, {362.0, 123.0}}, label: 'Commercio all'ingrosso di apparecchi e accessori per impianti idraulici e di riscaldamento, ATECO 2025 46.84.20, 40%'
+                  StaticText, 0x1103a4210, {{34.0, 842.0}, {203.0, 76.7}}, label: 'Commercio all'ingrosso di apparecchi e accessori per impianti idraulici e di riscaldamento'
+                  StaticText, 0x1103a4590, {{34.0, 922.7}, {129.0, 14.3}}, label: 'ATECO 2025 46.84.20'
+                  StaticText, 0x1103a48f0, {{324.3, 848.0}, {33.7, 17.0}}, label: '40%'
+                Button, 0x1103a4c70, {{20.0, 967.0}, {351.3, 19.3}}, identifier: 'profilo.certificato', label: 'Ho il certificato della partita IVA: fotografalo'
+                  Image, 0x1103a4fc0, {{22.0, 969.0}, {15.7, 15.7}}, identifier: 'doc.viewfinder', label: 'doc.viewfinder'
+                  StaticText, 0x1103a5320, {{20.0, 967.0}, {351.3, 19.3}}, label: 'Ho il certificato della partita IVA: fotografalo'
+                StaticText, 0x1103a5680, {{20.0, 1002.3}, {361.7, 46.7}}, label: 'Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.'
+                Button, 0x1103a59f0, {{20.0, 1065.0}, {164.0, 44.0}}, label: 'Non trovo il mio lavoro'
+              Other, 0x1103a5d60, {{349.0, 99.0}, {30.0, 350.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                Other, 0x1103a60d0, {{376.0, 102.0}, {3.0, 131.3}}
+              Other, 0x1103a6430, {{349.0, 99.0}, {30.0, 350.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                Other, 0x1103a6e70, {{376.0, 102.0}, {3.0, 131.3}}
+            Button, 0x1103a71f0, {{20.0, 469.0}, {362.0, 58.0}}, identifier: 'profilo.avanti', label: 'Avanti', Disabled
+    Window, 0x1103a7590, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x1103a7920, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x1103a7ca0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x1103a8020, {{0.0, 539.0}, {402.0, 335.0}}
+          Other, 0x1103a83b0, {{0.0, 539.0}, {402.0, 335.0}}, identifier: 'inputView'
+    Window, 0x1103a8730, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x1103a9160, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x1103a94d0, {{0.0, 539.0}, {402.0, 335.0}}
+          Other, 0x1103a9850, {{0.0, 539.0}, {402.0, 44.0}}, identifier: 'SystemInputAssistantView'
+            Other, 0x1103a9be0, {{0.0, 539.0}, {402.0, 44.0}}
+              Other, 0x1103a9f50, {{0.0, 539.0}, {402.0, 44.0}}, identifier: 'CenterPageView'
+                Other, 0x1103aa960, {{0.0, -61.0}, {402.0, 1244.0}}
+                  ScrollView, 0x1103aacf0, {{0.0, 539.0}, {402.0, 44.0}}
+                Other, 0x1103ab060, {{0.0, 539.0}, {402.0, 44.0}}
+                  Other, 0x1103ab3b0, {{0.0, 539.0}, {402.0, 44.0}}
+                    Other, 0x1103ab740, {{0.0, 539.0}, {402.0, 44.0}}
+                      Other, 0x1103aba90, {{0.0, 539.0}, {402.0, 44.0}}
+                        Other, 0x1103abe20, {{0.0, 539.0}, {134.0, 44.0}}
+                          Other, 0x1103ac190, {{0.0, 545.0}, {134.0, 38.0}}
+                          ScrollView, 0x1103ac4e0, {{3.0, 539.0}, {128.0, 44.0}}
+                            Other, 0x1103ac870, {{3.0, 542.0}, {128.0, 44.0}}
+                          Other, 0x1103acbe0, {{133.0, 552.0}, {1.0, 24.0}}
+                        Other, 0x1103b1f80, {{134.0, 539.0}, {134.0, 44.0}}
+                          Other, 0x1103b16d0, {{134.0, 545.0}, {134.0, 38.0}}
+                          ScrollView, 0x1103c99c0, {{137.0, 539.0}, {128.0, 44.0}}
+                            Other, 0x1103c9ae0, {{137.0, 542.0}, {128.0, 44.0}}
+                          Other, 0x1103c9c00, {{267.0, 552.0}, {1.0, 24.0}}
+                        Other, 0x1103c9d20, {{268.0, 539.0}, {134.0, 44.0}}
+                          Other, 0x1103c9e40, {{268.0, 545.0}, {134.0, 38.0}}
+                          ScrollView, 0x1103c9f60, {{271.0, 539.0}, {128.0, 44.0}}
+                            Other, 0x1103ca080, {{271.0, 542.0}, {128.0, 44.0}}
+          Other, 0x1103ca1a0, {{0.0, 539.0}, {402.0, 335.0}}
+            Other, 0x1103ca2c0, {{0.0, 539.0}, {402.0, 335.0}}
+              Other, 0x1103ca3e0, {{0.0, 539.0}, {402.0, 335.0}}
+          Other, 0x1103ca500, {{0.0, 583.0}, {402.0, 233.0}}
+            Keyboard, 0x1103ca620, {{0.0, 583.0}, {402.0, 233.0}}
+              Other, 0x1103ca740, {{0.0, 583.0}, {402.0, 233.0}}
+                Other, 0x1103ca860, {{0.0, 583.0}, {402.0, 233.0}}, identifier: 'UIKeyboardLayoutStar Preview'
+                  Key, 0x1103ca980, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x1103caaa0, {{4.7, 590.0}, {39.3, 54.0}}, label: 'Q'
+                  Key, 0x1103cabc0, {{44.0, 590.0}, {39.7, 54.0}}, label: 'W'
+                  Key, 0x1103cace0, {{83.7, 590.0}, {39.3, 54.0}}, label: 'E'
+                  Key, 0x1103cae00, {{123.0, 590.0}, {39.7, 54.0}}, label: 'R'
+                  Key, 0x1103caf20, {{162.7, 590.0}, {39.3, 54.0}}, label: 'T'
+                  Key, 0x1103cb040, {{202.0, 590.0}, {39.7, 54.0}}, label: 'Y'
+                  Key, 0x1103cb160, {{241.7, 590.0}, {39.3, 54.0}}, label: 'U'
+                  Key, 0x1103cb280, {{281.0, 590.0}, {39.7, 54.0}}, label: 'I'
+                  Key, 0x1103cb3a0, {{320.7, 590.0}, {39.3, 54.0}}, label: 'O'
+                  Key, 0x1103cb4c0, {{360.0, 590.0}, {39.7, 54.0}}, label: 'P'
+                  Key, 0x1103cb5e0, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x1103cb700, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x1103cb820, {{24.3, 644.0}, {39.3, 54.0}}, label: 'A'
+                  Key, 0x1103cb940, {{63.7, 644.0}, {39.7, 54.0}}, label: 'S'
+                  Key, 0x1103cba60, {{103.3, 644.0}, {39.3, 54.0}}, label: 'D'
+                  Key, 0x1103cbb80, {{142.7, 644.0}, {39.7, 54.0}}, label: 'F'
+                  Key, 0x1103cbca0, {{182.3, 644.0}, {39.3, 54.0}}, label: 'G'
+                  Key, 0x1103cbdc0, {{221.7, 644.0}, {39.7, 54.0}}, label: 'H'
+                  Key, 0x1103cbee0, {{261.3, 644.0}, {39.3, 54.0}}, label: 'J'
+                  Key, 0x1103cc000, {{300.7, 644.0}, {39.7, 54.0}}, label: 'K'
+                  Key, 0x1103cc120, {{340.3, 644.0}, {39.3, 54.0}}, label: 'L'
+                  Key, 0x1103cc240, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Button, 0x1103cc360, {{4.7, 698.0}, {51.3, 54.0}}, identifier: 'shift', label: 'maiuscole', Selected
+                  Key, 0x1103cc480, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x1103cc5a0, {{63.7, 698.0}, {39.7, 54.0}}, label: 'Z'
+                  Key, 0x1103cc6c0, {{103.3, 698.0}, {39.3, 54.0}}, label: 'X'
+                  Key, 0x1103cc930, {{142.7, 698.0}, {39.7, 54.0}}, label: 'C'
+                  Key, 0x1103cca50, {{182.3, 698.0}, {39.3, 54.0}}, label: 'V'
+                  Key, 0x1103ccb70, {{221.7, 698.0}, {39.7, 54.0}}, label: 'B'
+                  Key, 0x1103ccc90, {{261.3, 698.0}, {39.3, 54.0}}, label: 'N'
+                  Key, 0x1103ccdb0, {{300.7, 698.0}, {39.7, 54.0}}, label: 'M'
+                  Key, 0x1103cced0, {{0.0, 583.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x1103ccff0, {{348.0, 698.0}, {51.7, 54.0}}, identifier: 'delete', label: 'elimina'
+                  Key, 0x1103cd110, {{4.7, 752.0}, {98.7, 54.0}}, identifier: 'more', label: 'cifre'
+                  Key, 0x1103cd230, {{103.3, 752.0}, {197.3, 54.0}}, identifier: 'space', label: ' '
+                  Button, 0x1103cd350, {{300.7, 752.0}, {99.0, 54.0}}, identifier: 'Return', label: 'invio'
+          Other, 0x1103cd670, {{0.0, 583.0}, {402.0, 291.0}}
+            Button, 0x1103cd790, {{8.5, 805.7}, {68.1, 68.7}}, label: 'Emoji'
+              StaticText, 0x1103cd8b0, {{8.5, 805.7}, {0.0, 0.0}}
+            Button, 0x1103cd9d0, {{325.4, 805.4}, {68.1, 68.7}}, identifier: 'dictation', label: 'Avvia dettatura'
+              StaticText, 0x1103cdaf0, {{325.4, 805.4}, {0.0, 0.0}}
+            Button, 0x1103cdc10, {{325.4, 805.4}, {68.1, 68.7}}, identifier: 'dictation', label: 'Avvia dettatura'
+              StaticText, 0x1103cdd30, {{325.4, 805.4}, {0.0, 0.0}}
+Path to element:
+ →Application, 0x11008b050, pid: 64915, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x11008dc90, pid: 64915, label: 'NettoLR'
+  }
