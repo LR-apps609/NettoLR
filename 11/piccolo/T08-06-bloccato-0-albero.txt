@@ -1,0 +1,166 @@
+Attributes: Application, 0x10f864f80, pid: 31816, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10f864f80, pid: 31816, label: 'NettoLR'
+    Window (Main), 0x10f866a40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10f865bc0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10f8657a0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x10f865fe0, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x10f866400, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x10f865380, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x10f864940, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x10f864520, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x10f864100, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x10f863ce0, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x10f8638c0, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x10f8627e0, {{0.0, 0.0}, {390.0, 844.0}}
+                            Other, 0x10f866e60, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10f866f80, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x10f8670a0, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x10f8671c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                    ScrollView, 0x10f8672e0, {{195.0, 0.0}, {0.0, 844.0}}
+                                      Other, 0x10f867400, {{195.0, 47.0}, {0.0, 0.0}}
+                                      Other, 0x10f867520, {{192.0, 47.0}, {0.0, 462.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10f867640, {{189.0, 499.0}, {3.0, 7.0}}
+                                      Other, 0x10f867760, {{192.0, 47.0}, {0.0, 462.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10f867880, {{189.0, 499.0}, {3.0, 7.0}}
+                            Other, 0x10f8679a0, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10f867ac0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x10f867be0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x10f867d00, {{0.0, 0.0}, {390.0, 844.0}}
+                    TabBar, 0x10f867e20, {{0.0, 761.0}, {390.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x10f867f40, {{21.0, 761.0}, {348.0, 62.0}}
+                        Other, 0x10f868060, {{21.0, 761.0}, {74.0, 54.0}}
+                        Other, 0x10f868180, {{21.0, 761.0}, {348.0, 62.0}}
+                          Button, 0x10f8682a0, {{25.0, 765.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto', Selected
+                            Image, 0x10f8683c0, {{48.0, 771.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10f8684e0, {{88.9, 765.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x10f868600, {{112.9, 770.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10f868720, {{152.8, 765.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x10f868840, {{174.8, 772.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x10f868960, {{216.7, 765.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x10f868a80, {{244.7, 772.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x10f868ba0, {{291.0, 765.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x10f868cc0, {{314.0, 771.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10f868de0, {{25.0, 765.0}, {74.0, 54.0}}
+                          Other, 0x10f868f00, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10f83a600, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10f83a720, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x10f83a840, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x10f83a960, {{25.0, 765.0}, {74.0, 54.0}}
+                                  Other, 0x10f83aa80, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x10f83aba0, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x10f83acc0, {{25.0, 765.0}, {74.0, 54.0}}
+                  Other, 0x10f83ade0, {{0.0, 761.0}, {390.0, 83.0}}
+                    Other, 0x10f83af00, {{0.0, 761.0}, {390.0, 83.0}}
+                      Other, 0x10f83b020, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x10f83b140, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x10f83b260, {{0.0, 761.0}, {390.0, 83.0}}
+                            Other, 0x10f83b380, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x10f83b4a0, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x10f83b5c0, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x10f83b6e0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10f83b800, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x10f83b920, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x10f83ba40, {{20.0, 59.0}, {350.0, 5.0}}, label: 'Domanda 1 di 4'
+            ScrollView, 0x10f83bb60, {{20.0, 84.0}, {350.0, 335.0}}
+              Other, 0x10f83bc80, {{20.0, 84.0}, {350.0, 845.0}}
+                StaticText, 0x10f83bda0, {{20.0, 84.0}, {215.0, 36.0}}, label: 'Che lavoro fai?'
+                Image, 0x10f83bec0, {{36.0, 153.7}, {16.3, 16.7}}, identifier: 'magnifyingglass', label: 'Cerca'
+                TextField, 0x10f83bfe0, {{64.3, 151.0}, {291.7, 22.0}}, identifier: 'profilo.cerca', placeholderValue: 'Scrivilo come lo diresti a un amico', value: xyzxyz, Keyboard Focused
+                Button, 0x10f83c100, {{20.0, 220.0}, {269.7, 38.3}}, identifier: 'profilo.certificato', label: 'Ho il certificato della partita IVA: fotografalo'
+                  Image, 0x10f83c220, {{22.0, 222.0}, {15.7, 15.7}}, identifier: 'doc.viewfinder', label: 'doc.viewfinder'
+                  StaticText, 0x10f83c340, {{20.0, 220.0}, {269.7, 38.3}}, label: 'Ho il certificato della partita IVA: fotografalo'
+                StaticText, 0x10f83c460, {{20.0, 274.3}, {350.0, 46.7}}, label: 'Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione.'
+                Button, 0x10f83c580, {{20.0, 349.3}, {70.3, 19.3}}, label: 'Nascondi'
+                Button, 0x10f83c6a0, {{20.0, 397.0}, {350.0, 46.0}}, label: 'Industrie alimentari e delle bevande'
+                Button, 0x10f83c7c0, {{20.0, 451.0}, {350.0, 46.0}}, label: 'Commercio all'ingrosso e al dettaglio'
+                Button, 0x10f83c8e0, {{20.0, 505.0}, {350.0, 64.0}}, label: 'Commercio ambulante di prodotti alimentari e bevande'
+                Button, 0x10f83ca00, {{20.0, 577.0}, {350.0, 46.0}}, label: 'Commercio ambulante di altri prodotti'
+                Button, 0x10f83cb20, {{20.0, 631.0}, {350.0, 46.0}}, label: 'Costruzioni e attività immobiliari'
+                Button, 0x10f83cc40, {{20.0, 685.0}, {350.0, 46.0}}, label: 'Intermediari del commercio'
+                Button, 0x10f83cd60, {{20.0, 739.0}, {350.0, 46.0}}, label: 'Attività dei servizi di alloggio e di ristorazione'
+                Button, 0x10f83ce80, {{20.0, 793.0}, {350.0, 82.0}}, label: 'Attività professionali, scientifiche, tecniche, sanitarie, di istruzione, servizi finanziari e assicurativi'
+                Button, 0x10f83cfa0, {{20.0, 883.0}, {350.0, 46.0}}, label: 'Altre attività economiche'
+              Other, 0x10f83d0c0, {{337.0, 84.0}, {30.0, 335.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                Other, 0x10f83d1e0, {{364.0, 125.0}, {3.0, 291.0}}
+              Other, 0x10f83d300, {{337.0, 84.0}, {30.0, 335.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                Other, 0x10f83d420, {{364.0, 125.0}, {3.0, 291.0}}
+            Button, 0x10f83d540, {{20.0, 439.0}, {350.0, 58.0}}, identifier: 'profilo.avanti', label: 'Avanti', Disabled
+    Window, 0x10f83d660, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10f83d780, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10f83d8a0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10f83d9c0, {{0.0, 509.0}, {390.0, 335.0}}
+          Other, 0x10f83dae0, {{0.0, 509.0}, {390.0, 335.0}}, identifier: 'inputView'
+    Window, 0x10f83dc00, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10f83dd20, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10f83de40, {{0.0, 509.0}, {390.0, 335.0}}
+          Other, 0x10f83df60, {{0.0, 509.0}, {390.0, 44.0}}, identifier: 'SystemInputAssistantView'
+            Other, 0x10f83e080, {{0.0, 509.0}, {390.0, 44.0}}
+              Other, 0x10f83e1a0, {{0.0, 509.0}, {390.0, 44.0}}, identifier: 'CenterPageView'
+                Other, 0x10f83e2c0, {{0.0, -91.0}, {390.0, 1244.0}}
+                  ScrollView, 0x10f83e3e0, {{0.0, 509.0}, {390.0, 44.0}}
+                Other, 0x10f83e500, {{0.0, 509.0}, {390.0, 44.0}}
+                  Other, 0x10f83e620, {{0.0, 509.0}, {390.0, 44.0}}, label: 'Scrittura predittiva'
+                    Other, 0x10f83e740, {{0.0, 509.0}, {390.0, 44.0}}
+                      Other, 0x10f83e860, {{0.0, 509.0}, {390.0, 44.0}}
+                        Other, 0x10f83e980, {{0.0, 509.0}, {130.0, 44.0}}
+                        Other, 0x10f83eaa0, {{130.0, 509.0}, {130.0, 44.0}}
+                        Other, 0x10f83ebc0, {{260.0, 509.0}, {130.0, 44.0}}
+          Other, 0x10f83ece0, {{0.0, 509.0}, {390.0, 335.0}}
+            Other, 0x10f83ee00, {{0.0, 509.0}, {390.0, 335.0}}
+              Other, 0x10f83ef20, {{0.0, 509.0}, {390.0, 335.0}}
+          Other, 0x10f83f040, {{0.0, 553.0}, {390.0, 233.0}}
+            Keyboard, 0x10f83f160, {{0.0, 553.0}, {390.0, 233.0}}
+              Other, 0x10f83f280, {{0.0, 553.0}, {390.0, 233.0}}
+                Other, 0x10f83f3a0, {{0.0, 553.0}, {390.0, 233.0}}, identifier: 'UIKeyboardLayoutStar Preview'
+                  Key, 0x10f83f4c0, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x10f83f5e0, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x10f83f700, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x10f83f820, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x10f83f940, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Left'
+                  Key, 0x10f83fa60, {{0.0, 553.0}, {0.0, 0.0}}, label: 'Padding-Right'
+                  Key, 0x10f83fb80, {{4.7, 560.0}, {38.0, 54.0}}, label: 'Q'
+                  Key, 0x10f83fca0, {{42.7, 560.0}, {38.3, 54.0}}, label: 'W'
+                  Key, 0x10f83fdc0, {{81.0, 560.0}, {38.3, 54.0}}, label: 'E'
+                  Key, 0x10f83fee0, {{119.3, 560.0}, {38.3, 54.0}}, label: 'R'
+                  Key, 0x10f840000, {{157.7, 560.0}, {38.3, 54.0}}, label: 'T'
+                  Key, 0x10f840120, {{196.0, 560.0}, {38.3, 54.0}}, label: 'Y'
+                  Key, 0x10f840240, {{234.3, 560.0}, {38.3, 54.0}}, label: 'U'
+                  Key, 0x10f840360, {{272.7, 560.0}, {38.3, 54.0}}, label: 'I'
+                  Key, 0x10f840480, {{311.0, 560.0}, {38.3, 54.0}}, label: 'O'
+                  Key, 0x10f8405a0, {{349.3, 560.0}, {38.3, 54.0}}, label: 'P'
+                  Key, 0x10f8406c0, {{23.7, 614.0}, {38.3, 54.0}}, label: 'A'
+                  Key, 0x10f8407e0, {{62.0, 614.0}, {38.3, 54.0}}, label: 'S'
+                  Key, 0x10f840900, {{100.3, 614.0}, {38.3, 54.0}}, label: 'D'
+                  Key, 0x10f840a20, {{138.7, 614.0}, {38.3, 54.0}}, label: 'F'
+                  Key, 0x10f840b40, {{177.0, 614.0}, {38.0, 54.0}}, label: 'G'
+                  Key, 0x10f840c60, {{215.0, 614.0}, {38.3, 54.0}}, label: 'H'
+                  Key, 0x10f840d80, {{253.3, 614.0}, {38.3, 54.0}}, label: 'J'
+                  Key, 0x10f840ea0, {{291.7, 614.0}, {38.3, 54.0}}, label: 'K'
+                  Key, 0x10f840fc0, {{330.0, 614.0}, {38.3, 54.0}}, label: 'L'
+                  Button, 0x10f8410e0, {{4.7, 668.0}, {49.7, 54.0}}, identifier: 'shift', label: 'maiuscole', Selected
+                  Key, 0x10f841200, {{62.0, 668.0}, {38.3, 54.0}}, label: 'Z'
+                  Key, 0x10f841470, {{100.3, 668.0}, {38.3, 54.0}}, label: 'X'
+                  Key, 0x10f841590, {{138.7, 668.0}, {38.3, 54.0}}, label: 'C'
+                  Key, 0x10f8416b0, {{177.0, 668.0}, {38.0, 54.0}}, label: 'V'
+                  Key, 0x10f8417d0, {{215.0, 668.0}, {38.3, 54.0}}, label: 'B'
+                  Key, 0x10f8418f0, {{253.3, 668.0}, {38.3, 54.0}}, label: 'N'
+                  Key, 0x10f841a10, {{291.7, 668.0}, {38.3, 54.0}}, label: 'M'
+                  Key, 0x10f841b30, {{337.7, 668.0}, {50.0, 54.0}}, identifier: 'delete', label: 'elimina'
+                  Key, 0x10f841c50, {{4.7, 722.0}, {95.7, 54.0}}, identifier: 'more', label: 'cifre'
+                  Key, 0x10f841d70, {{100.3, 722.0}, {191.3, 54.0}}, identifier: 'space', label: ' '
+                  Button, 0x10f841e90, {{291.7, 722.0}, {96.0, 54.0}}, identifier: 'Return', label: 'invio'
+          Other, 0x10f8421b0, {{0.0, 553.0}, {390.0, 291.0}}
+            Button, 0x10f8422d0, {{8.5, 775.7}, {68.1, 68.7}}, label: 'Emoji'
+              StaticText, 0x10f8423f0, {{8.5, 775.7}, {0.0, 0.0}}
+            Button, 0x10f842510, {{313.4, 775.4}, {68.1, 68.7}}, identifier: 'dictation', label: 'Avvia dettatura'
+              StaticText, 0x10f842630, {{313.4, 775.4}, {0.0, 0.0}}
+            Button, 0x10f842750, {{313.4, 775.4}, {68.1, 68.7}}, identifier: 'dictation', label: 'Avvia dettatura'
+              StaticText, 0x10f842870, {{313.4, 775.4}, {0.0, 0.0}}
+Path to element:
+ →Application, 0x10f864f80, pid: 31816, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10f83a480, pid: 31816, label: 'NettoLR'
+  }

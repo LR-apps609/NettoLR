@@ -1,0 +1,60 @@
+    t =   117.56s     Wait for it.ledion.NettoLR to idle
+    t =   119.74s Added attachment named 'T20-06-promemoria-notifiche-negate'
+    t =   119.74s Requesting snapshot of accessibility hierarchy for app with pid 48116
+    t =   121.69s Requesting snapshot of accessibility hierarchy for app with pid 48116
+    t =   122.01s Added attachment named 'T20-06-promemoria-notifiche-negate-albero'
+    t =   122.01s Waiting 4.0s for "tu.piva" TextField to exist
+    t =   123.03s     Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =   123.03s         Checking existence of `"tu.piva" TextField`
+    t =   123.48s Tap "tu.piva" TextField
+    t =   123.48s     Wait for it.ledion.NettoLR to idle
+    t =   123.50s     Find the "tu.piva" TextField
+    t =   124.07s     Check for interrupting elements affecting "tu.piva" TextField
+    t =   124.37s     Synthesize event
+    t =   124.77s         Scroll element to visible
+    t =   124.78s         Find the "tu.piva" TextField
+    t =   125.95s         Computed hit point {-1, -1} after scrolling to visible
+    t =   125.95s         Failed: Not hittable: TextField, {{54.0, 87.0}, {172.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+    t =   126.96s     Retrying `Tap "tu.piva" TextField` (attempt #2)
+    t =   126.96s         Wait for it.ledion.NettoLR to idle
+    t =   126.97s         Find the "tu.piva" TextField
+    t =   127.46s         Check for interrupting elements affecting "tu.piva" TextField
+    t =   127.68s         Synthesize event
+    t =   128.03s             Scroll element to visible
+    t =   128.03s             Find the "tu.piva" TextField
+    t =   128.94s             Computed hit point {-1, -1} after scrolling to visible
+    t =   128.94s             Failed: Not hittable: TextField, {{54.0, 87.0}, {172.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+    t =   129.95s     Retrying `Tap "tu.piva" TextField` (attempt #3)
+    t =   129.95s         Wait for it.ledion.NettoLR to idle
+    t =   129.96s         Find the "tu.piva" TextField
+    t =   130.31s         Check for interrupting elements affecting "tu.piva" TextField
+    t =   130.59s         Synthesize event
+    t =   130.98s             Scroll element to visible
+    t =   130.98s             Find the "tu.piva" TextField
+    t =   131.96s             Computed hit point {-1, -1} after scrolling to visible
+    t =   131.97s             Failed: Not hittable: TextField, {{54.0, 87.0}, {172.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+    t =   131.97s Requesting snapshot of accessibility hierarchy for app with pid 48116
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:164: error: -[NettoLRUITests.TesterTests test20_Nicola] : Failed to not hittable: TextField, {{54.0, 87.0}, {172.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+    t =   135.73s Tear Down
+    t =   136.38s     Added attachment named 'T20-diario'
+    t =   136.39s     Setting device orientation to Portrait
+    t =   136.45s         Wait for it.ledion.NettoLR to idle
+    t =   136.56s     Setting appearance mode to Light
+    t =   136.58s         Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' failed (137.492 seconds).
+Test Suite 'TesterTests' failed at 2026-11-13 20:17:57.961.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.868) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-13 20:17:57.965.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.872) seconds
+Test Suite 'Selected tests' failed at 2026-11-13 20:17:57.967.
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.876) seconds
+2026-11-13 20:19:35.171 xcodebuild[6961:25690] [MT] IDETestOperationsObserverDebug: 1444.052 elapsed -- Testing started completed.
+2026-11-13 20:19:35.173 xcodebuild[6961:25690] [MT] IDETestOperationsObserverDebug: 0.009 sec, +0.009 sec -- start
+2026-11-13 20:19:35.173 xcodebuild[6961:25690] [MT] IDETestOperationsObserverDebug: 1444.052 sec, +1444.043 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started

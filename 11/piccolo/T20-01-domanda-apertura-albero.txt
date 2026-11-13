@@ -1,0 +1,138 @@
+Attributes: Application, 0x10fc871e0, pid: 48116, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10fc871e0, pid: 48116, label: 'NettoLR'
+    Window (Main), 0x10fc5dc90, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10fc497c0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10fc42020, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x10fc5ede0, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x10fc59860, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x10fc856d0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x10fc86b20, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x10fc5c450, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x10fc5d940, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x10fc4d240, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x10fc87550, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x10fc594e0, {{0.0, 0.0}, {390.0, 844.0}}
+                            Other, 0x10fc5fb70, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10fc86e80, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x10fc605d0, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x10fc57200, {{0.0, 0.0}, {390.0, 844.0}}
+                                    ScrollView, 0x10fc5c0d0, {{195.0, 0.0}, {0.0, 844.0}}
+                                      Other, 0x10fc6ebd0, {{195.0, 47.0}, {0.0, 0.0}}
+                                      Other, 0x10fc54f20, {{192.0, 47.0}, {0.0, 714.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10fc536b0, {{189.0, 751.0}, {3.0, 7.0}}
+                                      Other, 0x10fc62ef0, {{192.0, 47.0}, {0.0, 714.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10fc58aa0, {{189.0, 751.0}, {3.0, 7.0}}
+                            Other, 0x10fc6fd30, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10fc6ef30, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x10fc3f6f0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x10fc657d0, {{0.0, 0.0}, {390.0, 844.0}}
+                    TabBar, 0x10fc53a10, {{0.0, 761.0}, {390.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x10fc700a0, {{21.0, 761.0}, {348.0, 62.0}}
+                        Other, 0x10fc69270, {{21.0, 761.0}, {74.0, 54.0}}
+                        Other, 0x10fc68ef0, {{21.0, 761.0}, {348.0, 62.0}}
+                          Button, 0x10fc53330, {{25.0, 765.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto', Selected
+                            Image, 0x10fc67a20, {{48.0, 771.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10fc65ea0, {{88.9, 765.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x10fc423b0, {{112.9, 770.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10fc5c7e0, {{152.8, 765.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x10fc6dad0, {{174.8, 772.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x10fc43020, {{216.7, 765.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x10fc41230, {{244.7, 772.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x10fc668b0, {{291.0, 765.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x10fc56390, {{314.0, 771.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10fc6a710, {{25.0, 765.0}, {74.0, 54.0}}
+                          Other, 0x10fc578f0, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10fc49450, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10fc45cc0, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x10fc41930, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x10fc46a60, {{25.0, 765.0}, {74.0, 54.0}}
+                                  Other, 0x10fc67330, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x10fc4c820, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x10fc48d50, {{25.0, 765.0}, {74.0, 54.0}}
+                  Other, 0x10fc41ca0, {{0.0, 761.0}, {390.0, 83.0}}
+                    Other, 0x10fc64a20, {{0.0, 761.0}, {390.0, 83.0}}
+                      Other, 0x10fc57580, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x10fc49ee0, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x10fc45600, {{0.0, 761.0}, {390.0, 83.0}}
+                            Other, 0x10fc45280, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x10fc860e0, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x10fc4b3f0, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x10fc566f0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10fc69ca0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x10fc932b0, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x10fc60930, {{20.0, 59.0}, {350.0, 5.0}}, label: 'Domanda 2 di 4'
+            ScrollView, 0x10fc5f140, {{20.0, 84.0}, {350.0, 636.0}}
+              Other, 0x10fc44bb0, {{20.0, 84.0}, {350.0, 722.0}}
+                StaticText, 0x10fc42c90, {{20.0, 84.0}, {244.3, 71.7}}, label: 'Da quando hai la partita IVA?'
+                Picker, 0x10fc66fc0, {{20.0, 171.7}, {350.0, 150.0}}, label: 'Anno'
+                  PickerWheel, 0x10fc94790, {{20.0, 171.7}, {350.0, 150.0}}, value: 2026
+                    Other, 0x10fc8f1a0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc96900, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc93600, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc54420, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc3f370, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc57fe0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc97900, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc97000, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc96c70, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc98010, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc97390, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc96570, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc961f0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc95e60, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc952d0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc93990, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc94410, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc93d10, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5ba10, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc62840, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5a610, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5e700, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc61370, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5e3b0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc90010, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc91ec0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc91460, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc635d0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc91b60, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5bd70, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5a970, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc8ee40, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc5f7f0, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc8e720, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc8b220, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc8c440, {{0.0, 0.0}, {0.0, 0.0}}
+                    Other, 0x10fc63fe0, {{0.0, 0.0}, {0.0, 0.0}}
+                Button, 0x10fc5a2a0, {{20.0, 337.7}, {103.3, 34.3}}, identifier: 'profilo.mese', label: 'In che mese?, Gennaio'
+                  StaticText, 0x10fc5f490, {{31.7, 344.7}, {63.0, 20.3}}, label: 'Gennaio'
+                StaticText, 0x10fc60c90, {{20.0, 396.0}, {344.0, 52.7}}, label: 'Nei 3 anni prima di aprire hai già avuto un'attività in proprio?'
+                Button, 0x10fc8cb50, {{20.0, 464.7}, {350.0, 72.3}}, label: 'No, è la prima, Tasse al 5% per 5 anni'
+                  Image, 0x10fc5cee0, {{38.0, 490.0}, {22.0, 22.0}}, identifier: 'circle', label: 'circle'
+                  StaticText, 0x10fc60260, {{74.0, 480.7}, {105.3, 20.3}}, label: 'No, è la prima'
+                  StaticText, 0x10fc62b80, {{74.0, 504.0}, {139.7, 17.0}}, label: 'Tasse al 5% per 5 anni'
+                Button, 0x10fc63c80, {{20.0, 547.0}, {350.0, 72.3}}, label: 'Sì, Tasse al 15%'
+                  Image, 0x10fc66560, {{38.0, 572.3}, {22.0, 22.0}}, identifier: 'circle', label: 'circle'
+                  StaticText, 0x10fc624d0, {{74.0, 563.0}, {15.3, 20.3}}, label: 'Sì'
+                  StaticText, 0x10fc58df0, {{74.0, 586.3}, {80.3, 17.0}}, label: 'Tasse al 15%'
+                Button, 0x10fc5d5c0, {{20.0, 629.3}, {350.0, 89.0}}, label: 'Non lo so, Calcolo al 15% finché non lo chiedi al commercialista'
+                  Image, 0x10fc5d230, {{38.0, 663.0}, {22.0, 22.0}}, identifier: 'circle', label: 'circle'
+                  StaticText, 0x10fc5b370, {{74.0, 645.3}, {72.7, 20.3}}, label: 'Non lo so'
+                  StaticText, 0x10fc8d280, {{74.0, 668.7}, {235.0, 33.7}}, label: 'Calcolo al 15% finché non lo chiedi al commercialista'
+                StaticText, 0x10fc94090, {{20.0, 734.3}, {346.0, 71.7}}, label: 'Le tasse al 5% invece del 15%, per cinque anni, valgono solo se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta).'
+              Other, 0x10fc5b6c0, {{337.0, 84.0}, {30.0, 636.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                Other, 0x10fc8aea0, {{364.0, 87.0}, {3.0, 74.0}}
+              Other, 0x10fc89090, {{337.0, 84.0}, {30.0, 636.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                Other, 0x10fc5cb40, {{364.0, 87.0}, {3.0, 74.0}}
+            Button, 0x10fc8cee0, {{20.0, 740.0}, {58.0, 58.0}}, identifier: 'chevron.left', label: 'Indietro'
+            Button, 0x10fc8ab30, {{90.0, 740.0}, {280.0, 58.0}}, identifier: 'profilo.avanti', label: 'Avanti', Disabled
+    Window, 0x10fc92210, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10fc8dce0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10fc8fc90, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x10fc871e0, pid: 48116, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10fc4b760, pid: 48116, label: 'NettoLR'
+  }

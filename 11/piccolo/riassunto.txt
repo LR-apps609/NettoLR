@@ -1,0 +1,12 @@
+Durata: 2116 s
+Dispositivo: iPhone 16e
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.868) seconds
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.872) seconds
+	 Executed 6 tests, with 1 failure (0 unexpected) in 1238.857 (1238.876) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:164: error: -[NettoLRUITests.TesterTests test20_Nicola] : Failed to not hittable: TextField, {{54.0, 87.0}, {172.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+Test Case '-[NettoLRUITests.TesterTests test01_Giulia]' passed (266.335 seconds).
+Test Case '-[NettoLRUITests.TesterTests test08_Paolo]' passed (193.516 seconds).
+Test Case '-[NettoLRUITests.TesterTests test09_Chiara]' passed (204.121 seconds).
+Test Case '-[NettoLRUITests.TesterTests test16_Giorgio]' passed (291.145 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (146.248 seconds).
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' failed (137.492 seconds).
