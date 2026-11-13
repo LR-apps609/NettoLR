@@ -1,0 +1,16 @@
+[00] avvio riuscito in 10.5 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 4 («Tu»)
+[00] toccato «tu.completo»
+[01] foto T11-01-completo-senza-store
+[01] toccato «completo.compra»
+[02] foto T11-02-compra-senza-store
+[02] toccato «Ripristina acquisto»
+[03] foto T11-03-ripristina-senza-store
+[03] chiuso con «Chiudi»
+[03] toccato «Copia di sicurezza, iCloud Drive»
+[04] foto T11-04-backup-senza-icloud
+[04] chiuso con «Fatto»
+[04] toccato «tu.privacy.link»
+[05] foto T11-05-privacy-link
+[06] foto T11-06-tornata-nell-app
+[06] fine · errori registrati da XCTest: 0

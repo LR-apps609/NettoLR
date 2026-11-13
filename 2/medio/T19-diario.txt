@@ -1,0 +1,17 @@
+[00] avvio riuscito in 14.0 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 0 («Netto»)
+[00] toccato «Il tuo 2026 in 30 secondi, Da guardare e da condividere»
+[01] foto T19-01-anno-in-30-secondi
+[02] foto T19-02-anno-in-30-secondi-dopo
+[02] chiuso con «Chiudi»
+[02] scheda 4 («Tu»)
+[03] foto T19-03-tu
+[04] foto T19-04-blocco-acceso
+[04] toccato «tu.esporta»
+[05] foto T19-05-esporta
+[05] chiuso con «Chiudi»
+[05] toccato «Cancella tutti i dati»
+[06] foto T19-06-conferma-cancella
+[06] cancellato tutto
+[07] foto T19-07-dopo-cancella
+[07] fine · errori registrati da XCTest: 0

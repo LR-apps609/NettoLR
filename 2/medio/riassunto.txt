@@ -1,0 +1,14 @@
+Durata: 2482 s
+Dispositivo: iPhone 17
+	 Executed 9 tests, with 0 failures (0 unexpected) in 1924.038 (1924.059) seconds
+	 Executed 9 tests, with 0 failures (0 unexpected) in 1924.038 (1924.064) seconds
+	 Executed 9 tests, with 0 failures (0 unexpected) in 1924.038 (1924.067) seconds
+Test Case '-[NettoLRUITests.TesterTests test03_Anna]' passed (170.959 seconds).
+Test Case '-[NettoLRUITests.TesterTests test04_Luca]' passed (298.641 seconds).
+Test Case '-[NettoLRUITests.TesterTests test05_Sara]' passed (100.112 seconds).
+Test Case '-[NettoLRUITests.TesterTests test10_Roberto]' passed (375.101 seconds).
+Test Case '-[NettoLRUITests.TesterTests test11_Francesca]' passed (165.800 seconds).
+Test Case '-[NettoLRUITests.TesterTests test13_Martina]' passed (189.537 seconds).
+Test Case '-[NettoLRUITests.TesterTests test14_Stefano]' passed (170.979 seconds).
+Test Case '-[NettoLRUITests.TesterTests test18_Simone]' passed (346.194 seconds).
+Test Case '-[NettoLRUITests.TesterTests test19_Laura]' passed (106.715 seconds).

@@ -1,0 +1,33 @@
+[00] avvio riuscito in 19.9 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[00] toccato «benvenuto.inizia»
+[00] scritto «parucchiera» · nel campo ora c'è «parucchiera»
+[00] ricerca «parucchiera»: 9.13 s
+[01] foto T14-01-ricerca-parucchiera
+[01] scritto «idraulco» · nel campo ora c'è «idraulco»
+[01] ricerca «idraulco»: 8.39 s
+[02] foto T14-02-ricerca-idraulco
+[02] scritto «sviluppatore software» · nel campo ora c'è «sviluppatore software»
+[02] ricerca «sviluppatore software»: 7.50 s
+[03] foto T14-03-ricerca-sviluppatore_software
+[03] scritto «62.01.00» · nel campo ora c'è «62.01.00»
+[03] ricerca «62.01.00»: 9.71 s
+[04] foto T14-04-ricerca-62.01.00
+[04] scritto «62.01» · nel campo ora c'è «62.01»
+[04] ricerca «62.01»: 8.18 s
+[05] foto T14-05-ricerca-62.01
+[05] scritto «ATECO 74.10» · nel campo ora c'è «ATECO 74.10»
+[05] ricerca «ATECO 74.10»: 7.31 s
+[06] foto T14-06-ricerca-ATECO_74.10
+[06] scritto «Avvocato» · nel campo ora c'è «Avvocato»
+[06] ricerca «Avvocato»: 9.01 s
+[07] foto T14-07-ricerca-Avvocato
+[07] scritto «ingegnere» · nel campo ora c'è «ingegnere»
+[07] ricerca «ingegnere»: 8.31 s
+[08] foto T14-08-ricerca-ingegnere
+[08] scritto «sviluppatore software» · nel campo ora c'è «sviluppatore software»
+[08] toccato «Sviluppatore, ATECO 2007 62.01.00 · Produzione di software non connesso all'edizione, 67%»
+[08] scheda 4 («Tu»)
+[08] pulsante con «Altre attività» FUORI SCHERMO
+[08] scheda 1 («Incassi»)
+[08] pulsante «incassi.aggiungi» NON TROVATO
+[08] fine · errori registrati da XCTest: 0

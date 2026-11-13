@@ -1,0 +1,31 @@
+[00] avvio riuscito in 17.0 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] toccato «netto.guide»
+[01] foto T13-01-guide
+[01] toccato «guide.test»
+[02] foto T13-02-test-domanda-1
+[02] risposto Sì
+[03] foto T13-03-test-domanda-2
+[03] risposto Sì
+[04] foto T13-04-test-domanda-3
+[04] risposto No
+[05] foto T13-05-test-domanda-4
+[05] risposto Sì
+[06] foto T13-06-test-domanda-5
+[06] risposto Sì
+[07] foto T13-07-test-domanda-6
+[07] risposto No
+[08] foto T13-08-test-domanda-7
+[08] risposto Sì
+[09] foto T13-09-test-domanda-8
+[10] foto T13-10-test-esito
+[10] toccato «guide.video»
+[11] foto T13-11-video-inizio
+[12] foto T13-12-video-dopo-8s
+[12] chiuso con «Chiudi»
+[13] foto T13-13-guide-sotto
+[13] pulsante con «aprire» FUORI SCHERMO
+[13] toccato «Chiudere la partita IVA»
+[14] foto T13-14-guida-chiudere
+[14] chiuso con «Fatto»
+[14] chiuso trascinando (nessun pulsante)
+[14] fine · errori registrati da XCTest: 0
