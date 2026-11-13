@@ -1,0 +1,6 @@
+[00] avvio riuscito in 39.0 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 0 («Netto»)
+[01] foto T02-01-scheda-0
+[01] scheda 1 («Incassi»)
+[02] foto T02-02-scheda-1
+[02] fine · errori registrati da XCTest: 1

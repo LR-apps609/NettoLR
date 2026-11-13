@@ -1,0 +1,12 @@
+Durata: 1559 s
+Dispositivo: iPhone 17 Pro Max
+	 Executed 5 tests, with 2 failures (0 unexpected) in 983.524 (983.537) seconds
+	 Executed 5 tests, with 2 failures (0 unexpected) in 983.524 (983.549) seconds
+	 Executed 5 tests, with 2 failures (0 unexpected) in 983.524 (983.557) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:441: error: -[NettoLRUITests.TesterTests test12_Andrea] : Failed to not hittable: Button, {{19.8, 789.7}, {400.7, 71.3}}, label: 'Il tuo 2026 in 30 secondi, Da guardare e da condividere'
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:86: error: -[NettoLRUITests.TesterTests test02_Marco] : Failed to get matching snapshot: Timed out while evaluating UI query.
+Test Case '-[NettoLRUITests.TesterTests test02_Marco]' failed (342.560 seconds).
+Test Case '-[NettoLRUITests.TesterTests test07_Elena]' passed (228.908 seconds).
+Test Case '-[NettoLRUITests.TesterTests test12_Andrea]' failed (58.262 seconds).
+Test Case '-[NettoLRUITests.TesterTests test15_Valentina]' passed (182.732 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (171.062 seconds).
