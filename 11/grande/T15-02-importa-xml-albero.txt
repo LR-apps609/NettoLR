@@ -1,0 +1,110 @@
+Attributes: Application, 0x10a4cd910, pid: 47758, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10a4cd910, pid: 47758, label: 'NettoLR'
+    Window (Main), 0x10a4e8970, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x10a4c9f90, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10a4ca0b0, {{0.0, 0.0}, {440.0, 956.0}}
+          Other, 0x10a4c9e40, {{0.0, 0.0}, {440.0, 956.0}}
+            Other, 0x10a4cf080, {{0.0, 0.0}, {440.0, 956.0}}
+              Other, 0x10a4ca1d0, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10a4ca2f0, {{0.0, 0.0}, {440.0, 956.0}}
+                  Other, 0x10a4ca410, {{0.0, 0.0}, {440.0, 956.0}}
+                    Other, 0x10a4ca530, {{0.0, 0.0}, {440.0, 956.0}}
+                      Other, 0x10a4ca650, {{0.0, 0.0}, {440.0, 956.0}}
+                        Other, 0x10a4ca770, {{0.0, 0.0}, {440.0, 956.0}}
+                          Other, 0x10a4ca890, {{0.0, 0.0}, {440.0, 956.0}}
+                            Other, 0x10a4ca9b0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x10a4caad0, {{0.0, 0.0}, {440.0, 956.0}}
+                                Other, 0x10a4cabf0, {{0.0, 0.0}, {440.0, 956.0}}
+                                  Other, 0x10a4cad10, {{0.0, 0.0}, {440.0, 956.0}}
+                                    ScrollView, 0x10a4cae30, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x10a4caf50, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x10a4cb070, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x10a4cb190, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x10a4cb2b0, {{0.0, 62.0}, {440.0, 678.7}}
+                                        StaticText, 0x10a4cb3d0, {{20.0, 74.0}, {117.3, 40.7}}, label: 'Incassi'
+                                        StaticText, 0x10a4cb4f0, {{20.0, 132.7}, {201.0, 52.7}}, label: '28.400 €'
+                                        StaticText, 0x10a4cb610, {{20.0, 187.3}, {119.3, 19.3}}, label: 'ricevuti nel 2026'
+                                        Button, 0x10a4cb730, {{20.0, 224.7}, {400.0, 58.0}}, identifier: 'incassi.aggiungi', label: 'Aggiungi un incasso'
+                                          Image, 0x10a4cb850, {{121.0, 244.3}, {18.7, 18.7}}, identifier: 'plus.circle.fill', label: 'Aggiungi'
+                                          StaticText, 0x10a4cb970, {{121.0, 243.0}, {199.8, 21.7}}, label: 'Aggiungi un incasso'
+                                        StaticText, 0x10a4cba90, {{52.7, 327.8}, {10.7, 21.7}}, label: 'F'
+                                        StaticText, 0x10a4cbbb0, {{94.0, 319.5}, {161.7, 19.3}}, label: 'Fondazione Arte Viva'
+                                        StaticText, 0x10a4cbcd0, {{94.0, 340.8}, {169.7, 17.0}}, label: '3.800 € · ti hanno pagato?'
+                                        Button, 0x10a4cbdf0, {{354.0, 318.7}, {50.0, 40.0}}, label: 'Sì, Fondazione Arte Viva mi ha pagato'
+                                        Other, 0x10a4cbf10, {{20.0, 394.7}, {400.0, 268.0}}
+                                          Other, 0x10a4cc030, {{20.0, 394.7}, {400.0, 64.0}}, label: 'Studio Bianchi, 2.500 €, pagata il 12 ottobre'
+                                            StaticText, 0x10a4cc150, {{39.8, 415.8}, {12.3, 21.7}}, label: 'S'
+                                            StaticText, 0x10a4cc270, {{82.0, 407.5}, {107.3, 19.3}}, label: 'Studio Bianchi'
+                                            StaticText, 0x10a4cc390, {{82.0, 428.8}, {64.0, 17.0}}, label: '12 ottobre'
+                                            StaticText, 0x10a4cc4b0, {{350.0, 408.8}, {66.0, 20.3}}, label: '2.500 €'
+                                            Image, 0x10a4cc5d0, {{358.3, 432.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                                            StaticText, 0x10a4cc6f0, {{358.3, 431.2}, {57.7, 13.3}}, label: 'pagata'
+                                          Other, 0x10a4cc810, {{20.0, 462.7}, {400.0, 64.0}}, label: 'Rossi & Figli, 1.200 €, pagata il 3 ottobre'
+                                            StaticText, 0x10a4cc930, {{39.8, 483.8}, {12.3, 21.7}}, label: 'R'
+                                            StaticText, 0x10a4cca50, {{82.0, 475.5}, {90.0, 19.3}}, label: 'Rossi & Figli'
+                                            StaticText, 0x10a4ccb70, {{82.0, 496.8}, {57.7, 17.0}}, label: '3 ottobre'
+                                            StaticText, 0x10a4ccc90, {{350.0, 476.8}, {66.0, 20.3}}, label: '1.200 €'
+                                            Image, 0x10a4ccdb0, {{358.3, 500.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                                            StaticText, 0x10a4cced0, {{358.3, 499.2}, {57.7, 13.3}}, label: 'pagata'
+                                          Other, 0x10a4ccff0, {{20.0, 530.7}, {400.0, 64.0}}, label: 'Caffè Duomo, 450 €, pagata il 28 settembre'
+                                            StaticText, 0x10a4cd110, {{39.2, 551.8}, {13.7, 21.7}}, label: 'C'
+                                            StaticText, 0x10a4cd230, {{82.0, 543.5}, {98.0, 19.3}}, label: 'Caffè Duomo'
+                                            StaticText, 0x10a4cd350, {{82.0, 564.8}, {84.3, 17.0}}, label: '28 settembre'
+                                            StaticText, 0x10a4cd470, {{366.7, 544.8}, {49.3, 20.3}}, label: '450 €'
+                                            Image, 0x10a4cd590, {{358.3, 568.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                                            StaticText, 0x10a4cd6b0, {{358.3, 567.2}, {57.7, 13.3}}, label: 'pagata'
+                                          Other, 0x10a4889e0, {{20.0, 598.7}, {400.0, 64.0}}, label: 'Incassi gennaio–settembre, 24.250 €, pagata il 1 settembre'
+                                            StaticText, 0x10a488b00, {{43.2, 619.8}, {5.7, 21.7}}, label: 'I'
+                                            StaticText, 0x10a488c20, {{82.0, 611.5}, {200.0, 19.3}}, label: 'Incassi gennaio–settembre'
+                                            StaticText, 0x10a488d40, {{82.0, 632.8}, {73.7, 17.0}}, label: '1 settembre'
+                                            StaticText, 0x10a488e60, {{338.7, 612.8}, {77.3, 20.3}}, label: '24.250 €'
+                                            Image, 0x10a488f80, {{358.3, 636.7}, {10.0, 9.7}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                                            StaticText, 0x10a4890a0, {{358.3, 635.2}, {57.7, 13.3}}, label: 'pagata'
+                                        Button, 0x10a4891c0, {{105.0, 697.7}, {230.3, 18.0}}, label: 'Importa dalle fatture elettroniche'
+                                      Other, 0x10a4892e0, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10a47da90, {{434.0, 197.3}, {3.0, 672.7}}
+                                      Other, 0x10a47dbb0, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x10a47dcd0, {{434.0, 197.3}, {3.0, 672.7}}
+                            Other, 0x10a47ddf0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x10a47df10, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10a47e030, {{0.0, 873.0}, {440.0, 83.0}}
+                  Other, 0x10a47e150, {{0.0, 0.0}, {440.0, 956.0}}
+                    TabBar, 0x10a47e270, {{0.0, 873.0}, {440.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x10a47e390, {{21.0, 873.0}, {398.0, 62.0}}
+                        Other, 0x10a47e4b0, {{21.0, 873.0}, {86.3, 54.0}}
+                        Other, 0x10a47e5d0, {{21.0, 873.0}, {398.0, 62.0}}
+                          Button, 0x10a47e6f0, {{25.0, 877.0}, {86.3, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x10a47e810, {{55.0, 883.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10a47e930, {{100.9, 877.0}, {86.3, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi', Selected
+                            Image, 0x10a47ea50, {{131.9, 882.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10a47eb70, {{176.8, 877.0}, {86.3, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x10a47ec90, {{205.8, 884.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x10a47edb0, {{252.7, 877.0}, {86.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x10a47eed0, {{281.7, 884.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x10a47eff0, {{328.7, 877.0}, {86.3, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x10a47f110, {{358.7, 883.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10a47f230, {{100.9, 877.0}, {86.3, 54.0}}
+                          Other, 0x10a47f350, {{100.9, 877.0}, {86.3, 54.0}}
+                            Other, 0x10a47f470, {{100.9, 877.0}, {86.3, 54.0}}
+                            Other, 0x10a47f590, {{100.9, 877.0}, {86.3, 54.0}}
+                              Other, 0x10a47f6b0, {{100.9, 877.0}, {86.3, 54.0}}
+                                Other, 0x10a47f7d0, {{100.9, 877.0}, {86.3, 54.0}}
+                                  Other, 0x10a47f8f0, {{100.9, 877.0}, {86.3, 54.0}}
+                                Other, 0x10a47fa10, {{100.9, 877.0}, {86.3, 54.0}}
+                              Other, 0x10a47fb30, {{100.9, 877.0}, {86.3, 54.0}}
+                  Other, 0x10a47fc50, {{0.0, 873.0}, {440.0, 83.0}}
+                    Other, 0x10a47fd70, {{0.0, 873.0}, {440.0, 83.0}}
+                      Other, 0x10a47fe90, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x10a47ffb0, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x10a4800d0, {{0.0, 873.0}, {440.0, 83.0}}
+                            Other, 0x10a4801f0, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x10a4bf6f0, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x10a4bf810, {{0.0, 873.0}, {440.0, 83.0}}
+Path to element:
+ →Application, 0x10a4cd910, pid: 47758, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10a7bb3b0, pid: 47758, label: 'NettoLR'
+  }
