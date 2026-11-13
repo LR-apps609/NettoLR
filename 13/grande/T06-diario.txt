@@ -1,0 +1,17 @@
+[00] avvio riuscito in 16.8 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 3 («Pagamenti»)
+[01] foto T06-01-pagamenti
+[01] righe con € nei pagamenti: 6
+[02] foto T06-02-pagamento-dettaglio
+[02] toccato «Copia i dati»
+[03] foto T06-03-copiato
+[03] toccato «pagamento.fatto»
+[04] foto T06-04-ho-pagato
+[04] chiuso con «Fatto»
+[05] foto T06-05-pagamenti-dopo
+[05] toccato «pagamenti.annoScorso»
+[06] foto T06-06-anno-scorso
+[06] chiuso con «Fatto»
+[06] scheda 0 («Netto»)
+[07] foto T06-07-netto-ipad
+[07] fine · errori registrati da XCTest: 0

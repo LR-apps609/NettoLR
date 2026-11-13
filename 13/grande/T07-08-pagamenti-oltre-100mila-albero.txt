@@ -1,0 +1,116 @@
+Attributes: Application, 0x10ee4c210, pid: 23281, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10ee4c210, pid: 23281, label: 'NettoLR'
+    Window (Main), 0x10ee4d620, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x10ee4c9c0, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10ee4c5a0, {{0.0, 0.0}, {440.0, 956.0}}
+          Other, 0x10ee4cde0, {{0.0, 0.0}, {440.0, 956.0}}
+            Other, 0x10ee4d200, {{0.0, 0.0}, {440.0, 956.0}}
+              Other, 0x10ee4da40, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10ee4db60, {{0.0, 0.0}, {440.0, 956.0}}
+                  Other, 0x10ee4dc80, {{0.0, 0.0}, {440.0, 956.0}}
+                    Other, 0x10ee4dda0, {{0.0, 0.0}, {440.0, 956.0}}
+                      Other, 0x10eea7ff0, {{0.0, 0.0}, {440.0, 956.0}}
+                        Other, 0x10eea8110, {{0.0, 0.0}, {440.0, 956.0}}
+                          Other, 0x10eea8230, {{0.0, 0.0}, {440.0, 956.0}}
+                            Other, 0x10eea8350, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x10eea8470, {{0.0, 0.0}, {440.0, 956.0}}
+                                Other, 0x10eea8590, {{0.0, 0.0}, {440.0, 956.0}}
+                                  Other, 0x10eea86b0, {{0.0, 0.0}, {440.0, 956.0}}
+                                    ScrollView, 0x10eea87d0, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x10eea88f0, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x10eea8a10, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x10eea8b30, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x10eea8c50, {{0.0, 808.2}, {440.0, 147.8}}
+                                          Image, 0x10eea8d70, {{-120.0, 813.0}, {680.0, 286.0}}, identifier: 'AdditionalDimmingOverlay'
+                                          Other, 0x10eea8e90, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x10eea8fb0, {{0.0, 808.2}, {440.0, 147.8}}
+                                          Other, 0x10eea90d0, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x10eea91f0, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x10eea9310, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x10eea9430, {{0.0, 62.0}, {440.0, 1055.0}}
+                                        StaticText, 0x10eea9550, {{20.0, 74.0}, {176.3, 40.7}}, label: 'Pagamenti'
+                                        Image, 0x10eea9670, {{35.3, 147.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+                                        StaticText, 0x10eea9790, {{63.7, 146.7}, {339.3, 54.0}}, label: 'Scadenze passate non segnate: 4.080 €. Se le hai pagate toccale e segnale; se no, chiedi al commercialista come rimediare.'
+                                        StaticText, 0x10eea99c0, {{-56.0, 161.7}, {508.0, 444.0}}, label: '17, giorni, 2.544 €, da pagare entro il 30 novembre'
+                                          StaticText, 0x10eea9ae0, {{182.2, 294.2}, {75.7, 67.0}}, label: '17'
+                                          StaticText, 0x10eea9c00, {{201.2, 361.2}, {37.7, 18.0}}, label: 'giorni'
+                                          StaticText, 0x10eea9d20, {{153.5, 430.7}, {133.0, 40.7}}, label: '2.544 €'
+                                          StaticText, 0x10eea9e40, {{104.5, 485.3}, {231.0, 20.3}}, label: 'da pagare entro il 30 novembre'
+                                        Button, 0x10eea9f60, {{20.0, 547.7}, {400.0, 92.7}}, label: '20 luglio, Tasse: il conto dell'anno scorso e un anticipo, 960 €, scaduto'
+                                          StaticText, 0x10eeaa080, {{56.0, 557.7}, {64.7, 19.3}}, label: '20 luglio'
+                                          StaticText, 0x10eeaa1a0, {{56.0, 579.0}, {209.3, 33.7}}, label: 'Tasse: il conto dell'anno scorso e un anticipo'
+                                          StaticText, 0x10eeaa2c0, {{56.0, 614.7}, {258.7, 15.7}}, label: 'Scaduto: l'hai pagato? Tocca per segnarlo'
+                                          StaticText, 0x10eeaa3e0, {{369.3, 584.3}, {46.7, 19.3}}, label: '960 €'
+                                        Button, 0x10eeaa500, {{20.0, 640.3}, {400.0, 92.7}}, label: '20 luglio, Pensione: il conto dell'anno scorso e un anticipo, 3.120 €, scaduto'
+                                          StaticText, 0x10eeaa620, {{56.0, 650.3}, {64.7, 19.3}}, label: '20 luglio'
+                                          StaticText, 0x10eeaa740, {{56.0, 671.7}, {231.0, 33.7}}, label: 'Pensione: il conto dell'anno scorso e un anticipo'
+                                          StaticText, 0x10eeaa860, {{56.0, 707.3}, {258.7, 15.7}}, label: 'Scaduto: l'hai pagato? Tocca per segnarlo'
+                                          StaticText, 0x10eeaa980, {{353.7, 677.0}, {62.3, 19.3}}, label: '3.120 €'
+                                        Button, 0x10eeaaaa0, {{20.0, 733.0}, {400.0, 58.3}}, label: '30 novembre, Tasse: secondo anticipo, 620 €'
+                                          StaticText, 0x10eeaabc0, {{56.0, 743.0}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x10eeaace0, {{56.0, 764.3}, {151.0, 17.0}}, label: 'Tasse: secondo anticipo'
+                                          StaticText, 0x10eeaae00, {{369.3, 752.5}, {46.7, 19.3}}, label: '620 €'
+                                        Button, 0x10eeaaf20, {{20.0, 791.3}, {400.0, 58.3}}, label: '30 novembre, Pensione: secondo anticipo, 1.920 €'
+                                          StaticText, 0x10eeab040, {{56.0, 801.3}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x10eeab160, {{56.0, 822.7}, {172.7, 17.0}}, label: 'Pensione: secondo anticipo'
+                                          StaticText, 0x10eeab280, {{353.7, 810.8}, {62.3, 19.3}}, label: '1.920 €'
+                                        Button, 0x10eeab3a0, {{20.0, 849.7}, {400.0, 58.3}}, label: '30 novembre, Bollo delle fatture (1°, 2°, 3° trimestre), 4 €'
+                                          StaticText, 0x10eeab4c0, {{56.0, 859.7}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x10eeab5e0, {{56.0, 881.0}, {236.3, 17.0}}, label: 'Bollo delle fatture (1°, 2°, 3° trimestre)'
+                                          StaticText, 0x10eeab700, {{390.7, 869.2}, {25.3, 19.3}}, label: '4 €'
+                                        Button, 0x10eeab820, {{20.0, 908.0}, {400.0, 58.3}}, label: '1 marzo, Bollo delle fatture (4° trimestre), 10 €'
+                                          StaticText, 0x10eeab940, {{56.0, 918.0}, {57.7, 19.3}}, label: '1 marzo'
+                                          StaticText, 0x10eeaba60, {{56.0, 939.3}, {197.3, 17.0}}, label: 'Bollo delle fatture (4° trimestre)'
+                                          StaticText, 0x10eeabb80, {{380.0, 927.5}, {36.0, 19.3}}, label: '10 €'
+                                        Button, 0x10eeabca0, {{19.2, 983.6}, {401.5, 57.5}}, identifier: 'pagamenti.annoScorso', label: 'I dati dell'anno scorso'
+                                        StaticText, 0x10eeabdc0, {{20.0, 1058.3}, {388.7, 46.7}}, label: 'NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti. È un calcolo, non una consulenza fiscale: controlla gli importi prima di pagare.'
+                                      Other, 0x10eeac060, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x10eeac180, {{434.0, 65.0}, {3.0, 641.3}}
+                                      Other, 0x10eeac2a0, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x10eeac3c0, {{434.0, 65.0}, {3.0, 641.3}}
+                            Other, 0x10eeac4e0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x10eeac600, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10eeac720, {{0.0, 873.0}, {440.0, 83.0}}
+                  Other, 0x10eeac840, {{0.0, 0.0}, {440.0, 956.0}}
+                    TabBar, 0x10eeac960, {{0.0, 873.0}, {440.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x10eeaca80, {{21.0, 873.0}, {398.0, 62.0}}
+                        Other, 0x10eeacba0, {{21.0, 873.0}, {86.3, 54.0}}
+                        Other, 0x10eeaccc0, {{21.0, 873.0}, {398.0, 62.0}}
+                          Button, 0x10eeacde0, {{25.0, 877.0}, {86.3, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x10eeacf00, {{55.0, 883.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x10eead020, {{100.9, 877.0}, {86.3, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x10eead140, {{131.9, 882.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x10eead260, {{176.8, 877.0}, {86.3, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x10eead380, {{205.8, 884.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x10eead4a0, {{252.7, 877.0}, {86.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti', Selected
+                            Image, 0x10eead5c0, {{281.7, 884.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x10eead6e0, {{328.7, 877.0}, {86.3, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x10eead800, {{358.7, 883.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x10eead920, {{252.7, 877.0}, {86.3, 54.0}}
+                          Other, 0x10eeada40, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x10eeadb60, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x10eeadc80, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x10eeadda0, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x10eeadec0, {{252.7, 877.0}, {86.3, 54.0}}
+                                  Other, 0x10eeadfe0, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x10eeae100, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x10eeae220, {{252.7, 877.0}, {86.3, 54.0}}
+                  Other, 0x10eeae340, {{0.0, 873.0}, {440.0, 83.0}}
+                    Other, 0x10eeae460, {{0.0, 873.0}, {440.0, 83.0}}
+                      Other, 0x10eeae580, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x10eeae6a0, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x10eeae7c0, {{0.0, 873.0}, {440.0, 83.0}}
+                            Other, 0x10eeae8e0, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x10eeaea00, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x10eeaeb20, {{0.0, 873.0}, {440.0, 83.0}}
+    Window, 0x10eeaec40, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x10eeaed60, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10eeaee80, {{0.0, 0.0}, {440.0, 956.0}}
+Path to element:
+ →Application, 0x10ee4c210, pid: 23281, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x10ebce880, pid: 23281, label: 'NettoLR'
+  }

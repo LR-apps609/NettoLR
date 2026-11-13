@@ -1,0 +1,60 @@
+    t =    40.90s             Check for interrupting elements affecting "calendar" Button
+    t =    40.99s             Synthesize event
+    t =    41.35s             Wait for it.ledion.NettoLR to idle
+    t =    44.01s         Find the "calendar" Button
+    t =    46.75s Added attachment named 'T17-04-orizzontale-scheda-3'
+    t =    46.75s         Waiting 5.0s for Button (Element at index 4) to exist
+    t =    47.78s             Checking `Expect predicate `existsNoRetry == 1` for object Button (Element at index 4)`
+    t =    47.78s                 Checking existence of `Button (Element at index 4)`
+    t =    48.03s         Tap Button (Element at index 4)
+    t =    48.03s             Wait for it.ledion.NettoLR to idle
+    t =    48.04s             Find the Button (Element at index 4)
+    t =    48.28s             Check for interrupting elements affecting "person.crop.circle" Button
+    t =    48.47s             Synthesize event
+    t =    48.93s             Wait for it.ledion.NettoLR to idle
+    t =   108.98s                 App event loop idle notification not received, will attempt to continue.
+    t =   108.98s App animations complete notification not received, will attempt to continue.
+    t =   108.99s         Find the "person.crop.circle" Button
+    t =   140.02s             Find the "person.crop.circle" Button (retry 1)
+    t =   171.08s             Find the "person.crop.circle" Button (retry 2)
+    t =   201.11s             Collecting debug information to assist test failure triage
+    t =   201.11s                 Requesting snapshot of accessibility hierarchy for app with pid 38423
+    t =   256.25s             Requesting snapshot of accessibility hierarchy for app with pid 38423
+    t =   256.53s             Find: Descendants matching type TabBar
+    t =   256.54s             Find: Descendants matching type Button
+    t =   256.55s             Find: Element at index 4
+    t =   257.34s             Requesting snapshot of accessibility hierarchy for app with pid 38423
+    t =   257.56s             Find: Descendants matching type TabBar
+    t =   257.56s             Find: Descendants matching type Button
+    t =   257.57s             Find: Element at index 4
+    t =   257.57s             Requesting snapshot of accessibility hierarchy for app with pid 38423
+    t =   257.79s             Find: Descendants matching type TabBar
+    t =   257.79s             Find: Descendants matching type Button
+    t =   257.80s             Requesting snapshot of accessibility hierarchy for app with pid 38423
+    t =   258.10s             Find: Descendants matching type TabBar
+    t =   258.11s             Requesting snapshot of accessibility hierarchy for app with pid 38423
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:111: error: -[NettoLRUITests.TesterTests test17_Ilaria] : Failed to get matching snapshot: Timed out while evaluating UI query.
+    t =   258.46s Tear Down
+    t =   258.46s     Added attachment named 'T17-diario'
+    t =   258.46s                 Setting device orientation to Portrait
+    t =   258.46s                     Device orientation changed to Portrait
+    t =   258.48s                     Wait for it.ledion.NettoLR to idle
+    t =   258.49s                 Setting appearance mode to Light
+    t =   258.51s                     Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' failed (259.734 seconds).
+Test Suite 'TesterTests' failed at 2026-11-13 21:21:34.547.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 1717.258 (1717.266) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-13 21:21:34.549.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 1717.258 (1717.268) seconds
+Test Suite 'Selected tests' failed at 2026-11-13 21:21:34.550.
+	 Executed 6 tests, with 3 failures (0 unexpected) in 1717.258 (1717.270) seconds
+2026-11-13 21:22:46.804 xcodebuild[4207:18657] [MT] IDETestOperationsObserverDebug: 1858.801 elapsed -- Testing started completed.
+2026-11-13 21:22:46.805 xcodebuild[4207:18657] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-13 21:22:46.805 xcodebuild[4207:18657] [MT] IDETestOperationsObserverDebug: 1858.801 sec, +1858.801 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started
