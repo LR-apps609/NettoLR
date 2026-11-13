@@ -484,5 +484,12 @@
   "È una guida, non una consulenza: per i casi particolari senti un commercialista.": "This is a guide, not advice: for special cases, talk to an accountant.",
   "è appena iniziato": "has just begun",
   "Prezzi non disponibili: l'App Store non risponde. Controlla la connessione.": "Prices not available: the App Store isn't responding. Check your connection.",
-  "Scaduto: l'hai pagato? Tocca per segnarlo": "Overdue: have you paid it? Tap to mark it"
+  "Scaduto: l'hai pagato? Tocca per segnarlo": "Overdue: have you paid it? Tap to mark it",
+  "Nei 3 anni prima di aprire hai già avuto un'attività in proprio?": "In the 3 years before opening, did you already have your own business?",
+  "No, è la prima": "No, this is my first",
+  "Tasse al {aliquotaStartup} per 5 anni": "Taxes at {aliquotaStartup} for 5 years",
+  "Tasse al {aliquota}": "Taxes at {aliquota}",
+  "Non lo so": "I don't know",
+  "Calcolo al {aliquota} finché non lo chiedi al commercialista": "I calculate at {aliquota} until you ask your accountant",
+  "Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono solo se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta).": "Taxes at {aliquotaStartup} instead of {aliquota}, for five years, only apply if you had no other business of your own in the previous 3 years and you don't carry on the same work you did as an employee (traineeship doesn't count)."
 }

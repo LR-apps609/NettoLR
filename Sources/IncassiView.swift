@@ -8,6 +8,8 @@ struct IncassiView: View {
     @State private var nuovo = false
     @State private var importa = false
     @State private var messaggio: String?
+    /// La fattura di cui si chiede il giorno del pagamento
+    @State private var daSegnare: Fattura?
 
     var body: some View {
         NavigationStack {
@@ -75,6 +77,13 @@ struct IncassiView: View {
             // Senza barra di navigazione il contenuto scorreva sotto l'ora e la batteria (tester T17, T19)
             .safeAreaInset(edge: .top, spacing: 0) { Color.clear.frame(height: 0).background(Theme.ground) }
             .sheet(isPresented: $nuovo) { NuovoIncassoView() }
+            .sheet(item: $daSegnare) { f in
+                GiornoPagamento(fattura: f) { giorno in
+                    withAnimation(.spring) { store.segnaIncassata(f.id, il: giorno) }
+                    daSegnare = nil
+                }
+                .presentationDetents([.medium, .large])
+            }
             .fileImporter(isPresented: $importa, allowedContentTypes: [.xml], allowsMultipleSelection: true) { esito in
                 leggi(esito)
             }
@@ -94,7 +103,8 @@ struct IncassiView: View {
                 }
             }
             Spacer()
-            Button("Sì") { withAnimation(.spring) { store.segnaIncassata(f.id) } }
+            // Conta il giorno in cui ti pagano: si chiede, non si mette oggi da solo (tester T15)
+            Button("Sì") { daSegnare = f }
                 .font(.app(15, .bold))
                 .padding(.horizontal, 18).frame(height: 40)
                 .foregroundStyle(Theme.suPrugna)
@@ -282,5 +292,34 @@ struct NuovoIncassoView: View {
 
                                ateco: attivita.isEmpty || attivita == store.profilo?.ateco ? nil : attivita))
         chiudi()
+    }
+}
+
+/// «Quando ti hanno pagato?»: il giorno del pagamento decide l'anno in cui l'incasso conta
+struct GiornoPagamento: View {
+    let fattura: Fattura
+    let conferma: (Date) -> Void
+    @Environment(\.dismiss) private var chiudi
+    @State private var giorno = Date()
+
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Quando ti hanno pagato?").font(.app(24, .heavy)).accessibilityAddTraits(.isHeader)
+                Text("\(fattura.cliente) · \(Formato.euroTondo(fattura.importo))").font(.app(16)).foregroundStyle(Theme.muted)
+                DatePicker("Il giorno", selection: $giorno, in: fattura.data...max(fattura.data, Date()), displayedComponents: .date)
+                    .datePickerStyle(.graphical)
+                    .tint(Theme.prugna)
+                    .environment(\.locale, Formato.lingua)
+                Text("Conta il giorno in cui arrivano i soldi, non quello della fattura.")
+                    .font(.app(14)).foregroundStyle(Theme.muted)
+            }
+            .padding(20)
+            .background(Theme.ground.ignoresSafeArea())
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { Button("Annulla") { chiudi() } }
+                ToolbarItem(placement: .confirmationAction) { Button("Salva") { conferma(giorno) }.bold() }
+            }
+        }
     }
 }

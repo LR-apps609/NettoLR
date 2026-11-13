@@ -77,7 +77,9 @@ struct DomandeProfilo: View {
     @State private var scelta: String?
     @State private var annoApertura = Regole.attuali.anno
     @State private var meseApertura = 1
-    @State private var primaVolta = true
+    /// Negli ultimi 3 anni un'altra attività in proprio? nil = non ancora risposto, «no» = prima attività (5%),
+    /// «sì» e «non lo so» = 15%. Prima era già «Sì»: chi non leggeva si trovava le tasse al 5%
+    @State private var giaAttivita: RispostaStartup?
     @State private var gestione = Gestione.separata
     @State private var riduzione35 = false
     @State private var cassaAliquota = ""
@@ -123,8 +125,8 @@ struct DomandeProfilo: View {
                 }
                 Button((passo < 3 ? "Avanti" : "Fatto").tradotto) { avanti() }
                     .buttonStyle(PulsantePieno())
-                    .disabled(passo == 0 && ateco.isEmpty)
-                    .opacity(passo == 0 && ateco.isEmpty ? 0.4 : 1)
+                    .disabled((passo == 0 && ateco.isEmpty) || (passo == 1 && giaAttivita == nil))
+                    .opacity((passo == 0 && ateco.isEmpty) || (passo == 1 && giaAttivita == nil) ? 0.4 : 1)
                     .accessibilityIdentifier("profilo.avanti")
             }
         }
@@ -239,9 +241,13 @@ struct DomandeProfilo: View {
             }
             // La legge (L. 190/2014, c. 65) chiede due cose: nessuna attività in proprio nei 3 anni prima
             // e non continuare lo stesso lavoro fatto prima da dipendente o da autonomo
-            domanda("Nei 3 anni prima di aprire non avevi un'altra attività in proprio?", piccola: true)
-            sceltaSiNo($primaVolta)
-            Text("Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta). Se non sei sicuro, rispondi no e chiedi al commercialista.".tradotto.conRegole())
+            domanda("Nei 3 anni prima di aprire hai già avuto un'attività in proprio?", piccola: true)
+            VStack(spacing: 10) {
+                rispostaStartup(.no, "No, è la prima", "Tasse al {aliquotaStartup} per 5 anni")
+                rispostaStartup(.si, "Sì", "Tasse al {aliquota}")
+                rispostaStartup(.nonSo, "Non lo so", "Calcolo al {aliquota} finché non lo chiedi al commercialista")
+            }
+            Text("Le tasse al {aliquotaStartup} invece del {aliquota}, per cinque anni, valgono solo se nei 3 anni prima non avevi un'altra attività in proprio e se non continui lo stesso lavoro che facevi da dipendente (il praticantato non conta).".tradotto.conRegole())
                 .font(.app(15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
         }
     }
@@ -290,6 +296,28 @@ struct DomandeProfilo: View {
             // VoiceOver la legge come titolo: si salta da una domanda all'altra con il rotore
             .accessibilityAddTraits(.isHeader)
             .padding(.top, piccola ? 8 : 0)
+    }
+
+    private func rispostaStartup(_ r: RispostaStartup, _ titolo: String, _ sotto: String) -> some View {
+        Button { giaAttivita = r } label: {
+            HStack(spacing: 12) {
+                Image(systemName: giaAttivita == r ? "checkmark.circle.fill" : "circle")
+                    .font(.app(22)).foregroundStyle(giaAttivita == r ? Theme.prugna : Theme.line)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(titolo.tradotto).font(.app(17, .semibold))
+                    Text(sotto.tradotto.conRegole()).font(.app(14)).foregroundStyle(Theme.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.card, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(giaAttivita == r ? Theme.prugna : .clear, lineWidth: 2))
+        }
+        .buttonStyle(.plain)
+        .foregroundStyle(Theme.ink)
+        .accessibilityAddTraits(giaAttivita == r ? .isSelected : [])
     }
 
     private func sceltaSiNo(_ valore: Binding<Bool>) -> some View {
@@ -408,7 +436,7 @@ struct DomandeProfilo: View {
             partitaIVA: pivaLetta ?? iniziale?.partitaIVA ?? "",
             ateco: ateco,
             annoApertura: annoApertura,
-            requisitiStartup: primaVolta,
+            requisitiStartup: giaAttivita == .no,
             gestione: gestione,
             riduzione35: (gestione == .artigiani || gestione == .commercianti) && riduzione35,
             cassaAliquota: gestione == .cassa ? Formato.leggiEuro(cassaAliquota) / 100 : nil,
@@ -427,7 +455,7 @@ struct DomandeProfilo: View {
         nomeLavoro = Ateco.nomeLavoro(p.ateco)
         annoApertura = p.annoApertura
         meseApertura = p.meseApertura ?? 1
-        primaVolta = p.requisitiStartup
+        giaAttivita = p.requisitiStartup ? .no : .si
         gestione = p.gestione
         riduzione35 = p.riduzione35
         cassaAliquota = Formato.campo(p.cassaAliquota.map { $0 * 100 })
@@ -507,3 +535,6 @@ struct ACapo: Layout {
         return righe
     }
 }
+
+/// La risposta alla domanda sulle tasse ridotte dei primi 5 anni
+enum RispostaStartup { case no, si, nonSo }

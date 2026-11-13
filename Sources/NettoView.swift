@@ -83,7 +83,7 @@ struct NettoView: View {
     private func intestazione(_ p: Profilo) -> some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(Date().formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Formato.lingua)).capitalized)
+                Text({ let s = Date().formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Formato.lingua)); return s.prefix(1).uppercased() + s.dropFirst() }())
                     .font(.app(14, .semibold)).foregroundStyle(Theme.muted)
                 Text(p.nome.isEmpty ? "Ciao!".tradotto : String(localized: "Ciao \(p.nome)!"))
                     .font(.system(size: 30, weight: .heavy, design: .rounded))
@@ -128,7 +128,7 @@ struct NettoView: View {
                     Text(Formato.euroTondo(res.contributi + res.imposta)).font(.cifra(28)).foregroundStyle(Theme.ink)
                     Text("per tasse e pensione del \(String(store.anno))").font(.app(14)).foregroundStyle(Theme.muted)
                     if let prossimo = store.prossimoPagamento {
-                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo)) entro il \(prossimo.data.formatted(Formato.giorno))")
+                        Text("Prossimo pagamento: \(Formato.euroTondo(prossimo.importo).replacingOccurrences(of: " €", with: "\u{00A0}€")) entro il \(prossimo.data.formatted(Formato.giorno))")
                             .font(.app(13, .semibold)).foregroundStyle(Theme.tasseTesto).fixedSize(horizontal: false, vertical: true)
                     }
                 }

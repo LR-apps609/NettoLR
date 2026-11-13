@@ -1265,6 +1265,17 @@
         }
       }
     },
+    "Conta il giorno in cui arrivano i soldi, non quello della fattura.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What counts is the day the money arrives, not the invoice date."
+          }
+        }
+      }
+    },
     "Conta il giorno in cui ti pagano, non quello della fattura. Per questo noi ti chiediamo se ti hanno pagato.": {
       "extractionState": "manual",
       "localizations": {
@@ -3432,6 +3443,17 @@
         }
       }
     },
+    "Non si può annullare. Le copie in iCloud Drive e i file già mandati al commercialista restano: quelli vanno cancellati a mano.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This can't be undone. Copies in iCloud Drive and files already sent to your accountant stay: delete those by hand."
+          }
+        }
+      }
+    },
     "Nota di credito %@: non aggiunta. Se riduce un incasso già segnato, correggilo a mano.": {
       "extractionState": "manual",
       "localizations": {
@@ -3986,6 +4008,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "You can also type the ATECO code, old (2007) or new (2025): it's on your VAT number certificate or your tax return."
+          }
+        }
+      }
+    },
+    "Quando ti hanno pagato?": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When did they pay you?"
           }
         }
       }

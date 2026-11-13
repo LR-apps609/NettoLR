@@ -142,6 +142,9 @@ struct TuView: View {
             }
             .confirmationDialog("Cancellare profilo e incassi da questo iPhone?", isPresented: $chiediCancella, titleVisibility: .visible) {
                 Button("Cancella tutto", role: .destructive) { store.cancellaTutto() }
+                Button("Annulla", role: .cancel) {}
+            } message: {
+                Text("Non si può annullare. Le copie in iCloud Drive e i file già mandati al commercialista restano: quelli vanno cancellati a mano.")
             }
             .onAppear { piva = store.profilo?.partitaIVA ?? "" }
             .task(id: fase) {

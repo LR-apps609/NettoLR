@@ -93,6 +93,17 @@ final class TesterTests: XCTestCase {
             && app.tabBars.buttons.element(boundBy: 0).isHittable
     }
 
+    /// Se Avanti è spento perché manca una risposta (tasse dei primi 5 anni), risponde «No, è la prima»
+    private func rispondiSeServe() {
+        let avanti = app.buttons["profilo.avanti"].firstMatch
+        guard avanti.exists, !avanti.isEnabled else { return }
+        for testo in ["No, è la prima", "No, this is my first"] {
+            let b = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", testo)).firstMatch
+            if b.exists { b.tap(); nota("risposto «\(testo)»"); return }
+        }
+        if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap(); nota("risposto «No»") }
+    }
+
     private func scheda(_ i: Int) {
         let b = app.tabBars.buttons.element(boundBy: i)
         if b.waitForExistence(timeout: 5) {
@@ -196,7 +207,7 @@ final class TesterTests: XCTestCase {
             let b = app.buttons["profilo.avanti"].firstMatch
             if b.exists && !b.isEnabled {
                 nota("Avanti disattivato alla domanda \(i + 2): rispondo «No» se c'è")
-                if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
+                rispondiSeServe()
             }
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
@@ -365,7 +376,7 @@ final class TesterTests: XCTestCase {
         if gruppi.count > 0 { gruppi.element(boundBy: 0).tap(); sleep(1); foto("gruppo-scelto") }
         for i in 0..<6 {
             if nelleSchede { break }
-            if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
+            rispondiSeServe()
             if !tocca("profilo.avanti", attesa: 3) { foto("bloccato-\(i)", albero: true); break }
         }
         for i in 0..<5 { scheda(i); sleep(1); foto("vuoto-scheda-\(i)", albero: true) }
@@ -500,7 +511,7 @@ final class TesterTests: XCTestCase {
         _ = toccaTesto("software") || toccaTesto("informatic")
         for _ in 0..<6 {
             if nelleSchede { break }
-            if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
+            rispondiSeServe()
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
         scheda(4)
@@ -651,7 +662,7 @@ final class TesterTests: XCTestCase {
         } else { nota("scelta del mese «profilo.mese» NON TROVATA (forse serve prima l'anno)") }
         for _ in 0..<5 {
             if nelleSchede { break }
-            if app.buttons["No"].exists { app.buttons["No"].firstMatch.tap() }
+            rispondiSeServe()
             if !tocca("profilo.avanti", attesa: 3) { break }
         }
         scheda(3); sleep(1); foto("pagamenti-meta-anno", albero: true)
