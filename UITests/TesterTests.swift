@@ -161,6 +161,7 @@ final class TesterTests: XCTestCase {
     /// Svuota un campo e ci scrive il testo
     private func riscrivi(_ e: XCUIElement, _ testo: String) {
         guard e.waitForExistence(timeout: 4) else { nota("campo NON TROVATO"); return }
+        guard e.isHittable else { nota("campo FUORI SCHERMO"); return }
         e.tap()
         let attuale = (e.value as? String) ?? ""
         if !attuale.isEmpty {
@@ -673,6 +674,8 @@ final class TesterTests: XCTestCase {
             promemoria.tap(); sleep(2); app.tap(); sleep(1)
             foto("promemoria-notifiche-negate", albero: true)
         } else { nota("interruttore Promemoria NON TROVATO") }
+        // Il campo sta in cima a «Tu»: dopo l'interruttore dei promemoria si torna su
+        for _ in 0..<3 where !campo("tu.piva").isHittable { app.swipeDown() }
         riscrivi(campo("tu.piva"), "12345678901")
         tocca("tu.conferma"); sleep(1); foto("piva-cifra-sbagliata")
     }
