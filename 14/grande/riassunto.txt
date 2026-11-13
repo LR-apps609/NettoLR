@@ -1,0 +1,10 @@
+Durata: 2629 s
+Dispositivo: iPhone 17 Pro Max
+	 Executed 3 tests, with 2 failures (0 unexpected) in 1780.069 (1780.087) seconds
+	 Executed 3 tests, with 2 failures (0 unexpected) in 1780.069 (1780.091) seconds
+	 Executed 3 tests, with 2 failures (0 unexpected) in 1780.069 (1780.095) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:111: error: -[NettoLRUITests.TesterTests test07_Elena] : Failed to get matching snapshot: Timed out while evaluating UI query.
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:53: error: -[NettoLRUITests.TesterTests test12_Andrea] : Failed to get screenshot: Timed out while requesting screenshot.
+Test Case '-[NettoLRUITests.TesterTests test07_Elena]' failed (1475.204 seconds).
+Test Case '-[NettoLRUITests.TesterTests test12_Andrea]' failed (138.801 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (166.064 seconds).

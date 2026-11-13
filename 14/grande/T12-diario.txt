@@ -1,0 +1,4 @@
+[00] avvio riuscito in 88.7 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T12-01-netto-anno-corrente
+[01] toccato «netto.anno»
+[02] fine · errori registrati da XCTest: 1
