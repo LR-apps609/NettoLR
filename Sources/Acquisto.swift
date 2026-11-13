@@ -37,7 +37,8 @@ final class Acquisto: ObservableObject {
         Portachiavi.salva(inizioProva, "inizioProva")
         // Nel giro delle foto: abbonamento attivo, oppure («-uiProva») la schermata con i piani
         if uitest {
-            let prova = ProcessInfo.processInfo.arguments.contains("-uiProva")
+            let args = ProcessInfo.processInfo.arguments
+            let prova = args.contains("-uiProva") || args.contains("-uiProvaFinita")
             completo = !prova
             piano = prova ? nil : "Annuale"
         }
@@ -62,6 +63,8 @@ final class Acquisto: ObservableObject {
     }
 
     var bloccato: Bool {
+        // Nelle prove automatiche: la prova di 14 giorni appena finita
+        if uitest && ProcessInfo.processInfo.arguments.contains("-uiProvaFinita") { return !completo }
         #if DEBUG
         return false
         #else

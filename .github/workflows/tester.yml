@@ -1,0 +1,127 @@
+# I 20 tester (UITests/TesterTests.swift) sull'app vera: ogni tester sul suo iPhone simulato.
+# Le foto e i diari vanno nel ramo «prove-tester», una cartella per giro e per dispositivo,
+# perché gli allegati di GitHub non si scaricano dall'ambiente di Claude.
+name: Prove dei 20 tester
+
+on:
+  push:
+    paths: [".github/workflows/tester.yml", "UITests/TesterTests.swift"]
+  workflow_dispatch:
+    inputs:
+      mac:
+        description: "Mac di GitHub (se gli arm64 sono pieni: macos-15-intel)"
+        default: macos-15
+        required: false
+      solo:
+        description: "Facoltativo: solo questi tester, es. test04_Luca,test18_Simone"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tester-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prova:
+    runs-on: ${{ inputs.mac || 'macos-15' }}
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - taglia: piccolo
+            tester: "test01_Giulia,test08_Paolo,test09_Chiara,test16_Giorgio,test17_Ilaria,test20_Nicola"
+          - taglia: medio
+            tester: "test03_Anna,test04_Luca,test05_Sara,test10_Roberto,test11_Francesca,test13_Martina,test14_Stefano,test18_Simone,test19_Laura"
+          - taglia: grande
+            tester: "test02_Marco,test07_Elena,test12_Andrea,test15_Valentina,test17_Ilaria"
+          - taglia: ipad
+            tester: "test06_Davide"
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+
+      - name: Progetto
+        run: brew install xcodegen && xcodegen generate
+
+      - name: Scelta del dispositivo
+        id: sim
+        run: |
+          ELENCO=$(xcrun simctl list devices available | grep -oE "(iPhone|iPad) [^()]*" | sed 's/ *$//' | sort -u)
+          echo "Dispositivi disponibili:"; echo "$ELENCO"
+          case "${{ matrix.taglia }}" in
+            piccolo) SIM=$(echo "$ELENCO" | grep -E "iPhone (SE|.*mini|16e)" | head -n 1) ;;
+            grande)  SIM=$(echo "$ELENCO" | grep -E "iPhone.*Pro Max" | sort -V | tail -n 1) ;;
+            ipad)    SIM=$(echo "$ELENCO" | grep -E "^iPad" | grep -vE "mini|Pro" | sort -V | tail -n 1)
+                     [ -z "$SIM" ] && SIM=$(echo "$ELENCO" | grep -E "^iPad" | head -n 1) ;;
+            *)       SIM=$(echo "$ELENCO" | grep -E "^iPhone [0-9]+$" | sort -V | tail -n 1) ;;
+          esac
+          [ -z "$SIM" ] && SIM=$(echo "$ELENCO" | grep -E "^iPhone" | head -n 1)
+          echo "::notice::${{ matrix.taglia }}: $SIM"
+          echo "nome=$SIM" >> "$GITHUB_OUTPUT"
+
+      - name: I tester
+        id: prove
+        run: |
+          SIM="${{ steps.sim.outputs.nome }}"
+          xcrun simctl boot "$SIM" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
+          ELENCO="${{ matrix.tester }}"
+          if [ -n "${{ inputs.solo }}" ]; then
+            ELENCO=$(echo "$ELENCO" | tr ',' '\n' | grep -Fx -f <(echo "${{ inputs.solo }}" | tr ',' '\n') | paste -sd, - || true)
+          fi
+          [ -z "$ELENCO" ] && { echo "Nessun tester su questo dispositivo"; exit 0; }
+          SOLO=""
+          for t in $(echo "$ELENCO" | tr ',' ' '); do SOLO="$SOLO -only-testing:NettoLRUITests/TesterTests/$t"; done
+          mkdir -p esiti
+          inizio=$(date +%s)
+          xcodebuild test -project NettoLR.xcodeproj -scheme NettoLRUITests $SOLO \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui -resultBundlePath risultato.xcresult \
+            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/esiti" > ui.log 2>&1 || true
+          echo "Durata: $(( $(date +%s) - inizio )) s" >> esiti/riassunto.txt
+          echo "Dispositivo: $SIM" >> esiti/riassunto.txt
+          grep -E "Test Case .*(passed|failed)|Executed .* tests|error:|failed -" ui.log | sort -u | head -n 200 >> esiti/riassunto.txt || true
+          # Se le foto non sono arrivate nella cartella, si prendono dagli allegati del risultato
+          if ! ls esiti/*.png >/dev/null 2>&1 && [ -d risultato.xcresult ]; then
+            xcrun xcresulttool export attachments --path risultato.xcresult --output-path allegati || true
+            python3 - <<'PY'
+          import json, shutil, pathlib
+          src = pathlib.Path("allegati"); out = pathlib.Path("esiti")
+          try:
+              for test in json.loads((src / "manifest.json").read_text()):
+                  for a in test.get("attachments", []):
+                      nome = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                      if not nome.startswith("T"): continue
+                      est = pathlib.Path(a["exportedFileName"]).suffix
+                      shutil.copy(src / a["exportedFileName"], out / (nome + est))
+          except Exception as e:
+              print("allegati non letti:", e)
+          PY
+          fi
+          tail -n 60 ui.log > esiti/ultime-righe-log.txt
+          cat esiti/riassunto.txt
+          echo "::notice::${{ matrix.taglia }} · $SIM · file: $(ls esiti | wc -l | tr -d ' ')"
+
+      - name: Nel ramo prove-tester
+        if: always()
+        run: |
+          DEST="${{ github.run_number }}/${{ matrix.taglia }}"
+          URL="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          for tentativo in 1 2 3 4 5 6; do
+            rm -rf ramo
+            git clone -q --depth 1 --branch prove-tester "$URL" ramo 2>/dev/null \
+              || { mkdir ramo && cd ramo && git init -q && git checkout -q -b prove-tester && cd ..; }
+            mkdir -p "ramo/$DEST" && cp -R esiti/. "ramo/$DEST/" 2>/dev/null || true
+            cd ramo
+            git add . && git -c user.name="NettoLR CI" -c user.email="ci@nettolr.invalid" commit -qm "Tester · giro ${{ github.run_number }} · ${{ matrix.taglia }}" || { cd ..; break; }
+            if git push -q "$URL" prove-tester 2>&1 | sed 's/x-access-token:[^@]*@/***@/'; [ "${PIPESTATUS[0]}" = 0 ]; then cd ..; echo "Caricato in prove-tester/$DEST"; break; fi
+            cd ..
+            sleep $((tentativo * 5))
+          done

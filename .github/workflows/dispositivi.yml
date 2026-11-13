@@ -4,7 +4,7 @@ name: Prova su più iPhone
 
 on:
   push:
-    paths-ignore: ["docs/**", "**.md", "sito/**", "installa.sh", ".github/workflows/foto-versioni.yml", ".github/workflows/foto-ramo.yml"]
+    paths-ignore: ["docs/**", "**.md", "sito/**", "installa.sh", ".github/workflows/foto-versioni.yml", ".github/workflows/foto-ramo.yml", ".github/workflows/tester.yml"]
   workflow_dispatch:
 
 # Una prova già partita non si ferma per una modifica nuova: si mettono in fila
