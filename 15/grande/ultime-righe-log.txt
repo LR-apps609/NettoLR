@@ -1,0 +1,60 @@
+    t =   100.50s         Wait for it.ledion.NettoLR to idle
+    t =   100.51s         Find the Button (Element at index 0)
+    t =   100.64s         Check for interrupting elements affecting "eurosign.circle" Button
+    t =   100.79s         Synthesize event
+    t =   101.27s         Wait for it.ledion.NettoLR to idle
+    t =   102.73s     Find the "eurosign.circle" Button
+    t =   103.29s     Waiting 4.0s for "netto.calcolo" Button to exist
+    t =   104.34s         Checking `Expect predicate `existsNoRetry == 1` for object "netto.calcolo" Button`
+    t =   104.34s             Checking existence of `"netto.calcolo" Button`
+    t =   105.00s     Find the "netto.calcolo" Button
+    t =   105.43s     Find the "netto.calcolo" Button
+    t =   106.48s     Swipe up Target Application 'it.ledion.NettoLR'
+    t =   106.48s         Wait for it.ledion.NettoLR to idle
+    t =   106.49s         Find the Target Application 'it.ledion.NettoLR'
+    t =   107.01s         Check for interrupting elements affecting "NettoLR" Application
+    t =   107.47s         Synthesize event
+    t =   108.00s         Wait for it.ledion.NettoLR to idle
+    t =   108.81s     Find the "netto.calcolo" Button
+    t =   110.62s     Tap "netto.calcolo" Button
+    t =   110.64s         Wait for it.ledion.NettoLR to idle
+    t =   110.67s         Find the "netto.calcolo" Button
+    t =   111.75s         Check for interrupting elements affecting "netto.calcolo" Button
+    t =   112.08s         Synthesize event
+    t =   112.48s         Wait for it.ledion.NettoLR to idle
+    t =   115.77s Added attachment named 'T17-07-orizzontale-calcolo'
+    t =   115.78s     Checking existence of `"Fatto" Button`
+    t =   116.30s     Find the "Fatto" Button
+    t =   116.87s     Tap "Fatto" Button
+    t =   116.87s         Wait for it.ledion.NettoLR to idle
+    t =   116.93s         Find the "Fatto" Button
+    t =   117.50s         Check for interrupting elements affecting "Fatto" Button
+    t =   118.32s         Synthesize event
+    t =   119.30s         Wait for it.ledion.NettoLR to idle
+    t =   121.42s     Setting device orientation to Portrait
+    t =   121.42s         Device orientation changed to Portrait
+    t =   121.45s         Wait for it.ledion.NettoLR to idle
+    t =   123.39s Added attachment named 'T17-08-di-nuovo-verticale'
+    t =   123.40s Tear Down
+    t =   123.40s     Added attachment named 'T17-diario'
+    t =   123.40s         Setting device orientation to Portrait
+    t =   123.44s             Wait for it.ledion.NettoLR to idle
+    t =   123.45s         Setting appearance mode to Light
+    t =   123.49s             Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (126.800 seconds).
+Test Suite 'TesterTests' failed at 2026-11-14 00:19:58.818.
+	 Executed 3 tests, with 1 failure (0 unexpected) in 2032.442 (2032.454) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-14 00:19:58.824.
+	 Executed 3 tests, with 1 failure (0 unexpected) in 2032.442 (2032.461) seconds
+Test Suite 'Selected tests' failed at 2026-11-14 00:19:58.825.
+	 Executed 3 tests, with 1 failure (0 unexpected) in 2032.442 (2032.467) seconds
+2026-11-14 00:21:53.294 xcodebuild[4807:20230] [MT] IDETestOperationsObserverDebug: 2278.229 elapsed -- Testing started completed.
+2026-11-14 00:21:53.295 xcodebuild[4807:20230] [MT] IDETestOperationsObserverDebug: 0.001 sec, +0.001 sec -- start
+2026-11-14 00:21:53.295 xcodebuild[4807:20230] [MT] IDETestOperationsObserverDebug: 2278.229 sec, +2278.229 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started
