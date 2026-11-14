@@ -1,0 +1,9 @@
+Durata: 1568 s
+Dispositivo: iPhone 16e
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.040) seconds
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.042) seconds
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.045) seconds
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:112: error: -[NettoLRUITests.TesterTests test17_Ilaria] : Failed to get matching snapshot: Timed out while evaluating UI query.
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:53: error: -[NettoLRUITests.TesterTests test09_Chiara] : Failed to get screenshot: Timed out while requesting screenshot.
+Test Case '-[NettoLRUITests.TesterTests test09_Chiara]' failed (350.005 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' failed (465.028 seconds).

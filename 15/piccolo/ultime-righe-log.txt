@@ -1,0 +1,60 @@
+    t =    53.61s     Wait for it.ledion.NettoLR to idle
+    t =    55.22s Find the "slider.horizontal.3" Button
+    t =    56.94s Added attachment named 'T17-03-orizzontale-scheda-2'
+    t =    56.94s Waiting 5.0s for Button (Element at index 3) to exist
+    t =    57.96s     Checking `Expect predicate `existsNoRetry == 1` for object Button (Element at index 3)`
+    t =    57.96s         Checking existence of `Button (Element at index 3)`
+    t =    58.06s Tap Button (Element at index 3)
+    t =    58.06s     Wait for it.ledion.NettoLR to idle
+    t =    58.07s     Find the Button (Element at index 3)
+    t =    58.19s     Check for interrupting elements affecting "calendar" Button
+    t =    58.29s     Synthesize event
+    t =    58.71s     Wait for it.ledion.NettoLR to idle
+    t =    61.59s Find the "calendar" Button
+    t =    64.14s Added attachment named 'T17-04-orizzontale-scheda-3'
+    t =    64.15s Waiting 5.0s for Button (Element at index 4) to exist
+    t =    65.16s     Checking `Expect predicate `existsNoRetry == 1` for object Button (Element at index 4)`
+    t =    65.16s         Checking existence of `Button (Element at index 4)`
+    t =    65.53s Tap Button (Element at index 4)
+    t =    65.53s     Wait for it.ledion.NettoLR to idle
+    t =    65.57s     Find the Button (Element at index 4)
+    t =    66.47s     Check for interrupting elements affecting "person.crop.circle" Button
+    t =    66.83s     Synthesize event
+    t =    67.44s     Wait for it.ledion.NettoLR to idle
+    t =   127.51s         App event loop idle notification not received, will attempt to continue.
+    t =   127.51s App animations complete notification not received, will attempt to continue.
+    t =   127.51s Find the "person.crop.circle" Button
+    t =   158.57s     Find the "person.crop.circle" Button (retry 1)
+    t =   189.60s     Find the "person.crop.circle" Button (retry 2)
+    t =   219.63s     Collecting debug information to assist test failure triage
+    t =   219.63s         Requesting snapshot of accessibility hierarchy for app with pid 28840
+    t =   279.65s     Requesting snapshot of accessibility hierarchy for app with pid 28840
+/Users/runner/work/NettoLR/NettoLR/UITests/TesterTests.swift:112: error: -[NettoLRUITests.TesterTests test17_Ilaria] : Failed to get matching snapshot: Timed out while evaluating UI query.
+    t =   339.69s Tear Down
+    t =   339.69s     Added attachment named 'T17-diario'
+    t =   339.69s         Setting device orientation to Portrait
+    t =   339.70s             Device orientation changed to Portrait
+    t =   339.72s             Wait for it.ledion.NettoLR to idle
+    t =   399.79s                 App event loop idle notification not received, will attempt to continue.
+    t =   399.80s     App animations complete notification not received, will attempt to continue.
+    t =   399.80s         Setting appearance mode to Light
+    t =   399.83s             Wait for it.ledion.NettoLR to idle
+    t =   459.89s                 App event loop idle notification not received, will attempt to continue.
+    t =   459.89s     App animations complete notification not received, will attempt to continue.
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' failed (465.028 seconds).
+Test Suite 'TesterTests' failed at 2026-11-14 00:00:11.481.
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.040) seconds
+Test Suite 'NettoLRUITests.xctest' failed at 2026-11-14 00:00:11.483.
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.042) seconds
+Test Suite 'Selected tests' failed at 2026-11-14 00:00:11.485.
+	 Executed 2 tests, with 2 failures (0 unexpected) in 815.033 (815.045) seconds
+2026-11-14 00:02:11.609 xcodebuild[8042:29040] [MT] IDETestOperationsObserverDebug: 997.643 elapsed -- Testing started completed.
+2026-11-14 00:02:11.611 xcodebuild[8042:29040] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-14 00:02:11.611 xcodebuild[8042:29040] [MT] IDETestOperationsObserverDebug: 997.643 sec, +997.643 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST FAILED **
+
+Testing started
