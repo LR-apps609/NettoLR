@@ -1,0 +1,29 @@
+[00] avvio riuscito in 7.9 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T07-01-netto
+[01] toccato «netto.calcolo»
+[02] foto T07-02-calcolo-0
+[03] foto T07-03-calcolo-1
+[04] foto T07-04-calcolo-2
+[05] foto T07-05-calcolo-3
+[05] chiuso con «Fatto»
+[05] pulsante «netto.avvertenza» NON TROVATO
+[05] scheda 1 («Incassi»)
+[05] toccato «incassi.aggiungi»
+[05] importo «90000» · Salva ATTIVO
+[05] salvato
+[05] scheda 0 («Netto»)
+[06] foto T07-06-netto-oltre-85mila
+[06] scheda 1 («Incassi»)
+[06] toccato «incassi.aggiungi»
+[06] importo «40000» · Salva ATTIVO
+[06] salvato
+[06] scheda 0 («Netto»)
+[07] foto T07-07-netto-oltre-100mila
+[07] scheda 3 («Pagamenti»)
+[08] foto T07-08-pagamenti-oltre-100mila
+[08] scheda 4 («Tu»)
+[08] toccato «tu.documenti»
+[09] foto T07-09-documenti
+[09] pulsante «documenti.novita» NON TROVATO
+[09] chiuso con «Fatto»
+[09] fine · errori registrati da XCTest: 0

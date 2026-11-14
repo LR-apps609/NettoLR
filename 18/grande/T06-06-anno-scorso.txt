@@ -1,0 +1,150 @@
+Attributes: Application, 0x10282ff40, pid: 17380, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10282ff40, pid: 17380, label: 'NettoLR'
+    Window (Main), 0x10281cca0, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x102845650, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x102830d20, {{0.0, 0.0}, {440.0, 956.0}}
+          Other, 0x1028515c0, {{-440.0, -956.0}, {1320.0, 2868.0}}
+          Other, 0x102811240, {{0.0, 0.0}, {440.0, 956.0}}
+            Other, 0x102850940, {{0.0, 0.0}, {440.0, 956.0}}
+              Other, 0x10282d160, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10283f170, {{0.0, 0.0}, {440.0, 956.0}}
+                  Other, 0x102829870, {{0.0, 0.0}, {440.0, 956.0}}
+                    Other, 0x102850d60, {{0.0, 0.0}, {440.0, 956.0}}
+                      Other, 0x10282d9a0, {{0.0, 0.0}, {440.0, 956.0}}
+                        Other, 0x102862880, {{0.0, 0.0}, {440.0, 956.0}}
+                          Other, 0x1014df490, {{0.0, 0.0}, {440.0, 956.0}}
+                            Other, 0x1014a5860, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x10146f0c0, {{0.0, 0.0}, {440.0, 956.0}}
+                                Other, 0x1014a2d40, {{0.0, 0.0}, {440.0, 956.0}}
+                                  Other, 0x1014a9d20, {{0.0, 0.0}, {440.0, 956.0}}
+                                    ScrollView, 0x1014a6460, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x101498640, {{0.0, -164.3}, {440.0, 1037.3}}
+                                        StaticText, 0x1014a5c20, {{20.0, -152.3}, {176.3, 40.7}}, label: 'Pagamenti'
+                                        Image, 0x1014a90c0, {{35.3, -78.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+                                        StaticText, 0x1014a2500, {{63.7, -79.7}, {335.0, 54.0}}, label: 'Scadenze passate non segnate: 3.120 €. Se le hai pagate toccale e segnale; se no, chiedi al commercialista come rimediare.'
+                                        StaticText, 0x1014adba0, {{-52.0, -72.3}, {515.7, 443.0}}, label: '16, giorni, 2.544 €, da pagare entro il 30 novembre'
+                                          StaticText, 0x1014b0dc0, {{182.2, 67.8}, {75.7, 67.0}}, label: '16'
+                                          StaticText, 0x1014a5100, {{201.2, 134.8}, {37.7, 18.0}}, label: 'giorni'
+                                          StaticText, 0x1014a94e0, {{153.5, 204.3}, {133.0, 40.7}}, label: '2.544 €'
+                                          StaticText, 0x1014a0b10, {{104.5, 259.0}, {231.0, 20.3}}, label: 'da pagare entro il 30 novembre'
+                                        Button, 0x10147db60, {{20.0, 321.3}, {400.0, 75.0}}, label: '20 luglio, Tasse: il conto dell'anno scorso e un anticipo, 960 €, pagato'
+                                          Image, 0x10147df80, {{24.0, 350.0}, {18.0, 18.0}}, identifier: 'checkmark.circle.fill', label: 'Selezionato', Selected
+                                          StaticText, 0x1014a1770, {{56.0, 331.3}, {64.7, 19.3}}, label: '20 luglio'
+                                          StaticText, 0x1014a6880, {{56.0, 352.7}, {209.3, 33.7}}, label: 'Tasse: il conto dell'anno scorso e un anticipo'
+                                          StaticText, 0x1014a5520, {{369.3, 349.2}, {46.7, 19.3}}, label: '960 €'
+                                        Button, 0x1014b11e0, {{20.0, 396.3}, {400.0, 92.7}}, label: '20 luglio, Pensione: il conto dell'anno scorso e un anticipo, 3.120 €, scaduto'
+                                          StaticText, 0x101490e30, {{56.0, 406.3}, {64.7, 19.3}}, label: '20 luglio'
+                                          StaticText, 0x1014905f0, {{56.0, 427.7}, {231.0, 33.7}}, label: 'Pensione: il conto dell'anno scorso e un anticipo'
+                                          StaticText, 0x1014a20e0, {{56.0, 463.3}, {258.7, 15.7}}, label: 'Scaduto: l'hai pagato? Tocca per segnarlo'
+                                          StaticText, 0x101489560, {{353.7, 433.0}, {62.3, 19.3}}, label: '3.120 €'
+                                        Button, 0x1014a0f30, {{20.0, 489.0}, {400.0, 58.3}}, label: '30 novembre, Tasse: secondo anticipo, 620 €'
+                                          StaticText, 0x1014a9900, {{56.0, 499.0}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x1014a1350, {{56.0, 520.3}, {151.0, 17.0}}, label: 'Tasse: secondo anticipo'
+                                          StaticText, 0x1014a06f0, {{369.3, 508.5}, {46.7, 19.3}}, label: '620 €'
+                                        Button, 0x101498220, {{20.0, 547.3}, {400.0, 58.3}}, label: '30 novembre, Pensione: secondo anticipo, 1.920 €'
+                                          StaticText, 0x1014a1b90, {{56.0, 557.3}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x101493d40, {{56.0, 578.7}, {172.7, 17.0}}, label: 'Pensione: secondo anticipo'
+                                          StaticText, 0x101490a10, {{353.7, 566.8}, {62.3, 19.3}}, label: '1.920 €'
+                                        Button, 0x1014806c0, {{20.0, 605.7}, {400.0, 58.3}}, label: '30 novembre, Bollo delle fatture (1°, 2°, 3° trimestre), 4 €'
+                                          StaticText, 0x101465df0, {{56.0, 615.7}, {98.7, 19.3}}, label: '30 novembre'
+                                          StaticText, 0x1014b59a0, {{56.0, 637.0}, {236.3, 17.0}}, label: 'Bollo delle fatture (1°, 2°, 3° trimestre)'
+                                          StaticText, 0x1014b5ac0, {{390.7, 625.2}, {25.3, 19.3}}, label: '4 €'
+                                        Button, 0x1014b5be0, {{20.0, 664.0}, {400.0, 58.3}}, label: '1 marzo, Bollo delle fatture (4° trimestre), 6 €'
+                                          StaticText, 0x1014b5d00, {{56.0, 674.0}, {57.7, 19.3}}, label: '1 marzo'
+                                          StaticText, 0x1014b5e20, {{56.0, 695.3}, {197.3, 17.0}}, label: 'Bollo delle fatture (4° trimestre)'
+                                          StaticText, 0x1014b5f40, {{390.7, 683.5}, {25.3, 19.3}}, label: '6 €'
+                                        Button, 0x1014b6060, {{19.2, 739.6}, {401.5, 57.5}}, identifier: 'pagamenti.annoScorso', label: 'I dati dell'anno scorso'
+                                        StaticText, 0x1014b6180, {{20.0, 814.3}, {388.7, 46.7}}, label: 'NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti. È un calcolo, non una consulenza fiscale: controlla gli importi prima di pagare.'
+                                      Other, 0x1014b6420, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x1014b6540, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x1014b6660, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x1014b6780, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 100%
+                                        Other, 0x1014b68a0, {{434.0, 219.0}, {3.0, 651.0}}
+                                      Other, 0x1014b69c0, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 100%
+                                        Other, 0x1014b6ae0, {{434.0, 219.0}, {3.0, 651.0}}
+                            Other, 0x1028629a0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x102862ac0, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x102862be0, {{0.0, 873.0}, {440.0, 83.0}}
+                  Other, 0x102862d00, {{0.0, 0.0}, {440.0, 956.0}}
+                    TabBar, 0x102862e20, {{0.0, 873.0}, {440.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x102862f40, {{21.0, 873.0}, {398.0, 62.0}}
+                        Other, 0x102863060, {{21.0, 873.0}, {86.3, 54.0}}
+                        Other, 0x102863180, {{21.0, 873.0}, {398.0, 62.0}}
+                          Button, 0x1028632a0, {{25.0, 877.0}, {86.3, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x1028633c0, {{55.0, 883.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x1028634e0, {{100.9, 877.0}, {86.3, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x102863600, {{131.9, 882.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x102863720, {{176.8, 877.0}, {86.3, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x102863840, {{205.8, 884.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x102863960, {{252.7, 877.0}, {86.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti', Selected
+                            Image, 0x102863a80, {{281.7, 884.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x102863ba0, {{328.7, 877.0}, {86.3, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x102863cc0, {{358.7, 883.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x102863de0, {{252.7, 877.0}, {86.3, 54.0}}
+                          Other, 0x102863f00, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x102864020, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x102864140, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x102864260, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x102864380, {{252.7, 877.0}, {86.3, 54.0}}
+                                  Other, 0x1028644a0, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x1028645c0, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x1028646e0, {{252.7, 877.0}, {86.3, 54.0}}
+                  Other, 0x102864800, {{0.0, 873.0}, {440.0, 83.0}}
+                    Other, 0x102864920, {{0.0, 873.0}, {440.0, 83.0}}
+                      Other, 0x102864a40, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x102864b60, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x102864c80, {{0.0, 873.0}, {440.0, 83.0}}
+                            Other, 0x102864da0, {{0.0, 873.0}, {440.0, 83.0}}
+      Other, 0x102864ec0, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x102864fe0, {{-440.0, -956.0}, {1320.0, 2868.0}}
+        Other, 0x102865100, {{0.0, 62.0}, {440.0, 894.0}}
+          Other, 0x102865220, {{0.0, 62.0}, {440.0, 894.0}}
+            Other, 0x102865340, {{0.0, 62.0}, {440.0, 894.0}}
+              Other, 0x102865460, {{0.0, 62.0}, {440.0, 894.0}}
+                Other, 0x102865580, {{0.0, 62.0}, {440.0, 894.0}}
+                  Other, 0x1028656a0, {{0.0, 62.0}, {440.0, 894.0}}
+                    NavigationBar, 0x1028657c0, {{0.0, 82.0}, {440.0, 54.0}}, identifier: 'L'anno scorso'
+                      StaticText, 0x1028658e0, {{165.0, 93.7}, {110.0, 20.7}}, label: 'L'anno scorso'
+                      Other, 0x102865a00, {{351.0, 86.0}, {65.0, 36.0}}, label: 'Fatto'
+                        Other, 0x102865b20, {{351.0, 86.0}, {65.0, 36.0}}
+                          Button, 0x102865c40, {{351.0, 86.0}, {65.0, 36.0}}, label: 'Fatto'
+                    Other, 0x102865d60, {{0.0, 62.0}, {440.0, 894.0}}
+                      Other, 0x102865e80, {{0.0, 62.0}, {440.0, 894.0}}
+                        Other, 0x102865fa0, {{0.0, 62.0}, {440.0, 894.0}}
+                          Other, 0x1028660c0, {{0.0, 62.0}, {440.0, 894.0}}
+                            ScrollView, 0x1028661e0, {{0.0, 62.0}, {440.0, 894.0}}
+                              Other, 0x102866300, {{0.0, 62.0}, {440.0, 894.0}}
+                                Other, 0x102994a60, {{0.0, 62.0}, {440.0, 128.8}}
+                              Other, 0x1029ac060, {{0.0, 62.0}, {440.0, 894.0}}
+                              Other, 0x102866420, {{0.0, 136.0}, {440.0, 607.0}}
+                                StaticText, 0x102866540, {{20.0, 156.0}, {326.3, 36.0}}, label: 'Li trovi nella dichiarazione dei redditi o li chiedi al commercialista. Lascia vuoto quello che non sai.'
+                                StaticText, 0x102866660, {{20.0, 210.0}, {154.3, 17.0}}, label: 'Tasse dovute per il 2025'
+                                TextField, 0x102866780, {{34.0, 245.3}, {348.3, 25.7}}, label: 'Tasse dovute per il 2025', placeholderValue: '0', value: 1240
+                                StaticText, 0x1028668a0, {{390.3, 246.0}, {15.7, 24.0}}, label: '€'
+                                StaticText, 0x1028669c0, {{20.0, 301.0}, {236.3, 17.0}}, label: 'Anticipi di tasse già pagati per il 2025'
+                                TextField, 0x102866ae0, {{34.0, 336.3}, {348.3, 25.7}}, label: 'Anticipi di tasse già pagati per il 2025', placeholderValue: '0', value: 900
+                                StaticText, 0x102866c00, {{390.3, 337.0}, {15.7, 24.0}}, label: '€'
+                                StaticText, 0x102866d20, {{20.0, 392.0}, {175.7, 17.0}}, label: 'Pensione dovuta per il 2025'
+                                TextField, 0x102866e40, {{34.0, 427.3}, {348.3, 25.7}}, label: 'Pensione dovuta per il 2025', placeholderValue: '0', value: 4800
+                                StaticText, 0x102866f60, {{390.3, 428.0}, {15.7, 24.0}}, label: '€'
+                                StaticText, 0x102867080, {{20.0, 483.0}, {188.3, 17.0}}, label: 'Anticipi di pensione già pagati'
+                                TextField, 0x1028671a0, {{34.0, 518.3}, {348.3, 25.7}}, label: 'Anticipi di pensione già pagati', placeholderValue: '0', value: 3600
+                                StaticText, 0x1028672c0, {{390.3, 519.0}, {15.7, 24.0}}, label: '€'
+                                StaticText, 0x1028673e0, {{20.0, 574.0}, {177.7, 17.0}}, label: 'Pensione pagata quest'anno'
+                                TextField, 0x102867500, {{34.0, 610.0}, {348.3, 24.0}}, label: 'Pensione pagata quest'anno', placeholderValue: '0'
+                                StaticText, 0x102867620, {{390.3, 610.0}, {15.7, 24.0}}, label: '€'
+                                Button, 0x102867740, {{20.0, 665.0}, {400.0, 58.0}}, label: 'Salva'
+                              Other, 0x102867860, {{407.0, 136.0}, {30.0, 758.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                Other, 0x102867980, {{434.0, 318.0}, {3.0, 579.0}}
+                              Other, 0x102867aa0, {{407.0, 136.0}, {30.0, 758.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                Other, 0x102867bc0, {{434.0, 318.0}, {3.0, 579.0}}
+                    Other, 0x102867ce0, {{0.0, 62.0}, {440.0, 894.0}}
+                      Other, 0x102867e00, {{0.0, 62.0}, {440.0, 894.0}}
+Path to element:
+ →Application, 0x10282ff40, pid: 17380, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x102834520, pid: 17380, label: 'NettoLR'
+  }

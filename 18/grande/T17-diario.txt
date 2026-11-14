@@ -1,0 +1,21 @@
+[00] avvio riuscito in 22.5 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 0 («Netto»)
+[01] foto T17-01-orizzontale-scheda-0
+[01] scheda 1 («Incassi»)
+[02] foto T17-02-orizzontale-scheda-1
+[02] scheda 2 («Prova»)
+[03] foto T17-03-orizzontale-scheda-2
+[03] scheda 3 («Pagamenti»)
+[04] foto T17-04-orizzontale-scheda-3
+[04] scheda 4 («Tu»)
+[05] foto T17-05-orizzontale-scheda-4
+[05] scheda 1 («Incassi»)
+[05] toccato «incassi.aggiungi»
+[06] foto T17-06-orizzontale-nuovo
+[06] chiuso con «Annulla»
+[06] scheda 0 («Netto»)
+[06] toccato «netto.calcolo»
+[07] foto T17-07-orizzontale-calcolo
+[07] chiuso con «Fatto»
+[08] foto T17-08-di-nuovo-verticale
+[08] fine · errori registrati da XCTest: 0

@@ -1,0 +1,35 @@
+[00] avvio riuscito in 49.0 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 0 («Netto»)
+[00] apertura scheda 0: 7.40 s
+[01] foto T02-01-scheda-0
+[01] scheda 1 («Incassi»)
+[01] apertura scheda 1: 4.28 s
+[02] foto T02-02-scheda-1
+[02] scheda 2 («Prova»)
+[02] apertura scheda 2: 3.61 s
+[03] foto T02-03-scheda-2
+[03] scheda 3 («Pagamenti»)
+[03] apertura scheda 3: 4.21 s
+[04] foto T02-04-scheda-3
+[04] scheda 4 («Tu»)
+[04] apertura scheda 4: 5.62 s
+[05] foto T02-05-scheda-4
+[05] scheda 0 («Netto»)
+[05] toccato «netto.calcolo»
+[06] foto T02-06-come-lo-calcolo
+[07] foto T02-07-come-lo-calcolo-sotto
+[08] foto T02-08-come-lo-calcolo-fondo
+[08] chiuso con «Fatto»
+[08] scheda 2 («Prova»)
+[08] cursore a 0: 2.27 s
+[09] foto T02-09-prova-cursore-zero
+[09] cursore a 1: 2.87 s
+[10] foto T02-10-prova-cursore-massimo
+[10] scheda 4 («Tu»)
+[10] toccato «tu.esporta»
+[11] foto T02-11-esporta
+[11] chiuso con «Chiudi»
+[11] toccato «Manda al commercialista, PDF ed Excel»
+[12] foto T02-12-esporta-2
+[12] chiuso con «Chiudi»
+[12] fine · errori registrati da XCTest: 0

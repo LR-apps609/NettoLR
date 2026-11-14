@@ -1,0 +1,16 @@
+[00] avvio riuscito in 11.7 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T12-01-netto-anno-corrente
+[01] toccato «netto.anno»
+[02] foto T12-02-menu-anno
+[02] anni nel menu: 3 · Il 2027, Il 2026, Il 2025
+[03] foto T12-03-netto-altro-anno
+[03] scheda 1 («Incassi»)
+[04] foto T12-04-incassi-altro-anno
+[04] scheda 3 («Pagamenti»)
+[05] foto T12-05-pagamenti-altro-anno
+[05] scheda 4 («Tu»)
+[05] toccato «tu.documenti»
+[06] foto T12-06-documenti
+[06] pulsante «documenti.novita» NON TROVATO
+[06] chiuso con «Fatto»
+[06] fine · errori registrati da XCTest: 0

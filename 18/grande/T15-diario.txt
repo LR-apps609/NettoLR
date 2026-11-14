@@ -1,0 +1,17 @@
+[00] avvio riuscito in 8.7 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 1 («Incassi»)
+[01] foto T15-01-incassi
+[01] toccato «Importa dalle fatture elettroniche»
+[02] foto T15-02-importa-xml
+[02] chiuso con «Annulla»
+[02] toccato «incassi.aggiungi»
+[02] toccato «nuovo.leggi»
+[03] foto T15-03-leggi-fattura
+[03] chiuso trascinando (nessun pulsante)
+[04] foto T15-04-nuovo-incasso-completo
+[04] scritto «2500» · nel campo ora c'è «2500»
+[04] scritto «Studio Rossi & Figli S.r.l. con un nome molto lungo davvero» · nel campo ora c'è «Studio Rossi & Figli S.r.l. con un nome molto lungo davvero»
+[04] interruttore «già pagato» toccato
+[05] foto T15-05-nuovo-compilato
+[06] foto T15-06-incassi-dopo
+[06] fine · errori registrati da XCTest: 0
