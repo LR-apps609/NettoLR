@@ -1,0 +1,7 @@
+Durata: 529 s
+Dispositivo: iPhone 16e
+	 Executed 2 tests, with 0 failures (0 unexpected) in 172.154 (172.156) seconds
+	 Executed 2 tests, with 0 failures (0 unexpected) in 172.154 (172.158) seconds
+	 Executed 2 tests, with 0 failures (0 unexpected) in 172.154 (172.159) seconds
+Test Case '-[NettoLRUITests.TesterTests test09_Chiara]' passed (116.622 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (55.532 seconds).
