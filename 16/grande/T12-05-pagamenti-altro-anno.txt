@@ -1,0 +1,81 @@
+Attributes: Application, 0x10188fe00, pid: 15972, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10188fe00, pid: 15972, label: 'NettoLR'
+    Window (Main), 0x10188f9a0, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x10188e500, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10188e0e0, {{0.0, 0.0}, {440.0, 956.0}}
+          Other, 0x10188ed40, {{0.0, 0.0}, {440.0, 956.0}}
+            Other, 0x10188f160, {{0.0, 0.0}, {440.0, 956.0}}
+              Other, 0x10188e920, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x10188f580, {{0.0, 0.0}, {440.0, 956.0}}
+                  Other, 0x101890ea0, {{0.0, 0.0}, {440.0, 956.0}}
+                    Other, 0x101890fc0, {{0.0, 0.0}, {440.0, 956.0}}
+                      Other, 0x1018910e0, {{0.0, 0.0}, {440.0, 956.0}}
+                        Other, 0x101891200, {{0.0, 0.0}, {440.0, 956.0}}
+                          Other, 0x101891320, {{0.0, 0.0}, {440.0, 956.0}}
+                            Other, 0x101891440, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x101891560, {{0.0, 0.0}, {440.0, 956.0}}
+                                Other, 0x101891680, {{0.0, 0.0}, {440.0, 956.0}}
+                                  Other, 0x1018917a0, {{0.0, 0.0}, {440.0, 956.0}}
+                                    ScrollView, 0x1018918c0, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x1018919e0, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x101891b00, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x101891c20, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x101891d40, {{0.0, 62.0}, {440.0, 690.3}}
+                                        StaticText, 0x101891e60, {{20.0, 74.0}, {176.3, 40.7}}, label: 'Pagamenti'
+                                        StaticText, 0x101891f80, {{20.0, 132.7}, {398.7, 36.0}}, label: 'L'elenco qui sotto è del 2025: l'anno si cambia in Netto. Il conto alla rovescia è sempre quello di oggi.'
+                                        Image, 0x1018920a0, {{35.3, 201.7}, {17.0, 17.0}}, identifier: 'exclamationmark.circle.fill', label: 'exclamationmark.circle.fill'
+                                        StaticText, 0x1018921c0, {{63.7, 200.7}, {339.3, 54.0}}, label: 'Scadenze passate non segnate: 4.080 €. Se le hai pagate toccale e segnale; se no, chiedi al commercialista come rimediare.'
+                                        StaticText, 0x1018922e0, {{-43.7, 227.7}, {522.0, 438.3}}, label: '16, giorni, 2.544 €, da pagare entro il 30 novembre'
+                                          StaticText, 0x101892400, {{182.2, 348.2}, {75.7, 67.0}}, label: '16'
+                                          StaticText, 0x101892520, {{201.2, 415.2}, {37.7, 18.0}}, label: 'giorni'
+                                          StaticText, 0x101892640, {{153.5, 484.7}, {133.0, 40.7}}, label: '2.544 €'
+                                          StaticText, 0x101892760, {{104.5, 539.3}, {231.0, 20.3}}, label: 'da pagare entro il 30 novembre'
+                                        Button, 0x101892880, {{19.2, 618.9}, {401.5, 57.5}}, identifier: 'pagamenti.annoScorso', label: 'I dati dell'anno scorso'
+                                        StaticText, 0x1018929a0, {{20.0, 693.7}, {388.7, 46.7}}, label: 'NettoLR prepara importi e codici da copiare nell'F24 del tuo home banking. Non fa pagamenti. È un calcolo, non una consulenza fiscale: controlla gli importi prima di pagare.'
+                                      Other, 0x101892c40, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x101892d60, {{434.0, 185.7}, {3.0, 684.3}}
+                                      Other, 0x101892e80, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x101892fa0, {{434.0, 185.7}, {3.0, 684.3}}
+                            Other, 0x1018930c0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x1018931e0, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x101893300, {{0.0, 873.0}, {440.0, 83.0}}
+                  Other, 0x101893420, {{0.0, 0.0}, {440.0, 956.0}}
+                    TabBar, 0x101893540, {{0.0, 873.0}, {440.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x101893660, {{21.0, 873.0}, {398.0, 62.0}}
+                        Other, 0x101893780, {{21.0, 873.0}, {86.3, 54.0}}
+                        Other, 0x1018938a0, {{21.0, 873.0}, {398.0, 62.0}}
+                          Button, 0x1018939c0, {{25.0, 877.0}, {86.3, 54.0}}, label: 'Netto'
+                            Image, 0x101893ae0, {{55.0, 883.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x101893c00, {{100.9, 877.0}, {86.3, 54.0}}, label: 'Incassi'
+                            Image, 0x101893d20, {{131.9, 882.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x101893e40, {{176.8, 877.0}, {86.3, 54.0}}, label: 'Prova'
+                            Image, 0x101893f60, {{205.8, 884.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x101894080, {{252.7, 877.0}, {86.3, 54.0}}, label: 'Pagamenti', Selected
+                            Image, 0x1018941a0, {{281.7, 884.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x1018942c0, {{328.7, 877.0}, {86.3, 54.0}}, label: 'Tu'
+                            Image, 0x1018943e0, {{358.7, 883.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x101894500, {{252.7, 877.0}, {86.3, 54.0}}
+                          Other, 0x101894620, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x101894740, {{252.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x101894860, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x101894980, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x101894aa0, {{252.7, 877.0}, {86.3, 54.0}}
+                                  Other, 0x101894bc0, {{252.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x101894ce0, {{252.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x101894e00, {{252.7, 877.0}, {86.3, 54.0}}
+                  Other, 0x101894f20, {{0.0, 873.0}, {440.0, 83.0}}
+                    Other, 0x101895040, {{0.0, 873.0}, {440.0, 83.0}}
+                      Other, 0x101895160, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x101895280, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x1018953a0, {{0.0, 873.0}, {440.0, 83.0}}
+                            Other, 0x1018954c0, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x1018955e0, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x101895700, {{0.0, 873.0}, {440.0, 83.0}}
+Path to element:
+ →Application, 0x10188fe00, pid: 15972, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x101b7a920, pid: 15972, label: 'NettoLR'
+  }

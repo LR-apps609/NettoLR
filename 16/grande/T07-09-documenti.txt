@@ -1,0 +1,288 @@
+Attributes: Application, 0x101875d60, pid: 13141, label: 'NettoLR'
+Element subtree:
+ →Application, 0x101875d60, pid: 13141, label: 'NettoLR'
+    Window (Main), 0x10185c250, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x101875480, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10185b5f0, {{0.0, 0.0}, {440.0, 956.0}}
+          Other, 0x101875060, {{-440.0, -956.0}, {1320.0, 2868.0}}
+          Other, 0x101874c40, {{0.0, 0.0}, {440.0, 956.0}}
+            Other, 0x10185ba10, {{0.0, 0.0}, {440.0, 956.0}}
+              Other, 0x101857870, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x101859550, {{0.0, 0.0}, {440.0, 956.0}}
+                  Other, 0x10189b9f0, {{0.0, 0.0}, {440.0, 956.0}}
+                    Other, 0x101874820, {{0.0, 0.0}, {440.0, 956.0}}
+                      Other, 0x1018917b0, {{0.0, 0.0}, {440.0, 956.0}}
+                        Other, 0x101b41b50, {{0.0, 0.0}, {440.0, 956.0}}
+                          Other, 0x101b4a480, {{0.0, 0.0}, {440.0, 956.0}}
+                            Other, 0x101b455c0, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x101b44820, {{0.0, 0.0}, {440.0, 956.0}}
+                                Other, 0x101b496f0, {{0.0, 0.0}, {440.0, 956.0}}
+                                  Other, 0x101b22fb0, {{0.0, 0.0}, {440.0, 956.0}}
+                                    ScrollView, 0x101b44bb0, {{0.0, 0.0}, {440.0, 956.0}}
+                                      Other, 0x101b23670, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x101b23d40, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x101b290b0, {{0.0, 0.0}, {440.0, 956.0}}
+                                        Other, 0x101b2a580, {{0.0, 808.2}, {440.0, 147.8}}
+                                          Image, 0x101b286b0, {{-120.0, 813.0}, {680.0, 286.0}}, identifier: 'AdditionalDimmingOverlay'
+                                          Other, 0x101b28a10, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x101aa0310, {{0.0, 808.2}, {440.0, 147.8}}
+                                          Other, 0x101ad6620, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x101ad5fe0, {{0.0, 808.2}, {440.0, 147.8}}
+                                            Other, 0x101ad5bc0, {{0.0, 808.2}, {440.0, 147.8}}
+                                      Other, 0x101ad57a0, {{0.0, 62.0}, {440.0, 1308.0}}
+                                        StaticText, 0x101ad5380, {{20.0, 74.0}, {40.7, 40.7}}, label: 'Tu'
+                                        StaticText, 0x101ad4f60, {{58.8, 164.3}, {18.3, 28.7}}, label: 'G'
+                                        StaticText, 0x101ad4520, {{110.0, 156.7}, {53.7, 24.0}}, label: 'Giulia'
+                                        StaticText, 0x101a92b60, {{110.0, 182.7}, {163.3, 18.0}}, label: 'Web designer · dal 2024'
+                                        StaticText, 0x101a9f8b0, {{54.0, 236.7}, {61.3, 15.7}}, label: 'Partita IVA'
+                                        TextField, 0x101a9fcd0, {{54.0, 270.3}, {222.3, 24.0}}, identifier: 'tu.piva', label: 'Partita IVA', placeholderValue: '11 cifre'
+                                        Button, 0x101ada740, {{286.3, 262.3}, {99.7, 40.0}}, identifier: 'tu.conferma', label: 'Conferma', Disabled
+                                        Button, 0x101ad0150, {{20.0, 352.3}, {400.0, 60.0}}, identifier: 'tu.completo', label: 'NettoLR completo, Annuale'
+                                          Image, 0x101ad4940, {{44.3, 372.7}, {19.7, 19.7}}, identifier: 'seal', label: 'seal'
+                                          StaticText, 0x101ad4a60, {{86.0, 372.7}, {134.3, 19.3}}, label: 'NettoLR completo'
+                                          StaticText, 0x101ad4b80, {{326.0, 373.3}, {54.7, 18.0}}, label: 'Annuale'
+                                          Image, 0x101ad6a40, {{397.0, 376.7}, {6.3, 11.3}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x101ad6b60, {{20.0, 428.3}, {400.0, 88.0}}, identifier: 'tu.documenti', label: 'Documenti, Le fonti ufficiali dei calcoli, il certificato, le ricevute'
+                                          Image, 0x101ad6c80, {{48.7, 461.7}, {26.7, 21.7}}, identifier: 'folder.fill', label: 'Sposta'
+                                          StaticText, 0x101ad6da0, {{102.0, 444.3}, {88.3, 20.3}}, label: 'Documenti'
+                                          StaticText, 0x101ad6ec0, {{102.0, 466.7}, {248.7, 33.7}}, label: 'Le fonti ufficiali dei calcoli, il certificato, le ricevute'
+                                          Image, 0x101ad6fe0, {{394.7, 465.0}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x101ad7100, {{20.0, 532.3}, {400.0, 60.0}}, label: 'Il tuo lavoro, Web designer'
+                                          Image, 0x101ad7220, {{43.7, 553.3}, {20.7, 18.3}}, identifier: 'house', label: 'Casa'
+                                          StaticText, 0x101ad7340, {{86.0, 552.7}, {85.7, 19.3}}, label: 'Il tuo lavoro'
+                                          StaticText, 0x101ad7460, {{288.7, 553.3}, {92.0, 18.0}}, label: 'Web designer'
+                                          Image, 0x101ad7580, {{397.0, 556.7}, {6.3, 11.3}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x101ad76a0, {{20.0, 592.7}, {400.0, 60.0}}, label: 'Altre attività, Nessuna'
+                                          Image, 0x101ad77c0, {{43.7, 612.3}, {20.7, 20.7}}, identifier: 'square.stack.3d.up', label: 'Hdr'
+                                          StaticText, 0x101ad78e0, {{86.0, 613.0}, {91.0, 19.3}}, label: 'Altre attività'
+                                          StaticText, 0x101ad7a00, {{322.0, 613.7}, {58.7, 18.0}}, label: 'Nessuna'
+                                          Image, 0x101ad7b20, {{397.0, 617.0}, {6.3, 11.3}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Image, 0x101ad7c40, {{42.0, 674.3}, {24.7, 17.0}}, identifier: 'person.2', label: 'person.2'
+                                        StaticText, 0x101ad7d60, {{86.0, 673.3}, {68.3, 19.3}}, label: 'Pensione'
+                                        StaticText, 0x101ad7e80, {{274.0, 674.0}, {130.0, 18.0}}, label: 'Liberi professionisti'
+                                        Image, 0x101ad7fa0, {{45.7, 735.3}, {17.0, 16.3}}, identifier: 'percent', label: 'percent'
+                                        StaticText, 0x101ad80c0, {{86.0, 733.7}, {42.7, 19.3}}, label: 'Tasse'
+                                        StaticText, 0x101ad81e0, {{298.7, 734.3}, {105.3, 18.0}}, label: '5% fino al 2028'
+                                        Image, 0x101ad8300, {{46.0, 791.7}, {16.0, 16.0}}, identifier: 'plus.forwardslash.minus', label: 'plus.forwardslash.minus'
+                                        Switch, 0x101ad8420, {{86.0, 785.7}, {318.0, 28.0}}, label: '4% di pensione in fattura', value: 0
+                                          StaticText, 0x101ad8540, {{86.0, 790.0}, {184.0, 19.3}}, label: '4% di pensione in fattura'
+                                          Switch, 0x101ad8660, {{343.0, 785.7}, {63.0, 28.0}}, value: 0
+                                        Image, 0x101ad8780, {{45.7, 843.3}, {16.7, 17.7}}, identifier: 'bell', label: 'Notifiche'
+                                        Switch, 0x101ad88a0, {{86.0, 838.0}, {318.0, 28.0}}, label: 'Promemoria', value: 1
+                                          StaticText, 0x101ad89c0, {{86.0, 842.3}, {90.0, 19.3}}, label: 'Promemoria'
+                                          Switch, 0x101ad8ae0, {{343.0, 838.0}, {63.0, 28.0}}, value: 1
+                                        Button, 0x101ad8c00, {{20.0, 878.3}, {400.0, 62.3}}, identifier: 'tu.esporta', label: 'Manda al commercialista, PDF ed Excel'
+                                          Image, 0x101ad8d20, {{46.3, 899.3}, {15.3, 20.7}}, identifier: 'square.and.arrow.up', label: 'Condividi'
+                                          StaticText, 0x101ad8e40, {{86.0, 890.3}, {113.7, 38.3}}, label: 'Manda al commercialista'
+                                          StaticText, 0x101ad9240, {{293.0, 900.5}, {87.7, 18.0}}, label: 'PDF ed Excel'
+                                          Image, 0x101ad9360, {{397.0, 904.0}, {6.3, 11.3}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x101ad9480, {{20.0, 941.0}, {400.0, 60.0}}, label: 'Copia di sicurezza, iCloud Drive'
+                                          Image, 0x101ad95a0, {{43.3, 963.7}, {21.7, 15.0}}, identifier: 'icloud', label: 'Icloud'
+                                          StaticText, 0x101ad96c0, {{86.0, 961.3}, {135.3, 19.3}}, label: 'Copia di sicurezza'
+                                          StaticText, 0x101ad97e0, {{299.0, 962.0}, {81.7, 18.0}}, label: 'iCloud Drive'
+                                          Image, 0x101ad9900, {{397.0, 965.3}, {6.3, 11.3}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Image, 0x101ad9a20, {{45.7, 1019.0}, {16.7, 16.7}}, identifier: 'faceid', label: 'Face Id'
+                                        Switch, 0x101af4510, {{86.0, 1013.3}, {318.0, 28.0}}, label: 'Blocca con Face ID', value: 0
+                                          StaticText, 0x101af4630, {{86.0, 1017.7}, {140.3, 19.3}}, label: 'Blocca con Face ID'
+                                          Switch, 0x101af4750, {{343.0, 1013.3}, {63.0, 28.0}}, value: 0
+                                        StaticText, 0x101af4870, {{38.0, 1085.3}, {218.3, 19.3}}, label: 'La tua privacy, in tre righe'
+                                        StaticText, 0x101af4990, {{36.0, 1116.7}, {317.0, 36.0}}, label: '1, I tuoi dati restano su questo iPhone: niente account, niente server.'
+                                          StaticText, 0x101af4ab0, {{43.5, 1119.8}, {7.0, 15.7}}, label: '1'
+                                          StaticText, 0x101af4bd0, {{68.0, 1116.7}, {285.0, 36.0}}, label: 'I tuoi dati restano su questo iPhone: niente account, niente server.'
+                                        StaticText, 0x101af4e40, {{36.0, 1164.7}, {345.7, 36.0}}, label: '2, Nessuna pubblicità, nessuna statistica, nessun tracciamento.'
+                                          StaticText, 0x101af4f60, {{42.7, 1167.8}, {8.7, 15.7}}, label: '2'
+                                          StaticText, 0x101af5080, {{68.0, 1164.7}, {313.7, 36.0}}, label: 'Nessuna pubblicità, nessuna statistica, nessun tracciamento.'
+                                        StaticText, 0x101af51a0, {{36.0, 1212.7}, {366.3, 36.0}}, label: '3, La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui.'
+                                          StaticText, 0x101af52c0, {{42.5, 1215.8}, {9.0, 15.7}}, label: '3'
+                                          StaticText, 0x101af53e0, {{68.0, 1212.7}, {334.3, 36.0}}, label: 'La foto del certificato si legge sul telefono e non si salva; le ricevute che aggiungi restano solo qui.'
+                                        Button, 0x101af5500, {{36.0, 1260.7}, {114.0, 17.0}}, identifier: 'tu.privacy.link', label: 'Privacy completa'
+                                        Button, 0x101af5620, {{166.0, 1260.7}, {110.0, 17.0}}, identifier: 'tu.privacy.link', label: 'Condizioni d'uso'
+                                        Button, 0x101af5740, {{158.0, 1309.7}, {124.3, 18.0}}, label: 'Cancella tutti i dati'
+                                        StaticText, 0x101af5860, {{25.5, 1343.7}, {389.0, 14.3}}, label: 'NettoLR 0.2.0 · regole 2026 · È un calcolo, non una consulenza fiscale.'
+                                      Other, 0x101af5b80, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x101af5ca0, {{434.0, 65.0}, {3.0, 529.7}}
+                                      Other, 0x101af5dc0, {{407.0, 62.0}, {30.0, 811.0}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x101af5ee0, {{434.0, 65.0}, {3.0, 529.7}}
+                            Other, 0x101af6000, {{0.0, 0.0}, {440.0, 956.0}}
+                              Other, 0x101af6120, {{0.0, 0.0}, {440.0, 956.0}}
+                Other, 0x101af6240, {{0.0, 873.0}, {440.0, 83.0}}
+                  Other, 0x101af6360, {{0.0, 0.0}, {440.0, 956.0}}
+                    TabBar, 0x101af6480, {{0.0, 873.0}, {440.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x101af65a0, {{21.0, 873.0}, {398.0, 62.0}}
+                        Other, 0x101af66c0, {{21.0, 873.0}, {86.3, 54.0}}
+                        Other, 0x101af67e0, {{21.0, 873.0}, {398.0, 62.0}}
+                          Button, 0x101af6900, {{25.0, 877.0}, {86.3, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x101af6a20, {{55.0, 883.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x101af6b40, {{100.9, 877.0}, {86.3, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x101af6c60, {{131.9, 882.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x101af6d80, {{176.8, 877.0}, {86.3, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x101af6ea0, {{205.8, 884.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x101af6fc0, {{252.7, 877.0}, {86.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x101af70e0, {{281.7, 884.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x101af7200, {{328.7, 877.0}, {86.3, 54.0}}, identifier: 'person.crop.circle', label: 'Tu', Selected
+                            Image, 0x101af7320, {{358.7, 883.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x101af7440, {{328.7, 877.0}, {86.3, 54.0}}
+                          Other, 0x101af7560, {{328.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x101af7680, {{328.7, 877.0}, {86.3, 54.0}}
+                            Other, 0x101af77a0, {{328.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x101af78c0, {{328.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x101af79e0, {{328.7, 877.0}, {86.3, 54.0}}
+                                  Other, 0x101af7b00, {{328.7, 877.0}, {86.3, 54.0}}
+                                Other, 0x101af7c20, {{328.7, 877.0}, {86.3, 54.0}}
+                              Other, 0x101af7d40, {{328.7, 877.0}, {86.3, 54.0}}
+                  Other, 0x101af7e60, {{0.0, 873.0}, {440.0, 83.0}}
+                    Other, 0x101af7f80, {{0.0, 873.0}, {440.0, 83.0}}
+                      Other, 0x101af80a0, {{0.0, 873.0}, {440.0, 83.0}}
+                        Other, 0x101af81c0, {{0.0, 873.0}, {440.0, 83.0}}
+                          Other, 0x101af82e0, {{0.0, 873.0}, {440.0, 83.0}}
+                            Other, 0x101af8400, {{0.0, 873.0}, {440.0, 83.0}}
+      Other, 0x101af8520, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x101af8640, {{-440.0, -956.0}, {1320.0, 2868.0}}
+        Other, 0x101af8760, {{0.0, 62.0}, {440.0, 894.0}}
+          Other, 0x101af8880, {{0.0, 62.0}, {440.0, 894.0}}
+            Other, 0x101af89a0, {{0.0, 62.0}, {440.0, 894.0}}
+              Other, 0x101af8ac0, {{0.0, 62.0}, {440.0, 894.0}}
+                Other, 0x101af8be0, {{0.0, 62.0}, {440.0, 894.0}}
+                  Other, 0x101af8d00, {{0.0, 62.0}, {440.0, 894.0}}
+                    NavigationBar, 0x101af8e20, {{0.0, 82.0}, {440.0, 54.0}}, identifier: 'Documenti'
+                      StaticText, 0x101af8f40, {{176.7, 93.7}, {86.7, 20.7}}, label: 'Documenti'
+                      Other, 0x101af9060, {{351.0, 86.0}, {65.0, 36.0}}, label: 'Fatto'
+                        Other, 0x101af9180, {{351.0, 86.0}, {65.0, 36.0}}
+                          Button, 0x101af92a0, {{351.0, 86.0}, {65.0, 36.0}}, label: 'Fatto'
+                    Other, 0x101af93c0, {{0.0, 62.0}, {440.0, 894.0}}
+                      Other, 0x101af94e0, {{0.0, 62.0}, {440.0, 894.0}}
+                        Other, 0x101af9600, {{0.0, 62.0}, {440.0, 894.0}}
+                          Other, 0x101af9720, {{0.0, 62.0}, {440.0, 894.0}}
+                            ScrollView, 0x101af9840, {{0.0, 62.0}, {440.0, 894.0}}
+                              Other, 0x101af9960, {{0.0, 62.0}, {440.0, 894.0}}
+                                Other, 0x101af9a80, {{0.0, 62.0}, {440.0, 128.8}}
+                              Other, 0x101af9ba0, {{0.0, 62.0}, {440.0, 894.0}}
+                              Other, 0x101af9cc0, {{0.0, 136.0}, {440.0, 2340.7}}
+                                StaticText, 0x101af9de0, {{122.0, 178.2}, {121.0, 24.0}}, label: 'Regole 2026'
+                                StaticText, 0x101af9f00, {{55.2, 200.0}, {35.7, 18.0}}, label: '6/16'
+                                StaticText, 0x101afa020, {{122.0, 206.2}, {215.3, 33.7}}, label: '6 fonti verificate, 10 da verificare · aggiornate al 27 ottobre'
+                                StaticText, 0x101afa140, {{20.0, 284.0}, {122.7, 14.3}}, label: 'COSA È CAMBIATO'
+                                Image, 0x101afa260, {{39.7, 333.7}, {16.7, 16.7}}, identifier: 'documenti.novita', label: 'Selezionato', Selected
+                                StaticText, 0x101afa380, {{72.0, 332.3}, {97.3, 14.3}}, identifier: 'documenti.novita', label: '27 ottobre 2026'
+                                StaticText, 0x101afa4a0, {{72.0, 348.7}, {323.7, 36.0}}, identifier: 'documenti.novita', label: 'Saldo e primo acconto delle tasse 2026 spostati al 20 luglio (D.L. 89/2026, da verificare).'
+                                Image, 0x101afa5c0, {{39.7, 398.0}, {16.7, 16.7}}, identifier: 'documenti.novita', label: 'Selezionato', Selected
+                                StaticText, 0x101afa6e0, {{72.0, 396.7}, {97.3, 14.3}}, identifier: 'documenti.novita', label: '27 ottobre 2026'
+                                StaticText, 0x101afa800, {{72.0, 413.0}, {297.7, 36.0}}, identifier: 'documenti.novita', label: 'Bollo delle fatture elettroniche: scadenze dei quattro trimestri e rinvio sotto 5.000 €.'
+                                Image, 0x101afa920, {{39.7, 462.3}, {16.7, 16.7}}, identifier: 'documenti.novita', label: 'Selezionato', Selected
+                                StaticText, 0x101afaa40, {{72.0, 461.0}, {96.3, 14.3}}, identifier: 'documenti.novita', label: '9 febbraio 2026'
+                                StaticText, 0x101afab60, {{72.0, 477.3}, {329.3, 54.0}}, identifier: 'documenti.novita', label: 'Pensione artigiani e commercianti 2026: nuovo minimo di reddito (18.808 €) e nuove quote fisse (circolare INPS 14/2026).'
+                                Image, 0x101ad9ce0, {{39.7, 544.7}, {16.7, 16.7}}, identifier: 'documenti.novita', label: 'Selezionato', Selected
+                                StaticText, 0x101ad9e00, {{72.0, 543.3}, {96.0, 14.3}}, identifier: 'documenti.novita', label: '3 febbraio 2026'
+                                StaticText, 0x101ad9f20, {{72.0, 559.7}, {308.0, 54.0}}, identifier: 'documenti.novita', label: 'Pensione in Gestione Separata 2026: aliquota 26,07% e nuovo massimale (circolare INPS 8/2026).'
+                                StaticText, 0x101a71a30, {{20.0, 651.7}, {146.3, 14.3}}, label: 'LE FONTI DEI CALCOLI'
+                                Button, 0x101a71b50, {{20.0, 684.0}, {400.0, 81.3}}, label: 'Agenzia delle Entrate – L'imposta di bollo sulle fatture elettroniche (giugno 2026), Verificata', Selected
+                                  Image, 0x101a71c70, {{36.7, 699.3}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101a71d90, {{74.0, 698.0}, {289.0, 36.0}}, label: 'Agenzia delle Entrate – L'imposta di bollo sulle fatture elettroniche (giugno 2026)'
+                                  StaticText, 0x101a71eb0, {{74.0, 737.0}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101a71fd0, {{395.3, 699.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101a720f0, {{20.0, 765.7}, {400.0, 63.3}}, label: 'Agenzia delle Entrate – Regime forfetario, Verificata', Selected
+                                  Image, 0x101a72210, {{36.7, 781.0}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101a72330, {{74.0, 779.7}, {285.0, 18.0}}, label: 'Agenzia delle Entrate – Regime forfetario'
+                                  StaticText, 0x101a72450, {{74.0, 800.7}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101a72570, {{395.3, 780.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101a72690, {{20.0, 829.3}, {400.0, 81.3}}, label: 'Agenzia delle Entrate – Ris. 93/E del 12/11/2019 (acconti 50/50), Verificata', Selected
+                                  Image, 0x101a727b0, {{36.7, 844.7}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101a728d0, {{74.0, 843.3}, {254.7, 36.0}}, label: 'Agenzia delle Entrate – Ris. 93/E del 12/11/2019 (acconti 50/50)'
+                                  StaticText, 0x101a729f0, {{74.0, 882.3}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101a72b10, {{395.3, 844.3}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101a72c30, {{20.0, 911.0}, {400.0, 81.3}}, label: 'INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti), Verificata', Selected
+                                  Image, 0x101a72d50, {{36.7, 926.3}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101a72e70, {{74.0, 925.0}, {270.3, 36.0}}, label: 'INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti)'
+                                  StaticText, 0x101a72f90, {{74.0, 964.0}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101a730b0, {{395.3, 926.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101ab9a90, {{20.0, 992.7}, {400.0, 117.0}}, label: 'INPS – Circolare n. 14/2026, par. 9 – scadenze delle rate fisse: 18 maggio, 20 agosto, 16 novembre 2026, 16 febbraio 2027, Verificata', Selected
+                                  Image, 0x101ab9ce0, {{36.7, 1008.0}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101ab9e00, {{74.0, 1006.7}, {283.7, 71.7}}, label: 'INPS – Circolare n. 14/2026, par. 9 – scadenze delle rate fisse: 18 maggio, 20 agosto, 16 novembre 2026, 16 febbraio 2027'
+                                  StaticText, 0x101aba030, {{74.0, 1081.3}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101aba150, {{395.3, 1007.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101aba270, {{20.0, 1110.0}, {400.0, 81.3}}, label: 'INPS – Circolare n. 8 del 03/02/2026 (Gestione Separata), Verificata', Selected
+                                  Image, 0x101aba390, {{36.7, 1125.3}, {23.0, 23.0}}, identifier: 'checkmark.seal.fill', label: 'Verificato', Selected
+                                  StaticText, 0x101aba4b0, {{74.0, 1124.0}, {262.7, 36.0}}, label: 'INPS – Circolare n. 8 del 03/02/2026 (Gestione Separata)'
+                                  StaticText, 0x101aba5d0, {{74.0, 1163.0}, {57.7, 14.3}}, label: 'Verificata'
+                                  Image, 0x101aba6f0, {{395.3, 1125.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101aba810, {{20.0, 1191.7}, {400.0, 99.3}}, label: 'Agenzia delle Entrate – Bollo sulle fatture elettroniche: scadenze trimestrali e soglia di 5.000 € (da riconfermare), Da verificare'
+                                  Image, 0x101aa4650, {{38.0, 1207.0}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101aa4770, {{74.0, 1205.7}, {295.3, 54.0}}, label: 'Agenzia delle Entrate – Bollo sulle fatture elettroniche: scadenze trimestrali e soglia di 5.000 € (da riconfermare)'
+                                  StaticText, 0x101aa4890, {{74.0, 1262.7}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101aa49b0, {{395.3, 1206.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adab60, {{20.0, 1291.3}, {400.0, 81.3}}, label: 'D.L. 22/05/2026 n. 89, art. 6 – proroga versamenti ISA e forfettari, Da verificare'
+                                  Image, 0x101adac80, {{38.0, 1306.7}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adada0, {{74.0, 1305.3}, {273.7, 36.0}}, label: 'D.L. 22/05/2026 n. 89, art. 6 – proroga versamenti ISA e forfettari'
+                                  StaticText, 0x101adaec0, {{74.0, 1344.3}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adafe0, {{395.3, 1306.3}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adb100, {{20.0, 1373.0}, {400.0, 99.3}}, label: 'INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti) – acconti sul reddito oltre il minimale (50% + 50%), Da verificare'
+                                  Image, 0x101adb340, {{38.0, 1388.3}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adb460, {{74.0, 1387.0}, {279.3, 54.0}}, label: 'INPS – Circolare n. 14 del 09/02/2026 (Artigiani e Commercianti) – acconti sul reddito oltre il minimale (50% + 50%)'
+                                  StaticText, 0x101adb580, {{74.0, 1444.0}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adb6a0, {{395.3, 1388.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adb7c0, {{20.0, 1472.7}, {400.0, 81.3}}, label: 'INPS – contributi a carico del lavoratore dipendente (FPLD 9,19%), Da verificare'
+                                  Image, 0x101adb8e0, {{38.0, 1488.0}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adba00, {{74.0, 1486.7}, {279.0, 36.0}}, label: 'INPS – contributi a carico del lavoratore dipendente (FPLD 9,19%)'
+                                  StaticText, 0x101adbb20, {{74.0, 1525.7}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adbc40, {{395.3, 1487.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adbeb0, {{20.0, 1554.3}, {400.0, 81.3}}, label: 'L. 190/2014, art. 1 cc. 54-89 (all. 4 come sostituito da L. 145/2018), Da verificare'
+                                  Image, 0x101adbfd0, {{38.0, 1569.7}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adc0f0, {{74.0, 1568.3}, {288.0, 36.0}}, label: 'L. 190/2014, art. 1 cc. 54-89 (all. 4 come sostituito da L. 145/2018)'
+                                  StaticText, 0x101adc210, {{74.0, 1607.3}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adc330, {{395.3, 1569.3}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adc450, {{20.0, 1636.0}, {400.0, 81.3}}, label: 'L. 199/2025 (Legge di Bilancio 2026), art. 1 c. 3 – scaglioni IRPEF, Da verificare'
+                                  Image, 0x101adc570, {{38.0, 1651.3}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adc690, {{74.0, 1650.0}, {296.0, 36.0}}, label: 'L. 199/2025 (Legge di Bilancio 2026), art. 1 c. 3 – scaglioni IRPEF'
+                                  StaticText, 0x101adc7b0, {{74.0, 1689.0}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adc8d0, {{395.3, 1651.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adc9f0, {{20.0, 1717.7}, {400.0, 81.3}}, label: 'L. 662/1996, art. 2 c. 26 (rivalsa del 4% in fattura per la Gestione Separata), Da verificare'
+                                  Image, 0x101adcb10, {{38.0, 1733.0}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101adcc30, {{74.0, 1731.7}, {294.7, 36.0}}, label: 'L. 662/1996, art. 2 c. 26 (rivalsa del 4% in fattura per la Gestione Separata)'
+                                  StaticText, 0x101adcd50, {{74.0, 1770.7}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101adce70, {{395.3, 1732.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101adcf90, {{20.0, 1799.3}, {400.0, 81.3}}, label: 'Soglia della prima rata d'acconto (103 €): fonti non concordi, Da verificare'
+                                  Image, 0x101add0b0, {{38.0, 1814.7}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101add1d0, {{74.0, 1813.3}, {294.3, 36.0}}, label: 'Soglia della prima rata d'acconto (103 €): fonti non concordi'
+                                  StaticText, 0x101add2f0, {{74.0, 1852.3}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101add410, {{395.3, 1814.3}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101add530, {{20.0, 1881.0}, {400.0, 81.3}}, label: 'Stima media addizionali (regionale 1,23–3,33% + comunale fino a 0,8%), Da verificare'
+                                  Image, 0x101add650, {{38.0, 1896.3}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101add770, {{74.0, 1895.0}, {283.0, 36.0}}, label: 'Stima media addizionali (regionale 1,23–3,33% + comunale fino a 0,8%)'
+                                  StaticText, 0x101add890, {{74.0, 1934.0}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101add9b0, {{395.3, 1896.0}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                Button, 0x101addad0, {{20.0, 1962.7}, {400.0, 81.3}}, label: 'TUIR (DPR 917/1986), art. 13: detrazioni per lavoro dipendente e autonomo, Da verificare'
+                                  Image, 0x101addbf0, {{38.0, 1978.0}, {20.0, 20.0}}, identifier: 'questionmark.circle.fill', label: 'questionmark.circle.fill'
+                                  StaticText, 0x101addd10, {{74.0, 1976.7}, {284.3, 36.0}}, label: 'TUIR (DPR 917/1986), art. 13: detrazioni per lavoro dipendente e autonomo'
+                                  StaticText, 0x101adde30, {{74.0, 2015.7}, {75.7, 14.3}}, label: 'Da verificare'
+                                  Image, 0x101addf50, {{395.3, 1977.7}, {9.3, 9.3}}, identifier: 'arrow.up.right', label: 'arrow.up.right'
+                                StaticText, 0x101ade070, {{20.0, 2066.0}, {96.0, 14.3}}, label: 'CODICI ATECO'
+                                StaticText, 0x101ade190, {{86.0, 2112.3}, {191.3, 19.3}}, label: '2531 codici ufficiali ISTAT'
+                                Image, 0x101ade2b0, {{44.7, 2130.7}, {19.0, 15.7}}, identifier: 'list.number', label: 'Elenco Numerato'
+                                StaticText, 0x101ade3d0, {{86.0, 2133.7}, {312.3, 31.3}}, label: 'ATECO 2007 (aggiornamento 2022), ATECO 2025 e la tavola di raccordo tra i due'
+                                StaticText, 0x101ade4f0, {{20.0, 2201.0}, {125.0, 14.3}}, label: 'I TUOI DOCUMENTI'
+                                Button, 0x101ade610, {{20.0, 2233.3}, {400.0, 68.0}}, label: 'Certificato della partita IVA, Lo fotografi e leggo io il codice ATECO'
+                                  Image, 0x101ade730, {{44.3, 2257.7}, {19.3, 19.3}}, identifier: 'doc.viewfinder', label: 'doc.viewfinder'
+                                  StaticText, 0x101ade850, {{86.0, 2248.8}, {200.0, 19.3}}, label: 'Certificato della partita IVA'
+                                  StaticText, 0x101ade970, {{86.0, 2270.2}, {226.0, 15.7}}, label: 'Lo fotografi e leggo io il codice ATECO'
+                                  Image, 0x101adea90, {{396.7, 2260.0}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                StaticText, 0x101adebb0, {{86.0, 2325.3}, {97.7, 19.3}}, label: 'Ricevute F24'
+                                Image, 0x101adecd0, {{45.7, 2341.3}, {16.7, 21.0}}, identifier: 'doc.text.image', label: 'doc.text.image'
+                                StaticText, 0x101adedf0, {{86.0, 2346.7}, {249.7, 31.3}}, label: 'Aggiungile da «Pagamenti» quando segni «Ho pagato»'
+                                Image, 0x101adef10, {{396.7, 2344.3}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                StaticText, 0x101adbd60, {{20.0, 2410.0}, {387.7, 46.7}}, label: 'NettoLR fa un calcolo, non una consulenza fiscale. Le voci «da verificare» non sono ancora state confermate sulla fonte ufficiale: chiedi conferma al tuo commercialista.'
+                              Other, 0x101adf5c0, {{407.0, 136.0}, {30.0, 758.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                                Other, 0x101adf6e0, {{434.0, 139.0}, {3.0, 276.7}}
+                              Other, 0x101adf800, {{407.0, 136.0}, {30.0, 758.0}}, label: 'Barra di scorrimento verticale, 3 pagine', value: 0%
+                                Other, 0x101adf920, {{434.0, 139.0}, {3.0, 276.7}}
+                    Other, 0x101adfa40, {{0.0, 62.0}, {440.0, 894.0}}
+                      Other, 0x101891390, {{0.0, 62.0}, {440.0, 894.0}}
+    Window, 0x1018584d0, {{0.0, 0.0}, {440.0, 956.0}}
+      Other, 0x10189c230, {{0.0, 0.0}, {440.0, 956.0}}
+        Other, 0x10189be10, {{0.0, 0.0}, {440.0, 956.0}}
+Path to element:
+ →Application, 0x101875d60, pid: 13141, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x101893d50, pid: 13141, label: 'NettoLR'
+  }
