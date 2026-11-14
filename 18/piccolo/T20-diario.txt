@@ -1,0 +1,24 @@
+[00] avvio riuscito in 10.6 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[00] toccato «benvenuto.inizia»
+[00] scritto «consulente» · nel campo ora c'è «consulente»
+[00] toccato «Consulente, ATECO 2007 70.22.09 · Altre attività di consulenza imprenditoriale e altra consulenza amministrativo-gestionale e pianificazione aziendale, 78%»
+[00] toccato «profilo.avanti»
+[01] foto T20-01-domanda-apertura
+[02] foto T20-02-menu-mesi
+[02] chiuso trascinando (nessun pulsante)
+[03] foto T20-03-luglio-scelto
+[03] risposto «No, è la prima»
+[03] toccato «profilo.avanti»
+[03] toccato «profilo.avanti»
+[03] toccato «profilo.avanti»
+[03] pulsante «profilo.avanti» NON TROVATO
+[03] scheda 3 («Pagamenti»)
+[04] foto T20-04-pagamenti-meta-anno
+[04] scheda 0 («Netto»)
+[05] foto T20-05-netto-meta-anno
+[05] scheda 4 («Tu»)
+[06] foto T20-06-promemoria-notifiche-negate
+[06] campo FUORI SCHERMO
+[06] pulsante «tu.conferma» DISATTIVATO
+[07] foto T20-07-piva-cifra-sbagliata
+[07] fine · errori registrati da XCTest: 0

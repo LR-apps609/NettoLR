@@ -1,0 +1,60 @@
+    t =    68.46s     Check for interrupting elements affecting "NettoLR" Application
+    t =    68.54s     Synthesize event
+    t =    68.85s     Wait for it.ledion.NettoLR to idle
+    t =    70.19s Added attachment named 'T20-06-promemoria-notifiche-negate'
+    t =    70.19s Requesting snapshot of accessibility hierarchy for app with pid 24930
+    t =    70.61s Requesting snapshot of accessibility hierarchy for app with pid 24930
+    t =    70.73s Added attachment named 'T20-06-promemoria-notifiche-negate-albero'
+    t =    70.74s Find the "tu.piva" TextField
+    t =    70.87s Swipe down Target Application 'it.ledion.NettoLR'
+    t =    70.87s     Wait for it.ledion.NettoLR to idle
+    t =    70.87s     Find the Target Application 'it.ledion.NettoLR'
+    t =    70.92s     Check for interrupting elements affecting "NettoLR" Application
+    t =    71.00s     Synthesize event
+    t =    71.42s     Wait for it.ledion.NettoLR to idle
+    t =    71.83s Find the "tu.piva" TextField
+    t =    72.21s Swipe down Target Application 'it.ledion.NettoLR'
+    t =    72.21s     Wait for it.ledion.NettoLR to idle
+    t =    72.22s     Find the Target Application 'it.ledion.NettoLR'
+    t =    72.30s     Check for interrupting elements affecting "NettoLR" Application
+    t =    72.42s     Synthesize event
+    t =    72.85s     Wait for it.ledion.NettoLR to idle
+    t =    73.18s Find the "tu.piva" TextField
+    t =    73.40s Swipe down Target Application 'it.ledion.NettoLR'
+    t =    73.40s     Wait for it.ledion.NettoLR to idle
+    t =    73.42s     Find the Target Application 'it.ledion.NettoLR'
+    t =    73.51s     Check for interrupting elements affecting "NettoLR" Application
+    t =    73.63s     Synthesize event
+    t =    74.07s     Wait for it.ledion.NettoLR to idle
+    t =    74.40s Waiting 4.0s for "tu.piva" TextField to exist
+    t =    75.43s     Checking `Expect predicate `existsNoRetry == 1` for object "tu.piva" TextField`
+    t =    75.43s         Checking existence of `"tu.piva" TextField`
+    t =    75.59s Find the "tu.piva" TextField
+    t =    75.81s Waiting 4.0s for "tu.conferma" Button to exist
+    t =    76.83s     Checking `Expect predicate `existsNoRetry == 1` for object "tu.conferma" Button`
+    t =    76.83s         Checking existence of `"tu.conferma" Button`
+    t =    76.95s Find the "tu.conferma" Button
+    t =    78.30s Added attachment named 'T20-07-piva-cifra-sbagliata'
+    t =    78.31s Tear Down
+    t =    78.32s     Added attachment named 'T20-diario'
+    t =    78.32s     Setting device orientation to Portrait
+    t =    78.35s         Wait for it.ledion.NettoLR to idle
+    t =    78.36s     Setting appearance mode to Light
+    t =    78.37s         Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test20_Nicola]' passed (78.782 seconds).
+Test Suite 'TesterTests' passed at 2026-11-14 01:11:35.433.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 518.563 (518.573) seconds
+Test Suite 'NettoLRUITests.xctest' passed at 2026-11-14 01:11:35.434.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 518.563 (518.575) seconds
+Test Suite 'Selected tests' passed at 2026-11-14 01:11:35.435.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 518.563 (518.580) seconds
+2026-11-14 01:11:37.415 xcodebuild[4181:16653] [MT] IDETestOperationsObserverDebug: 565.645 elapsed -- Testing started completed.
+2026-11-14 01:11:37.415 xcodebuild[4181:16653] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-14 01:11:37.415 xcodebuild[4181:16653] [MT] IDETestOperationsObserverDebug: 565.645 sec, +565.645 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

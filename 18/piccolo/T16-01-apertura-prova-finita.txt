@@ -1,0 +1,169 @@
+Attributes: Application, 0x10373f3b0, pid: 20734, label: 'NettoLR'
+Element subtree:
+ →Application, 0x10373f3b0, pid: 20734, label: 'NettoLR'
+    Window (Main), 0x10371f4f0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x103729c80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x103726fd0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x10373d580, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x103736720, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x103741f50, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x103780ce0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x10374efd0, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x103740a10, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x103740b30, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x10379f1a0, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x10379f2c0, {{0.0, 0.0}, {390.0, 844.0}}
+                            Other, 0x10378c180, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10378c2a0, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x1037e0650, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x1037e0770, {{0.0, 0.0}, {390.0, 844.0}}
+                                    ScrollView, 0x103756e40, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x103756f60, {{0.0, 0.0}, {390.0, 844.0}}
+                                        Other, 0x103789ce0, {{0.0, 696.2}, {390.0, 147.8}}
+                                      Other, 0x103789e00, {{0.0, 0.0}, {390.0, 844.0}}
+                                        Other, 0x10377eac0, {{0.0, 696.2}, {390.0, 147.8}}
+                                          Image, 0x10377ebe0, {{-120.0, 701.0}, {630.0, 286.0}}, identifier: 'AdditionalDimmingOverlay'
+                                          Other, 0x10378d680, {{0.0, 696.2}, {390.0, 147.8}}
+                                            Other, 0x10378d7a0, {{0.0, 696.2}, {390.0, 147.8}}
+                                          Other, 0x103ae3e00, {{0.0, 696.2}, {390.0, 147.8}}
+                                            Other, 0x103a867f0, {{0.0, 696.2}, {390.0, 147.8}}
+                                            Other, 0x103a62c80, {{0.0, 696.2}, {390.0, 147.8}}
+                                      Other, 0x10378e720, {{0.0, 47.0}, {390.0, 1291.0}}
+                                        StaticText, 0x10378e840, {{20.0, 59.0}, {135.7, 17.0}}, label: 'Sabato 14 novembre'
+                                        StaticText, 0x10378fdd0, {{20.0, 78.0}, {166.0, 36.0}}, label: 'Ciao Giulia!'
+                                        Button, 0x10378fef0, {{318.0, 75.0}, {52.0, 52.0}}, label: 'Il tuo profilo'
+                                        Button, 0x10378e300, {{20.0, 116.0}, {110.7, 27.0}}, identifier: 'netto.anno', label: 'Il tuo 2026'
+                                          Button, 0x10378e420, {{20.0, 116.0}, {110.7, 27.0}}
+                                            StaticText, 0x10375bc00, {{30.0, 121.0}, {74.0, 17.0}}, label: 'Il tuo 2026'
+                                            Image, 0x10375bd20, {{109.3, 126.7}, {10.0, 6.0}}, identifier: 'chevron.down', label: 'Vai Giù'
+                                        Button, 0x10374f730, {{75.0, 181.0}, {240.0, 240.0}}, label: 'sono tuoi: 21.796 €'
+                                          StaticText, 0x10374f850, {{162.5, 260.8}, {65.0, 18.0}}, label: 'sono tuoi'
+                                          StaticText, 0x10374f310, {{115.8, 280.8}, {158.3, 41.3}}, label: '21.796 €'
+                                          StaticText, 0x10374f430, {{166.5, 324.2}, {57.0, 17.0}}, label: 'nel 2026'
+                                        Button, 0x10374ace0, {{65.3, 435.0}, {66.7, 33.0}}, label: 'Tuoi', Selected
+                                        Button, 0x10374ae00, {{140.0, 435.0}, {100.0, 33.0}}, label: 'Pensione'
+                                        Button, 0x1037c8a70, {{248.0, 435.0}, {77.0, 33.0}}, label: 'Tasse'
+                                        StaticText, 0x1037c8b90, {{85.5, 482.0}, {219.0, 15.7}}, label: 'su 28.400 € incassati · tocca l'anello'
+                                        StaticText, 0x10378eb40, {{82.8, 535.7}, {224.3, 14.3}}, identifier: 'netto.avvertenza', label: 'È un calcolo, non una consulenza fiscale.'
+                                        Button, 0x10378ec60, {{20.0, 566.0}, {350.0, 206.3}}, label: 'Metti da parte, 6.594 €, per tasse e pensione del 2026, Scaduti e non segnati: 4.080 €, Prossimo pagamento di tasse e pensione: 2.540 € entro il 30 novembre'
+                                          Image, 0x103a68c60, {{38.0, 640.3}, {58.0, 57.7}}, identifier: 'eurosign', label: 'eurosign'
+                                          StaticText, 0x103a50d80, {{112.0, 584.0}, {95.3, 17.0}}, label: 'Metti da parte'
+                                          StaticText, 0x10392d880, {{112.0, 603.0}, {110.0, 33.7}}, label: '6.594 €'
+                                          StaticText, 0x10393c590, {{112.0, 638.7}, {133.0, 33.7}}, label: 'per tasse e pensione del 2026'
+                                          StaticText, 0x10393c6b0, {{112.0, 674.3}, {108.3, 31.3}}, label: 'Scaduti e non segnati: 4.080 €'
+                                          StaticText, 0x10393c7d0, {{112.0, 707.7}, {185.3, 46.7}}, label: 'Prossimo pagamento di tasse e pensione: 2.540 € entro il 30 novembre'
+                                          Image, 0x1037559a0, {{342.7, 662.0}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                        StaticText, 0x103755ac0, {{38.0, 806.3}, {83.7, 20.3}}, label: 'Il tuo anno'
+                                        Other, 0x10375c440, {{38.0, 838.7}, {314.0, 130.0}}, label: 'Incassi mese per mese: 28.400 € in tutto, il mese migliore è settembre con 24.700 €.'
+                                          Other, 0x10375c560, {{38.0, 838.7}, {314.0, 130.0}}
+                                            Other, 0x1037901f0, {{38.0, 838.7}, {26.2, 114.0}}, label: 'G', value: 0
+                                            Other, 0x103790310, {{64.2, 838.7}, {26.2, 114.0}}, label: 'F', value: 0
+                                            Other, 0x10378ef60, {{90.3, 838.7}, {26.2, 114.0}}, label: 'M', value: 0
+                                            Other, 0x10378f080, {{116.5, 838.7}, {26.2, 114.0}}, label: 'A', value: 0
+                                            Other, 0x103779ca0, {{142.7, 838.7}, {26.2, 114.0}}, label: 'M ', value: 0
+                                            Other, 0x103779dc0, {{168.8, 838.7}, {26.2, 114.0}}, label: 'G ', value: 0
+                                            Other, 0x10375c020, {{195.0, 838.7}, {26.2, 114.0}}, label: 'L', value: 0
+                                            Other, 0x10375c140, {{221.2, 838.7}, {26.2, 114.0}}, label: 'A ', value: 0
+                                            Other, 0x1037e2ee0, {{247.3, 838.7}, {26.2, 114.0}}, label: 'S', value: 24.700
+                                            Other, 0x1037e3000, {{273.5, 838.7}, {26.2, 114.0}}, label: 'O', value: 3700
+                                            Other, 0x1037e3720, {{299.7, 838.7}, {26.2, 114.0}}, label: 'N', value: 0
+                                            Other, 0x1037e3840, {{325.8, 838.7}, {26.2, 114.0}}, label: 'D', value: 0
+                                        Button, 0x1037e3f60, {{20.0, 1002.7}, {169.0, 136.0}}, label: 'Capire in 1 minuto'
+                                          Image, 0x1037e4080, {{38.3, 1020.7}, {21.0, 25.3}}, identifier: 'sparkles', label: 'Scintilla'
+                                          StaticText, 0x1037e47a0, {{36.0, 1066.0}, {136.3, 19.3}}, label: 'Capire in 1 minuto'
+                                        Button, 0x1037e48c0, {{201.0, 1002.7}, {169.0, 136.0}}, identifier: 'netto.calcolo', label: 'Come lo calcolo?'
+                                          Image, 0x103746e10, {{219.7, 1020.7}, {34.0, 16.7}}, identifier: 'function', label: 'Funzione'
+                                          StaticText, 0x103746f30, {{217.0, 1057.3}, {130.0, 19.3}}, label: 'Come lo calcolo?'
+                                        Button, 0x1037e2ac0, {{20.0, 1154.7}, {350.0, 84.0}}, identifier: 'netto.guide', label: 'Guide, Aprire, chiudere, capire la partita IVA'
+                                          Image, 0x1037e2be0, {{45.7, 1182.7}, {23.0, 28.3}}, identifier: 'book.pages.fill', label: 'book.pages.fill'
+                                          StaticText, 0x1037e0a60, {{96.0, 1168.7}, {47.7, 20.3}}, label: 'Guide'
+                                          StaticText, 0x1037e0b80, {{96.0, 1191.0}, {162.0, 33.7}}, label: 'Aprire, chiudere, capire la partita IVA'
+                                          Image, 0x10392dac0, {{346.7, 1189.3}, {8.3, 14.7}}, identifier: 'chevron.right', label: 'Avanti'
+                                        Button, 0x10392dbe0, {{20.0, 1254.7}, {350.0, 71.3}}, label: 'Il tuo 2026 in 30 secondi, Da guardare e da condividere'
+                                          Image, 0x10392dd00, {{38.7, 1275.3}, {30.0, 30.0}}, identifier: 'play.circle.fill', label: 'Riproduci'
+                                          StaticText, 0x10392de20, {{85.3, 1270.7}, {199.7, 20.3}}, label: 'Il tuo 2026 in 30 secondi'
+                                          StaticText, 0x10392df40, {{85.3, 1293.0}, {183.7, 17.0}}, label: 'Da guardare e da condividere'
+                                      Other, 0x10392f530, {{357.0, 47.3}, {30.0, 713.7}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x10392f650, {{384.0, 50.3}, {3.0, 420.3}}
+                                      Other, 0x103a712b0, {{357.0, 47.3}, {30.0, 713.7}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                                        Other, 0x103a75080, {{384.0, 50.3}, {3.0, 420.3}}
+                            Other, 0x103a510e0, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x103a533c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x103a879e0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x10392f770, {{0.0, 0.0}, {390.0, 844.0}}
+                    TabBar, 0x10392f890, {{0.0, 761.0}, {390.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x103933270, {{21.0, 761.0}, {348.0, 62.0}}
+                        Other, 0x103933390, {{21.0, 761.0}, {74.0, 54.0}}
+                        Other, 0x1039334b0, {{21.0, 761.0}, {348.0, 62.0}}
+                          Button, 0x1039335d0, {{25.0, 765.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto', Selected
+                            Image, 0x1039336f0, {{48.0, 771.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x1037e4fe0, {{88.9, 765.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x1037e5100, {{112.9, 770.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x1037e5820, {{152.8, 765.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x1037e5940, {{174.8, 772.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x1037e6060, {{216.7, 765.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x1037e6180, {{244.7, 772.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x1037e5c40, {{291.0, 765.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu'
+                            Image, 0x1037e5d60, {{314.0, 771.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x1037e5400, {{25.0, 765.0}, {74.0, 54.0}}
+                          Other, 0x1037e5520, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10377c5a0, {{25.0, 765.0}, {74.0, 54.0}}
+                            Other, 0x10377c6c0, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x10379f940, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x10379fa60, {{25.0, 765.0}, {74.0, 54.0}}
+                                  Other, 0x1037e2280, {{25.0, 765.0}, {74.0, 54.0}}
+                                Other, 0x103933810, {{25.0, 765.0}, {74.0, 54.0}}
+                              Other, 0x103933930, {{25.0, 765.0}, {74.0, 54.0}}
+                  Other, 0x103a93b50, {{0.0, 761.0}, {390.0, 83.0}}
+                    Other, 0x1037e23a0, {{0.0, 761.0}, {390.0, 83.0}}
+                      Other, 0x1037e4bc0, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x1037e4ce0, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x1037e4380, {{0.0, 761.0}, {390.0, 83.0}}
+                            Other, 0x1037e44a0, {{0.0, 761.0}, {390.0, 83.0}}
+                        Other, 0x103933a50, {{0.0, 761.0}, {390.0, 83.0}}
+                          Other, 0x103a88e90, {{0.0, 761.0}, {390.0, 83.0}}
+              ScrollView, 0x103a74d10, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x103a8e300, {{0.0, 47.0}, {390.0, 953.7}}
+                  Other, 0x103a53060, {{16.8, 63.8}, {70.3, 70.3}}, label: 'Logo di NettoLR'
+                  StaticText, 0x103a5da50, {{20.0, 149.0}, {303.7, 48.0}}, label: 'La prova è finita'
+                  StaticText, 0x103a7f430, {{20.0, 215.0}, {339.3, 45.7}}, label: 'Abbonati per continuare a vedere quanto ti resta.'
+                  Image, 0x103a68560, {{31.0, 293.3}, {12.3, 17.0}}, identifier: 'lock.fill', label: 'Blocca'
+                  StaticText, 0x103a74640, {{66.0, 291.5}, {230.7, 20.3}}, label: 'I tuoi dati restano sul telefono'
+                  Image, 0x103a525f0, {{26.7, 338.7}, {21.0, 17.7}}, identifier: 'arrow.triangle.2.circlepath', label: 'Sincronizzazione'
+                  StaticText, 0x103a70bc0, {{66.0, 337.5}, {223.7, 20.3}}, label: 'Regole aggiornate ogni anno'
+                  Image, 0x103a78050, {{28.7, 384.7}, {16.7, 18.3}}, identifier: 'bell.fill', label: 'Notifiche'
+                  StaticText, 0x103a8ff80, {{66.0, 383.5}, {244.7, 20.3}}, label: 'Promemoria di tutti i pagamenti'
+                  Image, 0x103a93ea0, {{27.0, 430.7}, {20.0, 18.3}}, identifier: 'wifi.slash', label: 'Wi-Fi Non Attivo'
+                  StaticText, 0x103a90a20, {{66.0, 429.5}, {238.7, 20.3}}, label: 'Funziona anche senza internet'
+                  Button, 0x103a5cca0, {{19.0, 479.7}, {352.0, 74.7}}, identifier: 'completo.annuale', label: 'Annuale, Paghi una volta all'anno, …', Selected
+                    Image, 0x103a73be0, {{38.0, 504.7}, {24.7, 24.7}}, identifier: 'checkmark.circle.fill', label: 'Selezionato', Selected
+                    StaticText, 0x103a73180, {{78.7, 496.7}, {70.3, 21.7}}, label: 'Annuale'
+                    StaticText, 0x103a8ad20, {{78.7, 520.3}, {147.3, 17.0}}, label: 'Paghi una volta all'anno'
+                    StaticText, 0x103a506c0, {{339.0, 506.8}, {15.0, 20.3}}, label: '…'
+                  Button, 0x103a52d00, {{19.0, 570.3}, {352.0, 74.7}}, identifier: 'completo.mensile', label: 'Mensile, Paghi ogni mese, …'
+                    Image, 0x103a6fad0, {{38.0, 595.3}, {24.7, 24.7}}, identifier: 'circle', label: 'circle'
+                    StaticText, 0x103a655c0, {{78.7, 587.3}, {66.7, 21.7}}, label: 'Mensile'
+                    StaticText, 0x103a72710, {{78.7, 611.0}, {103.0, 17.0}}, label: 'Paghi ogni mese'
+                    StaticText, 0x103a51b80, {{339.0, 597.5}, {15.0, 20.3}}, label: '…'
+                  Button, 0x103a80fe0, {{20.0, 662.0}, {350.0, 58.0}}, identifier: 'completo.compra', label: 'Continua'
+                  StaticText, 0x103a94fa0, {{20.0, 738.0}, {316.0, 33.7}}, label: 'Prezzi non disponibili: l'App Store non risponde. Controlla la connessione.'
+                  StaticText, 0x103a69690, {{20.0, 789.7}, {345.0, 31.3}}, label: 'Si rinnova da solo. Disdici quando vuoi da Impostazioni › il tuo nome › Abbonamenti, almeno 24 ore prima del rinnovo.'
+                  Button, 0x103a81330, {{20.0, 839.0}, {153.0, 15.7}}, label: 'Condizioni d'uso (Apple)'
+                  Button, 0x103a941f0, {{189.0, 839.0}, {46.0, 15.7}}, label: 'Privacy'
+                  Button, 0x103a94550, {{20.0, 872.7}, {130.7, 18.0}}, label: 'Ripristina acquisto'
+                  Button, 0x103a5eeb0, {{230.7, 872.7}, {139.3, 18.0}}, label: 'Ho un codice regalo'
+                  Button, 0x103a677c0, {{20.0, 908.7}, {207.3, 20.3}}, label: 'Fai una copia dei tuoi dati'
+                    Image, 0x103933b70, {{21.3, 910.0}, {19.0, 17.7}}, identifier: 'icloud.and.arrow.up', label: 'Caricamento Su Icloud'
+                    StaticText, 0x103933c90, {{20.0, 908.7}, {207.3, 20.3}}, label: 'Fai una copia dei tuoi dati'
+                  StaticText, 0x103933db0, {{20.0, 947.0}, {305.0, 33.7}}, label: 'I tuoi dati non si cancellano: li ritrovi tutti appena ti abboni.'
+                Other, 0x103933ed0, {{357.0, 47.3}, {30.0, 749.3}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                  Other, 0x103933ff0, {{384.0, 50.3}, {3.0, 638.3}}
+                Other, 0x1037e3b40, {{357.0, 47.3}, {30.0, 749.3}}, label: 'Barra di scorrimento verticale, 2 pagine', value: 0%
+                  Other, 0x1037e3c60, {{384.0, 50.3}, {3.0, 638.3}}
+Path to element:
+ →Application, 0x10373f3b0, pid: 20734, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x1037dfbe0, pid: 20734, label: 'NettoLR'
+  }

@@ -1,0 +1,12 @@
+[00] avvio riuscito in 10.9 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T16-01-apertura-prova-finita
+[01] scheda 1 («Incassi»)
+[02] foto T16-02-incassi-prova-finita
+[02] toccato «completo.compra»
+[03] foto T16-03-compra
+[03] toccato «Ripristina acquisto»
+[04] foto T16-04-ripristina
+[04] toccato «Ho un codice regalo»
+[05] foto T16-05-codice-regalo
+[05] chiuso trascinando (nessun pulsante)
+[05] fine · errori registrati da XCTest: 0
