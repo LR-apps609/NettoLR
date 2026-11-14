@@ -1,0 +1,12 @@
+[00] avvio riuscito in 7.5 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 4 («Tu»)
+[00] toccato «tu.completo»
+[01] foto T11-01-completo-senza-store
+[01] toccato «completo.compra»
+[02] foto T11-02-compra-senza-store
+[02] toccato «Ripristina acquisto»
+[03] foto T11-03-ripristina-senza-store
+[03] chiuso trascinando (nessun pulsante)
+[03] pulsante con «Copia di sicurezza» FUORI SCHERMO o sparito
+[03] pulsante «tu.privacy.link» FUORI SCHERMO
+[03] fine · errori registrati da XCTest: 0

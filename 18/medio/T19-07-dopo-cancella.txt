@@ -1,0 +1,90 @@
+Attributes: Application, 0x101f64a90, pid: 60465, label: 'NettoLR'
+Element subtree:
+ →Application, 0x101f64a90, pid: 60465, label: 'NettoLR'
+    Window (Main), 0x101f51b90, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x101f4f5a0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x101f47200, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x101dfeed0, {{0.0, 0.0}, {402.0, 874.0}}
+            Other, 0x101e4f500, {{0.0, 0.0}, {402.0, 874.0}}
+              Other, 0x101ee8900, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x101e8ab90, {{0.0, 0.0}, {402.0, 874.0}}
+                  Other, 0x101e9a110, {{0.0, 0.0}, {402.0, 874.0}}
+                    Other, 0x101e9a230, {{0.0, 0.0}, {402.0, 874.0}}
+                      Other, 0x101e9a350, {{0.0, 0.0}, {402.0, 874.0}}
+                        Other, 0x101e9a470, {{0.0, 0.0}, {402.0, 874.0}}
+                          Other, 0x101e9a590, {{0.0, 0.0}, {402.0, 874.0}}
+                            Other, 0x101e9a6b0, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x101e9a7d0, {{0.0, 0.0}, {402.0, 874.0}}
+                                Other, 0x101e9a8f0, {{0.0, 0.0}, {402.0, 874.0}}
+                                  Other, 0x101e9aa10, {{0.0, 0.0}, {402.0, 874.0}}
+                                    ScrollView, 0x101e9ab30, {{201.0, 0.0}, {0.0, 874.0}}
+                                      Other, 0x101e9ac50, {{201.0, 62.0}, {0.0, 0.0}}
+                                      Other, 0x101e9ad70, {{197.7, 62.0}, {0.0, 729.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x101e9ae90, {{194.7, 781.0}, {3.0, 7.0}}
+                                      Other, 0x101e9afb0, {{197.7, 62.0}, {0.0, 729.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                                        Other, 0x101e9b0d0, {{194.7, 781.0}, {3.0, 7.0}}
+                            Other, 0x101e9b1f0, {{0.0, 0.0}, {402.0, 874.0}}
+                              Other, 0x101e9b310, {{0.0, 0.0}, {402.0, 874.0}}
+                Other, 0x101e9b430, {{0.0, 791.0}, {402.0, 83.0}}
+                  Other, 0x101e9b550, {{0.0, 0.0}, {402.0, 874.0}}
+                    TabBar, 0x101e9b670, {{0.0, 791.0}, {402.0, 83.0}}, label: 'Barra pannelli'
+                      Other, 0x101e9b790, {{21.0, 791.0}, {360.0, 62.0}}
+                        Other, 0x101e9b8b0, {{21.0, 791.0}, {74.0, 54.0}}
+                        Other, 0x101e9b9d0, {{21.0, 791.0}, {360.0, 62.0}}
+                          Button, 0x101e9baf0, {{25.0, 795.0}, {74.0, 54.0}}, identifier: 'eurosign.circle', label: 'Netto'
+                            Image, 0x101e9bc10, {{48.0, 801.3}, {27.3, 27.3}}, identifier: 'eurosign.circle.fill', label: 'eurosign.circle.fill'
+                          Button, 0x101e9bd30, {{91.9, 795.0}, {74.0, 54.0}}, identifier: 'list.bullet.rectangle.portrait', label: 'Incassi'
+                            Image, 0x101e9be50, {{115.9, 800.7}, {25.3, 28.7}}, identifier: 'list.bullet.rectangle.portrait.fill', label: 'list.bullet.rectangle.portrait.fill'
+                          Button, 0x101e9bf70, {{158.8, 795.0}, {74.0, 54.0}}, identifier: 'slider.horizontal.3', label: 'Prova'
+                            Image, 0x101e9c090, {{180.8, 802.7}, {29.3, 24.0}}, identifier: 'slider.horizontal.3', label: 'modifica'
+                          Button, 0x101e9c1b0, {{225.7, 795.0}, {84.3, 54.0}}, identifier: 'calendar', label: 'Pagamenti'
+                            Image, 0x101e9c2d0, {{253.7, 802.3}, {29.0, 25.0}}, identifier: 'calendar', label: 'calendario'
+                          Button, 0x101e9c3f0, {{303.0, 795.0}, {74.0, 54.0}}, identifier: 'person.crop.circle', label: 'Tu', Selected
+                            Image, 0x101e9c510, {{326.0, 801.3}, {27.3, 27.3}}, identifier: 'person.crop.circle.fill', label: 'account'
+                        Other, 0x101e54250, {{303.0, 795.0}, {74.0, 54.0}}
+                          Other, 0x101e54370, {{303.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x101e54490, {{303.0, 795.0}, {74.0, 54.0}}
+                            Other, 0x101e545b0, {{303.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x101ecc7b0, {{303.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x101ecc8d0, {{303.0, 795.0}, {74.0, 54.0}}
+                                  Other, 0x101ecc9f0, {{303.0, 795.0}, {74.0, 54.0}}
+                                Other, 0x101eccb10, {{303.0, 795.0}, {74.0, 54.0}}
+                              Other, 0x101eccc30, {{303.0, 795.0}, {74.0, 54.0}}
+                  Other, 0x101eccd50, {{0.0, 791.0}, {402.0, 83.0}}
+                    Other, 0x101ecce70, {{0.0, 791.0}, {402.0, 83.0}}
+                      Other, 0x101eccf90, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x101ecd0b0, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x101ecd1d0, {{0.0, 791.0}, {402.0, 83.0}}
+                            Other, 0x101ecd2f0, {{0.0, 791.0}, {402.0, 83.0}}
+                        Other, 0x101ecd410, {{0.0, 791.0}, {402.0, 83.0}}
+                          Other, 0x101ecd530, {{0.0, 791.0}, {402.0, 83.0}}
+      Other, 0x101ecd650, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x101ecd770, {{0.0, 0.0}, {402.0, 874.0}}
+          Other, 0x101ecd890, {{0.0, 0.0}, {402.0, 874.0}}
+            ScrollView, 0x101ecd9b0, {{24.0, 0.0}, {354.0, 758.0}}
+              Other, 0x101ecdad0, {{24.0, 62.0}, {354.0, 502.3}}
+                Other, 0x101ecdbf0, {{128.5, 125.5}, {145.1, 145.1}}, label: 'Logo di NettoLR'
+                StaticText, 0x101ecdd10, {{53.5, 308.0}, {295.0, 95.7}}, label: 'Quanto ti resta,
+davvero?'
+                StaticText, 0x101ecde30, {{41.2, 417.7}, {319.7, 21.7}}, label: 'Te lo diciamo con quattro domande facili.'
+                Image, 0x101ecdf50, {{77.3, 482.7}, {14.7, 14.0}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                StaticText, 0x101ece070, {{106.0, 479.3}, {220.7, 20.3}}, label: 'Niente account, niente moduli'
+                Image, 0x101ece190, {{77.3, 515.0}, {14.7, 14.0}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                StaticText, 0x101ece2b0, {{106.0, 511.7}, {217.3, 20.3}}, label: 'I tuoi dati restano sul telefono'
+                Image, 0x101ece3d0, {{77.3, 547.3}, {14.7, 14.0}}, identifier: 'checkmark', label: 'Selezionato', Selected
+                StaticText, 0x101ece4f0, {{106.0, 544.0}, {189.3, 20.3}}, label: 'Parole semplici, zero sigle'
+              Other, 0x101ece610, {{345.0, 38.0}, {30.0, 720.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                Other, 0x101ece730, {{372.0, 234.7}, {3.0, 520.3}}
+              Other, 0x101ece850, {{345.0, 38.0}, {30.0, 720.0}}, label: 'Barra di scorrimento verticale, 1 pagina', value: 0%
+                Other, 0x101ece970, {{372.0, 234.7}, {3.0, 520.3}}
+            Button, 0x101ecea90, {{24.0, 758.0}, {354.0, 58.0}}, identifier: 'benvenuto.inizia', label: 'Iniziamo'
+    Window, 0x101ecebb0, {{0.0, 0.0}, {402.0, 874.0}}
+      Other, 0x101ececd0, {{0.0, 0.0}, {402.0, 874.0}}
+        Other, 0x101ecedf0, {{0.0, 0.0}, {402.0, 874.0}}
+Path to element:
+ →Application, 0x101f64a90, pid: 60465, label: 'NettoLR'
+Query chain:
+ →Find: Target Application 'it.ledion.NettoLR'
+  Output: {
+    Application, 0x101ee92c0, pid: 60465, label: 'NettoLR'
+  }

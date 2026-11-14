@@ -1,0 +1,26 @@
+[00] avvio riuscito in 34.7 s · argomenti -uitestVuoto -AppleLanguages (it) -AppleLocale it_IT
+[01] foto T03-01-benvenuto
+[01] toccato «benvenuto.inizia»
+[02] foto T03-02-domanda-lavoro-vuota
+[02] Avanti senza lavoro scelto: disattivato
+[02] scritto «insegnante di yoga» · nel campo ora c'è «insegnante di yoga»
+[03] foto T03-03-ricerca-insegnante_di_yoga
+[03] pulsante con «yoga» FUORI SCHERMO o sparito
+[03] pulsante con «Non trovo» FUORI SCHERMO o sparito
+[04] foto T03-04-lavoro-scelto
+[05] foto T03-05-domanda-2
+[05] Avanti disattivato alla domanda 2: rispondo «No» se c'è
+[05] pulsante «profilo.avanti» DISATTIVATO
+[05] fine del benvenuto: SCHEDE NON VISIBILI
+[06] foto T03-06-dopo-benvenuto
+[06] scheda 0 («Netto»)
+[07] foto T03-07-scheda-0-testo-grande
+[07] scheda 1 («Incassi»)
+[08] foto T03-08-scheda-1-testo-grande
+[08] scheda 2 («Prova»)
+[09] foto T03-09-scheda-2-testo-grande
+[09] scheda 3 («Pagamenti»)
+[10] foto T03-10-scheda-3-testo-grande
+[10] scheda 4 («Tu»)
+[11] foto T03-11-scheda-4-testo-grande
+[11] fine · errori registrati da XCTest: 0

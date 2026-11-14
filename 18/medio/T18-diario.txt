@@ -1,0 +1,21 @@
+[00] avvio riuscito in 10.0 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT
+[00] scheda 1 («Incassi»)
+[01] foto T18-01-doppio-tocco-aggiungi
+[01] chiuso con «Annulla»
+[01] chiuso con «Annulla»
+[01] chiuso con «Annulla»
+[01] chiuso con «Annulla»
+[01] chiuso con «Annulla»
+[01] chiuso con «Annulla»
+[01] 5 aperture e chiusure del nuovo incasso: 30.42 s
+[01] doppio tocco su Salva
+[01] righe prima 0, dopo 0 · elementi con 777: 1
+[02] foto T18-02-dopo-doppio-salva
+[02] scheda 0 («Netto»)
+[02] toccato «netto.calcolo»
+[03] foto T18-03-ritorno-dal-background
+[03] chiuso con «Fatto»
+[03] scheda 2 («Prova»)
+[03] 10 spostamenti del cursore: 24.27 s
+[04] foto T18-04-prova-dopo-cursore
+[04] fine · errori registrati da XCTest: 0
