@@ -1,0 +1,8 @@
+Durata: 536 s
+Dispositivo: iPhone 17 Pro Max
+	 Executed 3 tests, with 0 failures (0 unexpected) in 276.577 (276.581) seconds
+	 Executed 3 tests, with 0 failures (0 unexpected) in 276.577 (276.583) seconds
+	 Executed 3 tests, with 0 failures (0 unexpected) in 276.577 (276.584) seconds
+Test Case '-[NettoLRUITests.TesterTests test07_Elena]' passed (163.246 seconds).
+Test Case '-[NettoLRUITests.TesterTests test12_Andrea]' passed (48.251 seconds).
+Test Case '-[NettoLRUITests.TesterTests test17_Ilaria]' passed (65.079 seconds).
