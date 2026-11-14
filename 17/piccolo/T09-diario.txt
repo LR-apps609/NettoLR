@@ -1,0 +1,38 @@
+[00] avvio riuscito in 18.8 s · argomenti -uitest -AppleLanguages (it) -AppleLocale it_IT -uiDark
+[00] scheda 0 («Netto»)
+[00] scheda 4 («Tu»)
+[00] scheda 1 («Incassi»)
+[00] scheda 3 («Pagamenti»)
+[00] scheda 2 («Prova»)
+[00] scheda 0 («Netto»)
+[00] scheda 1 («Incassi»)
+[00] scheda 4 («Tu»)
+[00] scheda 2 («Prova»)
+[00] scheda 3 («Pagamenti»)
+[00] scheda 0 («Netto»)
+[00] scheda 2 («Prova»)
+[00] scheda 4 («Tu»)
+[00] scheda 1 («Incassi»)
+[00] scheda 0 («Netto»)
+[00] 15 cambi di scheda: 63.91 s
+[01] foto T09-01-netto-scuro
+[01] scheda 1 («Incassi»)
+[01] toccato «incassi.aggiungi»
+[01] importo «300» · Salva ATTIVO
+[01] salvato
+[01] toccato «incassi.aggiungi»
+[01] importo «450» · Salva ATTIVO
+[01] salvato
+[01] toccato «incassi.aggiungi»
+[01] importo «75,50» · Salva ATTIVO
+[01] salvato
+[02] foto T09-02-incassi-scuro-dopo-3
+[02] nessuna cella nella lista degli incassi: provo il tocco lungo
+[03] foto T09-03-incassi-scuro-fine
+[03] scheda 2 («Prova»)
+[04] foto T09-04-scuro-scheda-2
+[04] scheda 3 («Pagamenti»)
+[05] foto T09-05-scuro-scheda-3
+[05] scheda 4 («Tu»)
+[06] foto T09-06-scuro-scheda-4
+[06] fine · errori registrati da XCTest: 0
