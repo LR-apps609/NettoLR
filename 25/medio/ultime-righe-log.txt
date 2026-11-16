@@ -1,0 +1,60 @@
+    t =   276.78s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431502640.82)
+    t =   276.90s Find the "Social media manager" Button
+    t =   276.97s Find the "Social media manager" Button
+    t =   277.05s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431816352.92)
+    t =   277.17s Find the "profilo.avanti" Button
+    t =   277.24s Find the "profilo.avanti" Button
+    t =   277.33s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431609472.81)
+    t =   277.44s Find the "Sviluppatore" Button
+    t =   277.52s Find the "Sviluppatore" Button
+    t =   277.58s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431474368.91)
+    t =   277.65s Find the "Non trovo il mio lavoro" Button
+    t =   277.74s Find the "Non trovo il mio lavoro" Button
+    t =   277.81s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431789424.87)
+    t =   277.90s Find the "Parrucchiere" Button
+    t =   277.98s Find the "Parrucchiere" Button
+    t =   278.04s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4481107456.79)
+    t =   278.15s Find the "profilo.cerca" TextField
+    t =   278.24s Find the "profilo.cerca" TextField
+    t =   278.32s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431576432.85)
+    t =   278.40s Find the "Nutrizionista" Button
+    t =   278.54s Find the "Nutrizionista" Button
+    t =   278.65s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431754640.83)
+    t =   278.74s Find the "Web designer" Button
+    t =   278.89s Find the "Web designer" Button
+    t =   278.96s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431587568.77)
+    t =   279.08s Find the "Che lavoro fai?" StaticText
+    t =   279.17s Find the "Che lavoro fai?" StaticText
+    t =   279.25s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431762352.88)
+    t =   279.36s Find the "Ecommerce" Button
+    t =   279.45s Find the "Ecommerce" Button
+    t =   279.51s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431473936.90)
+    t =   279.58s Find the "Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione." StaticText
+    t =   279.66s Find the "Puoi scrivere anche il codice ATECO, vecchio (2007) o nuovo (2025): lo trovi sul certificato della partita IVA o nella dichiarazione." StaticText
+    t =   279.72s Find the Any (Descendant with identity binding to AX element pid: 34484, elementOrHash.elementID: 4431545808.84)
+    t =   279.80s Find the "Fotografo" Button
+    t =   279.94s Find the "Fotografo" Button
+    t =   280.25s Added attachment named 'T10-07-audit-domanda'
+    t =   280.26s Tear Down
+    t =   280.27s     Added attachment named 'T10-diario'
+    t =   280.27s     Setting device orientation to Portrait
+    t =   280.28s         Wait for it.ledion.NettoLR to idle
+    t =   280.29s     Setting appearance mode to Light
+    t =   280.30s         Wait for it.ledion.NettoLR to idle
+Test Case '-[NettoLRUITests.TesterTests test10_Roberto]' passed (282.859 seconds).
+Test Suite 'TesterTests' passed at 2026-11-16 15:30:25.572.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 473.738 (473.747) seconds
+Test Suite 'NettoLRUITests.xctest' passed at 2026-11-16 15:30:25.573.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 473.738 (473.749) seconds
+Test Suite 'Selected tests' passed at 2026-11-16 15:30:25.574.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 473.738 (473.751) seconds
+2026-11-16 15:30:26.454 xcodebuild[3906:18299] [MT] IDETestOperationsObserverDebug: 544.983 elapsed -- Testing started completed.
+2026-11-16 15:30:26.454 xcodebuild[3906:18299] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-11-16 15:30:26.454 xcodebuild[3906:18299] [MT] IDETestOperationsObserverDebug: 544.983 sec, +544.983 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/runner/work/NettoLR/NettoLR/risultato.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
