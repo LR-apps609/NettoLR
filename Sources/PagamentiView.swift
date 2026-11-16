@@ -69,7 +69,7 @@ struct PagamentiView: View {
                 ArcoGiorni(frazione: 1 - min(Double(giorni), 120) / 120)
                 VStack(spacing: 0) {
                     Text("\(giorni)").font(.cifra(56))
-                    Text((giorni == 1 ? "giorno" : "giorni").tradotto).font(.app(15)).foregroundStyle(Theme.suNotte.opacity(0.95))
+                    Text((giorni == 1 ? "giorno" : "giorni").tradotto).font(.app(15, .semibold)).foregroundStyle(Theme.suNotte)
                 }
             }
             .frame(width: 160, height: 160)

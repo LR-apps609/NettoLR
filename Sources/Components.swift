@@ -190,6 +190,7 @@ struct Avviso: View {
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: "exclamationmark.circle.fill").foregroundStyle(Theme.avviso)
+                .accessibilityHidden(true) // VoiceOver leggeva il nome dell'icona (controllo accessibilità, tester T10)
             Text(testo.tradotto).font(.app(15)).foregroundStyle(Theme.avviso)
         }
         .padding(14)
