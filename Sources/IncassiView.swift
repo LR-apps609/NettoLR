@@ -123,7 +123,7 @@ struct IncassiView: View {
         HStack(spacing: 14) {
             iniziale(f.cliente, piena: false)
             VStack(alignment: .leading, spacing: 2) {
-                Text(f.cliente).font(.app(16, .semibold)).lineLimit(1)
+                Text(f.cliente).font(.app(16, .semibold)).lineLimit(2)
                 Text((f.dataIncasso ?? f.data).formatted(Formato.giorno))
                     .font(.app(14)).foregroundStyle(Theme.muted)
             }
@@ -242,6 +242,7 @@ struct NuovoIncassoView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("Chi ti paga?").font(.app(15)).foregroundStyle(Theme.muted)
                         TextField("Nome del cliente", text: $cliente)
+                            .accessibilityLabel("Nome del cliente".tradotto)
                             .font(.app(18))
                             .padding(.horizontal, 14).frame(height: 52)
                             .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))

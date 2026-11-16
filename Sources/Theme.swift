@@ -54,7 +54,7 @@ extension Font {
     }
     /// Numeri grandi: arrotondati, cifre della stessa larghezza
     static func cifra(_ size: CGFloat) -> Font {
-        .system(size: size, weight: .heavy, design: .rounded).monospacedDigit()
+        .system(size: min(size * 1.3, UIFontMetrics.default.scaledValue(for: size)), weight: .heavy, design: .rounded).monospacedDigit()
     }
 }
 

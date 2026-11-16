@@ -65,14 +65,26 @@ struct PulsantePieno: ButtonStyle {
     var colore: Color = Theme.prugna
     var testo: Color = Theme.suPrugna
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.app(18, .bold))
-            .frame(maxWidth: .infinity, minHeight: 58)
-            .foregroundStyle(testo)
-            .background(colore, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .opacity(configuration.isPressed ? 0.85 : 1)
-            .scaleEffect(configuration.isPressed ? 0.98 : 1)
-            .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
+        Corpo(configuration: configuration, colore: colore, testo: testo)
+    }
+
+    /// Spento: grigio pieno con il testo scuro, leggibile (prima era il colore pieno al 40%: non passava il contrasto)
+    private struct Corpo: View {
+        let configuration: Configuration
+        let colore: Color
+        let testo: Color
+        @Environment(\.isEnabled) private var attivo
+
+        var body: some View {
+            configuration.label
+                .font(.app(18, .bold))
+                .frame(maxWidth: .infinity, minHeight: 58)
+                .foregroundStyle(attivo ? testo : Theme.ink.opacity(0.75))
+                .background(attivo ? colore : Theme.line, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .opacity(configuration.isPressed ? 0.85 : 1)
+                .scaleEffect(configuration.isPressed ? 0.98 : 1)
+                .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
+        }
     }
 }
 

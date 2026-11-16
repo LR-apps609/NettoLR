@@ -5516,6 +5516,28 @@
         }
       }
     },
+    "Prima rispondi alla domanda sulle tasse": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First answer the tax question"
+          }
+        }
+      }
+    },
+    "Prima scegli il tuo lavoro": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First choose your job"
+          }
+        }
+      }
+    },
     "Primo anno: la pensione di quest'anno si paga l'anno prossimo, quindi si toglie solo quella già versata": {
       "extractionState": "manual",
       "localizations": {

@@ -26,8 +26,10 @@ struct BenvenutoView: View {
                     Text("Quanto ti resta,\ndavvero?")
                         .font(.system(size: 40, weight: .heavy, design: .rounded))
                         .multilineTextAlignment(.center)
+                        // Con il testo grande il titolo si tagliava (tester T10): si rimpicciolisce invece di sparire
+                        .lineLimit(2).minimumScaleFactor(0.6)
                     Text("Te lo diciamo con quattro domande facili.")
-                        .font(.app(18)).foregroundStyle(Theme.suNotte.opacity(0.85))
+                        .font(.app(18)).foregroundStyle(Theme.suNotte.opacity(0.95))
                         .multilineTextAlignment(.center)
                 }
                 .padding(.top, 44)
@@ -126,7 +128,9 @@ struct DomandeProfilo: View {
                 Button((passo < 3 ? "Avanti" : "Fatto").tradotto) { avanti() }
                     .buttonStyle(PulsantePieno())
                     .disabled((passo == 0 && ateco.isEmpty) || (passo == 1 && giaAttivita == nil))
-                    .opacity((passo == 0 && ateco.isEmpty) || (passo == 1 && giaAttivita == nil) ? 0.4 : 1)
+                    // Spento, dice a VoiceOver cosa manca (tester T10)
+                    .accessibilityHint(passo == 0 && ateco.isEmpty ? "Prima scegli il tuo lavoro".tradotto
+                                       : (passo == 1 && giaAttivita == nil ? "Prima rispondi alla domanda sulle tasse".tradotto : ""))
                     .accessibilityIdentifier("profilo.avanti")
             }
         }
@@ -152,6 +156,7 @@ struct DomandeProfilo: View {
                 Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
                 TextField("Scrivilo come lo diresti a un amico", text: $ricerca)
                     .font(.app(17))
+                    .accessibilityLabel("Il tuo lavoro".tradotto)
                     .accessibilityIdentifier("profilo.cerca")
             }
             .padding(.horizontal, 14).frame(height: 52)
